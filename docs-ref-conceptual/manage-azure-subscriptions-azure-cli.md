@@ -12,9 +12,10 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 98fb955e-6dbf-47e2-80ac-170d6d95cb70
-ms.openlocfilehash: c3538077e05d61f3c40880bb8b804226eb99dc85
-ms.sourcegitcommit: bcf93ad8ed8802072249cd8187cd4420da89b4c6
-translationtype: HT
+ms.openlocfilehash: a28b24dd186fc567f36e52f8a0f5a7c2b0af060c
+ms.sourcegitcommit: c2d380f4ad8e7606850530db690855bcccfd6e86
+ms.translationtype: HT
+ms.contentlocale: ko-KR
 ---
 # <a name="manage-multiple-azure-subscriptions"></a>여러 Azure 구독 관리
 
@@ -41,6 +42,9 @@ Azure를 처음 접하는 분들은 아마도 구독을 하나만 갖고 계실 
    ```azurecli
    az account set --subscription "My Demos"
    ```
+
+   > [!NOTE]
+   > `--subscription` 매개 변수는 구독 이름 또는 구독 ID를 사용합니다.
 
 `az account list --output table` 명령을 다시 실행하여 변경 내용을 확인할 수 있습니다.
 
