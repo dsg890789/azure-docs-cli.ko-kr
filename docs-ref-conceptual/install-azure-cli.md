@@ -12,8 +12,8 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: b7c0b7c50794333b28c034de9b41f1e506053e25
-ms.sourcegitcommit: 663d4188ccc4be425d3d551fe32613fafd05a764
+ms.openlocfilehash: 664535701ad814f8ff85fefe8ecc45772777d0ba
+ms.sourcegitcommit: ec22ff07aedb5c47e5f636f2a9a341c3edbe7ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ---
@@ -60,23 +60,14 @@ Bash를 사용하지 않는 경우 Windows 명령줄에서 CLI를 설치하고 �
 
 2. Bash 셸을 엽니다.
 
-3. Python이 없을 경우 설치합니다.
-
-   ```bash
-   sudo apt-get install python3
-   ```
-
-   > [!NOTE]
-   > Python이 설치되어 있는지 알아보려면 `python --version`을 실행합니다.
-
-4. 소스 목록을 수정합니다.
+3. 소스 목록을 수정합니다.
 
    ```bash
    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
         sudo tee /etc/apt/sources.list.d/azure-cli.list
    ```
 
-5. 다음과 같은 sudo 명령을 실행합니다.
+4. 다음과 같은 sudo 명령을 실행합니다.
 
    ```bash
    sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
