@@ -12,9 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: f5a88012b21e814262436a864b13f053d836cf07
-ms.sourcegitcommit: bcf93ad8ed8802072249cd8187cd4420da89b4c6
-translationtype: HT
+ms.openlocfilehash: 0f8e494ffdd73c666b8361488db0966af01d6876
+ms.sourcegitcommit: 66d997a5afcf32143a4d4817ec1608cbdf58a59f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/11/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
 
@@ -44,7 +46,7 @@ Azure CLI 2.0을 설치했으니, 다음 단계로 넘어가서 Azure 계정과 
 
 1. 명령줄에서 다음 명령을 실행합니다.
 
-   ```azurecli
+   ```azurecli-interactive
    az login
    ```
    
@@ -64,7 +66,7 @@ Azure CLI 2.0을 설치했으니, 다음 단계로 넘어가서 Azure 계정과 
 
 Azure의 *westus2* 지역에 "MyResourceGroup"이라는 이름의 리소스 그룹을 만듭니다.  이렇게 하려면 다음 명령을 입력합니다.
 
-```azurecli
+```azurecli-interactive
 az group create -n MyResourceGroup -l westus2 
 ```
 
@@ -89,13 +91,13 @@ az group create -n MyResourceGroup -l westus2
 
 10GB 및 20GB 저장소 디스크 두 개가 연결된 인기 있는 UbuntuTLS 이미지와 다음 명령을 사용하여 Linux VM을 만들 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --data-disk-sizes-gb 10 20
 ```
 
 앞에서 말한 명령을 실행하면 Azure CLI 2.0이 ~/.ssh 디렉터리 아래에 저장된 SSH 키 쌍을 찾습니다.  여기에 저장된 SSH 키 쌍이 없으면 --generate-ssh-keys 매개 변수를 전달하여 Azure CLI가 자동으로 생성하게 할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --generate-ssh-keys
 ```
 
@@ -116,7 +118,7 @@ VM이 완전히 생성되어 액세스 및 사용 준비를 마치면 `az vm cre
 
 VM을 만들었으니, **SSH**를 사용하여 앞에서 만든 VM의 공용 IP 주소로 새 Linux VM에 로그온할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 ssh xx.xxx.xxx.xxx
 ```
 
@@ -160,7 +162,7 @@ Azure에서는 예측하기 어려운 사용자 이름/암호를 사용해야 �
 > [!NOTE]
 > 이 명령을 실행하면 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다.
 
-```azurecli
+```azurecli-interactive
 az vm create -n MyWinVM -g MyResourceGroup --image Win2016Datacenter
 ```
 
@@ -182,7 +184,7 @@ VM이 완전히 생성되어 액세스 및 사용 준비를 마치면 `az vm cre
 이제 원격 데스크톱 및 VM(`az vm create`의 출력에 반환된)의 공용 IP 주소를 사용하여 새로 만든 Windows Server VM에 로그온합니다.  
 Windows 기반 시스템을 사용하는 경우 명령줄에서 `mstsc` 명령을 사용하여 다음과 같은 일을 할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 mstsc /v:xx.xxx.xx.xxx
 ```
 
@@ -194,13 +196,13 @@ mstsc /v:xx.xxx.xx.xxx
 
 모든 새 리소스는 일관적인 `az <resource type name> create` 명명 패턴을 사용하여 생성됩니다.  예를 들어 Azure 네트워크 부하 분산 장치를 만든 후 새로 만든 VM과 연결하려면 다음 만들기 명령을 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az network lb create -n MyLoadBalancer -g MyResourceGroup
 ```
 
 다음 만들기 명령을 사용하여 인프라에 대한 새 개인 가상 네트워크(일반적으로 Azure 내에서는 "VNet"이라고 함)를 만들 수도 있습니다.
 
-```azurecli
+```azurecli-interactive
 az network vnet create -n MyVirtualNetwork -g MyResourceGroup --address-prefix 10.0.0.0/16
 ```
 
@@ -208,13 +210,13 @@ Azure 및 Azure CLI가 강력한 이유는 클라우드 기반 인프라를 가�
 
 예를 들어 Azure CLI를 사용하여 Azure AppService를 만들 수 있습니다.  Azure AppService는 인프라에 대한 걱정 없이 웹앱을 호스트하는 훌륭한 방법을 제공하는 관리형 플랫폼 서비스입니다.  Azure AppService를 만든 후에는 다음 만들기 명령을 사용하여 AppService 내에서 두 개의 새 Azure Web Apps를 만들 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 # Create an Azure AppService that we can host any number of web apps within
 az appservice plan create -n MyAppServicePlan -g MyResourceGroup
 
 # Create Two Web Apps within the AppService (note: name param must be a unique DNS entry)
-az appservice web create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan 
-az appservice web create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan 
+az webapp create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan 
+az webapp create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan 
 ```
 
 `az <resource type name> create` 패턴의 기본을 이해하고 나면 무엇이든 쉽게 만들 수 있습니다. 다음은 몇 가지 인기 있는 Azure 리소스 유형과 해당 유형을 만드는 해당 Azure CLI 만들기 명령입니다.
@@ -230,7 +232,7 @@ Managed Disk                az disk create
 Storage account             az storage account create
 Virtual Machine Scale Set   az vmss create
 Azure Container Service     az acs create
-Web App                     az appservice web create
+Web App                     az webapp create
 SQL Database Server         az sql server create
 Document DB                 az documentdb create
 ```
@@ -247,7 +249,7 @@ Document DB                 az documentdb create
 
 예를 들어 다음 `az vm create` 명령을 사용하면 VM 배포가 시작된 후 훨씬 빠르게(그리고 VM이 완전히 부팅되기 전에) 더 많은 결과를 반환합니다.
 
-```azurecli
+```azurecli-interactive
 az vm create -n MyLinuxVM2 -g MyResourceGroup --image UbuntuLTS --no-wait
 ```
 
@@ -261,7 +263,7 @@ Azure CLI 내에서 `list` 명령을 사용하여 Azure에서 실행되는 리�
 
 예를 들어 `az vm list` 명령은 갖고 있는 모든 VM 목록을 표시합니다.   
 
-```azurecli
+```azurecli-interactive
 az vm list 
 ```
 반환되는 값은 기본적으로 JSON 형식입니다(간단하게 표시하기 위해 출력의 일부만 표시).
@@ -296,7 +298,7 @@ az vm list
 
 원한다면 `--output` 옵션을 사용하여 출력 형식을 수정할 수 있습니다.  `az vm list` 명령을 실행하여 앞에서 만든 Linux 및 Windows Server VM을 모두 표시하고, 읽기 쉬운 *테이블* 형식 옵션을 사용하여 VM의 가장 일반적인 속성을 함께 표시할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az vm list --output table
 ```
 
@@ -309,7 +311,7 @@ MyWinVM    MyResourceGroup  westus2
 
 *tsv* 출력 옵션을 사용하여 텍스트 기반의 탭으로 구분된 형식을 헤더 없이 가져올 수 있습니다.  이 형식은 grep 같은 다른 텍스트 기반 도구로 출력을 전달하려는 경우에 유용합니다. 
 
-```azurecli
+```azurecli-interactive
 az vm list --output tsv
 ```
 
@@ -325,8 +327,9 @@ None    None            /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/reso
 
 `list` 명령은 간편하게 리소스 그룹 이름으로 리소스를 필터링할 수 있는 기본 지원을 제공합니다.  예를 들어 `--ResourceGroup` 또는 `-g` 매개 변수를 `list` 명령에 전달하여 특정 리소스 그룹 내에 있는 리소스만 검색할 수 있습니다.
 
+
 ```azurecli
-az vm list -g MyResouceGroup --output table
+az vm list -g MyResourceGroup --output table
 ```
 
 ```Output
@@ -340,7 +343,7 @@ MyWinVM    MyResourceGroup  westus2
 
 예를 들어 다음 명령을 실행하여 "My"라는 문자가 포함된 리소스 그룹 내의 모든 VM 리소스를 쿼리할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az vm list --output table --query "[?contains(resourceGroup,'MY')]" 
 ```
 
@@ -353,7 +356,7 @@ MYRESOURCEGROUP  Succeeded            MyWinVM    westus2     XXXXXXXX-XXXX-XXXX-
 
 그런 다음 출력을 더욱 구체화하는 JMESPath 쿼리의 셰이핑 기능을 사용하여 다른 값을 출력할 수도 있습니다.  예를 들어 다음 명령은 OS가 Linux 기반인지 아니면 Windows 기반인지 확인하기 위해 VM에서 사용하는 OS 디스크 종류를 검색합니다.
 
-```azurecli
+```azurecli-interactive
 az vm list --output table --query "[?contains(resourceGroup,'MY')].{ VMName:name,OSType:storageProfile.osDisk.osType }" 
 ```
 
@@ -370,7 +373,7 @@ Azure CLI의 JMESPath 지원은 강력합니다.  [쿼리](query-azure-cli.md) �
 
 Azure CLI 내에서 `delete` 명령을 사용하여 더 이상 필요 없는 리소스를 삭제할 수 있습니다. `delete` 명령은 `create` 명령과 마찬가지로 모든 종류의 리소스에 사용할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az vm delete -n MyLinuxVM -g MyResourceGroup
 ```
 
@@ -385,7 +388,7 @@ EndTime                           Name                                  StartTim
 
 `delete` 명령을 사용하여 여러 리소스를 한꺼번에 삭제할 수도 있습니다. 예를 들어 다음 명령은 우리가 이 시작 자습서의 모든 샘플에 사용한 "MyResourceGroup" 리소스 그룹에 있는 모든 리소스를 삭제합니다.
 
-```azurecli
+```azurecli-interactive
 az group delete -n MyResourceGroup
 ```
 
@@ -405,19 +408,19 @@ Azure CLI 사용 방법을 자세히 알아보려면 [Linux VM](/azure/virtual-m
 
 Azure CLI는 명령줄에서 실행할 수 있는 웹 문서를 찾아주는 도움말 문서가 기본적으로 포함되어 있습니다.
 
-```azurecli
+```azurecli-interactive
 az [command-group [command]] -h
 ```
 
 예를 들어 VM에 사용할 수 있는 명령 및 하위 그룹을 보려면 다음을 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az vm -h
 ```
 
 VM을 만드는 명령과 관련된 도움말을 보려면 다음을 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az vm create -h
 ```
 
@@ -429,6 +432,6 @@ Azure CLI 1.0에서 Azure CLI 2.0으로의 전환을 도와드리기 위해 이 
 
 ## <a name="send-us-your-feedback"></a>사용자 의견을 보냅니다.
 
-```azurecli
+```azurecli-interactive
 az feedback
 ```
