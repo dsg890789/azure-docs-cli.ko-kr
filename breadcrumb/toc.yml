@@ -6,45 +6,59 @@
     tocHref: /cli/azure/overview
     topicHref: /cli/azure/overview
     items:
-    - name: Install
+    - name: 설치
       tocHref: /cli/azure/install-azure-cli
       topicHref: /cli/azure/install-azure-cli
-    - name: Get Started
+    - name: 시작
       tocHref: /cli/azure/get-started-with-azure-cli
       topicHref: /cli/azure/get-started-with-azure-cli
-    - name: Log in
+    - name: 로그인
       tocHref: /cli/azure/authenticate-azure-cli
       topicHref: /cli/azure/authenticate-azure-cli
       items:
-      - name: Create a service principal
+      - name: 서비스 주체 만들기
         tocHref: /cli/azure/create-an-azure-service-principal-azure-cli
         topicHref: /cli/azure/create-an-azure-service-principal-azure-cli
-    - name: Output formats
+    - name: 대화형 모드
+      tocHref: /cli/azure/interactive-azure-cli
+      topicHref: /cli/azure/interactive-azure-cli
+    - name: 배포
+      items:
+      - name: 템플릿 사용
+        tocHref: /azure/azure-resource-manager/resource-group-template-deploy-cli
+        topicHref: /azure/azure-resource-manager/resource-group-template-deploy-cli
+      - name: 템플릿 내보내기
+        tocHref: /azure/azure-resource-manager/resource-manager-export-template-cli
+        topicHref: /azure/azure-resource-manager/resource-manager-export-template-cli
+      - name: 개인 템플릿 사용
+        tocHref: /azure-resource-manager/resource-manager-cli-sas-token
+        topicHref: /azure-resource-manager/resource-manager-cli-sas-token
+    - name: 출력 형식
       tocHref: /cli/azure/format-output-azure-cli
       topicHref: /cli/azure/format-output-azure-cli
-    - name: Query
+    - name: 쿼리
       tocHref: /cli/azure/query-azure-cli
       topicHref: /cli/azure/query-azure-cli
-    - name: Subscriptions
+    - name: 구독
       tocHref: /cli/azure/manage-azure-subscriptions-azure-cli
       topicHref: /cli/azure/manage-azure-subscriptions-azure-cli
-    - name: Release notes
+    - name: 릴리스 정보
       tocHref: /cli/azure/release-notes-azure-cli
       topicHref: /cli/azure/release-notes-azure-cli
-    - name: Sample scripts
+    - name: 샘플 스크립트
       items:
-      - name: Linux VMs
+      - name: Linux VM
         tocHref: /azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
         topicHref: /azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-      - name: Windows VMs
+      - name: Windows VM
         tocHref: /azure/virtual-machines/windows/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
         topicHref: /azure/virtual-machines/windows/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
       - name: Web Apps
         tocHref: /azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
         topicHref: /azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-      - name: SQL Database
+      - name: SQL 데이터베이스
         tocHref: /azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
         topicHref: /azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-    - name: Reference
+    - name: 참조
       tocHref: /cli/azure
       topicHref: /cli/azure

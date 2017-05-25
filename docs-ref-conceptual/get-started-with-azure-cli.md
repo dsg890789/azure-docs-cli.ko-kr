@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 0f8e494ffdd73c666b8361488db0966af01d6876
-ms.sourcegitcommit: 66d997a5afcf32143a4d4817ec1608cbdf58a59f
+ms.openlocfilehash: 45e51918ec95494699bf781f66e4cd57bd06fbad
+ms.sourcegitcommit: b4cb5c910b2238cba342f70122feb158c4036844
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/18/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
 
@@ -39,6 +39,9 @@ Azure CLI 2.0은 명령줄에서 Azure 리소스를 관리하는 작업 및 Azur
 Azure CLI 및 컴퓨터에 설치된 기타 종속 라이브러리의 버전 번호가 표시됩니다.  
   
 오류가 발생하는 경우 CLI를 설치하는 과정에서 문제가 발생했을 가능성이 있습니다. [Azure CLI 2.0 설치 문서](install-azure-cli.md#troubleshooting)의 "설치 문제 해결" 섹션에서 지침을 검토하거나 해당 페이지 맨 아래의 토론에 도움을 요청하는 글을 올리세요.
+
+> [!Note]
+> Azure CLI 2.0을 설치하지 않으려는 경우 [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 브라우저에서 실행할 수 있습니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -237,7 +240,7 @@ SQL Database Server         az sql server create
 Document DB                 az documentdb create
 ```
 
-앞서 언급한 각 명령에 전달할 수 있는 추가 리소스별 매개 변수 및 사용자가 만들 수 있는 리소스 유형에 대한 자세한 내용은 [참조 설명서](/azure/doc-ref-autogen)를 참조하세요. 
+앞서 언급한 각 명령에 전달할 수 있는 추가 리소스별 매개 변수 및 사용자가 만들 수 있는 리소스 유형에 대한 자세한 내용은 [참조 설명서](/cli/azure)를 참조하세요. 
 
 ## <a name="useful-tip-optimizing-create-operations-using---no-wait"></a>유용한 팁: --no-wait를 사용하여 만들기 작업 최적화
 

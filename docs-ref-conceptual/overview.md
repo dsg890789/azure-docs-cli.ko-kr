@@ -12,9 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 80ae9f6c-adb7-483c-bfb4-fbb958e075ba
-ms.openlocfilehash: 2f4f9950dd663ae85f41bf4efe114b15770ace5d
-ms.sourcegitcommit: bcf93ad8ed8802072249cd8187cd4420da89b4c6
-translationtype: HT
+ms.openlocfilehash: 35e754b4ecd75481bd60d95dd1545b798c2e85b3
+ms.sourcegitcommit: c077bd5cbe07f7225714c41714d3981fa0d9928f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/16/2017
 ---
 # <a name="azure-cli-20"></a>Azure CLI 2.0
 
@@ -26,7 +28,8 @@ Azure CLI 2.0은 명령줄에서 Azure 리소스를 관리하는 작업 및 Azur
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS
 ```
 
-시스템에서 Azure CLI 2.0을 실행하는 방법은 [설치 문서](install-azure-cli.md)를 참조하세요. 그런 다음 [시작](get-started-with-azure-cli.md) 문서를 읽고 사용을 시작해 보세요.
+[설치 문서](install-azure-cli.md)를 검토하여 시스템에서 Azure CLI 2.0이 작동 및 실행되도록 하거나 [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 브라우저에서 CLI를 실행합니다.
+[시작](get-started-with-azure-cli.md) 문서를 읽고 CLI 사용을 시작합니다.
 최신 릴리스에 대한 자세한 내용은 [릴리스 정보](release-notes-azure-cli.md)를 참조하세요.
 
 다음 샘플을 통해 Azure CLI 2.0으로 일반 시나리오를 수행하는 방법을 배울 수 있습니다.
