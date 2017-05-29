@@ -12,54 +12,35 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 45e51918ec95494699bf781f66e4cd57bd06fbad
-ms.sourcegitcommit: b4cb5c910b2238cba342f70122feb158c4036844
+ms.openlocfilehash: 274336acbf09a21d45b6ef3868f5f7f21757831b
+ms.sourcegitcommit: 21c42ed07c9f7679e4860013ac5647cf31213f4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/22/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
 
 Azure CLI 2.0은 Azure 리소스를 관리하기 위한 Azure의 새로운 명령줄 환경입니다.
-macOS, Linux 및 Windows에서 사용할 수 있습니다. 
+[Azure Cloud Shell](/azure/cloud-shell/overview)을 실행하는 브라우저에서 사용하거나 macOS, Linux 및 Windows에서 [설치](install-azure-cli.md)하고 명령줄에서 실행할 수 있습니다.
 
 Azure CLI 2.0은 명령줄에서 Azure 리소스를 관리하는 작업 및 Azure Resource Manager에 대해 작동하는 자동화 스크립트 작성 작업에 최적화되었습니다.
 이 문서에서는 Azure CLI 2.0을 시작하는 방법 및 핵심 개념을 설명합니다.
 
 최신 릴리스에 대한 자세한 내용은 [릴리스 정보](release-notes-azure-cli.md)를 참조하세요.
 
-## <a name="install-azure-cli"></a>Azure CLI 설치
+## <a name="connect"></a>연결
 
-첫 번째 단계는 최신 버전의 Azure CLI를 설치하는 것입니다.
+가장 간단하게 시작하는 방법은 [Cloud Shell을 실행](/azure.cloud-shell/quickstart)하는 것입니다.
 
-1. 사용하는 플랫폼에 [Azure CLI 2.0을 설치](install-azure-cli.md)합니다.
+1. Azure Portal의 위쪽 탐색 모음에서 Cloud Shell을 시작합니다.
 
-2. 설치가 완료되었는지 확인하려면 명령줄에서 `az --version` 명령을 실행합니다. 
+   ![셸 아이콘](media/get-started-with-azure-cli/shell-icon.png)
 
-Azure CLI 및 컴퓨터에 설치된 기타 종속 라이브러리의 버전 번호가 표시됩니다.  
-  
-오류가 발생하는 경우 CLI를 설치하는 과정에서 문제가 발생했을 가능성이 있습니다. [Azure CLI 2.0 설치 문서](install-azure-cli.md#troubleshooting)의 "설치 문제 해결" 섹션에서 지침을 검토하거나 해당 페이지 맨 아래의 토론에 도움을 요청하는 글을 올리세요.
+2. 사용하려는 구독을 선택하고 저장소 계정을 만듭니다.
 
-> [!Note]
-> Azure CLI 2.0을 설치하지 않으려는 경우 [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 브라우저에서 실행할 수 있습니다.
+   ![저장소 계정 만들기](media/get-started-with-azure-cli/storage-prompt.png)
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
-
-Azure CLI 2.0을 설치했으니, 다음 단계로 넘어가서 Azure 계정과 안전하게 연결해야 합니다. `az login` 명령을 사용합니다.
-
-1. 명령줄에서 다음 명령을 실행합니다.
-
-   ```azurecli-interactive
-   az login
-   ```
-   
-   이 명령은 다음 단계에서 사용할 코드를 출력합니다. 
-
-2. 웹 브라우저를 사용하여 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 페이지를 열고 코드를 입력합니다.
-  
-3. 프롬프트가 나타나면 Azure 자격 증명을 사용하여 로그인합니다.
-
-이제 계정에 제공되는 Azure 리소스 및 서비스에서 Azure CLI 2.0으로 명령을 실행할 수 있습니다.
+CLI를 [설치](install-azure-cli.md)하고 명령줄에서 로컬로 실행할 수도 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

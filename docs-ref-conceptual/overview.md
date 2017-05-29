@@ -12,15 +12,16 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 80ae9f6c-adb7-483c-bfb4-fbb958e075ba
-ms.openlocfilehash: 35e754b4ecd75481bd60d95dd1545b798c2e85b3
-ms.sourcegitcommit: c077bd5cbe07f7225714c41714d3981fa0d9928f
+ms.openlocfilehash: 2f2fe7e8643256f72ff5dd48c784b96e53c4c281
+ms.sourcegitcommit: 21c42ed07c9f7679e4860013ac5647cf31213f4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/22/2017
 ---
 # <a name="azure-cli-20"></a>Azure CLI 2.0
 
-Azure CLI 2.0은 Azure 리소스를 관리하기 위한 Azure의 새로운 명령줄 환경입니다.  macOS, Linux 및 Windows에서 사용할 수 있습니다. 
+Azure CLI 2.0은 Azure 리소스를 관리하기 위한 Azure의 새로운 명령줄 환경입니다.
+[Azure Cloud Shell](/azure/cloud-shell/overview)을 실행하는 브라우저에서 사용하거나 macOS, Linux 및 Windows에서 [설치](install-azure-cli.md)하고 명령줄에서 실행할 수 있습니다.
 
 Azure CLI 2.0은 명령줄에서 Azure 리소스를 관리하는 작업 및 Azure Resource Manager에 대해 작동하는 자동화 스크립트 작성 작업에 최적화되었습니다. Azure CLI 2.0을 사용하면 간단하게 다음 명령을 입력하여 Azure 내에서 VM을 만들 수 있습니다.
 
@@ -28,7 +29,7 @@ Azure CLI 2.0은 명령줄에서 Azure 리소스를 관리하는 작업 및 Azur
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS
 ```
 
-[설치 문서](install-azure-cli.md)를 검토하여 시스템에서 Azure CLI 2.0이 작동 및 실행되도록 하거나 [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 브라우저에서 CLI를 실행합니다.
+[Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](install-azure-cli.md)합니다.
 [시작](get-started-with-azure-cli.md) 문서를 읽고 CLI 사용을 시작합니다.
 최신 릴리스에 대한 자세한 내용은 [릴리스 정보](release-notes-azure-cli.md)를 참조하세요.
 
