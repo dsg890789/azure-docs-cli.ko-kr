@@ -12,9 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 5979acc5-21a5-41e2-a4b6-3183bfe6aa22
-ms.openlocfilehash: dcba9c5526ed56c3f20735a99e1fdcb913fc4392
-ms.sourcegitcommit: bcf93ad8ed8802072249cd8187cd4420da89b4c6
-translationtype: HT
+ms.openlocfilehash: 23c743210ccc506935f6e78489ca0df2b99d46a1
+ms.sourcegitcommit: 4fd631a58cf19c494162510d073fbbbdf0524d16
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/05/2017
 ---
 # <a name="using-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0과 함께 JMESPath 쿼리 사용
 
@@ -26,7 +28,7 @@ Azure CLI 2.0은 `--query` 매개 변수를 사용하여 `az` 명령의 결과�
 
 출력 형식이 `table`인 단순 `list` 명령은 각 리소스 유형에 대한 가장 일반적이고 간단한 큐 레이트 속성 집합을 읽기 쉬운 테이블 형식으로 반환합니다.
 
-```azurecli
+```azurecli-interactive
 az vm list --out table
 ```
 
@@ -42,7 +44,7 @@ KBDemo020    RGDEMO001        westus
 
 `--query` 매개 변수를 사용하여 구독의 모든 가상 컴퓨터에 대 한 리소스 그룹 이름과 VM 이름만을 표시할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az vm list \
   --query [*].[name,resourceGroup] --out table
 ```
@@ -64,7 +66,7 @@ KBDemo020   RGDEMO001
 이전 예제에서는 열 머리글이 "Column1" 및 "Column2" 였습니다.  사용자는 선택한 속성에 익숙한 레이블 또는 이름을 추가할 수 있습니다.  다음 예제에서는 선택한 속성 "name" 및 "resourceGroup"에 "VMName" 및 "RGName" 레이블을 추가했습니다.
 
 
-```azurecli
+```azurecli-interactive
 az vm list \
   --query "[].{RGName:resourceGroup, VMName:name}" --out table
 ```
@@ -87,7 +89,7 @@ RGDEMO001  KBDemo020
 
 선택하려는 속성이 JSON 출력 깊숙이 중첩된 경우 해당 중첩 속성의 전체 경로를 제공해야 합니다. 다음 예제에서는 vm 목록 명령에서 VMName 및 OS 유형을 선택하는 방법을 보여 줍니다.
 
-```azurecli
+```azurecli-interactive
 az vm list \
   --query "[].{VMName:name,OSType:storageProfile.osDisk.osType}" --out table
 ```
@@ -111,7 +113,7 @@ KBDemo020    Linux
 JMESPath `contains` 함수를 사용하여 쿼리에서 반환된 결과를 구체화할 수 있습니다.
 다음 예제의 명령은 이름에 "RGD"라는 텍스트가 포함된 VM만 선택합니다.  
 
-```azurecli
+```azurecli-interactive
 az vm list \
   --query "[?contains(resourceGroup,'RGD')].{ resource: resourceGroup, name: name }" --out table
 ```
@@ -125,7 +127,7 @@ RGDEMO001   KBDemo020
 
 다음 예제의 결과는 vmSize 'Standard_DS1'이 포함된 VM을 반환합니다.
 
-```azurecli
+```azurecli-interactive
 az vm list \
   --query "[?contains(hardwareProfile.vmSize, 'Standard_DS1')]" --out table
 ```
@@ -146,7 +148,7 @@ DEMORG1          demovm222  e0f59516-1d69-4d54-b8a2-f6c4a5d031de  westus      Su
 
 `tsv` 출력 형식은 헤더 없이 탭으로 구분된 텍스트입니다. `grep` 및 `cut` 같은 명령으로 전달하여 `list` 출력의 특정 값을 자세히 구문 분석할 수 있습니다. 다음 예제의 `grep` 명령은 이름에 "RGD"라는 텍스트가 포함된 VM만 선택합니다.  `cut` 명령은 8번째 필드(탭으로 구분됨) 값만 선택하여 출력에 표시합니다.
 
-```azurecli
+```azurecli-interactive
 az vm list --out tsv | grep RGD | cut -f8
 ```
 

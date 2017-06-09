@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 80ae9f6c-adb7-483c-bfb4-fbb958e075ba
-ms.openlocfilehash: 2f2fe7e8643256f72ff5dd48c784b96e53c4c281
-ms.sourcegitcommit: 21c42ed07c9f7679e4860013ac5647cf31213f4e
+ms.openlocfilehash: 36a08835b9c4f6e71c5ddadbce8ba946c52a1e9b
+ms.sourcegitcommit: 4fd631a58cf19c494162510d073fbbbdf0524d16
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2017
+ms.lasthandoff: 06/05/2017
 ---
 # <a name="azure-cli-20"></a>Azure CLI 2.0
 
@@ -25,7 +25,7 @@ Azure CLI 2.0은 Azure 리소스를 관리하기 위한 Azure의 새로운 명�
 
 Azure CLI 2.0은 명령줄에서 Azure 리소스를 관리하는 작업 및 Azure Resource Manager에 대해 작동하는 자동화 스크립트 작성 작업에 최적화되었습니다. Azure CLI 2.0을 사용하면 간단하게 다음 명령을 입력하여 Azure 내에서 VM을 만들 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS
 ```
 

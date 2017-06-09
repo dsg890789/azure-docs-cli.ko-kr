@@ -12,9 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: fab89cb8-dac1-4e21-9d34-5eadd5213c05
-ms.openlocfilehash: 10a168ae0c33207905d58b7b57ac9ad76d8d9bf4
-ms.sourcegitcommit: 73a73c8a17d95b116d33eee3287d938addc5c0ac
-translationtype: HT
+ms.openlocfilehash: 0ee794d5a732c6e8d2d52fca5810a874827930ae
+ms.sourcegitcommit: 4fd631a58cf19c494162510d073fbbbdf0524d16
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/05/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기
 
@@ -33,7 +35,7 @@ Azure 서비스 주체는 특정 Azure 리소스에 액세스하기 위해 사�
 
 ## <a name="verify-your-own-permission-level"></a>고유한 사용 권한 수준 확인
 
-먼저 Azure Active Directory와 Azure 구독에 대한 충분한 권한이 있어야 합니다. 특히 Active Directory에서 앱을 만들고 서비스 주체에 역할을 할당할 수 있어야 합니다. 
+먼저 Azure Active Directory와 Azure 구독에 대한 충분한 권한이 있어야 합니다. 특히, Active Directory에서 앱을 만들고 서비스 주체에 역할을 할당할 수 있어야 합니다. 
 
 계정에 적절한 사용 권한이 있는지를 확인하는 가장 쉬운 방법은 포털을 통하는 것입니다. [포털에서 필요한 사용 권한 확인](/azure/azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)을 참조하세요.
 
@@ -50,7 +52,9 @@ Azure 서비스 주체는 특정 Azure 리소스에 액세스하기 위해 사�
 
 `az ad app list`를 사용하여 응용 프로그램에 대한 ID 정보를 가져옵니다.
 
-```azurecli
+[!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
+
+```azurecli-interactive
 az ad app list --display-name MyDemoWebApp
 ```
 
@@ -76,7 +80,7 @@ az ad app list --display-name MyDemoWebApp
 
 [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac)를 사용하여 서비스 주체를 만듭니다. 
 
-```azurecli
+```azurecli-interactive
 az ad sp create-for-rbac --name {appId} --password "{strong password}" 
 ``` 
 
@@ -95,7 +99,7 @@ az ad sp create-for-rbac --name {appId} --password "{strong password}"
 
 ### <a name="get-information-about-the-service-principal"></a>서비스 주체에 대한 정보 가져오기
 
-```azurecli
+```azurecli-interactive
 az ad sp show --id a487e0c1-82af-47d9-9a0b-af184eb87646d
 ```
 
@@ -116,7 +120,7 @@ az ad sp show --id a487e0c1-82af-47d9-9a0b-af184eb87646d
 
 이제 `az ad sp show`에서 *appId* 및 *암호*를 사용하여 앱의 새로운 서비스 주체로 로그인할 수 있습니다.  `az ad sp create-for-rbac` 결과에서 *테넌트* 값을 제공합니다.
 
-```azurecli
+```azurecli-interactive
 az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password} --tenant {tenant}
 ``` 
 
@@ -157,14 +161,14 @@ Azure CLI 2.0은 역할 할당을 관리하는 다음 명령을 제공합니다.
 
 이 예제에서는 **판독기** 역할을 이전 예제에 추가하고 **참가자** 역할을 삭제합니다.
 
-```azurecli
+```azurecli-interactive
 az role assignment create --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d --role Reader
 az role assignment delete --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d --role Contributor
 ```
 
 현재 할당된 역할을 나열하여 변경 내용을 확인합니다.
 
-```azurecli
+```azurecli-interactive
 az role assignment list --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d
 ```
 
@@ -195,7 +199,7 @@ az role assignment list --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d
 
 `az ad sp reset-credentials` 명령을 사용하여 서비스 주체의 현재 암호를 재설정할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az ad sp reset-credentials --name 20bce7de-3cd7-49f4-ab64-bb5b443838c3 --password {new-password}
 ```
 

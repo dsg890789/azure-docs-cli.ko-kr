@@ -12,9 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 74bdb727-481d-45f7-a44e-15d18dc55483
-ms.openlocfilehash: de37b1ad6aa55c9ac73b5b6b89d9507c86cc1245
-ms.sourcegitcommit: bcf93ad8ed8802072249cd8187cd4420da89b4c6
-translationtype: HT
+ms.openlocfilehash: d1440cc1e99ccddb18d23306cc0fcdb4b8babf14
+ms.sourcegitcommit: 4fd631a58cf19c494162510d073fbbbdf0524d16
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/05/2017
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Azure CLI 2.0 명령의 출력 형식
 
@@ -27,11 +29,13 @@ Azure CLI 2.0은 기본 출력 옵션으로 json을 사용하지만 모든 명�
 `table`  | 열 머리글이 있는 테이블입니다.
 `tsv`    | 탭으로 구분된 값입니다.
 
+[!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
+
 ## <a name="using-the-json-option"></a>Json 옵션 사용
 
 다음 예제에서는 구독의 가상 컴퓨터 목록을 기본 json 형식으로 표시합니다.
 
-```azurecli
+```azurecli-interactive
 az vm list --output json
 ```
 
@@ -69,7 +73,7 @@ az vm list --output json
 
 테이블 옵션은 읽기 쉬운 출력 집합을 제공하지만, 이전의 json 예제와는 달리 중첩된 개체는 단순 `--output table`을 사용하는 출력에 포함되지 않습니다.  '테이블' 출력 형식의 동일한 예제를 사용하면 가장 일반적인 속성 값 큐 레이트 목록이 제공됩니다.
 
-```azurecli
+```azurecli-interactive
 az vm list --out table
 ```
 
@@ -85,7 +89,7 @@ KBDemo020    RGDEMO001        westus
 
 `--query` 매개 변수를 사용하여 목록 출력에 표시할 속성과 열을 사용자 지정할 수 있습니다. 다음 예제에서는 `list` 명령에서 VM 이름 및 리소스 그룹 이름만 선택하는 방법을 보여 줍니다.
 
-```azurecli
+```azurecli-interactive
 az vm list --query "[].{ resource: resourceGroup, name: name }" -o table
 ```
 
@@ -103,7 +107,7 @@ RGDEMO001   KBDemo020
 
 'tsv' 출력 형식은 머리글과 대시 없이 간단한 텍스트 기반의 탭으로 구분된 출력을 반환합니다. 이 형식은 출력을 어떤 형태의 텍스트를 처리해야 하는 다른 명령 및 도구에 간편하게 사용할 수 있습니다. 앞의 예제에 `tsv` 옵션을 사용하면 탭으로 구분된 결과가 출력됩니다.
 
-```azurecli
+```azurecli-interactive
 az vm list --out tsv
 ```
 
