@@ -13,10 +13,10 @@ ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 
 ms.openlocfilehash: de6a366b84efa5475fd6146ff29c32e32dfe4672
-ms.sourcegitcommit: 1791991b82e6ce8ad4a050cab1695e0c93734e08
+ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="interactive-azure-cli-20"></a>대화형 Azure CLI 2.0
 
@@ -58,7 +58,7 @@ az>> vm create -n myVM -g myRG --image UbuntuLTS
 az>> vm list -o table
 ```
 
-vm 명령 그룹으로 범위를 지정하고 다음 명령을 입력합니다.
+vm 명령 그룹으로 범위를 지정하고 다음 명령을 입력할 수 잇습니다.
 
 ```azurecli
 az>> %%vm
@@ -98,7 +98,7 @@ az>> ? [*].provisioningState
 ]
 ```
 
-명령의 결과를 쿼리하는 방법에 대한 자세한 내용은 [Azure 2.0의 명령 결과 쿼리](query-azure-cli.md)를 참조하세요.
+명령의 결과를 쿼리하는 방법에 대한 자세한 내용은 [Azure 2.0을 사용한 쿼리 명령 결과](query-azure-cli.md)를 참조하세요.
 
 ## <a name="bash-commands"></a>Bash 명령
 
