@@ -12,13 +12,87 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: e893b99349bbf2a5eec8af254158eb07001f1da7
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: ad30efeb7efafcc5816160ee130665d37adb62c6
+ms.sourcegitcommit: e866977985ba0286fa05f41729dd7e7d9ce86f8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="september-11-2017"></a>2017년 9월 11일
+
+버전 2.0.17
+
+### <a name="core"></a>코어
+
+* 원격 분석에서 고유한 상관 관계 ID를 설정하는 명령 모듈 설정됨
+* 원격 분석이 진단 모드로 설정된 경우 JSON 덤프 문제 수정됨
+
+### <a name="acs"></a>ACS
+
+* `acs list-locations` 명령이 추가됨
+* 예상된 기본값 함께 `ssh-key-file`을 제공함
+
+### <a name="appservice"></a>App Service
+
+* 활성 서비스 계획이 아닌 다른 리소스 그룹에서 웹앱을 만드는 기능 추가됨
+
+### <a name="cdn"></a>CDN
+
+* `cdn custom-domain create`에 대한 'CustomDomain is not interable' 버그 수정됨
+
+### <a name="extension"></a>내선 번호
+
+* 최초 릴리스
+
+### <a name="keyvault"></a>Keyvault
+
+* 사용 권한이 `keyvault set-policy`에서 대/소문자를 구분하는 문제 수정됨
+
+### <a name="network"></a>네트워크
+
+* 이름이 `vnet list-private-access-services`에서 `vnet list-endpoint-services`로 변경됨
+* `--private-access-services` 인수 이름을 `vnet subnet create/update`의 `--service-endpoints`로 변경
+* 여러 IP 범위 및 포트 범위에 대한 지원이 `nsg rule create/update`에 추가됨
+* SKU에 대한 지원이 `lb create`에 추가됨
+* SKU에 대한 지원이 `public-ip create`에 추가됨
+
+### <a name="resource"></a>리소스
+
+* `policy definition create` 및 `policy definition update`에 있는 리소스 정책 매개 변수 정의를 전달하도록 허용
+* `policy assignment create`의 매개 변수 값을 전달하도록 허용
+* 모든 매개 변수에 JSON 또는 파일을 전달하도록 허용
+* 증가된 API 버전
+
+### <a name="sql"></a>SQL
+
+* `sql server vnet-rule` 명령이 추가됨
+
+### <a name="vm"></a>VM
+
+* 수정됨: `--scope`가 제공되지 않으면 액세스 권한을 할당하지 않음
+* 수정됨: 포털과 마찬가지로 동일한 확장 명명을 사용함
+* `[vm|vmss] create` 출력에서 `subscription`이 제거됨
+* 수정됨: `[vm|vmss] create` 저장소 SKU가 이미지를 포함한 데이터 디스크에 적용되지 않음
+* 수정됨: `vm format-secret --secrets`가 줄 바꿈으로 구분된 ID를 허용하지 않음
+
+## <a name="august-31-2017"></a>2017년 8월 31일
+
+버전 2.0.16
+
+### <a name="keyvault"></a>Keyvault
+
+* `secret download`로 인코딩한 비밀을 자동으로 확인하려는 경우 버그 수정됨
+
+### <a name="sf"></a>Sf
+
+* Service Fabric CLI(sfctl)에서 모든 명령이 사용되지 않음
+
+### <a name="storage"></a>저장소
+
+* 저장소 계정을 NetworkACLs 기능을 지원하지 않는 지역에 만들지 못하는 문제 수정됨
+* 콘텐츠 형식 및 콘텐츠 인코딩을 모두 지정하지 않은 경우 Blob 및 파일을 업로드하는 동안 콘텐츠 형식 및 콘텐츠 인코딩을 결정함
 
 ## <a name="august-28-2017"></a>2017년 8월 28일
 
