@@ -19,6 +19,137 @@
     - name: 로그아웃
       uid: az_logout
       displayName: az logout
+    - name: 백업
+      uid: az_backup
+      displayName: az backup
+      items:
+        - name: 컨테이너
+          uid: az_backup_container
+          displayName: az backup container
+          items:
+            - name: 나열
+              uid: az_backup_container_list
+              displayName: az backup container list
+            - name: 표시
+              uid: az_backup_container_show
+              displayName: az backup container show
+        - name: 항목
+          uid: az_backup_item
+          displayName: az backup item
+          items:
+            - name: 나열
+              uid: az_backup_item_list
+              displayName: az backup item list
+            - name: 정책 설정
+              uid: az_backup_item_set_policy
+              displayName: az backup item set-policy
+            - name: 표시
+              uid: az_backup_item_show
+              displayName: az backup item show
+        - name: 작업
+          uid: az_backup_job
+          displayName: az backup job
+          items:
+            - name: 나열
+              uid: az_backup_job_list
+              displayName: az backup job list
+            - name: 표시
+              uid: az_backup_job_show
+              displayName: az backup job show
+            - name: 중지
+              uid: az_backup_job_stop
+              displayName: az backup job stop
+            - name: Wait
+              uid: az_backup_job_wait
+              displayName: az backup job wait
+        - name: 정책
+          uid: az_backup_policy
+          displayName: az backup policy
+          items:
+            - name: 삭제
+              uid: az_backup_policy_delete
+              displayName: az backup policy delete
+            - name: Vm의 기본값 가져오기
+              uid: az_backup_policy_get_default_for_vm
+              displayName: az backup policy get-default-for-vm
+            - name: 나열
+              uid: az_backup_policy_list
+              displayName: az backup policy list
+            - name: 관련 항목 나열
+              uid: az_backup_policy_list_associated_items
+              displayName: az backup policy list-associated-items
+            - name: 설정
+              uid: az_backup_policy_set
+              displayName: az backup policy set
+            - name: 표시
+              uid: az_backup_policy_show
+              displayName: az backup policy show
+        - name: 보호
+          uid: az_backup_protection
+          displayName: az backup protection
+          items:
+            - name: 지금 백업
+              uid: az_backup_protection_backup_now
+              displayName: az backup protection backup-now
+            - name: 사용 안 함
+              uid: az_backup_protection_disable
+              displayName: az backup protection disable
+            - name: VM에 대해 사용하도록 설정
+              uid: az_backup_protection_enable_for_vm
+              displayName: az backup protection enable-for-vm
+        - name: 복구 지점
+          uid: az_backup_recoverypoint
+          displayName: az backup recoverypoint
+          items:
+            - name: 나열
+              uid: az_backup_recoverypoint_list
+              displayName: az backup recoverypoint list
+            - name: 표시
+              uid: az_backup_recoverypoint_show
+              displayName: az backup recoverypoint show
+        - name: 복원
+          uid: az_backup_restore
+          displayName: az backup restore
+          items:
+            - name: 디스크 복원
+              uid: az_backup_restore_restore_disks
+              displayName: az backup restore restore-disks
+            - name: 파일
+              uid: az_backup_restore_files
+              displayName: az backup restore files
+              items:
+                - name: RP 탑재
+                  uid: az_backup_restore_files_mount_rp
+                  displayName: az backup restore files mount-rp
+                - name: RP 분리
+                  uid: az_backup_restore_files_unmount_rp
+                  displayName: az backup restore files unmount-rp
+        - name: Vault
+          uid: az_backup_vault
+          displayName: az backup vault
+          items:
+            - name: 생성
+              uid: az_backup_vault_create
+              displayName: az backup vault create
+            - name: 삭제
+              uid: az_backup_vault_delete
+              displayName: az backup vault delete
+            - name: 나열
+              uid: az_backup_vault_list
+              displayName: az backup vault list
+            - name: 표시
+              uid: az_backup_vault_show
+              displayName: az backup vault show
+            - name: 백업 속성
+              uid: az_backup_vault_backup_properties
+              displayName: az backup vault backup-properties
+              items:
+                - name: 설정
+                  uid: az_backup_vault_backup_properties_set
+                  displayName: az backup vault backup-properties set
+                - name: 표시
+                  uid: az_backup_vault_backup_properties_show
+                  displayName: az backup vault backup-properties show
     - name: 클라우드 관리
       uid: az_cloud
       displayName: az cloud
@@ -2400,6 +2531,19 @@
             - name: 설정
               uid: az_vm_diagnostics_set
               displayName: az vm diagnostics set
+        - name: 암호화
+          uid: az_vm_encryption
+          displayName: az vm encryption
+          items:
+            - name: 사용 안 함
+              uid: az_vm_encryption_disable
+              displayName: az vm encryption disable
+            - name: 사용
+              uid: az_vm_encryption_enable
+              displayName: az vm encryption enable
+            - name: 표시
+              uid: az_vm_encryption_show
+              displayName: az vm encryption show
         - name: 확장
           uid: az_vm_extension
           displayName: az vm extension
@@ -2527,6 +2671,16 @@
         - name: 중지
           uid: az_webapp_stop
           displayName: az webapp stop
+        - name: 인증
+          uid: az_webapp_auth
+          displayName: az webapp auth
+          items:
+            - name: 표시
+              uid: az_webapp_auth_show
+              displayName: az webapp auth show
+            - name: 업데이트
+              uid: az_webapp_auth_update
+              displayName: az webapp auth update
         - name: 구성
           uid: az_webapp_config
           displayName: az webapp config
