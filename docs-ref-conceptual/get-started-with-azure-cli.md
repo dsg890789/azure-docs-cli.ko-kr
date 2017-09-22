@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 5d6d7abb34fa2be571a9a49f0f84380538592807
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: bfc865f9b34afd8f312808fa420ad987be2a7d34
+ms.sourcegitcommit: 792a4283245160072edcf2bee1482aba19b285d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
 
@@ -73,7 +73,7 @@ az group create -n MyResourceGroup -l westus2
 
 리소스 그룹이 생겼으니, 그 안에 Linux VM을 만들어 보겠습니다.
 
-다음 명령으로 인기 있는 UbuntuLTS 이미지를 사용하여 10GB 및 20GB 저장소 디스크 두 개가 연결된 Linux VM을 만들 수 있습니다.
+다음 명령으로 인기 있는 UbuntuTLS 이미지를 사용하여 10GB 및 20GB 저장소 디스크 두 개가 연결된 Linux VM을 만들 수 있습니다.
 
 ```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --data-disk-sizes-gb 10 20

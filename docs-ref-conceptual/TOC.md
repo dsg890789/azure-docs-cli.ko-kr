@@ -12,7 +12,6 @@
 ## [출력 형식](format-output-azure-cli.md)
 ## [쿼리](query-azure-cli.md)
 ## [구독](manage-azure-subscriptions-azure-cli.md)
-### [클라우드 관리](manage-clouds-azure-cli.md)
 ## [릴리스 정보](release-notes-azure-cli.md)
 # 샘플 스크립트
 ## [Linux VM](/azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
