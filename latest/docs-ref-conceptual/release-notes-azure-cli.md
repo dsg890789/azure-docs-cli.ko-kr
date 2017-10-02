@@ -12,13 +12,73 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: ad30efeb7efafcc5816160ee130665d37adb62c6
-ms.sourcegitcommit: e866977985ba0286fa05f41729dd7e7d9ce86f8e
+ms.openlocfilehash: 72630c52b5e6afd69809ff19145717c0d65e0252
+ms.sourcegitcommit: 3a490ae3a2a1b2e63a062806f9b720fa4c6be01e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="september-22-2017"></a>2017년 9월 22일
+
+버전 2.0.18
+
+### <a name="resource"></a>리소스
+
+* 기본 제공 정책 정의를 표시하기 위한 지원 추가
+* 정책 정의를 만들기 위한 지원 모드 매개 변수 추가
+* UI 정의 및 템플릿에 대한 지원을 `managedapp definition create`에 추가
+* [주요 변경 내용] `appliances`에서 `applications`로 그리고 `applianceDefinitions`에서 `applicationDefinitions`로 `managedapp` 리소스 종류 변경
+
+### <a name="network"></a>네트워크
+
+* 가용성 영역에 대한 지원을 `network lb` 및 `network public-ip` 하위 명령에 추가
+* IPv6 Microsoft 피어링에 대한 지원을 `express-route`에 추가
+* `asg` 응용 프로그램 보안 그룹 명령 추가
+* `--application-security-groups` 인수를 `nic [create|ip-config create|ip-config update]`에 추가
+* `--source-asgs` 및 `--destination-asgs` 인수를 `nsg rule [create|update]`에 추가
+* `--ddos-protection` 및 `--vm-protection` 인수를 `vnet [create|update]`에 추가
+* `network [vnet-gateway|vpn-client|show-url]` 명령이 추가됨
+
+### <a name="storage"></a>저장소
+
+* SDK를 업데이트한 후 `storage account network-rule` 명령이 실패하는 경우 문제 해결
+
+### <a name="eventgrid"></a>Event Grid
+
+* 최신 API 버전 "2017-09-15-preview"를 사용하기 위해 업데이트된 Azure Event Grid Python SDK
+
+### <a name="sql"></a>SQL
+
+* 선택할 수 있도록 `sql server list` 인수를 `--resource-group`으로 변경되었습니다. 지정하지 않으면 구독의 모든 sql 서버가 반환됨
+* `--no-wait` 매개 변수를 `db [create|copy|restore|update|replica create|create|update]` 및 `dw [create|update]`에 추가
+
+### <a name="keyvault"></a>Keyvault
+
+* 프록시 뒤에서부터 Keyvault 명령에 대한 지원 추가
+
+### <a name="vm"></a>VM
+
+* 가용성 영역에 대한 지원을 `[vm|vmss|disk] create`에 추가
+* `--app-gateway ID`와 `vmss create`를 함께 사용하는 경우 오류를 일으키는 문제 해결
+* `--asgs` 인수를 `vm create`에 추가
+* `vm run-command`를 사용하여 VM에서 명령을 실행하기 위한 지원 추가
+* [미리 보기] `vmss encryption`을 사용하여 VMSS 디스크 암호화에 대한 지원 추가
+* `vm perform-maintenance`를 사용하여 VM에서 유지 관리를 수행하기 위한 지원 추가
+
+### <a name="acs"></a>ACS
+
+* [미리 보기] `--orchestrator-release` 인수를 ACS 미리 보기 영역에 대한 `acs create`에 추가
+
+### <a name="appservice"></a>App Service
+
+* `webapp auth [update|show]`를 사용하여 인증 설정을 업데이트하고 표시하기 위한 기능 추가
+
+### <a name="backup"></a>백업
+
+* 미리 보기 릴리스
+
 
 ## <a name="september-11-2017"></a>2017년 9월 11일
 

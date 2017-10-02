@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 580438bfc66f3ed0b4dad504258eab453b1b9183
-ms.sourcegitcommit: c1df7794ad42adb8640b51b630e4275f4a791ac2
+ms.openlocfilehash: 935814d56d0a6be00f626da860dc643adbf14804
+ms.sourcegitcommit: 9f38efbb7efd800ee5cab80d6641770d268c5a68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 설치
 
@@ -36,13 +36,15 @@ macOS에서는 [Homebrew](https://brew.sh/) 또는 수동으로 설치할 수 �
 
 1. 아직 설치하지 않은 경우 [Homebrew 설치 지침](https://docs.brew.sh/Installation.html)에 따라 Homebrew를 설치하십시오.
 
-2. 로컬 Homebrew 리포지토리를 업데이트합니다.
+2. 이전에 CLI를 수동으로 설치한 경우 [수동 제거](#UninstallManually) 지침을 따르세요.
+
+3. 로컬 Homebrew 리포지토리를 업데이트합니다.
 
    ```bash
    brew update
    ```
 
-3. `azure-cli` 패키지를 설치합니다.
+4. `azure-cli` 패키지를 설치합니다.
 
   ```bash
   brew install azure-cli
@@ -73,11 +75,9 @@ macOS에서는 [Homebrew](https://brew.sh/) 또는 수동으로 설치할 수 �
 
 ## <a name="install-on-windows"></a>Windows에 설치
 
-MSI를 사용하여 Azure CLI 2.0을 설치하고 Windows 명령줄에서 사용할 수 있거나 `apt-get`을 사용하여 Windows의 Ubuntu에 있는 Bash에 CLI를 설치할 수 있습니다.
-
 ### <a name="install-with-msi-for-the-windows-command-line"></a>Windows 명령줄용 MSI를 사용하여 설치 
 
-Windows에 CLI를 설치하고 Windows 명령줄에서 사용하려면 [MSI](https://aka.ms/InstallAzureCliWindows)를 다운로드하여 실행합니다.
+Windows에 CLI를 설치하고 Windows 명령줄에서 사용하려면 [Azure CLI 설치 관리자(MSI)](https://aka.ms/InstallAzureCliWindows)를 다운로드하여 실행합니다.
 
 ### <a name="install-with-apt-get-for-bash-on-ubuntu-on-windows"></a>Windows의 Ubuntu에 있는 Bash용 apt-get을 사용하여 설치
 
@@ -247,6 +247,16 @@ CLI 설치 중에 문제가 발생하면 이 섹션을 확인하여 해당 사�
 curl https://azurecliprod.blob.core.windows.net/install | bash
 ```
 
+### <a name="az-command-not-found"></a>`az` 명령을 찾을 수 없음
+
+셸의 명령 해시 캐시를 지워야 할 수 있습니다. 실행
+
+```bash
+hash -r
+```
+
+한 다음 문제가 해결되었는지 확인합니다.
+
 ## <a name="uninstall-cli-1x-versions"></a>CLI 1.x 버전 제거
 
 시스템에서 이전의 CLI 1.x 버전을 사용할 수 있는 경우 사용된 설치 유형에 따라 이를 제거할 수 있습니다.
@@ -261,7 +271,7 @@ curl https://azurecliprod.blob.core.windows.net/install | bash
 
 ### <a name="uninstall-with-distributable"></a>배포 패키지를 사용하여 제거
 
-[MSI](http://aka.ms/webpi-azure-cli) 또는 [macOS 패키지](http://aka.ms/mac-azure-cli)를 통해 설치한 경우 동일한 도구를 사용하여 설치를 제거합니다.
+[Azure CLI 설치 관리자(MSI)](http://aka.ms/webpi-azure-cli) 또는 [macOS 패키지](http://aka.ms/mac-azure-cli)를 통해 설치한 경우 동일한 도구를 사용하여 설치를 제거합니다.
 
 ### <a name="uninstall-with-docker"></a>Docker를 사용하여 제거
 
@@ -277,13 +287,15 @@ Azure CLI를 업데이트하려면 설치하는 데 사용된 동일한 방법�
 
 ### <a name="update-with-homebrew"></a>Homebrew로 업데이트
 
-1. 로컬 Homebrew 리포지토리 정보를 업데이트합니다.
+1. 이전에 수동으로 설치한 경우 [Homebrew로 설치](#macOS) 지침을 따르세요.
+
+2. 로컬 Homebrew 리포지토리 정보를 업데이트합니다.
 
    ```bash
    brew update
    ```
 
-2. 설치된 패키지를 업그레이드합니다.
+3. 설치된 패키지를 업그레이드합니다.
 
    ```bash
    brew upgrade
@@ -291,7 +303,7 @@ Azure CLI를 업데이트하려면 설치하는 데 사용된 동일한 방법�
 
 ### <a name="update-with-msi"></a>MSI를 사용하여 업데이트
 
-[MSI](https://aka.ms/InstallAzureCliWindows)를 다시 실행합니다.
+[Azure CLI 설치 관리자(MSI)](https://aka.ms/InstallAzureCliWindows)를 다시 실행합니다.
 
 ### <a name="update-with-apt-get"></a>apt-get을 사용하여 업데이트
 
@@ -396,7 +408,7 @@ Docker 이미지를 설치한 경우 이를 실행하는 컨테이너를 모두 
 > [!NOTE]
 > 특정 버전의 이미지를 설치한 경우 이미지 이름 끝에 `:<version>`을 추가해야 합니다.
 
-### <a name="uninstall-manually"></a>수동으로 제거
+###<a name="a-nameuninstallmanuallyuninstall-manually"></a><a name="UninstallManually"/>수동으로 제거
 
 https://aka.ms/InstallAzureCli의 스크립트를 사용하여 CLI를 설치한 경우 이러한 단계를 따라 제거할 수 있습니다.
 
