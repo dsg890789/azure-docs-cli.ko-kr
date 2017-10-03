@@ -12,13 +12,77 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 39e4710a29ac57730919b82ab76b9c9a4b9ca786
-ms.sourcegitcommit: 43d4f838d132ab9bcfa59dbda3b544c06373b6a9
+ms.openlocfilehash: e893b99349bbf2a5eec8af254158eb07001f1da7
+ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="august-28-2017"></a>2017년 8월 28일
+
+버전 2.0.15
+
+### <a name="cli"></a>CLI
+
+* `--version`에 법적 정보가 추가되었습니다.
+
+### <a name="acs"></a>ACS
+
+* 미리 보기 지역이 수정되었습니다.
+* `dns_name_prefix`의 기본 형식이 올바르게 지정되었습니다.
+* acs 명령 출력이 최적화되었습니다.
+
+### <a name="appservice"></a>App Service
+
+* [주요 변경 내용] `az webapp config appsettings [delete|set]` 출력의 불일치가 수정됨
+* `az webapp config container set --docker-custom-image-name`에 대해 새로운 `-i` 별칭이 추가됨
+* `az webapp log show`가 공개됨
+* `az webapp delete`에서 앱 서비스 계획, 통계 또는 DNS 등록을 유지하는 새 인수가 공개됨
+* 슬롯 설정을 올바르게 검색하도록 수정됨
+
+### <a name="iot"></a>IoT
+
+* #3934: 정책을 만들 때 기존 정책을 더 이상 지우지 않도록 수정됨
+
+### <a name="network"></a>네트워크
+
+* [주요 변경 내용] 이름이 `vnet list-private-access-services`에서 `vnet list-endpoint-services`로 변경됨
+* [주요 변경 내용] `vnet subnet [create|update]`에 대한 옵션 이름이 `--private-access-services`에서 `--service-endpoints`로 변경됨
+* 여러 IP 및 포트 범위에 대한 지원이 `nsg rule [create|update]`에 추가됨
+* SKU에 대한 지원이 `lb create`에 추가됨
+* SKU에 대한 지원이 `public-ip create`에 추가됨
+
+### <a name="profile"></a>프로필
+
+* 가상 컴퓨터의 ID를 사용하여 로그인하는 `--msi` 및 `--msi-port`가 공개됨
+
+### <a name="service-fabric"></a>서비스 패브릭
+
+* 미리 보기 릴리스
+* 명령에 대한 레지스트리 사용자/암호 규칙이 간소화됨
+* 매개 변수를 전달한 후에도 사용자에게 암호를 묻는 메시지가 수정됨
+* 빈 `registry_cred`에 대한 지원이 추가됨
+
+### <a name="storage"></a>저장소
+
+* 설정 Blob 계층이 사용됨
+* 서비스 터널링을 지원하는 `--bypass` 및 `--default-action` 인수가 `storage account [create|update]`에 추가됨
+* VNET 규칙 및 IP 기반 규칙을 추가하는 명령이 `storage account network-rule`에 추가됨  
+* 고객 관리 키에 의한 서비스 암호화가 사용됨
+* [주요 변경 내용] `az storage account create and az storage account update` 명령에 대한 옵션 이름이 `--encryption`에서 `--encryption-services`로 변경됨
+* #4220: `az storage account update encryption` - 구문 불일치가 수정됨
+
+### <a name="vm"></a>VM
+
+* `--instance-id *`를 사용할 때 `vmss get-instance-view`에 대해 잘못된 추가 정보가 표시되는 문제가 해결되었습니다.
+* `--lb-sku`에 대한 지원이 `vmss create`에 추가됨 
+* `[vm|vmss] create`에 대한 관리자 이름 블랙리스트에서 사람의 이름이 제거됨 
+* 이미지에서 계획 정보를 추출할 수 없는 경우 `[vm|vmss] create`에서 오류를 throw하는 문제가 해결되었습니다.
+* 내부 LB가 있는 VMMS 확장 집합을 만들 때 발생하는 크래시가 해결되었습니다.
+* `--no-wait` 인수가 `vm availability-set create`와 함께 작동하지 않는 문제가 해결되었습니다.
+
 
 ## <a name="august-15-2017"></a>2017년 8월 15일
 
