@@ -1675,6 +1675,9 @@
         - name: 삭제
           uid: az_resource_delete
           displayName: az resource delete
+        - name: 작업 호출
+          uid: az_resource_invoke_action
+          displayName: az resource invoke-action
         - name: 나열
           uid: az_resource_list
           displayName: az resource list
