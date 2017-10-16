@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 935814d56d0a6be00f626da860dc643adbf14804
-ms.sourcegitcommit: 9f38efbb7efd800ee5cab80d6641770d268c5a68
+ms.openlocfilehash: 1b47bd5603f5214dd11d772caaebe8cf380df5c0
+ms.sourcegitcommit: 5e862fd0a93cf668fa76a74ae1c7505d3c8c45f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 설치
 
@@ -104,7 +104,10 @@ Windows에 CLI를 설치하고 Windows 명령줄에서 사용하려면 [Azure CL
 
 ## <a name="install-on-debianubuntu-with-apt-get"></a>apt-get을 사용하여 Debian/Ubuntu에 설치
 
-Debian/Ubuntu 기반 시스템의 경우 `apt-get`를 통해 Azure CLI 2.0을 설치할 수 있습니다.
+`apt` 패키지 관리자를 사용한 배포의 경우 `apt-get`을 통해 Azure CLI 2.0을 설치할 수 있습니다.
+
+> [!NOTE]
+> CLI를 사용하기 위해 분포는 Python 2.7.x 또는 Python 3.x를 지원해야 합니다.
 
 1. 원본 목록을 수정합니다.
  
@@ -134,7 +137,10 @@ Debian/Ubuntu 기반 시스템의 경우 `apt-get`를 통해 Azure CLI 2.0을 �
 
 ## <a name="install-on-rhel-fedora-and-centos-with-yum"></a>Yum을 사용하여 RHEL, Fedora 및 CentOS에 설치
 
-RedHat에서 기반으로 하지 않고 `yum` 패키지 관리자를 포함하는 배포판의 경우 `yum`을 통해 Azure CLI 2.0을 설치할 수 있습니다.
+`yum` 패키지 관리자를 사용하는 배포의 경우 `yum`을 통해 Azure CLI 2.0을 설치할 수 있습니다.
+
+> [!NOTE]
+> CLI를 사용하기 위해 분포는 Python 2.7.x 또는 Python 3.x를 지원해야 합니다.
 
 1. Microsoft 리포지토리 키를 가져옵니다.
 
@@ -158,6 +164,11 @@ RedHat에서 기반으로 하지 않고 `yum` 패키지 관리자를 포함하�
 4. 명령 프롬프트에서 `az` 명령으로 CLI를 실행합니다.
 
 ## <a name="install-on-opensuse-and-sle-with-zypper"></a>Zypper를 사용하여 openSUSE 및 SLE에 설치
+
+`zypper` 패키지 관리자를 사용하는 배포의 경우 `zypper`를 통해 Azure CLI 2.0을 설치할 수 있습니다.
+
+> [!NOTE]
+> CLI를 사용하기 위해 분포는 Python 2.7.x 또는 Python 3.x를 지원해야 합니다.
 
 1. Microsoft 리포지토리 키를 가져옵니다.
 
@@ -201,9 +212,9 @@ CLI는 `/usr/local/bin`에 있는 `az` 명령으로 이미지에 설치됩니다
 > docker run -v ${HOME}:/root azuresdk/azure-cli-python:<version>
 > ```
 
-## <a name="a-namelinuxinstall-on-linux-without-apt-get"></a><a name="Linux"/>apt-get을 사용하지 않고 Linux에 설치
+## <a name="a-namelinuxinstall-on-linux-without-a-package-manager"></a><a name="Linux"/>패키지 관리자를 사용하지 않고 Linux에 설치
 
-가능한 경우 패키지 관리자를 사용하여 CLI를 설치하는 것이 좋습니다. 이에 제공되는 패키지가 없는 배포판의 경우 수동으로 설치할 수 있습니다.
+가능한 경우 패키지 관리자를 사용하여 CLI를 설치하는 것이 좋습니다. Microsoft의 리포지토리를 추가하지 않거나 제공된 패키지가 없는 배포로 작업하는 경우에 CLI을 수동으로 설치할 수 있습니다.
 
 1. Linux 배포판에 따라 필수 구성 요소를 설치합니다.
 
@@ -219,7 +230,7 @@ CLI는 `/usr/local/bin`에 있는 `az` 명령으로 이미지에 설치됩니다
    SUSE OpenSUSE 13.2    | sudo zypper refresh && sudo zypper --non-interactive install curl gcc python python-xml libffi-devel python-devel openssl-devel
    ```
 
-위에서 배포판이 나열되지 않으면 [Python](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/) 및 [OpenSSL](https://www.openssl.org/source/)을 설치해야 합니다.
+배포판이 위에 나열되지 않은 경우 [Python 2.7 이상](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/) 및 [OpenSSL](https://www.openssl.org/source/)을 설치해야 합니다.
 
 2. `curl`을 사용하여 CLI를 설치합니다.
 
@@ -420,6 +431,12 @@ https://aka.ms/InstallAzureCli의 스크립트를 사용하여 CLI를 설치한 
    ```
 
 2. `<install location>/.bash_profile`에서 `<install location>/lib/azure-cli/az.completion` 줄을 삭제합니다.
+
+3. 셸에서 명령 캐시를 사용하는 경우 다시 로드합니다.
+
+   ```bash
+   hash -r
+   ```
 
 > [!Note]
 > 기본 설치 위치는 `/Users/<username>`입니다.

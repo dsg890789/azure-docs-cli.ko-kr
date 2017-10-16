@@ -12,13 +12,71 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 72630c52b5e6afd69809ff19145717c0d65e0252
-ms.sourcegitcommit: 3a490ae3a2a1b2e63a062806f9b720fa4c6be01e
+ms.openlocfilehash: 2ea9daa558200204750f19b5d22685587ff097ef
+ms.sourcegitcommit: 376bc0601aba890630dadd55908c1a65ddf40f5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="october-9-2017"></a>2017년 10월 9일
+
+버전 2.0.19
+
+### <a name="core"></a>코어
+
+* Azure Stack에 후행 슬래시로 ADFS 기관 URL의 처리가 추가됨
+
+### <a name="appservice"></a>App Service
+
+* 새 명령 `webapp update`로 일반 업데이트 추가됨
+
+### <a name="batch"></a>배치
+
+* 일괄 처리 SDK 4.0.0으로 업데이트됨
+* publish:offer:sku:version에 추가로 ARM 이미지 참조를 지원하는 VirtualMachineConfiguration의 `--image` 옵션이 업데이트됨
+* 일괄 처리 확장 명령을 위해 새 CLI 확장 모델에 대한 지원이 추가됨
+* 구성 요소 모델에서 일괄 처리 지원이 제거됨
+
+### <a name="batchai"></a>Batchai
+
+* 일괄 처리 AI 모듈의 초기 릴리스
+
+### <a name="keyvault"></a>Keyvault
+
+* Azure Stack에서 ADFS를 사용 시 Key Vault 인증 문제가 수정되었습니다. [(#4448)](https://github.com/Azure/azure-cli/issues/4448)
+
+### <a name="network"></a>네트워크
+
+* 빈 주소 풀을 감안하여 `application-gateway address-pool create`의 `--server` 인수가 선택적으로 변경됨
+* 최신 기능을 지원하기 위해 `traffic-manager`가 업데이트됨
+
+### <a name="resource"></a>리소스
+
+* 리소스 그룹 이름에 대한 `--resource-group/-g` 옵션 지원이 `group`에 추가됨
+* 구독 수준 잠금으로 작동하는 `account lock`에 대한 명령이 추가됨
+* 그룹 수준 잠금으로 작동하는 `group lock`에 대한 명령이 추가됨
+* 리소스 수준 잠금으로 작동하는 `resource lock`에 대한 명령이 추가됨
+
+### <a name="sql"></a>Sql
+
+* SQL TDE(투명한 데이터 암호화) 및 Bring Your Own Key를 사용하는 TDE에 대한 지원이 추가됨
+* 삭제된 데이터베이스를 찾아 복구하는 기능을 허용하는 `db list-deleted` 명령 및 `db restore --deleted-time` 매개 변수가 추가됨
+* 진행 중인 작업을 데이터베이스에 나열하고 취소하는 기능을 허용하는 `db op list` 및 `db op cancel` 추가됨
+
+### <a name="storage"></a>저장소
+
+* 파일 공유 스냅숏에 대한 지원 추가됨
+
+### <a name="vm"></a>VM
+
+* `-d` 사용으로 누락된 개인 IP 주소에서 충돌이 발생하는 `vm show`에서 버그 수정됨
+* [미리 보기] 롤링 업그레이드에 대한 지원이 `vmss create`에 추가됨
+* `vm encryption enable`을 사용하여 암호화 설정 업데이트에 대한 지원이 추가됨
+* `--os-disk-size-gb` 매개 변수가 `vm create`에 추가됨
+* Windows에 대한 `--license-type` 매개 변수가 `vmss create`에 추가됨
+
 
 ## <a name="september-22-2017"></a>2017년 9월 22일
 
