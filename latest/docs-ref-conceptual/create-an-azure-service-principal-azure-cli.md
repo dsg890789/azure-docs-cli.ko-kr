@@ -5,18 +5,18 @@ keywords: Azure CLI 2.0, Azure Active Directory, Azure Active Directory, AD, RBA
 author: rloutlaw
 ms.author: routlaw
 manager: douge
-ms.date: 02/27/2017
+ms.date: 10/12/2017
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: fab89cb8-dac1-4e21-9d34-5eadd5213c05
-ms.openlocfilehash: f37df762a9a605ea649b215f38f2e9866614f4ac
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: 5ae8af014b821fe5297ea44056ef33c4570d1d47
+ms.sourcegitcommit: 5cfbea569fef193044da712708bc6957d3fb557c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기
 
@@ -31,7 +31,7 @@ Azure CLI 2.0을 사용하여 앱 또는 서비스를 관리하려는 경우 고
 
 Azure 서비스 주체는 특정 Azure 리소스에 액세스하기 위해 사용자가 만든 앱, 서비스 및 자동화 도구에서 사용하는 보안 ID입니다. 특정한 역할이 있는 '사용자 ID'(로그인과 암호 또는 인증서)이며 리소스에 액세스하기 위해 엄격하게 제어됩니다. 일반 사용자 ID와 달리 특정 작업만을 수행해야 합니다. 해당 관리 작업을 수행하는 데 필요한 최소 사용 권한 수준을 부여하는 경우 보안이 향상됩니다. 
 
-이제 Azure CLI 2.0은 암호 기반 인증 자격 증명 만들기만 지원합니다. 이 토픽에서는 특정 암호를 사용하여 서비스 주체를 만들고, 필요에 따라 서비스 주체에 특정 역할을 할당하는 방법을 다룹니다.
+Azure CLI 2.0은 암호 기반 인증 자격 증명 및 인증서 자격 증명을 만들도록 지원합니다. 이 항목에서는 두 가지 자격 증명을 다룹니다.
 
 ## <a name="verify-your-own-permission-level"></a>고유한 사용 권한 수준 확인
 
@@ -76,9 +76,9 @@ az ad app list --display-name MyDemoWebApp
 
 `--display-name` 옵션은 반환된 앱 목록을 필터링하여 `displayName`이 MyDemoWebApp으로 시작하는 앱만 표시합니다.
 
-### <a name="create-the-service-principal"></a>서비스 주체 만들기
+### <a name="create-a-service-principal-with-a-password"></a>암호를 사용하여 서비스 주체 만들기
 
-[az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac)를 사용하여 서비스 주체를 만듭니다. 
+[az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) 및 `--password` 매개 변수를 사용하여 암호를 가진 서비스 주체를 만듭니다. 역할 또는 범위를 제공하지 않으면 현재 구독의 **참가자** 역할을 기본적으로 제공합니다. `--password` 또는 `--cert` 매개 변수 중 하나를 사용하지 않고 서비스 주체를 만드는 경우 암호 인증을 사용하고 암호를 만듭니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name {appId} --password "{strong password}" 
@@ -96,6 +96,29 @@ az ad sp create-for-rbac --name {appId} --password "{strong password}"
 
  > [!WARNING] 
  > 안전하지 않은 암호를 만들지 마세요.  [Azure AD 암호 규칙 및 제한 사항](/azure/active-directory/active-directory-passwords-policy) 지침을 따르세요.
+
+### <a name="create-a-service-principal-with-a-self-signed-certificate"></a>자체 서명된 인증서를 사용하여 서비스 주체 만들기
+
+[az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) 및 `--create-cert` 매개 변수를 사용하여 자체 서명된 인증서를 만듭니다.
+
+```azurecli-interactive
+az ad sp create-for-rbac --name {appId} --create-cert
+```
+
+```json
+{
+  "appId": "c495db57-82e0-4e2e-9369-069dff176858",
+  "displayName": "azure-cli-2017-10-12-22-15-38",
+  "fileWithCertAndPrivateKey": "<path>/<file-name>.pem",
+  "name": "http://MyDemoWebApp",
+  "password": null,
+  "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+}
+```
+
+`fileWithCertAndPrivateKey` 응답의 값을 복사합니다. 이 항목은 인증에 사용되는 인증서 파일입니다.
+
+인증서를 사용할 때 더 많은 옵션은 [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac)을 참조하세요.
 
 ### <a name="get-information-about-the-service-principal"></a>서비스 주체에 대한 정보 가져오기
 
@@ -118,10 +141,10 @@ az ad sp show --id a487e0c1-82af-47d9-9a0b-af184eb87646d
 
 ### <a name="sign-in-using-the-service-principal"></a>서비스 주체를 사용하여 로그인
 
-이제 `az ad sp show`에서 *appId* 및 *암호*를 사용하여 앱의 새로운 서비스 주체로 로그인할 수 있습니다.  `az ad sp create-for-rbac` 결과에서 *테넌트* 값을 제공합니다.
+이제 `az ad sp show`의 *appId* 및 *암호*나 생성된 인증서의 경로를 사용하여 앱에 새로운 서비스 주체로 로그인할 수 있습니다.  `az ad sp create-for-rbac` 결과에서 *테넌트* 값을 제공합니다.
 
 ```azurecli-interactive
-az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password} --tenant {tenant}
+az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password-or-path-to-cert} --tenant {tenant}
 ``` 
 
 성공적으로 로그온하면 이 출력이 표시될 것입니다.
