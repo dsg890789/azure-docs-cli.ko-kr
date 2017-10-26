@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 1b47bd5603f5214dd11d772caaebe8cf380df5c0
-ms.sourcegitcommit: 5e862fd0a93cf668fa76a74ae1c7505d3c8c45f2
+ms.openlocfilehash: 4703a192e23b04d0ad42daf60e415d798610cce0
+ms.sourcegitcommit: 932cc86172ab55c00346f62504787c096ed7b2bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 설치
 
@@ -95,7 +95,7 @@ Windows에 CLI를 설치하고 Windows 명령줄에서 사용하려면 [Azure CL
 4. 다음과 같은 sudo 명령을 실행합니다.
 
    ```bash
-   sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
+   sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
    sudo apt-get install apt-transport-https
    sudo apt-get update && sudo apt-get install azure-cli
    ```
@@ -128,7 +128,7 @@ Windows에 CLI를 설치하고 Windows 명령줄에서 사용하려면 [Azure CL
 2. 다음과 같은 sudo 명령을 실행합니다.
 
    ```bash
-   sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
+   sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
    sudo apt-get install apt-transport-https
    sudo apt-get update && sudo apt-get install azure-cli
    ```
@@ -137,7 +137,7 @@ Windows에 CLI를 설치하고 Windows 명령줄에서 사용하려면 [Azure CL
 
 ## <a name="install-on-rhel-fedora-and-centos-with-yum"></a>Yum을 사용하여 RHEL, Fedora 및 CentOS에 설치
 
-`yum` 패키지 관리자를 사용하는 배포의 경우 `yum`을 통해 Azure CLI 2.0을 설치할 수 있습니다.
+`yum` 패키지 관리자를 사용하는 배포의 경우 `yum`를 통해 Azure CLI 2.0을 설치할 수 있습니다.
 
 > [!NOTE]
 > CLI를 사용하기 위해 분포는 Python 2.7.x 또는 Python 3.x를 지원해야 합니다.
@@ -198,7 +198,7 @@ Azure CLI 2.0으로 미리 구성된 Docker 이미지를 유지하고 있습니�
 `docker run`을 사용하여 CLI를 설치합니다.
 
    ```bash
-   docker run azuresdk/azure-cli-python:<version>
+   docker run -it azuresdk/azure-cli-python:<version>
    ```
 
 [Docker 태그](https://hub.docker.com/r/azuresdk/azure-cli-python/tags/)를 통해 사용 가능한 버전을 확인합니다.
@@ -209,7 +209,7 @@ CLI는 `/usr/local/bin`에 있는 `az` 명령으로 이미지에 설치됩니다
 > 사용자 환경에서 SSH 키를 선택하려는 경우 `-v ${HOME}:/root`를 사용하여 $HOME을 `/root`로 탑재할 수 있습니다.
 
 > ```bash
-> docker run -v ${HOME}:/root azuresdk/azure-cli-python:<version>
+> docker run -it -v ${HOME}:/root azuresdk/azure-cli-python:<version>
 > ```
 
 ## <a name="a-namelinuxinstall-on-linux-without-a-package-manager"></a><a name="Linux"/>패키지 관리자를 사용하지 않고 Linux에 설치
