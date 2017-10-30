@@ -12,6 +12,12 @@
       items:
         - name: 서비스 주체 만들기
           href: create-an-azure-service-principal-azure-cli.md
+        - name: 관리되는 서비스 ID 사용
+          items:
+            - name: Azure VM에 대한 MSI 구성
+              href: /azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+            - name: MSI를 사용하여 Azure VM에 로그인
+              href: /azure/active-directory/msi-how-to-get-access-token-using-msi?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: 대화형 모드
       href: interactive-azure-cli.md
     - name: 배포 템플릿
