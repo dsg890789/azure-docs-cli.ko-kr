@@ -12,13 +12,54 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 2ea9daa558200204750f19b5d22685587ff097ef
-ms.sourcegitcommit: 376bc0601aba890630dadd55908c1a65ddf40f5a
+ms.openlocfilehash: 429b099dabd27d9356e88791f955ec52acd2a5f9
+ms.sourcegitcommit: 9b36c15dc0e10024e23b8018604f5ef63c025de1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="october-24-2017"></a>2017년 10월 24일
+
+버전 2.0.20
+
+### <a name="core"></a>코어
+
+* `MGMT_STORAGE` API 버전 `2016-01-01`을 사용하기 위해 `2017-03-09-profile` 업데이트함
+
+### <a name="acr"></a>ACR
+
+* `2017-10-01` API 버전을 가리키도록 리소스 관리를 업데이트함
+* 'Bring Your Own Storage' SKU를 클래식으로 변경함
+* 레지스트리 SKU를 Basic, Standard 및 Premium으로 이름을 변경함
+
+### <a name="acs"></a>ACS
+
+* [미리 보기] `az aks` 명령이 추가됨
+* Kubernetes `get-credentials`가 수정됨
+
+### <a name="appservice"></a>App Service
+
+* 다운로드한 `webapp` 로그가 유효하지 않은 문제가 해결
+
+### <a name="component"></a>구성 요소
+
+* 모든 설치 관리자에 대한 명확한 지원 중단 메시지 및 확인 프롬프트가 추가됨
+
+### <a name="monitor"></a>모니터
+
+* `action-group` 명령이 추가됨
+
+### <a name="resource"></a>리소스
+
+* `group export`의 최신 msrest 종속성과의 비호환성이 수정됨
+* 기본 제공 정책 정의 및 정책 집합 정의로 작동하도록 `policy assignment create` 수정
+
+### <a name="vm"></a>VM
+
+* `--accelerated-networking` 인수를 `vmss create`에 추가
+
 
 ## <a name="october-9-2017"></a>2017년 10월 9일
 

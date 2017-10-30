@@ -4,6 +4,9 @@
 ## [Cloud shell](/azure/cloud-shell/overview)
 ## [로그인](authenticate-azure-cli.md)
 ### [서비스 주체 만들기](create-an-azure-service-principal-azure-cli.md)
+### 관리되는 서비스 ID 사용
+#### [Azure VM에 대한 MSI 구성](/azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+#### [MSI를 사용하여 Azure VM에 로그인](/azure/active-directory/msi-how-to-get-access-token-using-msi?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 ## [대화형 모드](interactive-azure-cli.md)
 ## 배포 템플릿
 ### [배포 템플릿 사용](/azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
