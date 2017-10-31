@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: fab89cb8-dac1-4e21-9d34-5eadd5213c05
-ms.openlocfilehash: f37df762a9a605ea649b215f38f2e9866614f4ac
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: 0ee794d5a732c6e8d2d52fca5810a874827930ae
+ms.sourcegitcommit: 5a04b7fbb73a5f10c4021963ecd6ebe234cc3b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 08/15/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기
 
@@ -37,7 +37,7 @@ Azure 서비스 주체는 특정 Azure 리소스에 액세스하기 위해 사�
 
 먼저 Azure Active Directory와 Azure 구독에 대한 충분한 권한이 있어야 합니다. 특히, Active Directory에서 앱을 만들고 서비스 주체에 역할을 할당할 수 있어야 합니다. 
 
-계정에 적절한 사용 권한이 있는지를 확인하는 가장 쉬운 방법은 포털을 통하는 것입니다. [포털에서 필요한 사용 권한 확인](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)을 참조하세요.
+계정에 적절한 사용 권한이 있는지를 확인하는 가장 쉬운 방법은 포털을 통하는 것입니다. [포털에서 필요한 사용 권한 확인](/azure/azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)을 참조하세요.
 
 ## <a name="create-a-service-principal-for-your-application"></a>응용 프로그램에 대한 서비스 주체 만들기
 
