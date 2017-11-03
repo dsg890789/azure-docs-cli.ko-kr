@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: fab89cb8-dac1-4e21-9d34-5eadd5213c05
-ms.openlocfilehash: 5ae8af014b821fe5297ea44056ef33c4570d1d47
-ms.sourcegitcommit: 5cfbea569fef193044da712708bc6957d3fb557c
+ms.openlocfilehash: a6ad5611f3e507b65e160122c87e22ec44546588
+ms.sourcegitcommit: e8fe15e4f7725302939d726c75ba0fb3cad430be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기
 
@@ -170,7 +170,7 @@ az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password
 ## <a name="managing-roles"></a>역할 관리 
 
 > [!NOTE]
-> Azure RBAC(역할 기반 액세스 제어)는 사용자 및 서비스 주체에 대한 역할을 정의하고 관리하기 위한 모델입니다.
+> Azure 역할 기반 Access Control(RBAC)은 사용자 및 서비스 주체에 대한 역할을 정의하고 관리하기 위한 모델입니다.
 > 역할에는 그와 관련된 일련의 사용 권한이 있으며 여기서 주체가 읽고 액세스하고 쓰고 관리할 수 있는 리소스를 결정합니다.
 > RBAC와 역할에 대한 자세한 내용은 [RBAC: 기본 제공 역할](/azure/active-directory/role-based-access-built-in-roles)을 참조하세요.
 
