@@ -5,18 +5,18 @@ keywords: "Azure CLI, Azure CLI 설치, Azure Python CLI, Azure CLI 참조"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 08/17/2017
+ms.date: 11/01/2017
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 4703a192e23b04d0ad42daf60e415d798610cce0
-ms.sourcegitcommit: 932cc86172ab55c00346f62504787c096ed7b2bd
+ms.openlocfilehash: 2b56382355cad5313a604ed1f493a2bcbebf3e27
+ms.sourcegitcommit: e9b4c6dd9093980b69ca47f93f44ac54d0e5b68a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 설치
 
@@ -102,12 +102,12 @@ Windows에 CLI를 설치하고 Windows 명령줄에서 사용하려면 [Azure CL
 
 5.  명령 프롬프트에서 `az` 명령으로 CLI를 실행합니다.
 
-## <a name="install-on-debianubuntu-with-apt-get"></a>apt-get을 사용하여 Debian/Ubuntu에 설치
+## <a name="install-with-apt-package-manager"></a>apt 패키지 관리자를 사용하여 설치 
 
-`apt` 패키지 관리자를 사용한 배포의 경우 `apt-get`을 통해 Azure CLI 2.0을 설치할 수 있습니다.
+Ubuntu 또는 Debian과 같은 `apt` 패키지 관리자를 사용하는 배포의 경우 `apt-get`을 통해 Azure CLI 2.0을 설치할 수 있습니다.
 
 > [!NOTE]
-> CLI를 사용하기 위해 분포는 Python 2.7.x 또는 Python 3.x를 지원해야 합니다.
+> CLI를 사용하려면 Python 2.7.x 또는 Python 3.x가 있어야 합니다. 배포에 패키지가 없으면 [Python](https://www.python.org/downloads/)을 설치하세요.
 
 1. 원본 목록을 수정합니다.
  
@@ -135,12 +135,12 @@ Windows에 CLI를 설치하고 Windows 명령줄에서 사용하려면 [Azure CL
 
 3.  명령 프롬프트에서 `az` 명령으로 CLI를 실행합니다.
 
-## <a name="install-on-rhel-fedora-and-centos-with-yum"></a>Yum을 사용하여 RHEL, Fedora 및 CentOS에 설치
+## <a name="install-with-yum-package-manager"></a>yum 패키지 관리자를 사용하여 설치
 
-`yum` 패키지 관리자를 사용하는 배포의 경우 `yum`를 통해 Azure CLI 2.0을 설치할 수 있습니다.
+Red Hat Enterprise Linux(RHEL), Fedora 또는 CentOS와 같은 `yum` 패키지 관리자를 사용하는 배포의 경우 `yum`를 통해 Azure CLI 2.0을 설치할 수 있습니다.
 
 > [!NOTE]
-> CLI를 사용하기 위해 분포는 Python 2.7.x 또는 Python 3.x를 지원해야 합니다.
+> CLI를 사용하려면 Python 2.7.x 또는 Python 3.x가 있어야 합니다. 배포에 패키지가 없으면 [Python](https://www.python.org/downloads/)을 설치하세요.
 
 1. Microsoft 리포지토리 키를 가져옵니다.
 
@@ -163,12 +163,12 @@ Windows에 CLI를 설치하고 Windows 명령줄에서 사용하려면 [Azure CL
 
 4. 명령 프롬프트에서 `az` 명령으로 CLI를 실행합니다.
 
-## <a name="install-on-opensuse-and-sle-with-zypper"></a>Zypper를 사용하여 openSUSE 및 SLE에 설치
+## <a name="install-with-zypper-package-manager"></a>zypper 패키지 관리자를 사용하여 설치
 
-`zypper` 패키지 관리자를 사용하는 배포의 경우 `zypper`를 통해 Azure CLI 2.0을 설치할 수 있습니다.
+OpenSUSE 또는 SLE와 같은 `zypper` 패키지 관리자를 사용하는 배포의 경우 `zypper`를 통해 Azure CLI 2.0을 설치할 수 있습니다.
 
 > [!NOTE]
-> CLI를 사용하기 위해 분포는 Python 2.7.x 또는 Python 3.x를 지원해야 합니다.
+> CLI를 사용하려면 Python 2.7.x 또는 Python 3.x가 있어야 합니다. 배포에 패키지가 없으면 [Python](https://www.python.org/downloads/)을 설치하세요.
 
 1. Microsoft 리포지토리 키를 가져옵니다.
 
@@ -266,7 +266,7 @@ curl https://azurecliprod.blob.core.windows.net/install | bash
 hash -r
 ```
 
-한 다음 문제가 해결되었는지 확인합니다.
+한 다음 문제가 해결되었는지 확인합니다. `$PATH`에 명령이 없을 수도 있습니다. `$PATH`에 `<install path>/bin`이 표시되는지 확인하고, 필요한 경우 셸을 다시 시작합니다.
 
 ## <a name="uninstall-cli-1x-versions"></a>CLI 1.x 버전 제거
 
@@ -316,7 +316,7 @@ Azure CLI를 업데이트하려면 설치하는 데 사용된 동일한 방법�
 
 [Azure CLI 설치 관리자(MSI)](https://aka.ms/InstallAzureCliWindows)를 다시 실행합니다.
 
-### <a name="update-with-apt-get"></a>apt-get을 사용하여 업데이트
+### <a name="update-with-apt"></a>apt를 사용하여 업데이트
 
 `apt-get upgrade`를 사용하여 CLI 패키지를 업데이트합니다.
 
@@ -330,6 +330,24 @@ Azure CLI를 업데이트하려면 설치하는 데 사용된 동일한 방법�
 > ```bash
 > sudo apt-get update && sudo apt-get install --only-upgrade -y azure-cli
 > ```
+
+### <a name="update-with-yum"></a>yum을 사용하여 업데이트
+
+`yum update` 명령을 사용하여 Azure CLI를 업데이트합니다.
+
+```bash
+yum check-update
+sudo yum update azure-cli
+```
+
+### <a name="update-with-zypper"></a>zypper를 사용하여 업데이트
+
+`zypper update` 명령을 사용하여 패키지를 업데이트할 수 있습니다.
+
+```bash
+sudo zypper refresh
+sudo zypper update azure-cli
+```
 
 ### <a name="update-with-docker"></a>Docker를 사용하여 업데이트
 
@@ -381,12 +399,54 @@ CLI를 제거하려는 경우 유감스럽게 생각합니다. CLI를 설치하�
 
 [MSI](https://aka.ms/InstallAzureCliWindows)를 다시 실행하고 제거를 선택합니다.
 
-### <a name="uninstall-with-apt-get"></a>apt-get을 사용하여 제거
+### <a name="uninstall-with-apt"></a>apt를 사용하여 제거
 
 `apt-get remove`를 통해 제거합니다.
 
   ```bash
   sudo apt-get remove -y azure-cli
+  ```
+
+### <a name="uninstall-with-yum"></a>yum을 사용하여 제거
+
+1. 시스템에서 패키지를 제거합니다.
+
+   ```bash
+   sudo yum remove azure-cli
+   ```
+
+2. CLI를 다시 설치하지 않으려면 리포지토리 정보를 제거합니다.
+
+   ```bash
+   sudo rm /etc/yum.repos.d/azure-cli.repo
+   ```
+
+3. 리포지토리 정보를 제거한 경우 Microsoft GPG 서명 키도 제거합니다.
+
+  ```bash
+  MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
+  rpm -e --allmatches gpg-pubkey-$MSFT_KEY
+  ```
+
+### <a name="uninstall-with-zypper"></a>zypper를 사용하여 제거
+
+1. 시스템에서 패키지를 제거합니다.
+
+    ```bash
+    sudo zypper remove -y azure-cli
+    ```
+
+2. CLI를 다시 설치하지 않으려면 리포지토리 정보를 제거합니다.
+
+  ```bash
+  sudo rm /etc/zypp/repos.d/azure-cli.repo
+  ```
+
+3. 리포지토리 정보를 제거한 경우 Microsoft GPG 서명 키도 제거합니다.
+
+  ```bash
+  MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
+  rpm -e --allmatches gpg-pubkey-$MSFT_KEY
   ```
 
 ### <a name="uninstall-with-docker"></a>Docker를 사용하여 제거
