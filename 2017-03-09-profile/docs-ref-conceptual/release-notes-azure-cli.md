@@ -12,13 +12,246 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: e893b99349bbf2a5eec8af254158eb07001f1da7
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: 429b099dabd27d9356e88791f955ec52acd2a5f9
+ms.sourcegitcommit: 9b36c15dc0e10024e23b8018604f5ef63c025de1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="october-24-2017"></a>2017년 10월 24일
+
+버전 2.0.20
+
+### <a name="core"></a>코어
+
+* `MGMT_STORAGE` API 버전 `2016-01-01`을 사용하기 위해 `2017-03-09-profile` 업데이트함
+
+### <a name="acr"></a>ACR
+
+* `2017-10-01` API 버전을 가리키도록 리소스 관리를 업데이트함
+* 'Bring Your Own Storage' SKU를 클래식으로 변경함
+* 레지스트리 SKU를 Basic, Standard 및 Premium으로 이름을 변경함
+
+### <a name="acs"></a>ACS
+
+* [미리 보기] `az aks` 명령이 추가됨
+* Kubernetes `get-credentials`가 수정됨
+
+### <a name="appservice"></a>App Service
+
+* 다운로드한 `webapp` 로그가 유효하지 않은 문제가 해결
+
+### <a name="component"></a>구성 요소
+
+* 모든 설치 관리자에 대한 명확한 지원 중단 메시지 및 확인 프롬프트가 추가됨
+
+### <a name="monitor"></a>모니터
+
+* `action-group` 명령이 추가됨
+
+### <a name="resource"></a>리소스
+
+* `group export`의 최신 msrest 종속성과의 비호환성이 수정됨
+* 기본 제공 정책 정의 및 정책 집합 정의로 작동하도록 `policy assignment create` 수정
+
+### <a name="vm"></a>VM
+
+* `--accelerated-networking` 인수를 `vmss create`에 추가
+
+
+## <a name="october-9-2017"></a>2017년 10월 9일
+
+버전 2.0.19
+
+### <a name="core"></a>코어
+
+* Azure Stack에 후행 슬래시로 ADFS 기관 URL의 처리가 추가됨
+
+### <a name="appservice"></a>App Service
+
+* 새 명령 `webapp update`로 일반 업데이트 추가됨
+
+### <a name="batch"></a>배치
+
+* 일괄 처리 SDK 4.0.0으로 업데이트됨
+* publish:offer:sku:version에 추가로 ARM 이미지 참조를 지원하는 VirtualMachineConfiguration의 `--image` 옵션이 업데이트됨
+* 일괄 처리 확장 명령을 위해 새 CLI 확장 모델에 대한 지원이 추가됨
+* 구성 요소 모델에서 일괄 처리 지원이 제거됨
+
+### <a name="batchai"></a>Batchai
+
+* 일괄 처리 AI 모듈의 초기 릴리스
+
+### <a name="keyvault"></a>Keyvault
+
+* Azure Stack에서 ADFS를 사용 시 Key Vault 인증 문제가 수정되었습니다. [(#4448)](https://github.com/Azure/azure-cli/issues/4448)
+
+### <a name="network"></a>네트워크
+
+* 빈 주소 풀을 감안하여 `application-gateway address-pool create`의 `--server` 인수가 선택적으로 변경됨
+* 최신 기능을 지원하기 위해 `traffic-manager`가 업데이트됨
+
+### <a name="resource"></a>리소스
+
+* 리소스 그룹 이름에 대한 `--resource-group/-g` 옵션 지원이 `group`에 추가됨
+* 구독 수준 잠금으로 작동하는 `account lock`에 대한 명령이 추가됨
+* 그룹 수준 잠금으로 작동하는 `group lock`에 대한 명령이 추가됨
+* 리소스 수준 잠금으로 작동하는 `resource lock`에 대한 명령이 추가됨
+
+### <a name="sql"></a>Sql
+
+* SQL TDE(투명한 데이터 암호화) 및 Bring Your Own Key를 사용하는 TDE에 대한 지원이 추가됨
+* 삭제된 데이터베이스를 찾아 복구하는 기능을 허용하는 `db list-deleted` 명령 및 `db restore --deleted-time` 매개 변수가 추가됨
+* 진행 중인 작업을 데이터베이스에 나열하고 취소하는 기능을 허용하는 `db op list` 및 `db op cancel` 추가됨
+
+### <a name="storage"></a>저장소
+
+* 파일 공유 스냅숏에 대한 지원 추가됨
+
+### <a name="vm"></a>VM
+
+* `-d` 사용으로 누락된 개인 IP 주소에서 충돌이 발생하는 `vm show`에서 버그 수정됨
+* [미리 보기] 롤링 업그레이드에 대한 지원이 `vmss create`에 추가됨
+* `vm encryption enable`을 사용하여 암호화 설정 업데이트에 대한 지원이 추가됨
+* `--os-disk-size-gb` 매개 변수가 `vm create`에 추가됨
+* Windows에 대한 `--license-type` 매개 변수가 `vmss create`에 추가됨
+
+
+## <a name="september-22-2017"></a>2017년 9월 22일
+
+버전 2.0.18
+
+### <a name="resource"></a>리소스
+
+* 기본 제공 정책 정의를 표시하기 위한 지원 추가
+* 정책 정의를 만들기 위한 지원 모드 매개 변수 추가
+* UI 정의 및 템플릿에 대한 지원을 `managedapp definition create`에 추가
+* [주요 변경 내용] `appliances`에서 `applications`로 그리고 `applianceDefinitions`에서 `applicationDefinitions`로 `managedapp` 리소스 종류 변경
+
+### <a name="network"></a>네트워크
+
+* 가용성 영역에 대한 지원을 `network lb` 및 `network public-ip` 하위 명령에 추가
+* IPv6 Microsoft 피어링에 대한 지원을 `express-route`에 추가
+* `asg` 응용 프로그램 보안 그룹 명령 추가
+* `--application-security-groups` 인수를 `nic [create|ip-config create|ip-config update]`에 추가
+* `--source-asgs` 및 `--destination-asgs` 인수를 `nsg rule [create|update]`에 추가
+* `--ddos-protection` 및 `--vm-protection` 인수를 `vnet [create|update]`에 추가
+* `network [vnet-gateway|vpn-client|show-url]` 명령이 추가됨
+
+### <a name="storage"></a>저장소
+
+* SDK를 업데이트한 후 `storage account network-rule` 명령이 실패하는 경우 문제 해결
+
+### <a name="eventgrid"></a>Event Grid
+
+* 최신 API 버전 "2017-09-15-preview"를 사용하기 위해 업데이트된 Azure Event Grid Python SDK
+
+### <a name="sql"></a>SQL
+
+* 선택할 수 있도록 `sql server list` 인수를 `--resource-group`으로 변경되었습니다. 지정하지 않으면 구독의 모든 sql 서버가 반환됨
+* `--no-wait` 매개 변수를 `db [create|copy|restore|update|replica create|create|update]` 및 `dw [create|update]`에 추가
+
+### <a name="keyvault"></a>Keyvault
+
+* 프록시 뒤에서부터 Keyvault 명령에 대한 지원 추가
+
+### <a name="vm"></a>VM
+
+* 가용성 영역에 대한 지원을 `[vm|vmss|disk] create`에 추가
+* `--app-gateway ID`와 `vmss create`를 함께 사용하는 경우 오류를 일으키는 문제 해결
+* `--asgs` 인수를 `vm create`에 추가
+* `vm run-command`를 사용하여 VM에서 명령을 실행하기 위한 지원 추가
+* [미리 보기] `vmss encryption`을 사용하여 VMSS 디스크 암호화에 대한 지원 추가
+* `vm perform-maintenance`를 사용하여 VM에서 유지 관리를 수행하기 위한 지원 추가
+
+### <a name="acs"></a>ACS
+
+* [미리 보기] `--orchestrator-release` 인수를 ACS 미리 보기 영역에 대한 `acs create`에 추가
+
+### <a name="appservice"></a>App Service
+
+* `webapp auth [update|show]`를 사용하여 인증 설정을 업데이트하고 표시하기 위한 기능 추가
+
+### <a name="backup"></a>백업
+
+* 미리 보기 릴리스
+
+
+## <a name="september-11-2017"></a>2017년 9월 11일
+
+버전 2.0.17
+
+### <a name="core"></a>코어
+
+* 원격 분석에서 고유한 상관 관계 ID를 설정하는 명령 모듈 설정됨
+* 원격 분석이 진단 모드로 설정된 경우 JSON 덤프 문제 수정됨
+
+### <a name="acs"></a>ACS
+
+* `acs list-locations` 명령이 추가됨
+* 예상된 기본값 함께 `ssh-key-file`을 제공함
+
+### <a name="appservice"></a>App Service
+
+* 활성 서비스 계획이 아닌 다른 리소스 그룹에서 웹앱을 만드는 기능 추가됨
+
+### <a name="cdn"></a>CDN
+
+* `cdn custom-domain create`에 대한 'CustomDomain is not interable' 버그 수정됨
+
+### <a name="extension"></a>내선 번호
+
+* 최초 릴리스
+
+### <a name="keyvault"></a>Keyvault
+
+* 사용 권한이 `keyvault set-policy`에서 대/소문자를 구분하는 문제 수정됨
+
+### <a name="network"></a>네트워크
+
+* 이름이 `vnet list-private-access-services`에서 `vnet list-endpoint-services`로 변경됨
+* `--private-access-services` 인수 이름을 `vnet subnet create/update`의 `--service-endpoints`로 변경
+* 여러 IP 범위 및 포트 범위에 대한 지원이 `nsg rule create/update`에 추가됨
+* SKU에 대한 지원이 `lb create`에 추가됨
+* SKU에 대한 지원이 `public-ip create`에 추가됨
+
+### <a name="resource"></a>리소스
+
+* `policy definition create` 및 `policy definition update`에 있는 리소스 정책 매개 변수 정의를 전달하도록 허용
+* `policy assignment create`의 매개 변수 값을 전달하도록 허용
+* 모든 매개 변수에 JSON 또는 파일을 전달하도록 허용
+* 증가된 API 버전
+
+### <a name="sql"></a>SQL
+
+* `sql server vnet-rule` 명령이 추가됨
+
+### <a name="vm"></a>VM
+
+* 수정됨: `--scope`가 제공되지 않으면 액세스 권한을 할당하지 않음
+* 수정됨: 포털과 마찬가지로 동일한 확장 명명을 사용함
+* `[vm|vmss] create` 출력에서 `subscription`이 제거됨
+* 수정됨: `[vm|vmss] create` 저장소 SKU가 이미지를 포함한 데이터 디스크에 적용되지 않음
+* 수정됨: `vm format-secret --secrets`가 줄 바꿈으로 구분된 ID를 허용하지 않음
+
+## <a name="august-31-2017"></a>2017년 8월 31일
+
+버전 2.0.16
+
+### <a name="keyvault"></a>Keyvault
+
+* `secret download`로 인코딩한 비밀을 자동으로 확인하려는 경우 버그 수정됨
+
+### <a name="sf"></a>Sf
+
+* Service Fabric CLI(sfctl)에서 모든 명령이 사용되지 않음
+
+### <a name="storage"></a>저장소
+
+* 저장소 계정을 NetworkACLs 기능을 지원하지 않는 지역에 만들지 못하는 문제 수정됨
+* 콘텐츠 형식 및 콘텐츠 인코딩을 모두 지정하지 않은 경우 Blob 및 파일을 업로드하는 동안 콘텐츠 형식 및 콘텐츠 인코딩을 결정함
 
 ## <a name="august-28-2017"></a>2017년 8월 28일
 
