@@ -12,13 +12,119 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 429b099dabd27d9356e88791f955ec52acd2a5f9
-ms.sourcegitcommit: 9b36c15dc0e10024e23b8018604f5ef63c025de1
+ms.openlocfilehash: 761bd61474e7c72fb2daeb756828f00196b56c3a
+ms.sourcegitcommit: bb649ebd7e7fce8fb5008ac1e2e2c33481a45df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="november-14-2017"></a>2017년 11월 14일
+
+버전 2.0.21
+
+### <a name="acr"></a>ACR
+
+* 복제 영역에서 웹후크를 만들기 위한 지원 추가됨
+
+
+### <a name="acs"></a>ACS
+
+* AKS에서 "에이전트"의 모든 단어 표현을 "노드"로 변경
+* `acs create`에 대한 사용되지 않음 `--orchestrator-release` 옵션
+* AKS의 기본 VM 크기를 `Standard_D1_v2`로 변경됨
+* Windows에서 `az aks browse` 수정됨
+* Windows에서 `az aks get-credentials` 수정됨
+
+### <a name="appservice"></a>App Service
+
+* WebApps 및 함수 앱을 위해 배포 원본 `config-zip` 추가
+* `--docker-container-logging` 옵션을 `az webapp log config`에 추가
+* `az webapp log config`의 매개 변수`--web-server-logging`에서 `storage` 옵션 제거됨
+* `deployment user set`에 대한 오류 메시지 향상됨
+* Linux 함수 앱을 만들기 위한 지원 추가
+* 고정 `list-locations`
+
+### <a name="batch"></a>Batch
+
+* 리소스 ID가 `--image` 플래그와 함께 사용된 경우 풀 만들기 명령의 버그 수정됨
+
+### <a name="batchai"></a>Batchai
+
+* `file-server create` 명령에서 VM 크기를 제공할 때 `--vm-size`에 대한 짧은 옵션 `-s` 추가
+* 저장소 계정 이름 및 키 인수를 `cluster create` 매개 변수에 추가됨
+* `job list-files` 및 `job stream-file` 설명서 수정됨
+* `job create` 명령에서 클러스터 이름을 제공할 때 `--cluster-name`에 대한 짧은 옵션 `-r` 추가
+
+### <a name="cloud"></a>클라우드
+
+* 필요한 끝점이 누락된 클라우드를 등록하지 못하도록 `cloud [register|update]` 변경
+
+### <a name="container"></a>컨테이너
+
+* 다중 포트를 열기 위한 지원 추가
+* 컨테이너 그룹 다시 시작 정책 추가
+* Azure 파일 공유를 볼륨으로 마운트하기 위한 지원 추가
+* 업데이트된 도우미 docs
+
+### <a name="data-lake-analytics"></a>데이터 레이크 분석
+
+* 보다 간결한 정보를 반환하기 위해 `[job|account] list` 변경
+
+### <a name="data-lake-store"></a>데이터 레이크 저장소
+
+* 보다 간결한 정보를 반환하기 위해 `account list` 변경
+
+### <a name="extension"></a>내선 번호
+
+* 공식 Microsoft 확장 목록을 나열하기 위해 `extension list-available` 추가
+* 이름별로 확장 설치하기 위해 `--name`을 `extension [add|update]`에 추가
+
+### <a name="iot"></a>IoT
+
+* 인증 기관(CA) 및 인증서 체인에 대한 지원 추가
+
+### <a name="monitor"></a>모니터
+
+* `activity-log alert` 명령이 추가됨
+
+### <a name="network"></a>네트워크
+
+* CAA DNS 레코드에 대한 지원 추가
+* `traffic-manager profile update`로 끝점을 업데이트할 수 없는 문제 해결
+* VNET이 만들어지는 방법에 따라 `vnet update --dns-servers`가 작동하지 않는 문제 해결
+* `dns zone import`가 상대 DNS 이름을 잘못 가져오는 문제 해결
+
+### <a name="reservations"></a>예약
+
+* 초기 미리 보기 릴리스
+
+### <a name="resource"></a>리소스
+
+* 리소스 ID에 대한 지원을 `--resource` 매개 변수 및 리소스 수준 잠금 기능에 추가
+
+### <a name="sql"></a>SQL
+
+* `--ignore-missing-vnet-service-endpoint` 매개 변수가 `sql server vnet-rule [create|update]`에 추가됨
+
+### <a name="storage"></a>저장소
+
+* 기본값으로 SKU `Standard_RAGRS`를 사용하기 위해 `storage account create` 변경
+* 비 ASCII 문자를 포함하는 파일/Blob 이름을 처리하는 경우 버그 수정됨
+* `--source-uri`를 `storage [blob|file] copy start-batch`와 함께 사용하지 못하는 버그 수정
+* glob에 명령 추가 및 `storage [blob|file] delete-batch`를 사용하여 여러 개체 삭제
+* `storage metrics update`로 메트릭을 사용할 때 문제 해결
+* `storage blob upload-batch`를 사용하는 경우 200GB 이상의 파일 사용 시 문제 해결
+* `storage account [create|update]`에 의해 `--bypass` 및 `--default-action`이 무시되는 문제 해결
+
+### <a name="vm"></a>VM
+
+* `Basic` 크기 계층을 사용하지 못하게 하는 `vmss create`의 버그 수정
+* 청구 정보가 있는 사용자 지정 이미지를 위해 `--plan` 인수를 `[vm|vmss] create`에 추가
+* `vm secret `[add|remove|list]` 명령 추가
+* 이름이 `vm format-secret`에서 `vm secret format`로 변경됨
+* `--encrypt format` 인수를 `vm encryption enable`에 추가
 
 ## <a name="october-24-2017"></a>2017년 10월 24일
 
@@ -73,7 +179,7 @@ ms.lasthandoff: 10/24/2017
 
 * 새 명령 `webapp update`로 일반 업데이트 추가됨
 
-### <a name="batch"></a>배치
+### <a name="batch"></a>Batch
 
 * 일괄 처리 SDK 4.0.0으로 업데이트됨
 * publish:offer:sku:version에 추가로 ARM 이미지 참조를 지원하는 VirtualMachineConfiguration의 `--image` 옵션이 업데이트됨
@@ -174,7 +280,7 @@ ms.lasthandoff: 10/24/2017
 
 * `webapp auth [update|show]`를 사용하여 인증 설정을 업데이트하고 표시하기 위한 기능 추가
 
-### <a name="backup"></a>백업
+### <a name="backup"></a>Backup
 
 * 미리 보기 릴리스
 
@@ -341,7 +447,7 @@ ms.lasthandoff: 10/24/2017
 
 * 더 많은 미리 보기 지역이 추가됨
 
-### <a name="batch"></a>배치
+### <a name="batch"></a>Batch
 
 * Batch SDK 3.1.0 및 Batch Management SDK 4.1.0으로 업데이트됨
 * 작업의 태스크 수를 표시하는 새 명령이 추가됨
@@ -482,7 +588,7 @@ vm (2.0.11)
 * 원본 제어 구성에 안정성 수정이 추가되었습니다(#3245).
 * Windows 웹앱에 대한 `webapp config update`에서 지원되지 않는 `--node-version` 인수가 제거되었습니다. 대신 `webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=...`을 사용합니다.
 
-### <a name="batch"></a>배치
+### <a name="batch"></a>Batch
 
 * 풀에서 우선 순위가 낮은 VM을 지원하는 Batch SDK 3.0.0으로 업데이트됨
 * `pool create`에 대한 옵션 이름이 `--target-dedicated`에서 `--target-dedicated-nodes`로 변경됨
