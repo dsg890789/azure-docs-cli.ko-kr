@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 11153c13fb9868897b0bb21dac9d64072c3af16e
-ms.sourcegitcommit: 70c4d7a14591e5b761e261105cd2d376753f2a54
+ms.openlocfilehash: 3354d1c6518ea2d0ef0db227a13b86cb59d0575e
+ms.sourcegitcommit: 0149f195a0d9f0ea9b7ff5c6e00ad4242223a1a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
 
@@ -184,7 +184,7 @@ mstsc /v:xx.xxx.xx.xxx
 az network lb create -n MyLoadBalancer -g MyResourceGroup
 ```
 
-다음 만들기 명령을 사용하여 인프라에 대한 새 개인 가상 네트워크(일반적으로 Azure 내에서는 "VNet"이라고 함)를 만들 수도 있습니다.
+다음 만들기 명령을 사용하여 인프라에 대한 새 개인 Virtual Network(일반적으로 Azure 내에서는 "VNet"이라고 함)를 만들 수도 있습니다.
 
 ```azurecli-interactive
 az network vnet create -n MyVirtualNetwork -g MyResourceGroup --address-prefix 10.0.0.0/16
@@ -328,7 +328,7 @@ MyWinVM    MyResourceGroup  westus2
 예를 들어 다음 명령을 실행하여 "My"라는 문자가 포함된 리소스 그룹 내의 모든 VM 리소스를 쿼리할 수 있습니다.
 
 ```azurecli-interactive
-az vm list --output table --query "[?contains(resourceGroup,'MY')]" 
+az vm list --output table --query "[?contains(resourceGroup, 'MY')]" 
 ```
 
 ```Output
@@ -341,7 +341,7 @@ MYRESOURCEGROUP  Succeeded            MyWinVM    westus2     XXXXXXXX-XXXX-XXXX-
 그런 다음 출력을 더욱 구체화하는 JMESPath 쿼리의 셰이핑 기능을 사용하여 다른 값을 출력할 수도 있습니다.  예를 들어 다음 명령은 OS가 Linux 기반인지 아니면 Windows 기반인지 확인하기 위해 VM에서 사용하는 OS 디스크 종류를 검색합니다.
 
 ```azurecli-interactive
-az vm list --output table --query "[?contains(resourceGroup,'MY')].{ VMName:name,OSType:storageProfile.osDisk.osType }" 
+az vm list --output table --query "[?contains(resourceGroup, 'MY')].{ VMName:name, OSType:storageProfile.osDisk.osType }" 
 ```
 
 ```Output

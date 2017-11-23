@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 5979acc5-21a5-41e2-a4b6-3183bfe6aa22
-ms.openlocfilehash: e0eee9eb9e0a9f136ff076d064ce802f76bc8e3d
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: 8ab4a5e38f06199c5f044b8526c581828ba61927
+ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="using-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0과 함께 JMESPath 쿼리 사용
 
@@ -46,7 +46,7 @@ KBDemo020    RGDEMO001        westus
 
 ```azurecli-interactive
 az vm list \
-  --query [*].[name,resourceGroup] --out table
+  --query [*].[name, resourceGroup] --out table
 ```
 
 ```
@@ -91,7 +91,7 @@ RGDEMO001  KBDemo020
 
 ```azurecli-interactive
 az vm list \
-  --query "[].{VMName:name,OSType:storageProfile.osDisk.osType}" --out table
+  --query "[].{VMName:name, OSType:storageProfile.osDisk.osType}" --out table
 ```
 
 ```
@@ -115,7 +115,7 @@ JMESPath `contains` 함수를 사용하여 쿼리에서 반환된 결과를 구�
 
 ```azurecli-interactive
 az vm list \
-  --query "[?contains(resourceGroup,'RGD')].{ resource: resourceGroup, name: name }" --out table
+  --query "[?contains(resourceGroup, 'RGD')].{ resource: resourceGroup, name: name }" --out table
 ```
 
 ```
