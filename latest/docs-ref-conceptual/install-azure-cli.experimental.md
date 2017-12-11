@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: ea0c785e56427190973887426188db76e6888062
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: 7d9c503c4e66f07795d5fec99c206fe7d3afb6a7
+ms.sourcegitcommit: 5fc7d8ccf2304c5a12fb99a80f0b00a0ad2c34e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 설치
 
@@ -38,5 +38,5 @@ Linux의 경우 사용 가능한 패키지 관리자에 따라 여러 가지 설
 * [수동으로 Linux에 설치](install-azure-cli-linux.md)
 
 > [!NOTE]
-> 이전 버전의 Azure CLI가 필요한 경우 [Azure CLI 1.0 설치](/azure/cli-install-nodejs) 방법을 참조하세요.
+> ASM(Azure 서비스 관리) 모델을 사용하는 경우 [Azure CLI 1.0을 설치합니다](/azure/cli-install-nodejs).
 

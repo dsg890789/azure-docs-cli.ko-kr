@@ -12,13 +12,71 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 761bd61474e7c72fb2daeb756828f00196b56c3a
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: e02b84891f4bf60cde12591b8e85987f4b3c9e79
+ms.sourcegitcommit: a3c8e15eafac1ddc2289110d513b39714a23353b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="december-5-2017"></a>2017년 12월 5일
+
+버전 2.0.22
+
+* `az component` 명령이 제거되었습니다. 대신 `az extension`을 사용하세요.
+
+### <a name="core"></a>코어
+* `AZURE_US_GOV_CLOUD` AAD 권한 끝점이 login.microsoftonline.com에서 login.microsoftonline.us로 수정됨
+* 원격 분석이 지속적으로 다시 전송되는 문제가 해결됨
+
+### <a name="acs"></a>ACS
+
+* `aks install-connector` 및 `aks remove-connector` 명령이 추가됨
+* `acs create`에 대한 오류 보고가 개선됨
+* 정규화된 경로 없이 `aks get-credentials -f`가 사용되는 문제가 해결됨
+
+### <a name="advisor"></a>Advisor
+
+* 최초 릴리스
+
+### <a name="appservice"></a>App Service
+
+* `webapp config ssl upload`를 사용한 인증서 이름 생성 문제가 해결됨
+* `webapp [list|show]` 및 `functionapp [list|show]`가 올바른 앱을 표시하도록 수정됨
+* `WEBSITE_NODE_DEFAULT_VERSION`에 대한 기본값이 추가됨
+
+### <a name="consumption"></a>Consumption
+
+* API 버전 2017-11-30에 대한 지원이 추가됨
+
+### <a name="container"></a>컨테이너
+
+* 기본 포트 회귀가 수정됨
+
+### <a name="monitor"></a>모니터
+
+* 메트릭 명령에 다차원 지원이 추가됨
+
+### <a name="resource"></a>리소스
+
+* `--include-response-body` 인수를 `resource show`에 추가
+
+### <a name="role"></a>역할
+
+* `role assignment list`에 "클래식" 관리자에 대한 기본 할당 표시가 추가됨
+* 덮어 쓰지 않고 자격 증명을 추가하기 위한 지원 기능이 `ad sp reset-credentials`에 추가됨
+* `ad sp create-for-rbac`에 대한 오류 보고가 개선됨
+
+### <a name="sql"></a>SQL
+
+* `sql db list-usages` 및 `sql db show-usage` 명령이 추가됨
+* `sql server conn-policy show` 및 `sql server conn-policy update` 명령이 추가됨
+
+### <a name="vm"></a>VM
+
+* `az vm list-skus`에 영역 정보가 추가됨
+
 
 ## <a name="november-14-2017"></a>2017년 11월 14일
 
@@ -408,7 +466,7 @@ ms.lasthandoff: 11/20/2017
 
 * 설정 Blob 계층이 사용됨
 * 서비스 터널링을 지원하는 `--bypass` 및 `--default-action` 인수가 `storage account [create|update]`에 추가됨
-* VNET 규칙 및 IP 기반 규칙을 추가하는 명령이 `storage account network-rule`에 추가됨  
+* VNET 규칙 및 IP 기반 규칙을 추가하는 명령이 `storage account network-rule`에 추가됨
 * 고객 관리 키에 의한 서비스 암호화가 사용됨
 * [주요 변경 내용] `az storage account create and az storage account update` 명령에 대한 옵션 이름이 `--encryption`에서 `--encryption-services`로 변경됨
 * #4220: `az storage account update encryption` - 구문 불일치가 수정됨
@@ -416,8 +474,8 @@ ms.lasthandoff: 11/20/2017
 ### <a name="vm"></a>VM
 
 * `--instance-id *`를 사용할 때 `vmss get-instance-view`에 대해 잘못된 추가 정보가 표시되는 문제가 해결되었습니다.
-* `--lb-sku`에 대한 지원이 `vmss create`에 추가됨 
-* `[vm|vmss] create`에 대한 관리자 이름 블랙리스트에서 사람의 이름이 제거됨 
+* `--lb-sku`에 대한 지원이 `vmss create`에 추가됨
+* `[vm|vmss] create`에 대한 관리자 이름 블랙리스트에서 사람의 이름이 제거됨
 * 이미지에서 계획 정보를 추출할 수 없는 경우 `[vm|vmss] create`에서 오류를 throw하는 문제가 해결되었습니다.
 * 내부 LB가 있는 VMMS 확장 집합을 만들 때 발생하는 크래시가 해결되었습니다.
 * `--no-wait` 인수가 `vm availability-set create`와 함께 작동하지 않는 문제가 해결되었습니다.
@@ -505,43 +563,43 @@ ms.lasthandoff: 11/20/2017
 * 청구 및 소비 모듈이 추가됨
 
 ```
-azure-cli (2.0.12)  
+azure-cli (2.0.12)
 
-acr (2.0.9)  
-acs (2.0.11)  
-appservice (0.1.11)  
-batch (3.0.3)  
-billing (0.1.3)  
-cdn (0.0.6)  
-cloud (2.0.7)  
-cognitiveservices (0.1.6)  
-command-modules-nspkg (2.0.1)  
-component (2.0.6)  
-configure (2.0.10)  
-consumption (0.1.3)  
-container (0.1.7)  
-core (2.0.12)  
-cosmosdb (0.1.11)  
-dla (0.0.10)  
-dls (0.0.11)  
-feedback (2.0.6)  
-find (0.2.6)  
-interactive (0.3.7)  
-iot (0.1.10)  
-keyvault (2.0.8)  
-lab (0.0.9)  
-monitor (0.0.8)  
-network (2.0.11)  
-nspkg (3.0.1)  
-profile (2.0.9)  
-rdbms (0.0.5)  
-redis (0.2.7)  
-resource (2.0.11)  
-role (2.0.9)  
-sf (1.0.5)  
-sql (2.0.8)  
-storage (2.0.11)  
-vm (2.0.11) 
+acr (2.0.9)
+acs (2.0.11)
+appservice (0.1.11)
+batch (3.0.3)
+billing (0.1.3)
+cdn (0.0.6)
+cloud (2.0.7)
+cognitiveservices (0.1.6)
+command-modules-nspkg (2.0.1)
+component (2.0.6)
+configure (2.0.10)
+consumption (0.1.3)
+container (0.1.7)
+core (2.0.12)
+cosmosdb (0.1.11)
+dla (0.0.10)
+dls (0.0.11)
+feedback (2.0.6)
+find (0.2.6)
+interactive (0.3.7)
+iot (0.1.10)
+keyvault (2.0.8)
+lab (0.0.9)
+monitor (0.0.8)
+network (2.0.11)
+nspkg (3.0.1)
+profile (2.0.9)
+rdbms (0.0.5)
+redis (0.2.7)
+resource (2.0.11)
+role (2.0.9)
+sf (1.0.5)
+sql (2.0.8)
+storage (2.0.11)
+vm (2.0.11)
 ```
 
 ### <a name="core"></a>코어
@@ -754,8 +812,8 @@ vm (2.0.11)
 * `storage blob list`, `storage container list` 및 `storage share list` 명령에서 `--marker` 옵션이 제거됨(#3745)
 * HTTPS 전용 저장소 계정 만들기 사용
 * 저장소 메트릭, 로깅 및 CORS 명령이 업데이트됨(#3495)
-* CORS add(#3638)(#3362)의 예외 메시지가 수정됨  
-* download batch 명령 dryrun(시험 실행) 모드에서 생성기가 목록으로 변환됨(#3592) 
+* CORS add(#3638)(#3362)의 예외 메시지가 수정됨
+* download batch 명령 dryrun(시험 실행) 모드에서 생성기가 목록으로 변환됨(#3592)
 * Blob download batch dryrun 문제가 해결됨(#3640)(#3592)
 
 ### <a name="vm"></a>VM
@@ -821,7 +879,7 @@ vm (2.0.6)
 
 ### <a name="core"></a>코어
 
-* core: 등록되지 않은 공급자에 의한 예외를 캡처하고 자동으로 등록   
+* core: 등록되지 않은 공급자에 의한 예외를 캡처하고 자동으로 등록
 * perf: 프로세스가 종료될 때까지 adal 토큰 캐시를 메모리에 유지([#2603](https://github.com/Azure/azure-cli/issues/2603))
 * hex fingerprint -o tsv에 의해 반환된 바이트 수정([#3053](https://github.com/Azure/azure-cli/issues/3053))
 * 향상된 Key Vault 인증서 다운로드 및 AAD SP 통합([#3003](https://github.com/Azure/azure-cli/issues/3003))
@@ -915,7 +973,7 @@ vm (2.0.6)
 * `--no-wait` 또는 `--validate` 매개 변수를 사용할 때 `vpn-connection create`를 사용하여 버그를 수정합니다.
 * 활성-활성 VNet 게이트웨이에 대한 지원 추가
 * `network vpn-connection list/show` 명령의 출력에서 null 값 제거
-* BC: `vpn-connection create`의 출력에서 버그 수정 
+* BC: `vpn-connection create`의 출력에서 버그 수정
 * 'vpn-connection create'의 '--key-length' 인수가 제대로 구문 분석되지 않는 버그를 수정합니다.
 * 레코드가 제대로 가져와지지 않는 `dns zone import`의 버그를 수정합니다.
 * `traffic-manager endpoint update`가 작동하지 않는 버그를 수정합니다.
@@ -981,7 +1039,7 @@ vm (2.0.6)
 
 ```
 azure-cli (2.0.2)
- 
+
 acr (2.0.0)
 acs (2.0.2)
 appservice (0.1.2)
@@ -1019,26 +1077,26 @@ vm (2.0.2)
 * 누락된 템플릿 매개 변수를 요청하는 프롬프트 추가. ([#2364](https://github.com/Azure/azure-cli/pull/2364))
 * 기본 리소스 그룹, 기본 웹, 기본 vm 등과 같은 공통 인수에 대한 기본값 설정 지원
 * 특정 테넌트에 대한 로그인 지원
- 
+
 ### <a name="acs"></a>ACS
 
 * [ACS] 기본 ACS 클러스터 구성 지원 추가([#2554](https://github.com/Azure/azure-cli/pull/2554))
 * ssh 키 암호 프롬프트 지원 추가. ([#2044](https://github.com/Azure/azure-cli/pull/2044))
 * windows 클러스터 지원 추가. ([#2211](https://github.com/Azure/azure-cli/pull/2211))
 * 소유자 역할에서 참가자 역할로 전환. ([#2321](https://github.com/Azure/azure-cli/pull/2321))
- 
+
 ### <a name="appservice"></a>AppService
 
 * appservice: DNS A 레코드에 사용된 외부 ip 주소 가져오기 지원([#2627](https://github.com/Azure/azure-cli/pull/2627))
 * appservice: 와일드카드 인증서 바인딩 지원([#2625](https://github.com/Azure/azure-cli/pull/2625))
 * appservice: 게시 프로필 나열 지원([#2504](https://github.com/Azure/azure-cli/pull/2504))
 * AppService - 구성 후 원본 제어 동기화 트리거([#2326](https://github.com/Azure/azure-cli/pull/2326))
- 
+
 ### <a name="datalake"></a>DataLake
 
 * Data Lake Analytics 모듈의 초기 릴리스.
 * Data Lake Store 모듈의 초기 릴리스.
- 
+
 ### <a name="docuemntdb"></a>DocuemntDB
 
 * DocumentDB: 연결 문자열 나열에 대한 지원 추가([#2580](https://github.com/Azure/azure-cli/pull/2580))
@@ -1097,8 +1155,8 @@ role (2.0.0)
 sql (0.1.1b5)
 storage (2.0.0)
 vm (2.0.0)
- 
-Python (Darwin) 2.7.10 (default, Jul 30 2016, 19:40:32) 
+
+Python (Darwin) 2.7.10 (default, Jul 30 2016, 19:40:32)
 [GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.34)]
 ```
 
