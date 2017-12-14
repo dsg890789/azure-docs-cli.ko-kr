@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
-ms.openlocfilehash: cb470d179daf7cb4ecf535903adb12071602034e
-ms.sourcegitcommit: 5db22de971cf3983785cb209d92cbed1bbd69ecf
+ms.openlocfilehash: 0eb07d2919f6e640e1d594db9e18f9ada4d9f59f
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="managing-multiple-clouds-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 여러 클라우드 관리
 
@@ -86,7 +86,7 @@ az cloud set --name AzureChinaCloud
 
 ## <a name="register-a-cloud"></a>클라우드 등록
 
-Azure Stack에 대한 사용자 고유의 끝점이 있는 경우 새 클라우드를 등록합니다. 클라우드를 만들려면 [cloud register](/cli/azure/cloud#register) 명령을 사용합니다. 이 명령에는 이름 그리고 연관된 끝점이 있는 기능 집합이 필요합니다. Azure Stack과 함께 사용할 클라우드를 등록하는 방법에 대해 알아보려면 [Azure Stack과 함께 사용할 CLI 설치 및 구성](/azure/azure-stack/user/azure-stack-connect-cli#connect-to-azure-stack)을 참조하세요.  
+Azure Stack에 대한 사용자 고유의 끝점이 있는 경우 새 클라우드를 등록합니다. 클라우드를 만들려면 [cloud register](/cli/azure/cloud#register) 명령을 사용합니다. 이 명령에는 이름 그리고 연관된 끝점이 있는 기능 집합이 필요합니다. Azure Stack과 함께 사용할 클라우드를 등록하는 방법에 대해 알아보려면 [Azure Stack과 함께 사용할 CLI 설치 및 구성](/azure/azure-stack/user/azure-stack-connect-cli#connect-to-azure-stack)을 참조하세요.
 
 중국, 미국 정부 또는 독일 지역의 경우 클라우드를 등록할 필요가 없습니다. 이들 지역은 Microsoft에서 관리하며 기본적으로 사용할 수 있습니다.  사용 가능한 모든 끝점 설정에 대한 자세한 내용은 `az cloud register`](/cli/azure/cloud?view=azure-cli-latest#az_cloud_register)에 대한 [ 설명서를 참조하세요.
 

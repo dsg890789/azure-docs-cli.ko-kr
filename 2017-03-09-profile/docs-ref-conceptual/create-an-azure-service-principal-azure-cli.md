@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: fab89cb8-dac1-4e21-9d34-5eadd5213c05
-ms.openlocfilehash: a6ad5611f3e507b65e160122c87e22ec44546588
-ms.sourcegitcommit: 0149f195a0d9f0ea9b7ff5c6e00ad4242223a1a8
+ms.openlocfilehash: 9c2b693c356be78893d0893221d99a23beb5f38b
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기
 
@@ -29,13 +29,13 @@ Azure CLI 2.0을 사용하여 앱 또는 서비스를 관리하려는 경우 고
 
 ## <a name="what-is-a-service-principal"></a>'서비스 주체'란?
 
-Azure 서비스 주체는 특정 Azure 리소스에 액세스하기 위해 사용자가 만든 앱, 서비스 및 자동화 도구에서 사용하는 보안 ID입니다. 특정한 역할이 있는 '사용자 ID'(로그인과 암호 또는 인증서)이며 리소스에 액세스하기 위해 엄격하게 제어됩니다. 일반 사용자 ID와 달리 특정 작업만을 수행해야 합니다. 해당 관리 작업을 수행하는 데 필요한 최소 사용 권한 수준을 부여하는 경우 보안이 향상됩니다. 
+Azure 서비스 주체는 특정 Azure 리소스에 액세스하기 위해 사용자가 만든 앱, 서비스 및 자동화 도구에서 사용하는 보안 ID입니다. 특정한 역할이 있는 '사용자 ID'(로그인과 암호 또는 인증서)이며 리소스에 액세스하기 위해 엄격하게 제어됩니다. 일반 사용자 ID와 달리 특정 작업만을 수행해야 합니다. 해당 관리 작업을 수행하는 데 필요한 최소 사용 권한 수준을 부여하는 경우 보안이 향상됩니다.
 
 Azure CLI 2.0은 암호 기반 인증 자격 증명 및 인증서 자격 증명을 만들도록 지원합니다. 이 항목에서는 두 가지 자격 증명을 다룹니다.
 
 ## <a name="verify-your-own-permission-level"></a>고유한 사용 권한 수준 확인
 
-먼저 Azure Active Directory와 Azure 구독에 대한 충분한 권한이 있어야 합니다. 특히, Active Directory에서 앱을 만들고 서비스 주체에 역할을 할당할 수 있어야 합니다. 
+먼저 Azure Active Directory와 Azure 구독에 대한 충분한 권한이 있어야 합니다. 특히, Active Directory에서 앱을 만들고 서비스 주체에 역할을 할당할 수 있어야 합니다.
 
 계정에 적절한 사용 권한이 있는지를 확인하는 가장 쉬운 방법은 포털을 통하는 것입니다. [포털에서 필요한 사용 권한 확인](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)을 참조하세요.
 
@@ -81,8 +81,8 @@ az ad app list --display-name MyDemoWebApp
 [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) 및 `--password` 매개 변수를 사용하여 암호를 가진 서비스 주체를 만듭니다. 역할 또는 범위를 제공하지 않으면 현재 구독의 **참가자** 역할을 기본적으로 제공합니다. `--password` 또는 `--cert` 매개 변수 중 하나를 사용하지 않고 서비스 주체를 만드는 경우 암호 인증을 사용하고 암호를 만듭니다.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name {appId} --password "{strong password}" 
-``` 
+az ad sp create-for-rbac --name {appId} --password "{strong password}"
+```
 
 ```json
 {
@@ -94,7 +94,7 @@ az ad sp create-for-rbac --name {appId} --password "{strong password}"
 }
 ```
 
- > [!WARNING] 
+ > [!WARNING]
  > 안전하지 않은 암호를 만들지 마세요.  [Azure AD 암호 규칙 및 제한 사항](/azure/active-directory/active-directory-passwords-policy) 지침을 따르세요.
 
 ### <a name="create-a-service-principal-with-a-self-signed-certificate"></a>자체 서명된 인증서를 사용하여 서비스 주체 만들기
@@ -145,7 +145,7 @@ az ad sp show --id a487e0c1-82af-47d9-9a0b-af184eb87646d
 
 ```azurecli-interactive
 az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password-or-path-to-cert} --tenant {tenant}
-``` 
+```
 
 성공적으로 로그온하면 이 출력이 표시될 것입니다.
 
@@ -165,9 +165,9 @@ az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password
 ]
 ```
 
-앱을 실행하기 위한 자격 증명으로 `id`, `password` 및 `tenant` 값을 사용합니다. 
+앱을 실행하기 위한 자격 증명으로 `id`, `password` 및 `tenant` 값을 사용합니다.
 
-## <a name="managing-roles"></a>역할 관리 
+## <a name="managing-roles"></a>역할 관리
 
 > [!NOTE]
 > Azure 역할 기반 Access Control(RBAC)은 사용자 및 서비스 주체에 대한 역할을 정의하고 관리하기 위한 모델입니다.
@@ -210,10 +210,10 @@ az role assignment list --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d
 }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > 계정에 역할을 할당할 권한이 없는 경우 오류 메시지가 나타납니다.
 > 이 메시지는 계정에 "/subscriptions/{guid}' 범위에 대해 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 권한이 없다"는 내용입니다.
-   
+
 ## <a name="change-the-credentials-of-a-security-principal"></a>보안 주체의 자격 증명 변경
 
 사용 권한을 검토하고 암호를 정기적으로 업데이트하는 것은 좋은 보안 방법입니다. 앱이 변경되면 보안 자격 증명을 관리하고 수정할 수도 있습니다.

@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 5979acc5-21a5-41e2-a4b6-3183bfe6aa22
-ms.openlocfilehash: 8ab4a5e38f06199c5f044b8526c581828ba61927
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: b086785f7b20622111e0a05e7cc7c27ddb5449b5
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0과 함께 JMESPath 쿼리 사용
 
@@ -111,7 +111,7 @@ KBDemo020    Linux
 ## <a name="filter-with-the-contains-function"></a>contains 함수로 필터링
 
 JMESPath `contains` 함수를 사용하여 쿼리에서 반환된 결과를 구체화할 수 있습니다.
-다음 예제의 명령은 이름에 "RGD"라는 텍스트가 포함된 VM만 선택합니다.  
+다음 예제의 명령은 이름에 "RGD"라는 텍스트가 포함된 VM만 선택합니다.
 
 ```azurecli-interactive
 az vm list \

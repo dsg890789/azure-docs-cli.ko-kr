@@ -12,20 +12,19 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c01679ccb77880f1f628f4e48683d8ff030a568b
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: 6b9a97e73f45c8271f1e8f19d5a8cf5f9f748d07
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-azure-cli-20-with-zypper"></a>zypper를 사용하여 Azure CLI 2.0 설치
 
 OpenSUSE 또는 SLE처럼 `zypper`와 함께 제공되는 배포를 실행하는 경우 시스템에 설치할 수 있는Azure CLI용 패키지가 제공됩니다.
 
-> [!NOTE]
-> CLI를 사용하려면 Python 2.7.x 또는 Python 3.x가 있어야 합니다. 배포에 패키지가 없으면 [Python](https://www.python.org/downloads/)을 설치하세요.
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
-## <a name="install"></a>설치 
+## <a name="install"></a>설치
 
 1. `curl` 설치:
 

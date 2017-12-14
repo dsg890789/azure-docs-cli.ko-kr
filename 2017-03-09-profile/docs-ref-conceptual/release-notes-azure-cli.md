@@ -13,10 +13,10 @@ ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
 ms.openlocfilehash: e02b84891f4bf60cde12591b8e85987f4b3c9e79
-ms.sourcegitcommit: a3c8e15eafac1ddc2289110d513b39714a23353b
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
 
@@ -126,11 +126,12 @@ ms.lasthandoff: 12/07/2017
 * Azure 파일 공유를 볼륨으로 마운트하기 위한 지원 추가
 * 업데이트된 도우미 docs
 
-### <a name="data-lake-analytics"></a>데이터 레이크 분석
+### <a name="data-lake-analytics"></a>Data Lake Analytics
+
 
 * 보다 간결한 정보를 반환하기 위해 `[job|account] list` 변경
 
-### <a name="data-lake-store"></a>데이터 레이크 저장소
+### <a name="data-lake-store"></a>Data Lake Store
 
 * 보다 간결한 정보를 반환하기 위해 `account list` 변경
 
@@ -166,7 +167,7 @@ ms.lasthandoff: 12/07/2017
 
 * `--ignore-missing-vnet-service-endpoint` 매개 변수가 `sql server vnet-rule [create|update]`에 추가됨
 
-### <a name="storage"></a>저장소
+### <a name="storage"></a>Storage
 
 * 기본값으로 SKU `Standard_RAGRS`를 사용하기 위해 `storage account create` 변경
 * 비 ASCII 문자를 포함하는 파일/Blob 이름을 처리하는 경우 버그 수정됨
@@ -270,7 +271,7 @@ ms.lasthandoff: 12/07/2017
 * 삭제된 데이터베이스를 찾아 복구하는 기능을 허용하는 `db list-deleted` 명령 및 `db restore --deleted-time` 매개 변수가 추가됨
 * 진행 중인 작업을 데이터베이스에 나열하고 취소하는 기능을 허용하는 `db op list` 및 `db op cancel` 추가됨
 
-### <a name="storage"></a>저장소
+### <a name="storage"></a>Storage
 
 * 파일 공유 스냅숏에 대한 지원 추가됨
 
@@ -304,7 +305,7 @@ ms.lasthandoff: 12/07/2017
 * `--ddos-protection` 및 `--vm-protection` 인수를 `vnet [create|update]`에 추가
 * `network [vnet-gateway|vpn-client|show-url]` 명령이 추가됨
 
-### <a name="storage"></a>저장소
+### <a name="storage"></a>Storage
 
 * SDK를 업데이트한 후 `storage account network-rule` 명령이 실패하는 경우 문제 해결
 
@@ -412,7 +413,7 @@ ms.lasthandoff: 12/07/2017
 
 * Service Fabric CLI(sfctl)에서 모든 명령이 사용되지 않음
 
-### <a name="storage"></a>저장소
+### <a name="storage"></a>Storage
 
 * 저장소 계정을 NetworkACLs 기능을 지원하지 않는 지역에 만들지 못하는 문제 수정됨
 * 콘텐츠 형식 및 콘텐츠 인코딩을 모두 지정하지 않은 경우 Blob 및 파일을 업로드하는 동안 콘텐츠 형식 및 콘텐츠 인코딩을 결정함
@@ -455,14 +456,14 @@ ms.lasthandoff: 12/07/2017
 
 * 가상 컴퓨터의 ID를 사용하여 로그인하는 `--msi` 및 `--msi-port`가 공개됨
 
-### <a name="service-fabric"></a>서비스 패브릭
+### <a name="service-fabric"></a>Service Fabric
 
 * 미리 보기 릴리스
 * 명령에 대한 레지스트리 사용자/암호 규칙이 간소화됨
 * 매개 변수를 전달한 후에도 사용자에게 암호를 묻는 메시지가 수정됨
 * 빈 `registry_cred`에 대한 지원이 추가됨
 
-### <a name="storage"></a>저장소
+### <a name="storage"></a>Storage
 
 * 설정 Blob 계층이 사용됨
 * 서비스 터널링을 지원하는 `--bypass` 및 `--default-action` 인수가 `storage account [create|update]`에 추가됨
@@ -523,7 +524,7 @@ ms.lasthandoff: 12/07/2017
 * `create`: 환경 변수에서 등호가 허용되지 않는 문제가 해결되었습니다.
 
 
-### <a name="data-lake-store"></a>데이터 레이크 저장소
+### <a name="data-lake-store"></a>Data Lake Store
 
 * 진행률 컨트롤이 사용됨
 
@@ -542,7 +543,7 @@ ms.lasthandoff: 12/07/2017
 
 * `account list`: 서버에서 최신 구독을 동기화하는 `--refresh`가 추가됨
 
-### <a name="storage"></a>저장소
+### <a name="storage"></a>Storage
 
 * 시스템에 할당된 ID를 통한 저장소 계정 업데이트가 사용됨
 
@@ -669,13 +670,14 @@ vm (2.0.11)
 * 사용자 지정 파티션 키를 사용하여 컬렉션을 만들 수 있도록 수정되었습니다.
 * 컬렉션 기본 TTL에 대한 지원이 추가되었습니다.
 
-### <a name="data-lake-analytics"></a>데이터 레이크 분석
+### <a name="data-lake-analytics"></a>Data Lake Analytics
+
 
 * `dla account compute-policy` 제목 아래에 계산 정책을 관리하는 명령이 추가됨
 * `dla job pipeline show`가 추가됨
 * `dla job recurrence list`가 추가됨
 
-### <a name="data-lake-store"></a>데이터 레이크 저장소
+### <a name="data-lake-store"></a>Data Lake Store
 
 * `dls account update`에 사용자 관리 키 자격 증명 모음 키 회전에 대한 지원이 추가되었습니다.
 * 기본 Data Lake Store 파일 시스템 SDK 버전을 업데이트하여 성능 문제가 해결되었습니다.
@@ -796,7 +798,7 @@ vm (2.0.11)
 * `--expanded-view`를 사용할 때 사용 중단 경고가 표시됨
 * `create-for-rbac` 및 `reset-credentials` 명령에 키 자격 증명 모음 통합이 추가됨
 
-### <a name="service-fabric"></a>서비스 패브릭
+### <a name="service-fabric"></a>Service Fabric
 * 업로드 시 응용 프로그램의 대형 파일을 자르는 문제가 해결되었습니다(#3666).
 * Service Fabric 명령에 대한 테스트가 추가됨(#3424)
 * 다양한 Service Fabric 명령이 수정됨(#3234)
@@ -807,7 +809,7 @@ vm (2.0.11)
 * `sql server create` 및 `sql server update` 명령 출력에서 암호 값이 제거됨
 * `sql db list-editions` 및 `sql elastic-pool list-editions` 명령이 추가됨
 
-### <a name="storage"></a>저장소
+### <a name="storage"></a>Storage
 
 * `storage blob list`, `storage container list` 및 `storage share list` 명령에서 `--marker` 옵션이 제거됨(#3745)
 * HTTPS 전용 저장소 계정 만들기 사용
@@ -918,7 +920,8 @@ vm (2.0.6)
 * 데이터베이스 계정에 대해 자동 장애 조치(Failover)를 사용하도록 설정하기 위한 지원이 추가됨
 * 새 일관성 정책 ConsistentPrefix에 대한 지원이 추가됨
 
-### <a name="data-lake-analytics"></a>데이터 레이크 분석
+### <a name="data-lake-analytics"></a>Data Lake Analytics
+
 
 * 작업 목록의 결과 및 상태에 대한 필터링 시 오류가 throw되는 버그를 수정합니다.
 * 새 카탈로그 항목 형식: 패키지에 대한 지원을 추가합니다. `az dla catalog package`를 통해 액세스
@@ -929,7 +932,7 @@ vm (2.0.6)
   * 보기
   * 테이블 통계. 테이블 이름을 지정하지 않고 스키마와 함께 나열될 수도 있습니다.
 
-### <a name="data-lake-store"></a>데이터 레이크 저장소
+### <a name="data-lake-store"></a>Data Lake Store
 
 * 기본 파일 시스템 SDK 버전을 업데이트하여 서버 쪽 제한 시나리오 처리에 대해 보다 나은 지원을 제공합니다.
 * 패키지 로드 및 명령 실행의 성능 개선([#2819](https://github.com/Azure/azure-cli/issues/2819))

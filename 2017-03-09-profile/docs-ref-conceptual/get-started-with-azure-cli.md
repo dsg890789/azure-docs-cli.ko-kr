@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 3354d1c6518ea2d0ef0db227a13b86cb59d0575e
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: 689b8f4d77af5a6f398c0dd85e922baa398f767a
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
 
@@ -51,7 +51,7 @@ CLI를 [설치](install-azure-cli.md)하고 명령줄에서 로컬로 실행할 
 Azure의 *westus2* 지역에 "MyResourceGroup"이라는 이름의 리소스 그룹을 만듭니다.  이렇게 하려면 다음 명령을 입력합니다.
 
 ```azurecli-interactive
-az group create -n MyResourceGroup -l westus2 
+az group create -n MyResourceGroup -l westus2
 ```
 
 리소스 그룹이 만들어지면 `az group create` 명령이 새로 생성된 리소스의 여러 속성을 출력합니다.
@@ -141,7 +141,7 @@ my-login@MyLinuxVM:~$
 
 이제 `az vm create` 명령을 사용하여 Windows Server 2016 Datacenter 기반 VM을 만들고, Linux VM에 사용한 것과 동일한 "MyResourceGroup" 리소스 그룹에 추가하겠습니다.  Linux VM 예제와 마찬가지로 `--data-disk-sizes-gb` 매개 변수를 사용하여 두 개의 저장소 디스크를 연결하겠습니다.
 
-Azure에서는 예측하기 어려운 사용자 이름/암호를 사용해야 합니다. 사용 가능한 문자와 사용자 이름 및 암호의 최소 길이에 대한 구체적인 규칙이 있습니다.  
+Azure에서는 예측하기 어려운 사용자 이름/암호를 사용해야 합니다. 사용 가능한 문자와 사용자 이름 및 암호의 최소 길이에 대한 구체적인 규칙이 있습니다.
 
 > [!NOTE]
 > 이 명령을 실행하면 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다.
@@ -165,7 +165,7 @@ VM이 완전히 생성되어 액세스 및 사용 준비를 마치면 `az vm cre
 }
 ```
 
-이제 원격 데스크톱 및 VM(`az vm create`의 출력에 반환된)의 공용 IP 주소를 사용하여 새로 만든 Windows Server VM에 로그온합니다.  
+이제 원격 데스크톱 및 VM(`az vm create`의 출력에 반환된)의 공용 IP 주소를 사용하여 새로 만든 Windows Server VM에 로그온합니다.
 Windows 기반 시스템을 사용하는 경우 명령줄에서 `mstsc` 명령을 사용하여 다음과 같은 일을 할 수 있습니다.
 
 ```azurecli-interactive
@@ -176,7 +176,7 @@ mstsc /v:xx.xxx.xx.xxx
 
 ## <a name="creating-other-resources-in-azure"></a>Azure에서 다른 리소스 만들기
 
-지금까지 리소스 그룹, Linux VM 및 Windows Server VM을 만드는 방법을 살펴보았습니다. 여러 다른 유형의 Azure 리소스도 만들 수 있습니다.  
+지금까지 리소스 그룹, Linux VM 및 Windows Server VM을 만드는 방법을 살펴보았습니다. 여러 다른 유형의 Azure 리소스도 만들 수 있습니다.
 
 모든 새 리소스는 일관적인 `az <resource type name> create` 명명 패턴을 사용하여 생성됩니다.  예를 들어 Azure 네트워크 부하 분산 장치를 만든 후 새로 만든 VM과 연결하려면 다음 만들기 명령을 사용합니다.
 
@@ -199,8 +199,8 @@ Azure 및 Azure CLI가 강력한 이유는 클라우드 기반 인프라를 가�
 az appservice plan create -n MyAppServicePlan -g MyResourceGroup
 
 # Create Two Web Apps within the AppService (note: name param must be a unique DNS entry)
-az webapp create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan 
-az webapp create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan 
+az webapp create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan
+az webapp create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan
 ```
 
 `az <resource type name> create` 패턴의 기본을 이해하고 나면 무엇이든 쉽게 만들 수 있습니다. 다음은 몇 가지 인기 있는 Azure 리소스 유형과 해당 유형을 만드는 해당 Azure CLI 만들기 명령입니다.
@@ -221,7 +221,7 @@ SQL Database Server         az sql server create
 Document DB                 az documentdb create
 ```
 
-앞서 언급한 각 명령에 전달할 수 있는 추가 리소스별 매개 변수 및 사용자가 만들 수 있는 리소스 유형에 대한 자세한 내용은 [참조 설명서](/cli/azure)를 참조하세요. 
+앞서 언급한 각 명령에 전달할 수 있는 추가 리소스별 매개 변수 및 사용자가 만들 수 있는 리소스 유형에 대한 자세한 내용은 [참조 설명서](/cli/azure)를 참조하세요.
 
 ## <a name="useful-tip-optimizing-create-operations-using---no-wait"></a>유용한 팁: --no-wait를 사용하여 만들기 작업 최적화
 
@@ -241,14 +241,14 @@ az vm create -n MyLinuxVM2 -g MyResourceGroup --image UbuntuLTS --no-wait
 
 ## <a name="listing-resources-and-formatting-output"></a>리소스 나열 및 출력 서식 지정
 
-Azure CLI 내에서 `list` 명령을 사용하여 Azure에서 실행되는 리소스를 찾아 나열할 수 있습니다. 
+Azure CLI 내에서 `list` 명령을 사용하여 Azure에서 실행되는 리소스를 찾아 나열할 수 있습니다.
 
 만들기 명령과 마찬가지로, 모든 리소스 유형에서 동일한 일반적인 `az <resource type name> list` 명명 패턴을 사용하는 Azure CLI 2.0을 사용하여 리소스를 나열할 수 있습니다.  리소스 목록을 보고 싶은 대로 필터링하고 정렬할 수 있는 다양한 출력 형식 및 쿼리 옵션이 제공됩니다.
 
-예를 들어 `az vm list` 명령은 갖고 있는 모든 VM 목록을 표시합니다.   
+예를 들어 `az vm list` 명령은 갖고 있는 모든 VM 목록을 표시합니다.
 
 ```azurecli-interactive
-az vm list 
+az vm list
 ```
 반환되는 값은 기본적으로 JSON 형식입니다(간단하게 표시하기 위해 출력의 일부만 표시).
 
@@ -276,7 +276,7 @@ az vm list
     },
           ...
           ...
-          ...   
+          ...
 ]
 ```
 
@@ -293,7 +293,7 @@ MyLinuxVM  MyResourceGroup  westus2
 MyWinVM    MyResourceGroup  westus2
 ```
 
-*tsv* 출력 옵션을 사용하여 텍스트 기반의 탭으로 구분된 형식을 헤더 없이 가져올 수 있습니다.  이 형식은 grep 같은 다른 텍스트 기반 도구로 출력을 전달하려는 경우에 유용합니다. 
+*tsv* 출력 옵션을 사용하여 텍스트 기반의 탭으로 구분된 형식을 헤더 없이 가져올 수 있습니다.  이 형식은 grep 같은 다른 텍스트 기반 도구로 출력을 전달하려는 경우에 유용합니다.
 
 ```azurecli-interactive
 az vm list --output tsv
@@ -307,7 +307,7 @@ None    None            /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/reso
 
 ## <a name="querying-resources-and-shaping-outputs"></a>리소스 쿼리 및 출력 셰이핑
 
-특정 조건을 충족하는 리소스만 쿼리하려는 경우가 종종 있습니다.  
+특정 조건을 충족하는 리소스만 쿼리하려는 경우가 종종 있습니다.
 
 `list` 명령은 간편하게 리소스 그룹 이름으로 리소스를 필터링할 수 있는 기본 지원을 제공합니다.  예를 들어 `--ResourceGroup` 또는 `-g` 매개 변수를 `list` 명령에 전달하여 특정 리소스 그룹 내에 있는 리소스만 검색할 수 있습니다.
 
@@ -328,7 +328,7 @@ MyWinVM    MyResourceGroup  westus2
 예를 들어 다음 명령을 실행하여 "My"라는 문자가 포함된 리소스 그룹 내의 모든 VM 리소스를 쿼리할 수 있습니다.
 
 ```azurecli-interactive
-az vm list --output table --query "[?contains(resourceGroup, 'MY')]" 
+az vm list --output table --query "[?contains(resourceGroup, 'MY')]"
 ```
 
 ```Output
@@ -341,7 +341,7 @@ MYRESOURCEGROUP  Succeeded            MyWinVM    westus2     XXXXXXXX-XXXX-XXXX-
 그런 다음 출력을 더욱 구체화하는 JMESPath 쿼리의 셰이핑 기능을 사용하여 다른 값을 출력할 수도 있습니다.  예를 들어 다음 명령은 OS가 Linux 기반인지 아니면 Windows 기반인지 확인하기 위해 VM에서 사용하는 OS 디스크 종류를 검색합니다.
 
 ```azurecli-interactive
-az vm list --output table --query "[?contains(resourceGroup, 'MY')].{ VMName:name, OSType:storageProfile.osDisk.osType }" 
+az vm list --output table --query "[?contains(resourceGroup, 'MY')].{ VMName:name, OSType:storageProfile.osDisk.osType }"
 ```
 
 ```Output

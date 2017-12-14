@@ -12,20 +12,19 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: de695454c6f3109679b9eb9f6c0d77348d354518
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: f0d5effcd8315094b30050a35119e41eddf89961
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-azure-cli-20-with-yum"></a>yum을 사용하여 Azure CLI 2.0 설치
 
 RHEL, Fedora 또는 CentOS처럼 `yum`과 함께 제공되는 배포판을 실행하는 경우 시스템에 설치할 수 있는Azure CLI용 패키지가 제공됩니다.
 
-> [!NOTE]
-> CLI를 사용하려면 Python 2.7.x 또는 Python 3.x가 있어야 합니다. 배포에 패키지가 없으면 [Python](https://www.python.org/downloads/)을 설치하세요.
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
-## <a name="install"></a>설치 
+## <a name="install"></a>설치
 
 1. Microsoft 리포지토리 키를 가져옵니다.
 
