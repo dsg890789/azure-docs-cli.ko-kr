@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 36429bb23f392ff6210a9c99885df83f53768386
-ms.sourcegitcommit: 5fc7d8ccf2304c5a12fb99a80f0b00a0ad2c34e9
+ms.openlocfilehash: 5a667ad8720100b45ff714601225535ef442545c
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 설치
 
@@ -70,12 +70,12 @@ macOS에서는 [Homebrew](https://brew.sh/) 또는 수동으로 설치할 수 �
    ```bash
    exec -l $SHELL
    ```
-   
+
 3. 명령 프롬프트에서 `az` 명령으로 CLI를 실행합니다.
 
 ## <a name="install-on-windows"></a>Windows에 설치
 
-### <a name="install-with-msi-for-the-windows-command-line"></a>Windows 명령줄용 MSI를 사용하여 설치 
+### <a name="install-with-msi-for-the-windows-command-line"></a>Windows 명령줄용 MSI를 사용하여 설치
 
 Windows에 CLI를 설치하고 Windows 명령줄에서 사용하려면 [Azure CLI 설치 관리자(MSI)](https://aka.ms/InstallAzureCliWindows)를 다운로드하여 실행합니다.
 
@@ -102,15 +102,14 @@ Windows에 CLI를 설치하고 Windows 명령줄에서 사용하려면 [Azure CL
 
 5.  명령 프롬프트에서 `az` 명령으로 CLI를 실행합니다.
 
-## <a name="install-with-apt-package-manager"></a>apt 패키지 관리자를 사용하여 설치 
+## <a name="install-with-apt-package-manager"></a>apt 패키지 관리자를 사용하여 설치
 
 Ubuntu 또는 Debian과 같은 `apt` 패키지 관리자를 사용하는 배포의 경우 `apt-get`을 통해 Azure CLI 2.0을 설치할 수 있습니다.
 
-> [!NOTE]
-> CLI를 사용하려면 Python 2.7.x 또는 Python 3.x가 있어야 합니다. 배포에 패키지가 없으면 [Python](https://www.python.org/downloads/)을 설치하세요.
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
 1. 원본 목록을 수정합니다.
- 
+
    - 32비트 시스템
 
      ```bash
@@ -139,8 +138,7 @@ Ubuntu 또는 Debian과 같은 `apt` 패키지 관리자를 사용하는 배포�
 
 Red Hat Enterprise Linux(RHEL), Fedora 또는 CentOS와 같은 `yum` 패키지 관리자를 사용하는 배포의 경우 `yum`를 통해 Azure CLI 2.0을 설치할 수 있습니다.
 
-> [!NOTE]
-> CLI를 사용하려면 Python 2.7.x 또는 Python 3.x가 있어야 합니다. 배포에 패키지가 없으면 [Python](https://www.python.org/downloads/)을 설치하세요.
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
 1. Microsoft 리포지토리 키를 가져옵니다.
 
@@ -167,8 +165,7 @@ Red Hat Enterprise Linux(RHEL), Fedora 또는 CentOS와 같은 `yum` 패키지 �
 
 OpenSUSE 또는 SLE와 같은 `zypper` 패키지 관리자를 사용하는 배포의 경우 `zypper`를 통해 Azure CLI 2.0을 설치할 수 있습니다.
 
-> [!NOTE]
-> CLI를 사용하려면 Python 2.7.x 또는 Python 3.x가 있어야 합니다. 배포에 패키지가 없으면 [Python](https://www.python.org/downloads/)을 설치하세요.
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
 1. Microsoft 리포지토리 키를 가져옵니다.
 
@@ -230,7 +227,7 @@ CLI는 `/usr/local/bin`에 있는 `az` 명령으로 이미지에 설치됩니다
    SUSE OpenSUSE 13.2    | sudo zypper refresh && sudo zypper --non-interactive install curl gcc python python-xml libffi-devel python-devel openssl-devel
    ```
 
-배포판이 위에 나열되지 않은 경우 [Python 2.7 이상](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/) 및 [OpenSSL](https://www.openssl.org/source/)을 설치해야 합니다.
+배포판이 위에 나열되지 않은 경우 [Python 2.7 이상](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/) 및 [OpenSSL 1.0.2](https://www.openssl.org/source/)를 설치해야 합니다.
 
 2. `curl`을 사용하여 CLI를 설치합니다.
 

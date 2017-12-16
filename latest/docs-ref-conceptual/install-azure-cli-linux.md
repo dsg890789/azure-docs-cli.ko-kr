@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f792d3fc84eedade52ddfb3f351e48689e474d53
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: cf1405cae70762146f63bc6629edc0dd1d949fff
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Linux에 Azure CLI 2.0 수동 설치
 
@@ -28,7 +28,7 @@ CLI를 설치하려면 시스템에 다음과 같은 소프트웨어가 필요�
 
 * [Python 2.7 또는 Python 3.x](https://www.python.org/downloads/)
 * [libffi](https://sourceware.org/libffi/)
-* [OpenSSL](https://www.openssl.org/source/)
+* [OpenSSL 1.0.2](https://www.openssl.org/source/)
 
 ## <a name="install-or-update-manually"></a>수동으로 설치 또는 업데이트
 
@@ -58,7 +58,7 @@ curl https://azurecliprod.blob.core.windows.net/install | bash
 hash -r
 ```
 
-한 다음 문제가 해결되었는지 확인합니다. 
+한 다음 문제가 해결되었는지 확인합니다.
 
 설치 후 셸을 다시 시작하지 않아도 이 현상이 발생할 수 있습니다. `az` 명령의 위치가 `$PATH`여야 합니다.
 
