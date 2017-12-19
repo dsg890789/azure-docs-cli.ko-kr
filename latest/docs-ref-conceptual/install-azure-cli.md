@@ -1,4 +1,4 @@
----
+﻿---
 title: "Azure CLI 2.0 설치"
 description: "Azure CLI 2.0 설치에 대한 참조 문서입니다."
 keywords: "Azure CLI, Azure CLI 설치, Azure Python CLI, Azure CLI 참조"
@@ -21,7 +21,7 @@ ms.lasthandoff: 12/09/2017
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 설치
 
 지금 새 버전의 Azure CLI를 설치하세요.
-Azure 리소스 관리를 위한 훌륭한 기본 명령줄 환경을 제공하도록 개선되고 업데이트되었습니다.
+Azure 리소스 관리를 위한 훌륭한 기본 명령줄 환경을 제공하도록 개선되고 업데이트 되었습니다.
 macOS, Linux 및 Windows에서 사용할 수 있습니다.
 최신 릴리스에 대한 자세한 내용은 [릴리스 정보](release-notes-azure-cli.md)를 참조하세요.
 
@@ -51,7 +51,7 @@ macOS에서는 [Homebrew](https://brew.sh/) 또는 수동으로 설치할 수 �
   ```
 
 > [!NOTE]
-> 이전에 Azure CLI 1.0을 Homebrew로 설치한 경우 패키지를 설치하는 대신 일반 Homebrew 업데이트 프로세스를 통해 CLI 2.0을 확보할 수 있습니다.
+> 이전에 Azure CLI 1.0을 Homebrew로 설치한 경우 패키지를 설치하는 대신 정기적인 Homebrew 업데이트 프로세스를 통해 CLI 2.0을 확보할 수 있습니다.
 >
 > ```bash
 > brew upgrade
@@ -79,7 +79,7 @@ macOS에서는 [Homebrew](https://brew.sh/) 또는 수동으로 설치할 수 �
 
 Windows에 CLI를 설치하고 Windows 명령줄에서 사용하려면 [Azure CLI 설치 관리자(MSI)](https://aka.ms/InstallAzureCliWindows)를 다운로드하여 실행합니다.
 
-### <a name="install-with-apt-get-for-bash-on-ubuntu-on-windows"></a>Windows의 Ubuntu에 있는 Bash용 apt-get을 사용하여 설치
+### <a name="install-with-apt-get-for-bash-on-ubuntu-on-windows"></a>Windows 내 Ubuntu에 있는 Bash에서 apt-get을 사용하여 설치
 
 1. Windows에 Bash가 없을 경우 [설치](https://msdn.microsoft.com/commandline/wsl/install_guide)합니다.
 
@@ -104,11 +104,11 @@ Windows에 CLI를 설치하고 Windows 명령줄에서 사용하려면 [Azure CL
 
 ## <a name="install-with-apt-package-manager"></a>apt 패키지 관리자를 사용하여 설치
 
-Ubuntu 또는 Debian과 같은 `apt` 패키지 관리자를 사용하는 배포의 경우 `apt-get`을 통해 Azure CLI 2.0을 설치할 수 있습니다.
+Ubuntu 또는 Debian과 같은 `apt` 패키지 관리자를 사용하는 배포판의 경우 `apt-get`을 통해 Azure CLI 2.0을 설치할 수 있습니다.
 
 [!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
-1. 원본 목록을 수정합니다.
+1. 소스 목록을 수정합니다.
 
    - 32비트 시스템
 
@@ -136,7 +136,7 @@ Ubuntu 또는 Debian과 같은 `apt` 패키지 관리자를 사용하는 배포�
 
 ## <a name="install-with-yum-package-manager"></a>yum 패키지 관리자를 사용하여 설치
 
-Red Hat Enterprise Linux(RHEL), Fedora 또는 CentOS와 같은 `yum` 패키지 관리자를 사용하는 배포의 경우 `yum`를 통해 Azure CLI 2.0을 설치할 수 있습니다.
+Red Hat Enterprise Linux(RHEL), Fedora 또는 CentOS와 같은 `yum` 패키지 관리자를 사용하는 배포판의 경우 `yum`를 통해 Azure CLI 2.0을 설치할 수 있습니다.
 
 [!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
@@ -163,7 +163,7 @@ Red Hat Enterprise Linux(RHEL), Fedora 또는 CentOS와 같은 `yum` 패키지 �
 
 ## <a name="install-with-zypper-package-manager"></a>zypper 패키지 관리자를 사용하여 설치
 
-OpenSUSE 또는 SLE와 같은 `zypper` 패키지 관리자를 사용하는 배포의 경우 `zypper`를 통해 Azure CLI 2.0을 설치할 수 있습니다.
+OpenSUSE 또는 SLE와 같은 `zypper` 패키지 관리자를 사용하는 배포판의 경우 `zypper`를 통해 Azure CLI 2.0을 설치할 수 있습니다.
 
 [!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
@@ -190,7 +190,7 @@ OpenSUSE 또는 SLE와 같은 `zypper` 패키지 관리자를 사용하는 배�
 
 ## <a name="install-with-docker"></a>Docker를 사용하여 설치
 
-Azure CLI 2.0으로 미리 구성된 Docker 이미지를 유지하고 있습니다.
+Azure CLI 2.0을 포함하여 미리 구성된 Docker 이미지를 유지하고 있습니다.
 
 `docker run`을 사용하여 CLI를 설치합니다.
 
@@ -203,7 +203,7 @@ Azure CLI 2.0으로 미리 구성된 Docker 이미지를 유지하고 있습니�
 CLI는 `/usr/local/bin`에 있는 `az` 명령으로 이미지에 설치됩니다.
 
 > [!NOTE]
-> 사용자 환경에서 SSH 키를 선택하려는 경우 `-v ${HOME}:/root`를 사용하여 $HOME을 `/root`로 탑재할 수 있습니다.
+> 사용자 환경에서 SSH 키를 선택하려는 경우 `-v ${HOME}:/root`를 사용하여 $HOME을 `/root`로 마운트할 수 있습니다.
 
 > ```bash
 > docker run -it -v ${HOME}:/root azuresdk/azure-cli-python:<version>
@@ -277,7 +277,7 @@ hash -r
   npm uninstall -g azure-cli
   ```
 
-### <a name="uninstall-with-distributable"></a>배포 패키지를 사용하여 제거
+### <a name="uninstall-with-distributable"></a>배포판 패키지를 사용하여 제거
 
 [Azure CLI 설치 관리자(MSI)](http://aka.ms/webpi-azure-cli) 또는 [macOS 패키지](http://aka.ms/mac-azure-cli)를 통해 설치한 경우 동일한 도구를 사용하여 설치를 제거합니다.
 
@@ -291,7 +291,7 @@ Docker 이미지를 설치하여 이전 버전의 CLI를 사용한 경우 해당
 
 ## <a name="update-the-cli"></a>CLI 업데이트
 
-Azure CLI를 업데이트하려면 설치하는 데 사용된 동일한 방법을 사용합니다.
+Azure CLI를 업데이트하려면 설치하는 데 사용했던 것과 동일한 방법을 사용합니다.
 
 ### <a name="update-with-homebrew"></a>Homebrew로 업데이트
 
