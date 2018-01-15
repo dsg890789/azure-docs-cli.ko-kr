@@ -12,10 +12,10 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.openlocfilehash: a76e58c4430a184d133cca0ef0623f325aeb2f27
-ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
+ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Azure CLI 2.0 확장 사용
 
@@ -87,8 +87,8 @@ rm -rf $AZURE_EXTENSION_DIR/<extension-name>
 
 ### <a name="can-extensions-depend-upon-each-other"></a>확장은 서로 종속될 수 있나요?
 
-아니요. 확장은 각각 독립적인 개별 패키지입니다. 이는 CLI에서 확장이 로드되는 시기를 보장하지 않으므로 종속성이 충족되지 못할 수 있기 때문입니다. 확장을 설치하는 경우 해당 확장만 설치되며 다른 확장을 제거하더라도 계속 작동합니다.
+번호 확장은 각각 독립적인 개별 패키지입니다. 이는 CLI에서 확장이 로드되는 시기를 보장하지 않으므로 종속성이 충족되지 못할 수 있기 때문입니다. 확장을 설치하는 경우 해당 확장만 설치되며 다른 확장을 제거하더라도 계속 작동합니다.
 
 ### <a name="are-extensions-updated-along-with-the-cli"></a>확장은 CLI와 함께 업데이트되나요?
 
-아니요. [확장 업데이트](#updating-extensions) 섹션에서 설명한 대로 확장은 별도로 업데이트해야 합니다.
+번호 [확장 업데이트](#updating-extensions) 섹션에서 설명한 대로 확장은 별도로 업데이트해야 합니다.
