@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 75c531a13a4b730158cd2e874cb6c5d581a27598
-ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
+ms.openlocfilehash: 65e8e78275b0f40a2298934fe8bc9368bbf796a7
+ms.sourcegitcommit: 59f0b667f2202bae8914e6fc8dc5c9dc79fef91c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt를 사용하여 Azure CLI 2.0 설치
 
@@ -52,7 +52,25 @@ Ubuntu 또는 Debian처럼 `apt`와 함께 제공되는 배포를 실행하는 �
 
 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다.
 
-## <a name="update"></a>업데이트
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="apt-key-fails-with-no-dirmngr"></a>apt-key가 "dirmngr 없음"과 함께 실패
+
+`apt-key` 명령을 실행할 때 다음 오류와 유사한 출력이 표시될 수 있습니다.
+
+```output
+gpg: failed to start the dirmngr '/usr/bin/dirmngr': No such file or directory
+gpg: connecting dirmngr at '/tmp/apt-key-gpghome.kt5zo27tp1/S.dirmngr' failed: No such file or directory
+gpg: keyserver receive failed: No dirmngr
+```
+
+이 문제는 `apt-key`에 필요한 구성 요소가 누락되었기 때문에 발생합니다. `dirmngr` 패키지를 설치하면 이 문제를 해결할 수 있습니다.
+
+```bash
+sudo apt-get install dirmngr
+```
+
+## <a name="update"></a>주 지역에서
 
 `apt-get upgrade`를 사용하여 CLI 패키지를 업데이트합니다.
 
