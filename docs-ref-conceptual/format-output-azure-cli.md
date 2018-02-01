@@ -13,10 +13,10 @@ ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 74bdb727-481d-45f7-a44e-15d18dc55483
 ms.openlocfilehash: 3e99c2533031dc063a50996f26712d4df92f65c9
-ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
+ms.sourcegitcommit: dd5b2c7b0b56608ef9ea8730c7dc76e6c532d5ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/26/2018
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Azure CLI 2.0 명령의 출력 형식
 
@@ -33,7 +33,7 @@ Azure CLI 2.0은 기본 출력 옵션으로 json을 사용하지만 모든 명�
 
 ## <a name="using-the-json-option"></a>Json 옵션 사용
 
-다음 예제에서는 구독의 가상 컴퓨터 목록을 기본 json 형식으로 표시합니다.
+다음 예제에서는 구독의 가상 머신 목록을 기본 json 형식으로 표시합니다.
 
 ```azurecli-interactive
 az vm list --output json

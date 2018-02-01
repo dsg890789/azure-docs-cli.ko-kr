@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 71d9f57846cb83591ca5e3d338735b3c525987af
-ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
+ms.openlocfilehash: d60ede5b971ee2489482fb5a72bde9bf5389d37c
+ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cli-20-configuration"></a>Azure CLI 2.0 구성
 
@@ -30,11 +30,11 @@ CLI에서 사용되는 구성 값은 다음 우선 순위에서 평가되며 목
 ## <a name="cli-configuration-with-az-configure"></a>az configure으로 CLI 구성
 
 [az configure](/cli/azure/?view=azure-cli-latest#az_configure) 명령으로 CLI에 대한 기본값을 설정합니다.
-이 명령은 하나의 인수인 `--defaults`를 취하며 공백으로 구분된 `key=value` 쌍의 목록입니다. 제공된 값은 필수 인수 대신 CLI에 의해 사용됩니다. 
+이 명령은 하나의 인수인 `--defaults`를 취하며 공백으로 구분된 `key=value` 쌍의 목록입니다. 제공된 값은 필수 인수 대신 CLI에 의해 사용됩니다.
 
 다음은 사용할 수 있는 사용 가능한 키 목록입니다.
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | group | 모든 명령에 사용할 기본 리소스 그룹입니다. |
 | location | 모든 명령에 사용할 기본 위치입니다. |
@@ -52,7 +52,7 @@ az configure --defaults "location=westus2 group=MyResourceGroup"
 
 ## <a name="cli-configuration-file"></a>CLI 구성 파일
 
-CLI 구성 파일에는 CLI 동작 관리에 사용되는 다른 설정이 포함됩니다. 구성 파일 자체는 `$AZURE_CONFIG_DIR/config`에 있습니다. `AZURE_CONFIG_DIR`의 기본값은 Linux와 macOS의 경우 `$HOME/.azure/config`이고 Windows의 경우 `%USERPROFILE%\.azure\config`입니다. 
+CLI 구성 파일에는 CLI 동작 관리에 사용되는 다른 설정이 포함됩니다. 구성 파일 자체는 `$AZURE_CONFIG_DIR/config`에 있습니다. `AZURE_CONFIG_DIR`의 기본값은 Linux와 macOS의 경우 `$HOME/.azure/config`이고 Windows의 경우 `%USERPROFILE%\.azure\config`입니다.
 
 구성 파일은 INI 파일 형식으로 작성됩니다. 이 파일들은 `[section-name]` 헤더로 시작하고 그 다음 `key=value` 항목 목록이 이어지는 섹션으로 구성됩니다. 세션 이름은 대/소문자를 구분하지만, 키 이름은 구분하지 않습니다.
 설명은 `#` 또는 `;`으로 시작하는 줄입니다. 인라인 주석은 허용되지 않습니다. 부울은 대/소문자를 구분하며 다음 값으로 표현됩니다.
@@ -79,23 +79,23 @@ log_dir=/var/log/azure
 
 사용할 수 있는 기본값의 값은 필요한 경우 명령줄 인수에 있지 않아도 됩니다.
 
-| 섹션 | 이름      | 유형 | 설명|
+| 섹션 | Name      | 형식 | 설명|
 |---------|-----------|------|------------|
-| __core__ | output | 문자열 | 기본 출력 형식입니다. `json`, `jsonc`, `tsv` 또는 `table` 중 하나일 수 있습니다. |
+| __core__ | output | string | 기본 출력 형식입니다. `json`, `jsonc`, `tsv` 또는 `table` 중 하나일 수 있습니다. |
 | | disable\_confirm\_prompt | 부울 | 확인 메시지를 표시하거나 표시하지 않습니다. |
 | | collect\_telemetry | 부울 | Microsoft가 CLI의 사용에 대해 익명의 데이터를 수집하도록 허용합니다. 개인 정보에 대한 자세한 내용은 [Azure CLI 2.0 사용 약관](http://aka.ms/AzureCliLegal)을 참조하세요. |
 | __logging__ | enable\_log\_file | 부울 | 로깅을 켜거나 끕니다. |
-| | log\_dir | 문자열 | 로그를 쓸 디렉터리입니다. 기본적으로 `${AZURE_CONFIG_DIR}/logs`입니다. |
-| __storage__ | connection\_string | 문자열 | `az storage` 명령에 사용할 기본 연결 문자열입니다. |
-| | 계정 | 문자열 | `az storage` 명령에 사용할 기본 계정 이름입니다. |
-| | 키 | 문자열 | `az storage` 명령에 사용할 기본 계정 키입니다. |
-| | sas\_token | 문자열 | `az storage` 명령에 사용할 기본 SAS 토큰입니다. |
-| __batchai__ | storage\_account | 문자열 | `az batchai` 명령에 사용할 기본 저장소 계정입니다. |
-| | storage\_key | 문자열 | `az batchai` 명령에 사용할 기본 저장소 키입니다. |
-| __batch__ | 계정 | 문자열 | `az batch` 명령에 사용할 기본 Azure Batch 계정 이름입니다. |
-| | access\_key | 문자열 | `az batch` 명령에 사용할 기본 액세스 키입니다. `aad` 권한 부여와 함께 사용됩니다. |
-| | 끝점 | 문자열 | `az batch` 명령에 대해 연결할 기본 끝점입니다. |
-| | auth\_mode | 문자열 | `az batch` 명령에 사용할 권한 부여 모드입니다. `shared_key` 또는 `aad`일 수 있습니다. |
+| | log\_dir | string | 로그를 쓸 디렉터리입니다. 기본적으로 `${AZURE_CONFIG_DIR}/logs`입니다. |
+| __storage__ | connection\_string | string | `az storage` 명령에 사용할 기본 연결 문자열입니다. |
+| | 계정 | string | `az storage` 명령에 사용할 기본 계정 이름입니다. |
+| | key | string | `az storage` 명령에 사용할 기본 계정 키입니다. |
+| | sas\_token | string | `az storage` 명령에 사용할 기본 SAS 토큰입니다. |
+| __batchai__ | storage\_account | string | `az batchai` 명령에 사용할 기본 저장소 계정입니다. |
+| | storage\_key | string | `az batchai` 명령에 사용할 기본 저장소 키입니다. |
+| __batch__ | 계정 | string | `az batch` 명령에 사용할 기본 Azure Batch 계정 이름입니다. |
+| | access\_key | string | `az batch` 명령에 사용할 기본 액세스 키입니다. `aad` 권한 부여와 함께 사용됩니다. |
+| | endpoint | string | `az batch` 명령에 대해 연결할 기본 끝점입니다. |
+| | auth\_mode | string | `az batch` 명령에 사용할 권한 부여 모드입니다. `shared_key` 또는 `aad`일 수 있습니다. |
 
 > [!NOTE]
 > 구성 파일에 다른 값이 표시될 수 있지만 이는 `az configure`를 포함하여 CLI 명령을 통해 직접 관리됩니다. 위의 표에 나열된 것은 사용자가 직접 변경해야 하는 값입니다.

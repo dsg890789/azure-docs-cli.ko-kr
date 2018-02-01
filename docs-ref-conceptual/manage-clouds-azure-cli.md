@@ -11,10 +11,10 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.openlocfilehash: 6f4cfec45becc0c4940e9066af53396b41db779d
-ms.sourcegitcommit: 16426a08c0f2f62d0b9dca3df8132cece659acff
+ms.sourcegitcommit: dd5b2c7b0b56608ef9ea8730c7dc76e6c532d5ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/26/2018
 ---
 # <a name="managing-multiple-clouds-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 여러 클라우드 관리
 
@@ -88,14 +88,14 @@ az cloud set --name AzureChinaCloud
 
 Azure Stack에 대한 사용자 고유의 끝점이 있는 경우 새 클라우드를 등록합니다. 클라우드를 만들려면 [cloud register](/cli/azure/cloud#register) 명령을 사용합니다. 이 명령에는 이름 그리고 연관된 끝점이 있는 기능 집합이 필요합니다. Azure Stack과 함께 사용할 클라우드를 등록하는 방법에 대해 알아보려면 [Azure Stack과 함께 사용할 CLI 설치 및 구성](/azure/azure-stack/user/azure-stack-connect-cli#connect-to-azure-stack)을 참조하세요.
 
-중국, 미국 정부 또는 독일 지역의 경우 클라우드를 등록할 필요가 없습니다. 이들 지역은 Microsoft에서 관리하며 기본적으로 사용할 수 있습니다.  사용 가능한 모든 끝점 설정에 대한 자세한 내용은 에 대한 [ 설명서를 참조하세요 `az cloud register`](/cli/azure/cloud?view=azure-cli-latest#az_cloud_register).
+중국, 미국 정부 또는 독일 지역의 경우 클라우드를 등록할 필요가 없습니다. 이들 지역은 Microsoft에서 관리하며 기본적으로 사용할 수 있습니다.  사용 가능한 모든 끝점 설정에 대한 자세한 내용은 `az cloud register`](/cli/azure/cloud?view=azure-cli-latest#az_cloud_register)에 대한 [ 설명서를 참조하세요.
 
 클라우드를 등록하더라도 자동으로 해당 클라우드로 전환되지 않습니다. 위에서 설명한 대로 `az cloud set` 명령을 사용하여 새로 만든 클라우드를 선택합니다.
 
 ## <a name="update-an-existing-cloud"></a>기존 클라우드 업데이트
 
 권한이 있는 경우 기존 클라우드를 업데이트할 수도 있습니다. 다른 Azure 프로필로 전환하거나 끝점을 추가하거나 끝점을 변경해야 하는 경우 이를 수행합니다.
-`az cloud register`과 동일한 인수를 사용하여 `az cloud update` 명령으로 이 작업을 수행합니다. 자세한 내용은 의 [ 설명서를 참조하세요 `az cloud update`](/cli/azure/cloud?view=azure-cli-latest#az_cloud_update).
+`az cloud register`과 동일한 인수를 사용하여 `az cloud update` 명령으로 이 작업을 수행합니다. 자세한 내용은 `az cloud update`](/cli/azure/cloud?view=azure-cli-latest#az_cloud_update)의 [ 설명서를 참조하세요.
 
 ## <a name="unregister-a-cloud"></a>클라우드 등록 취소
 

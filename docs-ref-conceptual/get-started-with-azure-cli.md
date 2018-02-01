@@ -13,10 +13,10 @@ ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
 ms.openlocfilehash: 689b8f4d77af5a6f398c0dd85e922baa398f767a
-ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
+ms.sourcegitcommit: dd5b2c7b0b56608ef9ea8730c7dc76e6c532d5ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/26/2018
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
 
@@ -46,7 +46,7 @@ CLI를 [설치](install-azure-cli.md)하고 명령줄에서 로컬로 실행할 
 
 모든 설정이 완료되었으니, 이제부터 Azure CLI를 사용하여 Azure 내에 리소스를 만들어 보겠습니다.
 
-먼저 리소스 그룹을 만듭니다.  Azure의 리소스 그룹은 논리적으로 그룹화하려는 여러 리소스를 관리하는 방법을 제공합니다.  예를 들어 응용 프로그램 또는 프로젝트에 대한 리소스 그룹을 만들고 그 안에 가상 컴퓨터, 데이터베이스 및 CDN 서비스를 추가할 수 있습니다.
+먼저 리소스 그룹을 만듭니다.  Azure의 리소스 그룹은 논리적으로 그룹화하려는 여러 리소스를 관리하는 방법을 제공합니다.  예를 들어 응용 프로그램 또는 프로젝트에 대한 리소스 그룹을 만들고 그 안에 가상 머신, 데이터베이스 및 CDN 서비스를 추가할 수 있습니다.
 
 Azure의 *westus2* 지역에 "MyResourceGroup"이라는 이름의 리소스 그룹을 만듭니다.  이렇게 하려면 다음 명령을 입력합니다.
 
@@ -69,7 +69,7 @@ az group create -n MyResourceGroup -l westus2
 }
 ```
 
-## <a name="create-a-linux-virtual-machine"></a>Linux 가상 컴퓨터 만들기
+## <a name="create-a-linux-virtual-machine"></a>Linux Virtual Machine 만들기
 
 리소스 그룹이 생겼으니, 그 안에 Linux VM을 만들어 보겠습니다.
 
@@ -137,7 +137,7 @@ applicable law.
 my-login@MyLinuxVM:~$
 ```
 
-## <a name="create-a-windows-server-virtual-machine"></a>Windows Server 가상 컴퓨터 만들기
+## <a name="create-a-windows-server-virtual-machine"></a>Windows Server Virtual Machine 만들기
 
 이제 `az vm create` 명령을 사용하여 Windows Server 2016 Datacenter 기반 VM을 만들고, Linux VM에 사용한 것과 동일한 "MyResourceGroup" 리소스 그룹에 추가하겠습니다.  Linux VM 예제와 마찬가지로 `--data-disk-sizes-gb` 매개 변수를 사용하여 두 개의 저장소 디스크를 연결하겠습니다.
 
