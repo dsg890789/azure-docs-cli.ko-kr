@@ -3,6 +3,21 @@
   items:
     - name: 설치
       href: install-azure-cli.md
+      items:
+        - name: macOS
+          href: install-azure-cli-macos.md
+        - name: Windows
+          href: install-azure-cli-windows.md
+        - name: apt를 통한 Linux
+          href: install-azure-cli-apt.md
+        - name: yum을 통한 Linux
+          href: install-azure-cli-yum.md
+        - name: zypper를 통한 Linux
+          href: install-azure-cli-zypper.md
+        - name: Linux
+          href: install-azure-cli-linux.md
+        - name: Docker에서 실행
+          href: run-azure-cli-docker.md
     - name: 시작하기
       href: get-started-with-azure-cli.md
     - name: Cloud Shell

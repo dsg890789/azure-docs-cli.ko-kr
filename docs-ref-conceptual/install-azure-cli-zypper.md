@@ -1,26 +1,25 @@
 ---
-title: "zypper를 사용하여 Azure CLI 2.0 설치"
+title: "zypper를 사용하여 Linux에 Azure CLI 2.0 설치"
 description: "zypper를 사용하여 Azure CLI 2.0을 설치하는 방법"
 keywords: "azure cli, azure cli 설치, azure cli zypper, azure cli opensuse, azure cli sle"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 11/01/2017
+ms.date: 01/29/18
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6b9a97e73f45c8271f1e8f19d5a8cf5f9f748d07
-ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
+ms.openlocfilehash: c0b566f96e47d34d20f7bf85db0fae32913ed596
+ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-azure-cli-20-with-zypper"></a>zypper를 사용하여 Azure CLI 2.0 설치
 
-OpenSUSE 또는 SLE처럼 `zypper`와 함께 제공되는 배포를 실행하는 경우 시스템에 설치할 수 있는Azure CLI용 패키지가 제공됩니다.
+openSUSE 또는 SLES 등의 `zypper`과 함께 제공되는 배포를 실행하는 경우 Azure CLI에서 사용할 수 있는 패키지가 있습니다. 이 패키지는 openSUSE 42.2 및 SLES 12 SP 2와 함께 테스트되었습니다.
 
 [!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
@@ -54,7 +53,7 @@ OpenSUSE 또는 SLE처럼 `zypper`와 함께 제공되는 배포를 실행하는
 
 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다.
 
-## <a name="update"></a>업데이트
+## <a name="update"></a>주 지역에서
 
 `zypper update` 명령을 사용하여 패키지를 업데이트할 수 있습니다.
 
@@ -65,7 +64,7 @@ sudo zypper update azure-cli
 
 ## <a name="uninstall"></a>제거
 
-Azure CLI를 제거하려는 경우 유감스럽게 생각합니다. 제거하기 전에 `az feedback` 명령을 사용하여 제거하시는 이유와 CLI 환경 개선을 위한 조건을 남겨주시기 바랍니다. 버그 없고 사용자에게 친숙한 Azure CLI를 만드는 것이 목적입니다. 또한 [github 문제를 제출](https://github.com/Azure/azure-cli/issues)할 수 있습니다.
+[!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
 1. 시스템에서 패키지를 제거합니다.
 

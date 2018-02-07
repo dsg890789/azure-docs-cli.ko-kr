@@ -1,26 +1,25 @@
 ---
-title: "yum을 사용하여 Azure CLI 2.0 설치"
+title: "yum을 사용하여 Linux에 Azure CLI 2.0 설치"
 description: "yum을 사용하여 Azure CLI 2.0을 설치하는 방법"
 keywords: "Azure CLI,Azure CLI 설치,azure yum,azure rhel, azure fedora, azure centos"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 11/01/2017
+ms.date: 01/29/18
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f0d5effcd8315094b30050a35119e41eddf89961
-ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
+ms.openlocfilehash: 9d11c3cf5d9e7ba58c3e2edd830e0d12669f5b91
+ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-azure-cli-20-with-yum"></a>yum을 사용하여 Azure CLI 2.0 설치
 
-RHEL, Fedora 또는 CentOS처럼 `yum`과 함께 제공되는 배포판을 실행하는 경우 시스템에 설치할 수 있는Azure CLI용 패키지가 제공됩니다.
+RHEL, Fedora, CentOS 등의 `yum`과 함께 제공되는 배포를 실행하는 경우 Azure CLI에서 사용할 수 있는 패키지가 있습니다. 이 패키지는 RHEL 7, Fedora 19 이상, CentOS 7를 사용하여 테스트 되었습니다.
 
 [!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
@@ -47,7 +46,7 @@ RHEL, Fedora 또는 CentOS처럼 `yum`과 함께 제공되는 배포판을 실�
 
 `az` 명령을 사용하여 Azure CLI를 실행합니다.
 
-## <a name="update"></a>업데이트
+## <a name="update"></a>주 지역에서
 
 `yum update` 명령을 사용하여 Azure CLI를 업데이트합니다.
 
@@ -58,7 +57,7 @@ sudo yum update azure-cli
 
 ## <a name="uninstall"></a>제거
 
-Azure CLI를 제거하려는 경우 유감스럽게 생각합니다. 제거하기 전에 `az feedback` 명령을 사용하여 제거하시는 이유와 CLI 환경 개선을 위한 조건을 남겨주시기 바랍니다. 버그 없고 사용자에게 친숙한 Azure CLI를 만드는 것이 목적입니다. 또한 [github 문제를 제출](https://github.com/Azure/azure-cli/issues)할 수 있습니다.
+[!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
 1. 시스템에서 패키지를 제거합니다.
 

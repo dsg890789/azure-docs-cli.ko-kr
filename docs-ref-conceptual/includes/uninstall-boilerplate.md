@@ -1,0 +1,1 @@
+Azure CLI를 제거하려는 경우 유감스럽게 생각합니다. 제거하기 전에 `az feedback` 명령을 사용하여 제거하려는 이유와 귀하에게 도움이 되게 CLI를 개선할 수 있는 방법을 남겨주시기 바랍니다. 우리 목표는 Azure CLI를 버그가 없고 사용자에게 친숙하게 만드는 것입니다. 버그를 발견한 경우 [Github 문제를 제출](https://github.com/Azure/azure-cli/issues)하십시오.
