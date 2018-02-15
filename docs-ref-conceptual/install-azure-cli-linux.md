@@ -1,21 +1,20 @@
 ---
 title: "Linux용 Azure CLI 2.0 수동 설치"
 description: "Linux용 Azure CLI 2.0을 수동으로 설치하는 방법"
-keywords: "Azure CLI,Azure CLI 설치,azure linux, azure 설치 linux"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 01/29/18
+ms.date: 01/29/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: d8c88d111c50a3cbb6b643a14dcd2a9773699657
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: 4ab1f70308810e045b9a1d923fd809ad9848f6c6
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Linux에 Azure CLI 2.0 수동 설치
 
@@ -32,7 +31,7 @@ CLI를 설치하려면 시스템에 다음과 같은 소프트웨어가 필요�
 * [libffi](https://sourceware.org/libffi/)
 * [OpenSSL 1.0.2](https://www.openssl.org/source/)
 
-## <a name="install-or-update"></a>설치 또는 업데이트 
+## <a name="install-or-update"></a>설치 또는 업데이트
 
 CLI를 설치하든 또는 업데이트하는, 전체 설치를 수행해야 합니다. 필수 구성 요소를 모두 갖춘 후에는 `curl`을 실행하여 CLI를 설치할 수 있습니다.
 
@@ -76,19 +75,19 @@ hash -r
 설치 시 선택한 위치에서 파일을 직접 삭제하여 CLI를 제거합니다. 기본 설치 위치는 `$HOME`입니다.
 
 1. 설치된 CLI 파일을 제거합니다.
-  
+
   ```bash
   rm -r <install location>/lib/azure-cli
   rm <install location>/bin/az
   ```
 2. `$HOME/.bash_profile` 파일을 수정하여 다음 선을 제거합니다.
-  
+
   ```
   <install location>/lib/azure-cli/az.completion
   ```
 
 3. `bash` 또는 `zsh`를 사용하는 경우 셸의 명령 캐시를 다시 로드합니다.
-  
+
   ```bash
   hash -r
   ```

@@ -1,21 +1,20 @@
 ---
 title: "Docker 컨테이너에서 Azure CLI 2.0 실행"
 description: "Azure CLI 2.0을 호스팅하는 Docker 컨테이너 실행 방법"
-keywords: "Azure CLI,Azure CLI 설치,azure docker,azure docker 이미지,"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 01/29/18
+ms.date: 01/29/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 819ff0cdb0df6057a5dff8f8ab015796f06c6a9b
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: 3a09eb6d83bb5401628bd952d199a03ecbb8216e
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="run-azure-cli-20-in-a-docker-container"></a>Docker 컨테이너에서 Azure CLI 2.0 실행
 

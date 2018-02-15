@@ -1,21 +1,20 @@
 ---
 title: "Windows용 Azure CLI 설치"
 description: "Windows에 Azure CLI 2.0을 설치하는 방법"
-keywords: "Azure CLI,Azure CLI 설치,azure 설치 windows, azure cli windows, azure windows"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 01/29/18
+ms.date: 01/29/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: fc84b80e44a994495ef97cf9d7ec4e4a79a5c5b3
-ms.sourcegitcommit: b41c5ed4a26c771a1a32b4560131f7a65b80fd33
+ms.openlocfilehash: 3e732ea7fae118ddb1564bed28d54d15bab4f7f0
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Windows에 Azure CLI 2.0 설치
 
@@ -37,7 +36,7 @@ MSI 배포판은 Windows에서 `az` 명령을 설치, 업데이트 및 제거하
 
 [!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-MSI를 다시 실행 하 고 "제거" 옵션을 선택하여 제거할 수 있습니다. 
+MSI를 다시 실행 하 고 "제거" 옵션을 선택하여 제거할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [MSI 설치 관리자 다운로드](https://azurecliprod.blob.core.windows.net/msi/azure-cli-latest.msi)
