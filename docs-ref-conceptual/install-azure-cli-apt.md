@@ -1,43 +1,35 @@
 ---
 title: "apt를 사용하여 Linux에 Azure CLI 2.0 설치"
 description: "apt 패키지 관리자를 사용하여 Azure CLI 2.0을 설치하는 방법"
-keywords: "Azure CLI,Azure CLI 설치,azure apt, azure debian, azure ubuntu"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 01/29/18
+ms.date: 02/06/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: fdd9f0061d5d38ed5a349b11eb0f5f27786bc1ab
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: 4076fefb902a324f77f97bc042b9f5ba3e787734
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt를 사용하여 Azure CLI 2.0 설치
 
-Ubuntu 또는 Debian 등의 `apt`과 함께 제공되는 배포를 실행하는 경우 Azure CLI에서 사용할 수 있는 패키지가 있습니다. 이 패키지는 Ubuntu Wheezy 및 Ubuntu Xenial을 사용해 테스트했습니다.
+Ubuntu 또는 Debian과 같이 `apt`과(와) 함께 제공되는 배포판을 실행하는 경우, Azure CLI에 64비트 패키지를 사용할 수 있습니다. 이 패키지는 다음 항목에서 테스트되었습니다.
 
-[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
+* Ubuntu wheezy, xenial 및 artful
+* Debian wheezy, jessie 및 stretch
 
 ## <a name="install"></a>설치
 
 1. 원본 목록을 수정합니다.
 
-   - 32비트 시스템
-
      ```bash
-     echo "deb https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
-          sudo tee /etc/apt/sources.list.d/azure-cli.list
-     ```
-
-   - 64비트 시스템
-
-     ```bash
-     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
+     AZ_REPO=$(lsb_release -cs)
+     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
           sudo tee /etc/apt/sources.list.d/azure-cli.list
      ```
 

@@ -5,31 +5,31 @@ keywords: "Azure CLI, 확장"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 10/30/2017
+ms.date: 02/13/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: a76e58c4430a184d133cca0ef0623f325aeb2f27
-ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
+ms.openlocfilehash: 548c06c64cc98598a2bd24bcc5959e59bffb4930
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Azure CLI 2.0 확장 사용
 
-확장은 새 명령을 통해 기능을 추가할 수 있는 Azure CLI 자체와 함께 제공되지 않는 개별 모듈입니다. 이러한 모듈은 실험적 또는 시험판 제품, Microsoft에서 사용자의 요구에 맞춘 특수 도구 또는 사용자가 직접 작성한 확장일 수 있습니다. 확장을 사용하면 CLI를 통해 유연성을 갖출 수 있으므로 핵심 기능 집합의 일부로 간주되지 않는 많은 추가 패키지를 제공하지 않고도 자신의 요구 사항에 맞게 수정할 수 있습니다.
+확장은 Azure CLI 자체와 함께 제공되지 않는 새로운 명령을 통해 기능을 추가하는 개별 모듈입니다. 이러한 확장은 Microsoft에서 제공하는 전문 도구 또는 사용자가 직접 작성하는 사용자 지정 기능과 같은 실험적인 기능 또는 릴리스 전 기능으로 제공될 수 있습니다. 확장을 사용하면 CLI를 통해 유연성을 갖출 수 있으므로 핵심 기능 집합의 일부로 간주되지 않는 많은 추가 패키지를 제공하지 않고도 자신의 요구 사항에 맞게 수정할 수 있습니다.
 
-이 문서는 CLI 확장을 설치, 업데이트 및 제거하는 방법을 이해하는 데 도움이 됩니다. 또한 확장 동작에 대한 일반적인 질문에 대답하고 있습니다.
+이 문서에서는 CLI에 대한 확장을 설치, 업데이트 및 제거하는 방법을 설명합니다. 또한 확장 동작에 대한 일반적인 질문에 대답하고 있습니다.
 
 ## <a name="finding-extensions"></a>확장 찾기
 
-`az extension list-available`을 사용하면 사용 가능한 확장을 확인할 수 있습니다. 이 명령은 Microsoft에서 제공하고 지원하는 사용 가능한 공식 확장을 나열합니다.
+[az extension list-available](/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)을 사용하면 사용할 수 있는 확장을 확인할 수 있습니다. 이 명령은 Microsoft에서 제공하고 지원하는 사용 가능한 공식 확장을 나열합니다.
 
 ## <a name="installing-extensions"></a>확장 설치
 
-설치할 확장을 찾았으면 `az extension add`을 사용하여 가져옵니다. 확장이 `az extension list-available`에 나열된 공식 Microsoft 확장인 경우 확장을 이름별로 설치할 수 있습니다.
+설치할 확장을 찾은 다음에는 [az extension add](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_add)를 사용하여 가져옵니다. 확장이 `az extension list-available`에 나열된 경우 해당 이름으로 확장을 설치할 수 있습니다.
 
 ```azurecli
 az extension add --name <extension-name>
@@ -45,7 +45,7 @@ az extension add --source <URL-or-path>
 
 ## <a name="updating-extensions"></a>확장 업데이트
 
-확장은 이름별로만 업데이트할 수 있습니다.
+확장은 [az extension update](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_update)를 사용하여 해당 이름으로만 업데이트할 수 있습니다.
 
 ```azurecli
 az extension update --name <extension-name>
@@ -55,7 +55,7 @@ az extension update --name <extension-name>
 
 ## <a name="uninstalling-extensions"></a>확장 제거
 
-확장이 더 이상 필요하지 않으면 `az extension remove`를 사용하여 제거할 수 있습니다.
+확장이 더 이상 필요하지 않으면 [az extension remove](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_remove)를 사용하여 제거할 수 있습니다.
 
 ```azurecli
 az extension remove --name <extension-name>

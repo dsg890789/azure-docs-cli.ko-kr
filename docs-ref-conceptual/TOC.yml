@@ -27,7 +27,7 @@
       items:
         - name: 서비스 주체 만들기
           href: create-an-azure-service-principal-azure-cli.md
-        - name: 관리되는 서비스 ID 사용
+        - name: 관리되는 서비스 ID
           items:
             - name: Azure VM에 대한 MSI 구성
               href: /azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
@@ -57,6 +57,10 @@
       href: azure-cli-Configuration.md
     - name: 릴리스 정보
       href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+- name: 자습서
+  items:
+    - name: 가상 머신 만들기
+      href: azure-cli-vm-tutorial.yml
 - name: 샘플 스크립트
   items:
     - name: Linux VM

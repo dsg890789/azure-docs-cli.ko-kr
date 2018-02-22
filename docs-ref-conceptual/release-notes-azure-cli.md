@@ -1,23 +1,193 @@
 ---
 title: "Azure CLI 2.0 릴리스 정보"
 description: "Azure CLI 2.0 최신 업데이트 알아보기"
-keywords: "Azure CLI 2.0, 릴리스 정보"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 01/17/2018
+ms.date: 02/13/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 86babea3030ea932de1858a391014e5d0bba7f73
-ms.sourcegitcommit: cae66f994cb7b7f829f75ac528093fdb6851f64e
+ms.openlocfilehash: 480b646b7230c8fb22f10b28a9204287cd0acc19
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="february-13-2018"></a>2018년 2월 13일
+
+버전 2.0.27
+
+### <a name="core"></a>코어
+
+* MSI 로그인 시 구독 ID 및 이름에 대한 키 인증 변경
+
+### <a name="acs"></a>ACS
+
+* [주요 변경 사항] 정확성을 위한 `aks get-versions`에서 `aks get-upgrades`(으)로 이름 변경
+* `aks create`에 사용 가능한 Kubernetes 버전 표시를 위한 `aks get-versions` 변경
+* 서버가 Kubernetes 버전을 선택할 수 있도록 `aks create` 기본값 변경
+* AKS로 생성되는 서비스 주체를 나타내는 도움말 메시지 업데이트
+* "Standard\_D1\_v2"에서 "Standard\_DS1\_v2"로 `aks create`의 기본 노드 크기 변경
+* `az aks browse`의 대시보드 포드를 찾을 때 안정성 향상
+* Kubernetes 구성 파일을 로드할 때 유니코드 오류 처리를 위한 `aks get-credentials` 수정
+* `$PATH`에서 `kubectl`을(를) 가져올 때 도움이 되도록 `az aks install-cli`에 메시지 추가
+
+### <a name="appservice"></a>App Service
+
+* Null 참조로 인한 `webapp [backup|restore]` 실패 문제 해결
+* `az configure --defaults appserviceplan=my-asp`을(를) 통한 기본 App Service 계획에 대한 지원 추가
+
+### <a name="cdn"></a>CDN
+
+* `cdn custom-domain [enable-https|disable-https]` 명령이 추가됨
+
+### <a name="container"></a>컨테이너
+
+* 스트리밍 로그에 대해 `az container logs`에 `--follow` 옵션 추가
+* 로컬 표준 출력 및 오류 스트림을 컨테이너 그룹의 컨테이너에 첨부하는 `container attach` 명령 추가
+
+### <a name="cosmosdb"></a>CosmosDB
+
+* 기능 설정 지원 추가
+
+### <a name="extension"></a>내선 번호
+
+* `az extension [add|update]` 명령에 대한 `--pip-proxy` 매개 변수 지원 추가
+* `az extension [add|update]` 명령에 대한 `--pip-extra-index-urls` 인수 지원 추가
+
+### <a name="feedback"></a>사용자 의견
+
+* 원격 분석 데이터에 대한 확장 정보 추가
+
+### <a name="interactive"></a>대화형
+
+* Cloud Shell에서 대화형 모드를 사용할 때 사용자에게 로그인 프롬프트가 표시되는 문제 해결
+* 누락된 매개 변수 완성 기능의 재발 문제 해결
+
+### <a name="iot"></a>IoT
+
+* `iot dps access policy [create|update]`이(가) 성공 시 '찾을 수 없음' 오류를 반환하는 문제가 해결되었습니다.
+* `iot dps linked-hub [create|update]`이(가) 성공 시 '찾을 수 없음' 오류를 반환하는 문제가 해결되었습니다.
+* `iot dps access policy [create|update]` 및 `iot dps linked-hub [create|update]`에 대한 `--no-wait` 지원 추가
+* 파티션 수를 지정할 수 있도록 `iot hub create` 변경
+
+### <a name="monitor"></a>모니터
+
+* `az monitor log-profiles create` 명령 수정됨
+
+### <a name="network"></a>네트워크
+
+* 다음 명령에 대한 `--tags` 옵션 수정
+  * `network public-ip create`
+  * `network lb create`
+  * `network local-gateway create`
+  * `network nic create`
+  * `network vnet-gateway create`
+  * `network vpn-connection create`
+
+### <a name="profile"></a>프로필
+
+* 대화형 모드에서 `az login` 지원
+
+### <a name="resource"></a>리소스
+
+* `feature show` 다시 추가
+
+### <a name="role"></a>역할
+
+* `--available-to-other-tenants` 인수를 `ad app update`에 추가
+
+### <a name="sql"></a>SQL
+
+* `sql server dns-alias` 명령이 추가됨
+* `sql db rename`가 추가됨
+* 모든 SQL 명령에 대한 `--ids` 인수 지원 추가
+
+### <a name="storage"></a>Storage
+
+* 일시 삭제를 지원하는 `storage blob service-properties delete-policy` 및 `storage blob undelete` 명령 추가
+
+### <a name="vm"></a>VM
+
+* 가상 머신 암호화가 완전히 초기화되지 않을 수 있는 충돌 문제 해결
+* MSI 지원에 대한 주체 ID 출력 추가
+* 고정 `vm boot-diagnostics get-boot-log`
+
+
+## <a name="january-31-2018"></a>2018년 1월 31일
+
+버전 2.0.26
+
+### <a name="core"></a>코어
+
+* MSI 컨텍스트에서 기본 토큰 검색 지원 추가
+* Windows cmd.exe에서 LRO 완료 후 폴링 표시기 문자열 제거
+* 구성된 기본값 사용이 INFO 수준 항목으로 변경되었을 때 표시되는 경고가 추가되었습니다. `--verbose`을(를) 사용하여 확인
+* 대기 명령에 대한 진행률 표시기 추가
+
+### <a name="acs"></a>ACS
+
+* `--disable-browser` 인수 설명 추가
+* `--vm-size` 인수에 대한 탭 완성 기능 개선
+
+### <a name="appservice"></a>App Service
+
+* 고정 `webapp log [tail|download]`
+* Webapps 및 함수에 대한 `kind` 확인 제거
+
+### <a name="cdn"></a>CDN
+
+* `cdn custom-domain create`의 클라이언트 누락 문제 해결
+
+### <a name="cosmosdb"></a>CosmosDB
+
+* 장애 조치(Failover) 정책에 대한 매개 변수 설명 수정
+
+### <a name="interactive"></a>대화형
+
+* 명령 옵션 완성이 더 이상 표시되지 않는 문제 해결
+
+### <a name="network"></a>네트워크
+
+* `application-gateway create`에 `--cert-password` 보호 추가
+* `--sku`이(가) 기본값을 잘못 적용하는 `application-gateway update` 문제 해결
+* `vpn-connection create`에 `--shared-key` 및 `--authorization-key` 보호 추가
+* `asg create`의 클라이언트 누락 문제 해결
+* `dns zone export`에 내보낸 이름에 대한 `--file-name / -f` 매개변수 추가
+* `dns zone export`의 다음 문제 해결:
+  * 긴 TXT 레코드가 잘못 내보내지는 문제 해결
+  * 따옴표 붙은 TXT 레코드가 이스케이프 처리 없이 잘못 내보내지는 문제 해결
+* `dns zone import`에서 특정 레코드를 두 번 가져오는 문제 해결 
+* `vnet-gateway root-cert` 및 `vnet-gateway revoked-cert` 명령 복원
+
+### <a name="profile"></a>프로필
+
+* ID가 있는 가상 머신 내에서 작동하도록 `get-access-token` 수정
+
+### <a name="resource"></a>리소스
+
+* 템플릿 'type' 필드에 대문자 값이 포함되었을 때 경고가 잘못 표시되는 `deployment [create|validate]` 버그 수정
+
+### <a name="storage"></a>Storage
+
+* 저장소 V1 계정을 저장소 V2로 마이그레이션할 때의 문제 해결
+* 모든 upload/download 명령에 대한 진행률 보고 추가
+* `storage account check-name`에서 "-n" 인수 옵션을 방해하는 버그 수정  
+* `blob [list|show]`에 대한 테이블 출력에 'snapshot' 열 추가
+* Ints로 구문 분석되어야 하는 여러 매개 변수의 버그 수정
+
+### <a name="vm"></a>VM
+
+* 추가 비용이 있는 이미지에서 가상 머신을 만들 수 있게 허용하는 `vm image accept-terms` 명령 추가
+* 서명되지 않은 인증서를 사용해서 프록시로 명령을 실행할 수 있도록 `[vm|vmss create]` 수정
+* [미리 보기] VMSS에 "낮음" 우선 순위 지원 추가
+* `[vm|vmss] create`에 `--admin-password` 보호 추가
+
 
 ## <a name="january-17-2018"></a>2018년 1월 17일
 
@@ -84,7 +254,7 @@ ms.lasthandoff: 01/29/2018
 ### <a name="monitor"></a>모니터
 
 * 다중 진단 설정 지원이 추가됐습니다. `--name` 매개 변수가 이제 `az monitor diagnostic-settings create`를 위해 필요합니다
-* 진단 설정 범주를 가져오기 위해 명령 `monitor diagnostic-settings categories` 추가됨 
+* 진단 설정 범주를 가져오기 위해 명령 `monitor diagnostic-settings categories` 추가됨
 
 ### <a name="network"></a>네트워크
 
