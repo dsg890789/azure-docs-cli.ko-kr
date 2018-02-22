@@ -1,421 +1,112 @@
 ---
 title: "Azure CLI 2.0 시작"
-description: "Linux, Mac 또는 Windows에서 Azure CLI 2.0을 시작합니다."
-keywords: Azure CLI 2.0, Linux, Mac, Windows, OS X, Ubuntu, Debian, CentOS, RHEL, SUSE, CoreOS, Docker, Windows, Python, PIP
-author: rloutlaw
-ms.author: routlaw
-manager: douge
-ms.date: 02/27/2017
+description: "명령 기본 사항을 학습하여 Azure CLI 2.0 사용을 시작합니다."
+keywords: "Azure CLI, CLI 도움말, Azure 도움말, 쿼리, 자동화,"
+author: sptramer
+ms.author: sttramer
+manager: routlaw
+ms.date: 02/05/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 689b8f4d77af5a6f398c0dd85e922baa398f767a
-ms.sourcegitcommit: dd5b2c7b0b56608ef9ea8730c7dc76e6c532d5ea
+ms.openlocfilehash: c2758922d74080d3a3110b1e3a507ddf0f8d85d1
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 02/15/2018
 ---
-# <a name="get-started-with-azure-cli-20"></a><span data-ttu-id="1a04f-104">Azure CLI 2.0 시작</span><span class="sxs-lookup"><span data-stu-id="1a04f-104">Get started with Azure CLI 2.0</span></span>
+# <a name="get-started-with-azure-cli-20"></a><span data-ttu-id="c22b5-104">Azure CLI 2.0 시작</span><span class="sxs-lookup"><span data-stu-id="c22b5-104">Get started with Azure CLI 2.0</span></span>
 
-<span data-ttu-id="1a04f-105">Azure CLI 2.0은 Azure 리소스를 관리하기 위한 Azure의 새로운 명령줄 환경입니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-105">The Azure CLI 2.0 is Azure's new command line experience for managing Azure resources.</span></span>
-<span data-ttu-id="1a04f-106">[Azure Cloud Shell](/azure/cloud-shell/overview)을 실행하는 브라우저에서 사용하거나 macOS, Linux 및 Windows에서 [설치](install-azure-cli.md)하고 명령줄에서 실행할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-106">You can use it in your browser with [Azure Cloud Shell](/azure/cloud-shell/overview), or you can [install](install-azure-cli.md) it on macOS, Linux, and Windows and run it from the command line.</span></span>
+<span data-ttu-id="c22b5-105">Azure CLI 2.0 시작!</span><span class="sxs-lookup"><span data-stu-id="c22b5-105">Welcome to the Azure CLI 2.0!</span></span> <span data-ttu-id="c22b5-106">CLI는 특히 자동화 기능을 통해 Azure 서비스를 빠르고 효율적으로 사용할 수 있도록 디자인된 도구입니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-106">The CLI is a tool designed to get you working quickly and efficiently with Azure services, with an emphasis on automation.</span></span> <span data-ttu-id="c22b5-107">이 문서에서는 CLI의 여러 기능을 소개하고 생산성 향상에 도움이 되는 리소스에 대한 링크를 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-107">This article introduces features of the CLI and links out to resources that help you be productive.</span></span>
 
-<span data-ttu-id="1a04f-107">Azure CLI 2.0은 명령줄에서 Azure 리소스를 관리하는 작업 및 Azure Resource Manager에 대해 작동하는 자동화 스크립트 작성 작업에 최적화되었습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-107">Azure CLI 2.0 is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager.</span></span>
-<span data-ttu-id="1a04f-108">이 문서에서는 Azure CLI 2.0을 시작하는 방법 및 핵심 개념을 설명합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-108">This article helps get you started using it, and teaches you the core concepts behind it.</span></span>
+## <a name="install-and-log-in"></a><span data-ttu-id="c22b5-108">설치 및 로그인</span><span class="sxs-lookup"><span data-stu-id="c22b5-108">Install and log in</span></span>
 
-<span data-ttu-id="1a04f-109">최신 릴리스에 대한 자세한 내용은 [릴리스 정보](release-notes-azure-cli.md)를 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="1a04f-109">For information about the latest release, see the [release notes](release-notes-azure-cli.md).</span></span>
+<span data-ttu-id="c22b5-109">아직 설치하지 않았으면 [CLI 설치](install-azure-cli.md)를 수행하거나 [Azure Cloud Shell](/azure/cloud-shell/overview)을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-109">If you haven't already, [install the CLI](install-azure-cli.md) or try out the [Azure Cloud Shell](/azure/cloud-shell/overview).</span></span>
 
-## <a name="connect"></a><span data-ttu-id="1a04f-110">연결</span><span class="sxs-lookup"><span data-stu-id="1a04f-110">Connect</span></span>
+<span data-ttu-id="c22b5-110">로컬 설치에 CLI 명령을 사용하려면 먼저 [az login](/cli/azure/index#az_login)으로 로그인해야 합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-110">Before using any CLI commands with a local install, you need to log in with [az login](/cli/azure/index#az_login).</span></span>
 
-<span data-ttu-id="1a04f-111">가장 간단하게 시작하는 방법은 [Cloud Shell을 시작](/azure/cloud-shell/quickstart)하는 것입니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-111">The simplest way to get started is to [launch Cloud Shell](/azure/cloud-shell/quickstart).</span></span>
-
-1. <span data-ttu-id="1a04f-112">Azure Portal의 위쪽 탐색 모음에서 Cloud Shell을 시작합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-112">Launch Cloud Shell from the top navigation of the Azure portal.</span></span>
-
-   ![셸 아이콘](media/get-started-with-azure-cli/shell-icon.png)
-
-2. <span data-ttu-id="1a04f-114">사용하려는 구독을 선택하고 저장소 계정을 만듭니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-114">Choose the subscription you want to use and create a storage account.</span></span>
-
-   ![저장소 계정 만들기](media/get-started-with-azure-cli/storage-prompt.png)
-
-<span data-ttu-id="1a04f-116">CLI를 [설치](install-azure-cli.md)하고 명령줄에서 로컬로 실행할 수도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-116">You can also [install](install-azure-cli.md) the CLI and run it locally from the command line.</span></span> <span data-ttu-id="1a04f-117">CLI가 설치되면 `az login`을 실행하여 기본 구독으로 로그인하십시오.</span><span class="sxs-lookup"><span data-stu-id="1a04f-117">Once you have installed the CLI, run `az login` to log in with your default subscription.</span></span>
-
-## <a name="create-a-resource-group"></a><span data-ttu-id="1a04f-118">리소스 그룹 만들기</span><span class="sxs-lookup"><span data-stu-id="1a04f-118">Create a Resource Group</span></span>
-
-<span data-ttu-id="1a04f-119">모든 설정이 완료되었으니, 이제부터 Azure CLI를 사용하여 Azure 내에 리소스를 만들어 보겠습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-119">Now that we've got everything set up, let's use the Azure CLI to create resources within Azure.</span></span>
-
-<span data-ttu-id="1a04f-120">먼저 리소스 그룹을 만듭니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-120">First, create a Resource Group.</span></span>  <span data-ttu-id="1a04f-121">Azure의 리소스 그룹은 논리적으로 그룹화하려는 여러 리소스를 관리하는 방법을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-121">Resource Groups in Azure provide a way to manage multiple resources that you want to logically group.</span></span>  <span data-ttu-id="1a04f-122">예를 들어 응용 프로그램 또는 프로젝트에 대한 리소스 그룹을 만들고 그 안에 가상 머신, 데이터베이스 및 CDN 서비스를 추가할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-122">For example, you might create a Resource Group for an application or project and add a virtual machine, a database and a CDN service within it.</span></span>
-
-<span data-ttu-id="1a04f-123">Azure의 *westus2* 지역에 "MyResourceGroup"이라는 이름의 리소스 그룹을 만듭니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-123">Let's create a resource group named "MyResourceGroup" in the *westus2* region of Azure.</span></span>  <span data-ttu-id="1a04f-124">이렇게 하려면 다음 명령을 입력합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-124">To do so type the following command:</span></span>
-
-```azurecli-interactive
-az group create -n MyResourceGroup -l westus2
+```azurecli
+az login
 ```
 
-<span data-ttu-id="1a04f-125">리소스 그룹이 만들어지면 `az group create` 명령이 새로 생성된 리소스의 여러 속성을 출력합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-125">Once the resource group has been created, the `az group create` command outputs several properties of the newly created resource:</span></span>
+<span data-ttu-id="c22b5-111">이 명령은 웹 사이트를 통해 인증 코드를 사용하여 로그인하도록 프롬프트합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-111">This command prompts you to log in with an authentication code via a website.</span></span> <span data-ttu-id="c22b5-112">비 대화형으로 로그인할 수 있는 방법도 여러 가지가 있으며, 이에 대해서는 [Azure CLI 2.0에 로그인](authenticate-azure-cli.md)에서 자세히 설명됩니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-112">There are ways to log in non-interactively, which are covered in detail in [Log in with Azure CLI 2.0](authenticate-azure-cli.md).</span></span>
 
-```Output
-{
-  "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyResourceGroup",
-  "location": "westus2",
-  "managedBy": null,
-  "name": "MyResourceGroup",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
+## <a name="common-commands"></a><span data-ttu-id="c22b5-113">일반적인 명령</span><span class="sxs-lookup"><span data-stu-id="c22b5-113">Common commands</span></span>
+
+<span data-ttu-id="c22b5-114">이 표에서는 CLI에 사용되는 몇 가지 일반적인 명령과 해당 참조 설명서 페이지 링크를 보여줍니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-114">This table lists a few of the common commands used in the CLI links out to their documentation pages in the reference.</span></span>
+<span data-ttu-id="c22b5-115">이러한 그룹의 모든 하위 명령 및 해당 설명은 온라인 참조 또는 `--help` 인수를 사용하여 확인할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-115">All subcommands of these groups and their documentation can be looked up in online reference or with the `--help` argument.</span></span>
+
+| <span data-ttu-id="c22b5-116">리소스 종류</span><span class="sxs-lookup"><span data-stu-id="c22b5-116">Resource type</span></span> | <span data-ttu-id="c22b5-117">Azure CLI 명령 그룹</span><span class="sxs-lookup"><span data-stu-id="c22b5-117">Azure CLI command group</span></span> |
+|---------------|-------------------------|
+| [<span data-ttu-id="c22b5-118">리소스 그룹</span><span class="sxs-lookup"><span data-stu-id="c22b5-118">Resource group</span></span>](/azure/azure-resource-manager/resource-group-overview) | [<span data-ttu-id="c22b5-119">az group</span><span class="sxs-lookup"><span data-stu-id="c22b5-119">az group</span></span>](/cli/azure/group) |
+| [<span data-ttu-id="c22b5-120">가상 머신</span><span class="sxs-lookup"><span data-stu-id="c22b5-120">Virtual machines</span></span>](/azure/virtual-machines) | [<span data-ttu-id="c22b5-121">az vm</span><span class="sxs-lookup"><span data-stu-id="c22b5-121">az vm</span></span>](/cli/azure/vm) |
+| [<span data-ttu-id="c22b5-122">저장소 계정</span><span class="sxs-lookup"><span data-stu-id="c22b5-122">Storage accounts</span></span>](/azure/storage/common/storage-introduction) | [<span data-ttu-id="c22b5-123">az 저장소 계정</span><span class="sxs-lookup"><span data-stu-id="c22b5-123">az storage account</span></span>](/cli/azure/storage/account) |
+| [<span data-ttu-id="c22b5-124">Key Vault</span><span class="sxs-lookup"><span data-stu-id="c22b5-124">Key Vault</span></span>](/azure/key-vault/key-vault-whatis) | [<span data-ttu-id="c22b5-125">az keyvault</span><span class="sxs-lookup"><span data-stu-id="c22b5-125">az keyvault</span></span>](/cli/azure/keyvault) |
+| [<span data-ttu-id="c22b5-126">웹 응용 프로그램</span><span class="sxs-lookup"><span data-stu-id="c22b5-126">Web applications</span></span>](/azure/ap-service) | [<span data-ttu-id="c22b5-127">az webapp</span><span class="sxs-lookup"><span data-stu-id="c22b5-127">az webapp</span></span>](/cli/azure/webapp) |
+| [<span data-ttu-id="c22b5-128">SQL 데이터베이스</span><span class="sxs-lookup"><span data-stu-id="c22b5-128">SQL databases</span></span>](/azure/sql-database) | [<span data-ttu-id="c22b5-129">az sql server</span><span class="sxs-lookup"><span data-stu-id="c22b5-129">az sql server</span></span>](/cli/azure/sql/server) |
+| [<span data-ttu-id="c22b5-130">CosmosDB</span><span class="sxs-lookup"><span data-stu-id="c22b5-130">CosmosDB</span></span>](/azure/cosmos-db) | [<span data-ttu-id="c22b5-131">az cosmosdb</span><span class="sxs-lookup"><span data-stu-id="c22b5-131">az cosmosdb</span></span>](/cli/azure/cosmosdb) |
+
+## <a name="finding-commands"></a><span data-ttu-id="c22b5-132">명령 찾기</span><span class="sxs-lookup"><span data-stu-id="c22b5-132">Finding commands</span></span>
+
+<span data-ttu-id="c22b5-133">CLI에서 명령은 _그룹_의 _하위 명령_으로 제공됩니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-133">Commands in the CLI are provided as _subcommands_ of _groups_.</span></span>
+<span data-ttu-id="c22b5-134">각 그룹은 Azure에서 제공되는 서비스를 나타내며, 하위 그룹은 이러한 서비스에 대한 명령을 논리적 그룹으로 구분합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-134">Each group represents a service provided by Azure, and the subgroups divide commands for these services into logical groupings.</span></span>
+
+<span data-ttu-id="c22b5-135">명령을 검색하려면 [az find](/cli/azure/index#az_find)를 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-135">To search for commands, use [az find](/cli/azure/index#az_find).</span></span> <span data-ttu-id="c22b5-136">예를 들어 이름에 `secret`이(가) 포함된 명령을 검색하려면 다음 명령을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-136">For example, to search for command names containing `secret`, use the following command:</span></span>
+
+```azurecli
+az find -q secret
 ```
 
-## <a name="create-a-linux-virtual-machine"></a><span data-ttu-id="1a04f-126">Linux Virtual Machine 만들기</span><span class="sxs-lookup"><span data-stu-id="1a04f-126">Create a Linux Virtual Machine</span></span>
+<span data-ttu-id="c22b5-137">작업하려는 명령의 그룹을 알고 있으면 `--help` 인수를 사용하는 것이 더 효과적일 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-137">If you know which group of commands you want to work with, the `--help` argument may be a better choice.</span></span> <span data-ttu-id="c22b5-138">그러면 명령에 대한 자세한 정보가 표시될 뿐만 아니라, 명령 그룹과 함께 사용할 경우, 사용 가능한 모든 하위 명령도 표시됩니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-138">This displays not just detailed information for a command, but when used with a command group, displays all of the available subcommands.</span></span> <span data-ttu-id="c22b5-139">예를 들어 NSG(네트워크 보안 그룹)와 함께 사용할 경우, 사용 가능한 NSG 하위 그룹 및 명령을 찾을 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-139">For example, when working with Network Security Groups (NSGs) you can find the available NSG subgroups and commands.</span></span>
 
-<span data-ttu-id="1a04f-127">리소스 그룹이 생겼으니, 그 안에 Linux VM을 만들어 보겠습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-127">Now that we have our resource group, let's create a Linux VM within it.</span></span>
-
-<span data-ttu-id="1a04f-128">다음 명령으로 인기 있는 UbuntuLTS 이미지를 사용하여 10GB 및 20GB 저장소 디스크 두 개가 연결된 Linux VM을 만들 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-128">You can create a Linux VM using the popular UbuntuLTS image, with two attached storage disks of 10 GB and 20 GB, with the following command:</span></span>
-
-```azurecli-interactive
-az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --data-disk-sizes-gb 10 20
+```azurecli
+az network nsg --help
 ```
 
-<span data-ttu-id="1a04f-129">앞에서 말한 명령을 실행하면 Azure CLI 2.0이 ~/.ssh 디렉터리 아래에 저장된 SSH 키 쌍을 찾습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-129">When you run the preceding command, the Azure CLI 2.0 looks for an SSH key pair stored under your ~/.ssh directory.</span></span>  <span data-ttu-id="1a04f-130">여기에 저장된 SSH 키 쌍이 없으면 --generate-ssh-keys 매개 변수를 전달하여 Azure CLI가 자동으로 생성하게 할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-130">If you don't already have an SSH key pair stored there, you can ask the Azure CLI to automatically create one for you by passing the --generate-ssh-keys parameter:</span></span>
+<span data-ttu-id="c22b5-140">CLI에는 Bash 셸에서 명령에 대한 전체 탭 완성 기능이 포함됩니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-140">The CLI has full tab completion for commands under the bash shell.</span></span>
 
-```azurecli-interactive
-az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --data-disk-sizes-gb 10 20 --generate-ssh-keys
-```
+## <a name="globally-available-arguments"></a><span data-ttu-id="c22b5-141">전역으로 사용 가능한 인수</span><span class="sxs-lookup"><span data-stu-id="c22b5-141">Globally available arguments</span></span>
 
-<span data-ttu-id="1a04f-131">VM이 완전히 생성되어 액세스 및 사용 준비를 마치면 `az vm create` 명령이 출력을 반환합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-131">The `az vm create` command returns output once the VM has been fully created and is ready to be accessed and used.</span></span> <span data-ttu-id="1a04f-132">출력에는 공용 IP 주소를 포함하여 새로 만든 VM의 여러 속성이 포함됩니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-132">The output includes several properties of the newly created VM including its public IP address:</span></span>
+<span data-ttu-id="c22b5-142">일부 인수는 모든 명령에 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-142">There are some arguments that are available for every command.</span></span>
 
-```Output
-{
-  "fqdns": "",
-  "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyLinuxVM",
-  "location": "westus2",
-  "macAddress": "xx-xx-xx-xx-xx-xx",
-  "powerState": "VM running",
-  "privateIpAddress": "xx.x.x.x",
-  "publicIpAddress": "xx.xxx.xxx.xx",
-  "resourceGroup": "MyResourceGroup"
-}
-```
+* <span data-ttu-id="c22b5-143">`--help`은(는) 명령 및 해당 인수에 대한 CLI 참조 정보를 출력하고 사용 가능한 하위 그룹 및 명령을 나열합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-143">`--help` prints CLI reference information about commands and their arguments and lists available subgroups and commands.</span></span>
+* <span data-ttu-id="c22b5-144">`--output`은(는) 출력 형식을 변경합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-144">`--output` changes the output format.</span></span> <span data-ttu-id="c22b5-145">사용 가능한 출력 형식은 `json`, `jsonc`(색상으로 표시된 JSON), `tsv`(탭으로 구분된 값) 및 `table`(휴먼 판독 가능한 ASCII 테이블)입니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-145">The available output formats are `json`, `jsonc` (colorized JSON), `tsv` (Tab-Separated Values), and `table` (human-readable ASCII tables).</span></span> <span data-ttu-id="c22b5-146">기본적인 CLI 출력은 `json`입니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-146">By default the CLI outputs `json`.</span></span> <span data-ttu-id="c22b5-147">사용 가능한 출력 형식에 대해 자세히 알아보려면 [Azure CLI 2.0의 출력 형식](format-output-azure-cli.md)을 참조하십시오.</span><span class="sxs-lookup"><span data-stu-id="c22b5-147">To learn more about the available output formats, see [Output formats for Azure CLI 2.0](format-output-azure-cli.md).</span></span>
+* <span data-ttu-id="c22b5-148">`--query`은(는) [JMESPath 쿼리 언어](http://jmespath.org/)를 사용하여 Azure 서비스에서 반환되는 출력을 필터링합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-148">`--query` uses the [JMESPath query language](http://jmespath.org/) to filter the output returned from Azure services.</span></span> <span data-ttu-id="c22b5-149">쿼리에 대해 자세히 알아보려면 [Azure CLI 2.0을 사용한 쿼리 명령 결과](query-azure-cli.md) 및 [JMESPath 자습서](http://jmespath.org/tutorial.html)를 참조하십시오.</span><span class="sxs-lookup"><span data-stu-id="c22b5-149">To learn To learn more about queries, see [Query command results with Azure CLI 2.0](query-azure-cli.md) and the [JMESPath tutorial](http://jmespath.org/tutorial.html).</span></span>
+* <span data-ttu-id="c22b5-150">`--verbose`은(는) 작업 중 Azure에서 생성되는 리소스에 대한 정보 및 기타 유용한 정보를 출력합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-150">`--verbose` prints information about resources created in Azure during an operation, and other useful information.</span></span>
+* <span data-ttu-id="c22b5-151">`--debug`은(는) 디버깅 목적으로 사용되는 CLI 작업에 대한 자세한 정보를 출력합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-151">`--debug` prints even more information about CLI operations, used for debugging purposes.</span></span> <span data-ttu-id="c22b5-152">버그가 발견된 경우, 버그 보고서를 제출할 때 `--debug` 플래그를 사용해서 생성된 출력을 제공하십시오.</span><span class="sxs-lookup"><span data-stu-id="c22b5-152">If you encounter a bug, provide output generated with the `--debug` flag on when submitting a bug report.</span></span>
 
-<span data-ttu-id="1a04f-133">VM을 만들었으니, **SSH**를 사용하여 앞에서 만든 VM의 공용 IP 주소로 새 Linux VM에 로그온할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-133">Now that the VM has been created, you can log on to your new Linux VM using **SSH** with the public IP address of the VM you created:</span></span>
 
-```azurecli-interactive
-ssh xx.xxx.xxx.xxx
-```
+## <a name="interactive-mode"></a><span data-ttu-id="c22b5-153">대화형 모드</span><span class="sxs-lookup"><span data-stu-id="c22b5-153">Interactive mode</span></span>
 
-```Output
-Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
+<span data-ttu-id="c22b5-154">CLI는 도움말 정보를 자동으로 표시하고 하위 명령을 더 쉽게 선택할 수 있게 해주는 대화형 모드를 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-154">The CLI offers an interactive mode that automatically displays help information and makes it easier to select subcommands.</span></span> <span data-ttu-id="c22b5-155">대화형 모드로 전환하려면 `az interactive` 명령을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-155">You enter interactive mode with the `az interactive` command.</span></span> <span data-ttu-id="c22b5-156">대화형 모드 및 CLI 학습에 대화형 모드를 활용하는 방법에 대한 자세한 내용은 [Azure CLI 2.0 대화형 모드](interactive-azure-cli.md)를 참조하십시오.</span><span class="sxs-lookup"><span data-stu-id="c22b5-156">For more information on interactive mode and how it helps you learn the CLI, see [Azure CLI 2.0 Interactive Mode](interactive-azure-cli.md).</span></span>
 
- * Documentation:  https://help.ubuntu.com/
+<span data-ttu-id="c22b5-157">또한 자동 완성 및 마우스를 위로 가져갈 때 표시되는 설명을 포함하여 대화형 환경을 제공하는 [Visual Studio Code 플러그인](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-157">There is also a [Visual Studio Code plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) that offers an interactive experience, including autocomplete and mouse-over documentation.</span></span>
 
-  System information as of Sun Feb 19 00:32:28 UTC 2017
 
-  System load: 0.31              Memory usage: 3%   Processes:       89
-  Usage of /:  39.6% of 1.94GB   Swap usage:   0%   Users logged in: 0
 
-  Graph this data and manage this system at:
-    https://landscape.canonical.com/
+## <a name="learn-cli-basics-with-quickstarts-and-tutorials"></a><span data-ttu-id="c22b5-158">퀵 스타트 및 자습서로 CLI 기본 내용 학습</span><span class="sxs-lookup"><span data-stu-id="c22b5-158">Learn CLI basics with quickstarts and tutorials</span></span>
 
-  Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+<span data-ttu-id="c22b5-159">Azure CLI 2.0을 시작하려면 가상 머신 설정 및 Azure 리소스 쿼리를 위한 CLI 기능 사용에 대한 세부 자습서를 참조하십시오.</span><span class="sxs-lookup"><span data-stu-id="c22b5-159">To get you started with the Azure CLI 2.0, try an in-depth tutorial for setting up virtual machines and using the power of the CLI to query Azure resources.</span></span>
 
-0 packages can be updated.
-0 updates are security updates.
+> [!div class="nextstepaction"]
+> [<span data-ttu-id="c22b5-160">Azure CLI 2.0을 사용하여 가상 머신 만들기 자습서</span><span class="sxs-lookup"><span data-stu-id="c22b5-160">Create virtual machines with the Azure CLI 2.0 tutorial</span></span>](azure-cli-vm-tutorial.yml)
 
+<span data-ttu-id="c22b5-161">다른 서비스에 대해 자세히 알아보려면 CLI를 사용하는 Azure 서비스에 대한 여러 퀵 스타트를 참조할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-161">If you would rather focus on other services, there are a variety of quickstarts for Azure services that use the CLI.</span></span>
 
+* [<span data-ttu-id="c22b5-162">Azure CLI를 사용하여 저장소 계정 만들기</span><span class="sxs-lookup"><span data-stu-id="c22b5-162">Create a storage account using the Azure CLI</span></span>](/azure/storage/common/storage-quickstart-create-storage-account-cl)
+* [<span data-ttu-id="c22b5-163">CLI를 사용하여 Azure Blob 저장소에 대한 개체 전송</span><span class="sxs-lookup"><span data-stu-id="c22b5-163">Transfer objects to/from Azure Blob storage using the CLI</span></span>](/storage/blobs/storage-quickstart-blobs-cli)
+* [<span data-ttu-id="c22b5-164">Azure CLI를 사용하여 단일 Azure SQL 데이터베이스 만들기</span><span class="sxs-lookup"><span data-stu-id="c22b5-164">Create a single Azure SQL database using the Azure CLI</span></span>](/azure/sql-database/sql-database-get-started-cli)
+* [<span data-ttu-id="c22b5-165">Azure CLI를 사용하여 Azure Database for MySQL 서버 만들기</span><span class="sxs-lookup"><span data-stu-id="c22b5-165">Create an Azure Database for MySQL server using the Azure CLI</span></span>](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
+* [<span data-ttu-id="c22b5-166">Azure CLI를 사용하여 PostgreSQL용 Azure Database 만들기</span><span class="sxs-lookup"><span data-stu-id="c22b5-166">Create an Azure Database for PostgreSQL using the Azure CLI</span></span>](/azure/postgresql/quickstart-create-server-database-azure-cli)
+* [<span data-ttu-id="c22b5-167">Azure에서 Python 웹앱 만들기</span><span class="sxs-lookup"><span data-stu-id="c22b5-167">Create a Python web app in Azure</span></span>](/azure/app-service/app-service-web-get-started-python)
+* [<span data-ttu-id="c22b5-168">Azure Web Apps for Containers에서 사용자 지정 Docker Hub 이미지 실행</span><span class="sxs-lookup"><span data-stu-id="c22b5-168">Run a custom Docker Hub image in Azure Web Apps for Containers</span></span>](/azure/app-service/containers/quickstart-custom-docker-image)
 
-The programs included with the Ubuntu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
+## <a name="give-feedback"></a><span data-ttu-id="c22b5-169">피드백 제공</span><span class="sxs-lookup"><span data-stu-id="c22b5-169">Give feedback</span></span>
 
-Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
+<span data-ttu-id="c22b5-170">CLI 기능 개선 및 버그 해결을 위해 피드백을 보내주시기 바랍니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-170">We welcome your feedback for the CLI to help us make improvements and resolve bugs.</span></span> <span data-ttu-id="c22b5-171">[Github에서 문제를 제출](https://github.com/azure/azure-cli/issues)하거나 CLI의 기본 제공 기능을 사용하여 `az feedback` 명령으로 일반적인 피드백을 제출할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="c22b5-171">You can [file an issue on Github](https://github.com/azure/azure-cli/issues) or use the built-in features of the CLI to leave general feedback with the `az feedback` command.</span></span>
 
-my-login@MyLinuxVM:~$
-```
-
-## <a name="create-a-windows-server-virtual-machine"></a><span data-ttu-id="1a04f-134">Windows Server Virtual Machine 만들기</span><span class="sxs-lookup"><span data-stu-id="1a04f-134">Create a Windows Server Virtual Machine</span></span>
-
-<span data-ttu-id="1a04f-135">이제 `az vm create` 명령을 사용하여 Windows Server 2016 Datacenter 기반 VM을 만들고, Linux VM에 사용한 것과 동일한 "MyResourceGroup" 리소스 그룹에 추가하겠습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-135">Let's now create a Windows Server 2016 Datacenter-based VM using the `az vm create` command and add it to the same "MyResourceGroup" resource group that we used for our Linux VM.</span></span>  <span data-ttu-id="1a04f-136">Linux VM 예제와 마찬가지로 `--data-disk-sizes-gb` 매개 변수를 사용하여 두 개의 저장소 디스크를 연결하겠습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-136">Like the Linux VM example, we'll also attach two storage disks using the `--data-disk-sizes-gb` parameter.</span></span>
-
-<span data-ttu-id="1a04f-137">Azure에서는 예측하기 어려운 사용자 이름/암호를 사용해야 합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-137">Azure requires that you avoid using easily guessed usernames/passwords.</span></span> <span data-ttu-id="1a04f-138">사용 가능한 문자와 사용자 이름 및 암호의 최소 길이에 대한 구체적인 규칙이 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-138">There are specific rules for what characters can be used as well as the minimum length of both username and password.</span></span>
-
-> [!NOTE]
-> <span data-ttu-id="1a04f-139">이 명령을 실행하면 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-139">You will be prompted to enter your username and password when running this command.</span></span>
-
-```azurecli-interactive
-az vm create -n MyWinVM -g MyResourceGroup --image Win2016Datacenter
-```
-
-<span data-ttu-id="1a04f-140">VM이 완전히 생성되어 액세스 및 사용 준비를 마치면 `az vm create` 명령이 결과를 출력합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-140">The `az vm create` command output results once the VM has been fully created and is ready to be accessed and used.</span></span>
-
-```Output
-{
-  "fqdns": "",
-  "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWinVM",
-  "location": "westus2",
-  "macAddress": "xx-xx-xx-xx-xx-xx",
-  "powerState": "VM running",
-  "privateIpAddress": "xx.x.x.x",
-  "publicIpAddress": "xx.xxx.xx.xxx",
-  "resourceGroup": "MyResourceGroup"
-}
-```
-
-<span data-ttu-id="1a04f-141">이제 원격 데스크톱 및 VM(`az vm create`의 출력에 반환된)의 공용 IP 주소를 사용하여 새로 만든 Windows Server VM에 로그온합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-141">Now log on to your newly created Windows Server VM using Remote Desktop and the public IP address of the VM (which is returned in the output from `az vm create`).</span></span>
-<span data-ttu-id="1a04f-142">Windows 기반 시스템을 사용하는 경우 명령줄에서 `mstsc` 명령을 사용하여 다음과 같은 일을 할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-142">If you are on a Windows-based system, you can do this from the command line using the `mstsc` command:</span></span>
-
-```azurecli-interactive
-mstsc /v:xx.xxx.xx.xxx
-```
-
-<span data-ttu-id="1a04f-143">로그인할 VM을 만들 때 사용한 것과 동일한 사용자 이름/암호 조합을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-143">Supply the same username/password combination you used when creating the VM to log in.</span></span>
-
-## <a name="creating-other-resources-in-azure"></a><span data-ttu-id="1a04f-144">Azure에서 다른 리소스 만들기</span><span class="sxs-lookup"><span data-stu-id="1a04f-144">Creating other resources in Azure</span></span>
-
-<span data-ttu-id="1a04f-145">지금까지 리소스 그룹, Linux VM 및 Windows Server VM을 만드는 방법을 살펴보았습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-145">We've now walked through how to create a Resource Group, a Linux VM, and a Windows Server VM.</span></span> <span data-ttu-id="1a04f-146">여러 다른 유형의 Azure 리소스도 만들 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-146">You can create many other types of Azure resources as well.</span></span>
-
-<span data-ttu-id="1a04f-147">모든 새 리소스는 일관적인 `az <resource type name> create` 명명 패턴을 사용하여 생성됩니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-147">All new resources are created using a consistent `az <resource type name> create` naming pattern.</span></span>  <span data-ttu-id="1a04f-148">예를 들어 Azure 네트워크 부하 분산 장치를 만든 후 새로 만든 VM과 연결하려면 다음 만들기 명령을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-148">For example, to create an Azure Network Load Balancer that we could then associate with our newly created VMs, we can use the following create command:</span></span>
-
-```azurecli-interactive
-az network lb create -n MyLoadBalancer -g MyResourceGroup
-```
-
-<span data-ttu-id="1a04f-149">다음 만들기 명령을 사용하여 인프라에 대한 새 개인 Virtual Network(일반적으로 Azure 내에서는 "VNet"이라고 함)를 만들 수도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-149">We could also create a new private Virtual Network (commonly referred to as a "VNet" within Azure) for our infrastructure using the following create command:</span></span>
-
-```azurecli-interactive
-az network vnet create -n MyVirtualNetwork -g MyResourceGroup --address-prefix 10.0.0.0/16
-```
-
-<span data-ttu-id="1a04f-150">Azure 및 Azure CLI가 강력한 이유는 클라우드 기반 인프라를 가져오는 데 사용할 수 있을 뿐 아니라 관리형 플랫폼 서비스를 만드는 데도 사용할 수 있기 때문입니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-150">What makes Azure and the Azure CLI powerful is that we can use it not just to get cloud-based infrastructure but also to create managed platform services.</span></span>  <span data-ttu-id="1a04f-151">관리형 플랫폼 서비스를 인프라와 결합하면 더욱 강력한 솔루션을 구축할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-151">The managed platform services can also be combined with infrastructure to build even more powerful solutions.</span></span>
-
-<span data-ttu-id="1a04f-152">예를 들어 Azure CLI를 사용하여 Azure AppService를 만들 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-152">For example, you can use the Azure CLI to create an Azure AppService.</span></span>  <span data-ttu-id="1a04f-153">Azure AppService는 인프라에 대한 걱정 없이 웹앱을 호스트하는 훌륭한 방법을 제공하는 관리형 플랫폼 서비스입니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-153">Azure AppService is a managed platform service that provides a great way to host web apps without having to worry about infrastructure.</span></span>  <span data-ttu-id="1a04f-154">Azure AppService를 만든 후에는 다음 만들기 명령을 사용하여 AppService 내에서 두 개의 새 Azure Web Apps를 만들 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-154">After creating the Azure AppService, you can create two new Azure Web Apps within the AppService using the following create commands:</span></span>
-
-```azurecli-interactive
-# Create an Azure AppService that we can host any number of web apps within
-az appservice plan create -n MyAppServicePlan -g MyResourceGroup
-
-# Create Two Web Apps within the AppService (note: name param must be a unique DNS entry)
-az webapp create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan
-az webapp create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan
-```
-
-<span data-ttu-id="1a04f-155">`az <resource type name> create` 패턴의 기본을 이해하고 나면 무엇이든 쉽게 만들 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-155">Once you understand the basics of the `az <resource type name> create` pattern, it becomes easy to create anything.</span></span> <span data-ttu-id="1a04f-156">다음은 몇 가지 인기 있는 Azure 리소스 유형과 해당 유형을 만드는 해당 Azure CLI 만들기 명령입니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-156">Following are some popular Azure resource types and the corresponding Azure CLI create commands to create them:</span></span>
-
-```
-Resource Type               Azure CLI create command
--------------               ------------------------
-Resource Group              az group create
-Virtual Machine             az vm create
-Virtual Network             az network vnet create
-Load Balancer               az network lb create
-Managed Disk                az disk create
-Storage account             az storage account create
-Virtual Machine Scale Set   az vmss create
-Azure Container Service     az acs create
-Web App                     az webapp create
-SQL Database Server         az sql server create
-Document DB                 az documentdb create
-```
-
-<span data-ttu-id="1a04f-157">앞서 언급한 각 명령에 전달할 수 있는 추가 리소스별 매개 변수 및 사용자가 만들 수 있는 리소스 유형에 대한 자세한 내용은 [참조 설명서](/cli/azure)를 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="1a04f-157">Visit the [Reference documentation](/cli/azure) to learn more about the additional resource-specific parameters that you can pass to each of the preceding commands and the resource types you can create.</span></span>
-
-## <a name="useful-tip-optimizing-create-operations-using---no-wait"></a><span data-ttu-id="1a04f-158">유용한 팁: --no-wait를 사용하여 만들기 작업 최적화</span><span class="sxs-lookup"><span data-stu-id="1a04f-158">Useful tip: Optimizing create operations using --no-wait</span></span>
-
-<span data-ttu-id="1a04f-159">기본적으로 Azure CLI 2.0을 사용하여 리소스를 만들 때 `az <resource type name> create` 명령은 리소스가 생성되고 사용 준비가 완료될 때까지 기다립니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-159">By default when you create resources using the Azure CLI 2.0, the `az <resource type name> create` command waits until the resource has been created and is ready for you to use.</span></span>  <span data-ttu-id="1a04f-160">예를 들어 VM을 만들 때, `az vm create` 명령은 기본적으로 VM이 생성되고 사용자가 그 VM에 SSH 또는 RDP 작업을 수행할 수 있을 때까지 결과를 반환하지 않습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-160">For example, if you create a VM, the `az vm create` command will, by default, not return until the VM is created and is ready for you to SSH or RDP into it.</span></span>
-
-<span data-ttu-id="1a04f-161">이 접근 방식을 사용하는 이유는 종속성이 있는 여러 단계를 포함하고 있는(그리고 계속하려면 이전 작업을 성공적으로 완료해야 하는) 자동화 스크립트를 좀 더 쉽게 작성할 수 있기 때문입니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-161">We use this approach because it makes it easier to write automation scripts that contain multiple steps with dependencies (and need a prior task to have completed successfully before continuing).</span></span>
-
-<span data-ttu-id="1a04f-162">리소스가 생성될 때까지 기다리지 않고도 계속 진행할 수 있다면 `no-wait` 옵션을 사용하여 백그라운드에서 만들기 작업을 시작할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-162">If you do not need to wait on creation of a resource before continuing, you can use the `no-wait` option to start a create action in the background.</span></span> <span data-ttu-id="1a04f-163">다른 명령에 CLI를 계속 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-163">You can continue using the CLI for other commands.</span></span>
-
-<span data-ttu-id="1a04f-164">예를 들어 다음 `az vm create` 명령을 사용하면 VM 배포가 시작된 후 훨씬 빠르게(그리고 VM이 완전히 부팅되기 전에) 더 많은 결과를 반환합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-164">For example, the following usage of the `az vm create` starts a VM deployment and then return much more quickly (and before the VM has fully booted):</span></span>
-
-```azurecli-interactive
-az vm create -n MyLinuxVM2 -g MyResourceGroup --image UbuntuLTS --no-wait
-```
-
-<span data-ttu-id="1a04f-165">`--no-wait` 접근 방식을 사용하면 자동화 스크립트의 성능을 최적화하는 데 많은 도움이 됩니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-165">Using the `--no-wait` approach can help you optimize the performance of your automation scripts considerably.</span></span>
-
-## <a name="listing-resources-and-formatting-output"></a><span data-ttu-id="1a04f-166">리소스 나열 및 출력 서식 지정</span><span class="sxs-lookup"><span data-stu-id="1a04f-166">Listing resources and formatting output</span></span>
-
-<span data-ttu-id="1a04f-167">Azure CLI 내에서 `list` 명령을 사용하여 Azure에서 실행되는 리소스를 찾아 나열할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-167">You can use the `list` command within the Azure CLI to find and list the resources running in Azure.</span></span>
-
-<span data-ttu-id="1a04f-168">만들기 명령과 마찬가지로, 모든 리소스 유형에서 동일한 일반적인 `az <resource type name> list` 명명 패턴을 사용하는 Azure CLI 2.0을 사용하여 리소스를 나열할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-168">Like with the create command, you can list resources using the Azure CLI 2.0 using a common `az <resource type name> list` naming pattern that is consistent across all resource types.</span></span>  <span data-ttu-id="1a04f-169">리소스 목록을 보고 싶은 대로 필터링하고 정렬할 수 있는 다양한 출력 형식 및 쿼리 옵션이 제공됩니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-169">There are various output formats and query options available to filter and sort the list of resources in the way you prefer to see them.</span></span>
-
-<span data-ttu-id="1a04f-170">예를 들어 `az vm list` 명령은 갖고 있는 모든 VM 목록을 표시합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-170">For example, `az vm list` shows the list of all VMs you have.</span></span>
-
-```azurecli-interactive
-az vm list
-```
-<span data-ttu-id="1a04f-171">반환되는 값은 기본적으로 JSON 형식입니다(간단하게 표시하기 위해 출력의 일부만 표시).</span><span class="sxs-lookup"><span data-stu-id="1a04f-171">The values returned are by default in JSON (only showing partial output for sake of brevity).</span></span>
-
-```json
-[
-  {
-    "availabilitySet": null,
-    "diagnosticsProfile": null,
-    "hardwareProfile": {
-      "vmSize": "Standard_DS1_v2"
-    },
-    "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010",
-    "instanceView": null,
-    "licenseType": null,
-    "location": "westus2",
-    "name": "MyLinuxVM",
-    "networkProfile": {
-      "networkInterfaces": [
-        {
-          "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/demorg1/providers/Microsoft.Network/networkInterfaces/DemoVM010VMNic",
-          "primary": null,
-          "resourceGroup": "MyResourceGroup"
-        }
-      ]
-    },
-          ...
-          ...
-          ...
-]
-```
-
-<span data-ttu-id="1a04f-172">원한다면 `--output` 옵션을 사용하여 출력 형식을 수정할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-172">You can optionally modify the output format using the `--output` option.</span></span>  <span data-ttu-id="1a04f-173">`az vm list` 명령을 실행하여 앞에서 만든 Linux 및 Windows Server VM을 모두 표시하고, 읽기 쉬운 *테이블* 형식 옵션을 사용하여 VM의 가장 일반적인 속성을 함께 표시할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-173">Run the `az vm list` command to see both the Linux and Windows Server VMs created earlier, along with the most common properties of a VM, using the easy to read *table* format option:</span></span>
-
-```azurecli-interactive
-az vm list --output table
-```
-
-```Output
-Name       ResourceGroup    Location
----------  ---------------  ----------
-MyLinuxVM  MyResourceGroup  westus2
-MyWinVM    MyResourceGroup  westus2
-```
-
-<span data-ttu-id="1a04f-174">*tsv* 출력 옵션을 사용하여 텍스트 기반의 탭으로 구분된 형식을 헤더 없이 가져올 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-174">The *tsv* output option can be used to get a text-based, tab-separated format without any headers.</span></span>  <span data-ttu-id="1a04f-175">이 형식은 grep 같은 다른 텍스트 기반 도구로 출력을 전달하려는 경우에 유용합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-175">This format is useful when you want to pipe the output into another text-based tool like grep.</span></span>
-
-```azurecli-interactive
-az vm list --output tsv
-```
-
-```
-None    None            /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyLinuxVM        None    None    westus2 MyLinuxVM                   None        Succeeded       MyResourceGroup None                    Microsoft.Compute/virtualMachines       XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-None    None            /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWinVM  None    None    westus2 MyWinVM                 None    Succeeded       MyResourceGroup None                    Microsoft.Compute/virtualMachines       XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-```
-<span data-ttu-id="1a04f-176">리소스를 나열하고 출력 형식을 지정하는 추가적인 방법에 대한 자세한 내용은 [출력 형식](format-output-azure-cli.md) 문서를 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="1a04f-176">Visit the [output formats](format-output-azure-cli.md) article to learn more about the additional ways to list resources and format the output.</span></span>
-
-## <a name="querying-resources-and-shaping-outputs"></a><span data-ttu-id="1a04f-177">리소스 쿼리 및 출력 셰이핑</span><span class="sxs-lookup"><span data-stu-id="1a04f-177">Querying resources and shaping outputs</span></span>
-
-<span data-ttu-id="1a04f-178">특정 조건을 충족하는 리소스만 쿼리하려는 경우가 종종 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-178">Often you want to be able to query for only those resources that meet a specific condition.</span></span>
-
-<span data-ttu-id="1a04f-179">`list` 명령은 간편하게 리소스 그룹 이름으로 리소스를 필터링할 수 있는 기본 지원을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-179">The `list` command has built-in support that makes it easy to filter resources by Resource Group name.</span></span>  <span data-ttu-id="1a04f-180">예를 들어 `--ResourceGroup` 또는 `-g` 매개 변수를 `list` 명령에 전달하여 특정 리소스 그룹 내에 있는 리소스만 검색할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-180">For example, you can pass either a `--ResourceGroup` or `-g` parameter to a `list` command to only retrieve those resources within a specific resource group:</span></span>
-
-
-```azurecli-interactive
-az vm list -g MyResourceGroup --output table
-```
-
-```Output
-Name       ResourceGroup    Location
----------  ---------------  ----------
-MyLinuxVM  MyResourceGroup  westus2
-MyWinVM    MyResourceGroup  westus2
-```
-
-<span data-ttu-id="1a04f-181">보다 강력한 쿼리 지원을 원하는 경우 `--query` 매개 변수를 사용하여 *모든* `az` 명령의 결과에 대해 JMESPath 쿼리를 실행하면 됩니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-181">For even more powerful querying support, you can use the `--query` parameter to execute a JMESPath query on the results of *any* `az` command.</span></span>  <span data-ttu-id="1a04f-182">JMESPath 쿼리는 반환된 결과의 필터링뿐 아니라 셰이핑에도 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-182">JMESPath queries can be used both to filter as well as shape the output of any returned result.</span></span>
-
-<span data-ttu-id="1a04f-183">예를 들어 다음 명령을 실행하여 "My"라는 문자가 포함된 리소스 그룹 내의 모든 VM 리소스를 쿼리할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-183">For example, execute the following command to query for any VM resource within any resource group that contains the letters "My":</span></span>
-
-```azurecli-interactive
-az vm list --output table --query "[?contains(resourceGroup, 'MY')]"
-```
-
-```Output
-ResourceGroup    ProvisioningState    Name       Location    VmId
----------------  -------------------  ---------  ----------  ------------------------------------
-MYRESOURCEGROUP  Succeeded            MyLinuxVM  westus2     XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-MYRESOURCEGROUP  Succeeded            MyWinVM    westus2     XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-```
-
-<span data-ttu-id="1a04f-184">그런 다음 출력을 더욱 구체화하는 JMESPath 쿼리의 셰이핑 기능을 사용하여 다른 값을 출력할 수도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-184">We could then choose to further refine the output by using the shaping capability of JMESPath queries to output different values as well.</span></span>  <span data-ttu-id="1a04f-185">예를 들어 다음 명령은 OS가 Linux 기반인지 아니면 Windows 기반인지 확인하기 위해 VM에서 사용하는 OS 디스크 종류를 검색합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-185">For example, the following command retrieves the type of OS disk the VM is using to determine whether the OS is Linux or Windows based:</span></span>
-
-```azurecli-interactive
-az vm list --output table --query "[?contains(resourceGroup, 'MY')].{ VMName:name, OSType:storageProfile.osDisk.osType }"
-```
-
-```Output
-VMName     OSType
----------  --------
-MyLinuxVM  Linux
-MyWinVM    Windows
-```
-
-<span data-ttu-id="1a04f-186">Azure CLI의 JMESPath 지원은 강력합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-186">The JMESPath support in Azure CLI is powerful.</span></span>  <span data-ttu-id="1a04f-187">[쿼리](query-azure-cli.md) 문서에서 사용 방법에 대해 자세히 알아보세요.</span><span class="sxs-lookup"><span data-stu-id="1a04f-187">Learn more about how to use it in our [query](query-azure-cli.md) article.</span></span>
-
-## <a name="deleting-resources"></a><span data-ttu-id="1a04f-188">리소스 삭제</span><span class="sxs-lookup"><span data-stu-id="1a04f-188">Deleting resources</span></span>
-
-<span data-ttu-id="1a04f-189">Azure CLI 내에서 `delete` 명령을 사용하여 더 이상 필요 없는 리소스를 삭제할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-189">You can use the `delete` command within Azure CLI to delete the resources you no longer need.</span></span> <span data-ttu-id="1a04f-190">`delete` 명령은 `create` 명령과 마찬가지로 모든 종류의 리소스에 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-190">You can use the `delete` command with any resource just like you can with the `create` command.</span></span>
-
-```azurecli-interactive
-az vm delete -n MyLinuxVM -g MyResourceGroup
-```
-
-<span data-ttu-id="1a04f-191">기본적으로 CLI는 삭제 확인을 요청합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-191">By default the CLI prompts to confirm deletion.</span></span>  <span data-ttu-id="1a04f-192">자동화된 스크립트를 위해 이 프롬프트를 표시하지 않을 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-192">You can suppress this prompt for automated scripts.</span></span>
-
-```Output
-Are you sure you want to perform this operation? (y/n): y
-EndTime                           Name                                  StartTime                         Status
---------------------------------  ------------------------------------  --------------------------------  ---------
-2017-02-19T02:35:56.678905+00:00  5b74ab80-9b29-4329-b483-52b406583e2f  2017-02-19T02:33:35.372769+00:00  Succeeded
-```
-
-<span data-ttu-id="1a04f-193">`delete` 명령을 사용하여 여러 리소스를 한꺼번에 삭제할 수도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-193">You can also use the `delete` command to delete many resources at a time.</span></span> <span data-ttu-id="1a04f-194">예를 들어 다음 명령은 우리가 이 시작 자습서의 모든 샘플에 사용한 "MyResourceGroup" 리소스 그룹에 있는 모든 리소스를 삭제합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-194">For example, the following command deletes all the resources in the "MyResourceGroup" resource group that we've used for all the samples in this Get Started tutorial.</span></span>
-
-```azurecli-interactive
-az group delete -n MyResourceGroup
-```
-
-```Output
-Are you sure you want to perform this operation? (y/n): y
-```
-
-## <a name="get-samples"></a><span data-ttu-id="1a04f-195">샘플 받기</span><span class="sxs-lookup"><span data-stu-id="1a04f-195">Get samples</span></span>
-
-<span data-ttu-id="1a04f-196">Azure CLI 사용 방법을 자세히 알아보려면 [Linux VM](/azure/virtual-machines/virtual-machines-linux-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json), [Windows VM](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json), [웹앱](/azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json) 및 [SQL Database](/azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)에 대한 가장 일반적인 스크립트를 확인하세요.</span><span class="sxs-lookup"><span data-stu-id="1a04f-196">To learn more about ways to use the Azure CLI, check out our most common scripts for [Linux VMs](/azure/virtual-machines/virtual-machines-linux-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json), [Windows VMs](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json), [Web apps](/azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json), and [SQL Database](/azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json).</span></span>
-
-## <a name="read-the-api-reference-docs"></a><span data-ttu-id="1a04f-197">API 참조 문서 읽기</span><span class="sxs-lookup"><span data-stu-id="1a04f-197">Read the API reference docs</span></span>
-
-[<span data-ttu-id="1a04f-198">API 참조</span><span class="sxs-lookup"><span data-stu-id="1a04f-198">API reference</span></span>](/cli/azure)
-
-## <a name="get-help"></a><span data-ttu-id="1a04f-199">도움말 보기</span><span class="sxs-lookup"><span data-stu-id="1a04f-199">Get help</span></span>
-
-<span data-ttu-id="1a04f-200">Azure CLI는 명령줄에서 실행할 수 있는 웹 문서를 찾아주는 도움말 문서가 기본적으로 포함되어 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-200">The Azure CLI has built-in help documentation, which matches our web documentation that you can run from the command line:</span></span>
-
-```azurecli-interactive
-az [command-group [command]] -h
-```
-
-<span data-ttu-id="1a04f-201">예를 들어 VM에 사용할 수 있는 명령 및 하위 그룹을 보려면 다음을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-201">For example, to see what commands and subgroups are available for VMs, use:</span></span>
-
-```azurecli-interactive
-az vm -h
-```
-
-<span data-ttu-id="1a04f-202">VM을 만드는 명령과 관련된 도움말을 보려면 다음을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-202">To get help with the command to create a VM, use:</span></span>
-
-```azurecli-interactive
-az vm create -h
-```
-
-## <a name="switch-from-azure-cli-10"></a><span data-ttu-id="1a04f-203">Azure CLI 1.0에서 전환</span><span class="sxs-lookup"><span data-stu-id="1a04f-203">Switch from Azure CLI 1.0</span></span>
-
-<span data-ttu-id="1a04f-204">Azure CLI 1.0(azure.js) 사용 방법을 이미 알고 있는 분들은 명령이 약간 다른 부분을 알아볼 수 있을 것입니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-204">If you already know how to use Azure CLI 1.0 (azure.js), you'll notice places where the commands aren't quite the same.</span></span>
-<span data-ttu-id="1a04f-205">작업을 실행하는 명령이 약간 다른 경우가 가끔 있습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-205">Sometimes the commands to perform a task are significantly different.</span></span>
-<span data-ttu-id="1a04f-206">Azure CLI 1.0에서 Azure CLI 2.0으로의 전환을 도와드리기 위해 이 [명령 매핑](https://github.com/Azure/azure-cli/blob/master/doc/azure2az_commands.rst)을 시작했습니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-206">To help you make the switch from Azure CLI 1.0 to Azure CLI 2.0, we've started this [command mapping](https://github.com/Azure/azure-cli/blob/master/doc/azure2az_commands.rst).</span></span>
-
-## <a name="send-us-your-feedback"></a><span data-ttu-id="1a04f-207">사용자 의견을 보냅니다.</span><span class="sxs-lookup"><span data-stu-id="1a04f-207">Send us your feedback</span></span>
-
-```azurecli-interactive
+```azurecli
 az feedback
 ```

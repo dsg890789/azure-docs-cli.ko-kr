@@ -1,45 +1,43 @@
 ---
 title: "Azure CLI 2.0의 출력 형식"
-description: "--output을 사용하여 Azure CLI 2.0 명령의 출력을 테이블, 목록 또는 json 형식으로 지정합니다."
-keywords: "Azure CLI 2.0, 출력, 형식, 테이블, 목록, json, Linux, Mac, Windows, OS X"
-author: rloutlaw
-ms.author: routlaw
-manager: douge
-ms.date: 02/27/2017
+description: "Azure CLI 2.0 명령 출력을 테이블, 목록 또는 json 형식으로 지정하는 방법을 알아봅니다."
+author: sptramer
+ms.author: sttramer
+manager: carmonm
+ms.date: 02/15/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.assetid: 74bdb727-481d-45f7-a44e-15d18dc55483
-ms.openlocfilehash: 3e99c2533031dc063a50996f26712d4df92f65c9
-ms.sourcegitcommit: dd5b2c7b0b56608ef9ea8730c7dc76e6c532d5ea
+ms.openlocfilehash: a5d629675b468421e3abee41b9c8bffd7e96e5b0
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 02/15/2018
 ---
-# <a name="output-formats-for-azure-cli-20-commands"></a><span data-ttu-id="8db89-104">Azure CLI 2.0 명령의 출력 형식</span><span class="sxs-lookup"><span data-stu-id="8db89-104">Output formats for Azure CLI 2.0 commands</span></span>
+# <a name="output-formats-for-azure-cli-20-commands"></a><span data-ttu-id="c35c4-103">Azure CLI 2.0 명령의 출력 형식</span><span class="sxs-lookup"><span data-stu-id="c35c4-103">Output formats for Azure CLI 2.0 commands</span></span>
 
-<span data-ttu-id="8db89-105">Azure CLI 2.0은 기본 출력 옵션으로 json을 사용하지만 모든 명령의 출력 형식을 지정하는 다양한 방법을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-105">Azure CLI 2.0 uses json as its default output option, but offers various ways for you to format the output of any command.</span></span>  <span data-ttu-id="8db89-106">`--output`(또는 `--out` 또는 `-o`) 매개 변수를 사용하여 명령의 출력을 다음 테이블에 나와 있는 출력 형식 중 하나로 지정합니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-106">Use the `--output` (or `--out` or `-o`) parameter to format the output of the command into one of the output types noted in the following table.</span></span>
+<span data-ttu-id="c35c4-104">Azure CLI 2.0은 기본 출력 옵션으로 json을 사용하지만 모든 명령의 출력 형식을 지정하는 다양한 방법을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-104">Azure CLI 2.0 uses json as its default output option, but offers various ways for you to format the output of any command.</span></span>  <span data-ttu-id="c35c4-105">`--output`(또는 `--out` 또는 `-o`) 매개 변수를 사용하여 명령의 출력을 다음 테이블에 나와 있는 출력 형식 중 하나로 지정합니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-105">Use the `--output` (or `--out` or `-o`) parameter to format the output of the command into one of the output types noted in the following table.</span></span>
 
-<span data-ttu-id="8db89-107">--output</span><span class="sxs-lookup"><span data-stu-id="8db89-107">--output</span></span> | <span data-ttu-id="8db89-108">설명</span><span class="sxs-lookup"><span data-stu-id="8db89-108">Description</span></span>
+<span data-ttu-id="c35c4-106">--output</span><span class="sxs-lookup"><span data-stu-id="c35c4-106">--output</span></span> | <span data-ttu-id="c35c4-107">설명</span><span class="sxs-lookup"><span data-stu-id="c35c4-107">Description</span></span>
 ---------|-------------------------------
-`json`   | <span data-ttu-id="8db89-109">json 문자열입니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-109">json string.</span></span> <span data-ttu-id="8db89-110">기본값은 `json`입니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-110">`json` is the default.</span></span>
-`jsonc`  | <span data-ttu-id="8db89-111">색으로 구분된 json 문자열입니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-111">colorized json string.</span></span>
-`table`  | <span data-ttu-id="8db89-112">열 머리글이 있는 테이블입니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-112">table with column headings.</span></span>
-`tsv`    | <span data-ttu-id="8db89-113">탭으로 구분된 값입니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-113">tab-separated values.</span></span>
+`json`   | <span data-ttu-id="c35c4-108">json 문자열입니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-108">json string.</span></span> <span data-ttu-id="c35c4-109">기본값은 `json`입니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-109">`json` is the default.</span></span>
+`jsonc`  | <span data-ttu-id="c35c4-110">색으로 구분된 json 문자열입니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-110">colorized json string.</span></span>
+`table`  | <span data-ttu-id="c35c4-111">열 머리글이 있는 테이블입니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-111">table with column headings.</span></span>
+`tsv`    | <span data-ttu-id="c35c4-112">탭으로 구분된 값입니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-112">tab-separated values.</span></span>
 
 [!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
 
-## <a name="using-the-json-option"></a><span data-ttu-id="8db89-114">Json 옵션 사용</span><span class="sxs-lookup"><span data-stu-id="8db89-114">Using the json option</span></span>
+## <a name="using-the-json-option"></a><span data-ttu-id="c35c4-113">Json 옵션 사용</span><span class="sxs-lookup"><span data-stu-id="c35c4-113">Using the json option</span></span>
 
-<span data-ttu-id="8db89-115">다음 예제에서는 구독의 가상 머신 목록을 기본 json 형식으로 표시합니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-115">The following example displays the list of virtual machines in your subscriptions in the default json format.</span></span>
+<span data-ttu-id="c35c4-114">다음 예제에서는 구독의 가상 머신 목록을 기본 json 형식으로 표시합니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-114">The following example displays the list of virtual machines in your subscriptions in the default json format.</span></span>
 
 ```azurecli-interactive
 az vm list --output json
 ```
 
-<span data-ttu-id="8db89-116">결과는 이 형식(간단하게 표시하기 위해 출력의 일부만 표시)입니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-116">The results are in this form (only showing partial output for sake of brevity).</span></span>
+<span data-ttu-id="c35c4-115">결과는 이 형식(간단하게 표시하기 위해 출력의 일부만 표시)입니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-115">The results are in this form (only showing partial output for sake of brevity).</span></span>
 
 ```json
 [
@@ -69,9 +67,9 @@ az vm list --output json
 ]
 ```
 
-## <a name="using-the-table-option"></a><span data-ttu-id="8db89-117">테이블 옵션 사용</span><span class="sxs-lookup"><span data-stu-id="8db89-117">Using the table option</span></span>
+## <a name="using-the-table-option"></a><span data-ttu-id="c35c4-116">테이블 옵션 사용</span><span class="sxs-lookup"><span data-stu-id="c35c4-116">Using the table option</span></span>
 
-<span data-ttu-id="8db89-118">테이블 옵션은 읽기 쉬운 출력 집합을 제공하지만, 이전의 json 예제와는 달리 중첩된 개체는 단순 `--output table`을 사용하는 출력에 포함되지 않습니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-118">The table option provides an easy to read set of output, but note that nested objects are not included in the output with the simple `--output table`, unlike the preceding .json example.</span></span>  <span data-ttu-id="8db89-119">'테이블' 출력 형식의 동일한 예제를 사용하면 가장 일반적인 속성 값 큐 레이트 목록이 제공됩니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-119">Using the same example with 'table' output format provides a curated list of most common property values.</span></span>
+<span data-ttu-id="c35c4-117">테이블 옵션은 읽기 쉬운 출력 집합을 제공하지만, 이전의 json 예제와는 달리 중첩된 개체는 단순 `--output table`을 사용하는 출력에 포함되지 않습니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-117">The table option provides an easy to read set of output, but note that nested objects are not included in the output with the simple `--output table`, unlike the preceding .json example.</span></span>  <span data-ttu-id="c35c4-118">'테이블' 출력 형식의 동일한 예제를 사용하면 가장 일반적인 속성 값 큐 레이트 목록이 제공됩니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-118">Using the same example with 'table' output format provides a curated list of most common property values.</span></span>
 
 ```azurecli-interactive
 az vm list --out table
@@ -87,7 +85,7 @@ KBDemo001VM  RGDEMO001        westus
 KBDemo020    RGDEMO001        westus
 ```
 
-<span data-ttu-id="8db89-120">`--query` 매개 변수를 사용하여 목록 출력에 표시할 속성과 열을 사용자 지정할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-120">You can use the `--query` parameter to customize the properties and columns you want to show in the list output.</span></span> <span data-ttu-id="8db89-121">다음 예제에서는 `list` 명령에서 VM 이름 및 리소스 그룹 이름만 선택하는 방법을 보여 줍니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-121">The following example shows how to select just the VM Name and the Resource Group Name in the `list` command.</span></span>
+<span data-ttu-id="c35c4-119">`--query` 매개 변수를 사용하여 목록 출력에 표시할 속성과 열을 사용자 지정할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-119">You can use the `--query` parameter to customize the properties and columns you want to show in the list output.</span></span> <span data-ttu-id="c35c4-120">다음 예제에서는 `list` 명령에서 VM 이름 및 리소스 그룹 이름만 선택하는 방법을 보여 줍니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-120">The following example shows how to select just the VM Name and the Resource Group Name in the `list` command.</span></span>
 
 ```azurecli-interactive
 az vm list --query "[].{ resource: resourceGroup, name: name }" -o table
@@ -103,9 +101,9 @@ RGDEMO001   KBDemo001VM
 RGDEMO001   KBDemo020
 ```
 
-## <a name="using-the-tsv-option"></a><span data-ttu-id="8db89-122">tsv 옵션 사용</span><span class="sxs-lookup"><span data-stu-id="8db89-122">Using the tsv option</span></span>
+## <a name="using-the-tsv-option"></a><span data-ttu-id="c35c4-121">tsv 옵션 사용</span><span class="sxs-lookup"><span data-stu-id="c35c4-121">Using the tsv option</span></span>
 
-<span data-ttu-id="8db89-123">'tsv' 출력 형식은 머리글과 대시 없이 간단한 텍스트 기반의 탭으로 구분된 출력을 반환합니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-123">'tsv' output format returns a simple text-based and tab-separated output with no headings and dashes.</span></span> <span data-ttu-id="8db89-124">이 형식은 출력을 어떤 형태의 텍스트를 처리해야 하는 다른 명령 및 도구에 간편하게 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-124">This format makes it easy to consume the output into other commands and tools that need to process the text in some form.</span></span> <span data-ttu-id="8db89-125">앞의 예제에 `tsv` 옵션을 사용하면 탭으로 구분된 결과가 출력됩니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-125">Using the preceding example with the `tsv` option outputs the tab-separated result.</span></span>
+<span data-ttu-id="c35c4-122">'tsv' 출력 형식은 머리글과 대시 없이 간단한 텍스트 기반의 탭으로 구분된 출력을 반환합니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-122">'tsv' output format returns a simple text-based and tab-separated output with no headings and dashes.</span></span> <span data-ttu-id="c35c4-123">이 형식은 출력을 어떤 형태의 텍스트를 처리해야 하는 다른 명령 및 도구에 간편하게 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-123">This format makes it easy to consume the output into other commands and tools that need to process the text in some form.</span></span> <span data-ttu-id="c35c4-124">앞의 예제에 `tsv` 옵션을 사용하면 탭으로 구분된 결과가 출력됩니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-124">Using the preceding example with the `tsv` option outputs the tab-separated result.</span></span>
 
 ```azurecli-interactive
 az vm list --out tsv
@@ -119,7 +117,7 @@ None    None        /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resource
 None    None        /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo02None   None    westus  KBDemo020           None    Succeeded   RGDEMO001   None            Microsoft.Compute/virtualMachinesed36baa9-9b80-48a8-b4a9-854c7a858ece
 ```
 
-<span data-ttu-id="8db89-126">다음 예제에서는 `tsv` 출력을 `grep` 및 `cut` 같은 명령으로 전달하여 `list` 출력의 특정 값을 자세히 구문 분석하는 방법을 보여 줍니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-126">The next example shows how the `tsv` output can be piped to commands like `grep` and `cut` to further parse specific values out of the `list` output.</span></span> <span data-ttu-id="8db89-127">`grep` 명령은 이름에 "RGD"라는 텍스트가 포함된 항목만 선택하고, `cut` 명령은 8번째 필드(탭으로 구분됨) 값만 선택하여 출력에 표시합니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-127">The `grep` command selects only items that have text "RGD" in them and then the `cut` command selects only the eighth field (separated by tabs) value to show in the output.</span></span>
+<span data-ttu-id="c35c4-125">다음 예제에서는 `tsv` 출력을 `grep` 및 `cut` 같은 명령으로 전달하여 `list` 출력의 특정 값을 자세히 구문 분석하는 방법을 보여 줍니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-125">The next example shows how the `tsv` output can be piped to commands like `grep` and `cut` to further parse specific values out of the `list` output.</span></span> <span data-ttu-id="c35c4-126">`grep` 명령은 이름에 "RGD"라는 텍스트가 포함된 항목만 선택하고, `cut` 명령은 8번째 필드(탭으로 구분됨) 값만 선택하여 출력에 표시합니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-126">The `grep` command selects only items that have text "RGD" in them and then the `cut` command selects only the eighth field (separated by tabs) value to show in the output.</span></span>
 
 ```azurecli
 az vm list --out tsv | grep RGD | cut -f8
@@ -130,9 +128,9 @@ KBDemo001VM
 KBDemo020
 ```
 
-## <a name="setting-the-default-output-format"></a><span data-ttu-id="8db89-128">기본 출력 형식 설정</span><span class="sxs-lookup"><span data-stu-id="8db89-128">Setting the default output format</span></span>
+## <a name="setting-the-default-output-format"></a><span data-ttu-id="c35c4-127">기본 출력 형식 설정</span><span class="sxs-lookup"><span data-stu-id="c35c4-127">Setting the default output format</span></span>
 
-<span data-ttu-id="8db89-129">`az configure` 명령을 사용하여 환경을 설정하거나 출력 형식에 대한 기본 설정과 같은 기본 설정을 구성할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-129">You can use the `az configure` command to set up your environment or establish preferences such as default settings for output formats.</span></span> <span data-ttu-id="8db89-130">일반적인 예로, 가장 간단한 출력 형식 기본값은 "테이블" 형식입니다. 출력 형식을 선택하라는 메시지가 표시되면 **3**을 선택하면 됩니다.</span><span class="sxs-lookup"><span data-stu-id="8db89-130">For common use, the easiest output format default is the "table" format - select **3** when prompted for output format choices.</span></span>
+<span data-ttu-id="c35c4-128">`az configure` 명령을 사용하여 환경을 설정하거나 출력 형식에 대한 기본 설정과 같은 기본 설정을 구성할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-128">You can use the `az configure` command to set up your environment or establish preferences such as default settings for output formats.</span></span> <span data-ttu-id="c35c4-129">일반적인 예로, 가장 간단한 출력 형식 기본값은 "테이블" 형식입니다. 출력 형식을 선택하라는 메시지가 표시되면 **3**을 선택하면 됩니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-129">For common use, the easiest output format default is the "table" format - select **3** when prompted for output format choices.</span></span>
 
 ```
 What default output format would you like?
