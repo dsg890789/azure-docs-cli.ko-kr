@@ -1,7 +1,6 @@
 ---
 title: "Azure CLI 2.0을 사용한 쿼리 명령 결과"
-description: "Azure CLI 2.0 명령의 출력에 대해 JMESPath 쿼리를 수행하려면 --query를 사용합니다."
-keywords: "Azure CLI 2.0, JMESPath, 쿼리, Linux, Mac, Windows, OS X"
+description: "Azure CLI 2.0 명령의 출력에 대해 JMESPath 쿼리를 수행하는 방법을 학습합니다."
 author: rloutlaw
 ms.author: routlaw
 manager: douge
@@ -11,20 +10,19 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.assetid: 5979acc5-21a5-41e2-a4b6-3183bfe6aa22
-ms.openlocfilehash: 0de18adc91589377d4f96a306a70c9adfeabdcab
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: 98bc35c1e8136231011a2303901f42c68c9a7758
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/15/2018
 ---
-# <a name="using-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0과 함께 JMESPath 쿼리 사용
+# <a name="use-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0과 함께 JMESPath 쿼리 사용
 
 Azure CLI 2.0은 `--query` 매개 변수를 사용하여 `az` 명령의 결과에 대해 [JMESPath 쿼리](http://jmespath.org)를 수행합니다. JMESPath는 JSON 출력에 대한 강력한 쿼리 언어입니다.  JMESPath 쿼리에 대해 잘 모르는 경우 [JMESPath.org/tutorial](http://JMESPath.org/tutorial.html)에서 자습서를 찾을 수 있습니다.
 
 `Query` 매개 변수는 Azure CLI 2.0 내의 모든 리소스 유형(컨테이너 서비스, Web Apps, VM 등)에서 지원되며 다양한 용도로 사용할 수 있습니다.  아래에 몇 가지 예가 나열되어 있습니다.
 
-## <a name="selecting-simple-properties"></a>단순 속성 선택
+## <a name="select-simple-properties"></a>단순 속성 선택
 
 출력 형식이 `table`인 단순 `list` 명령은 각 리소스 유형에 대한 가장 일반적이고 간단한 큐 레이트 속성 집합을 읽기 쉬운 테이블 형식으로 반환합니다.
 
@@ -85,9 +83,9 @@ RGDEMO001  KBDemo001VM
 RGDEMO001  KBDemo020
 ```
 
-## <a name="selecting-complex-nested-properties"></a>복잡한 중첩 속성 선택
+## <a name="select-complex-nested-properties"></a>복잡한 중첩 속성 선택
 
-선택하려는 속성이 JSON 출력 깊숙이 중첩된 경우 해당 중첩 속성의 전체 경로를 제공해야 합니다. 다음 예제에서는 vm 목록 명령에서 VMName 및 OS 유형을 선택하는 방법을 보여 줍니다.
+선택하려는 속성이 JSON 출력에서 깊숙이 중첩된 경우 해당 중첩 속성의 전체 경로를 제공해야 합니다. 다음 예제에서는 vm 목록 명령에서 VMName 및 OS 유형을 선택하는 방법을 보여 줍니다.
 
 ```azurecli-interactive
 az vm list \
