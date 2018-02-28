@@ -10,34 +10,32 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: a5d629675b468421e3abee41b9c8bffd7e96e5b0
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: ec96d1cb21b32cd982dbec5e4bf38110f8686c25
+ms.sourcegitcommit: f82774a6f92598c41da9956284f563757f402774
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/19/2018
 ---
-# <a name="output-formats-for-azure-cli-20-commands"></a><span data-ttu-id="c35c4-103">Azure CLI 2.0 명령의 출력 형식</span><span class="sxs-lookup"><span data-stu-id="c35c4-103">Output formats for Azure CLI 2.0 commands</span></span>
+# <a name="output-formats-for-azure-cli-20-commands"></a><span data-ttu-id="2f58c-103">Azure CLI 2.0 명령의 출력 형식</span><span class="sxs-lookup"><span data-stu-id="2f58c-103">Output formats for Azure CLI 2.0 commands</span></span>
 
-<span data-ttu-id="c35c4-104">Azure CLI 2.0은 기본 출력 옵션으로 json을 사용하지만 모든 명령의 출력 형식을 지정하는 다양한 방법을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-104">Azure CLI 2.0 uses json as its default output option, but offers various ways for you to format the output of any command.</span></span>  <span data-ttu-id="c35c4-105">`--output`(또는 `--out` 또는 `-o`) 매개 변수를 사용하여 명령의 출력을 다음 테이블에 나와 있는 출력 형식 중 하나로 지정합니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-105">Use the `--output` (or `--out` or `-o`) parameter to format the output of the command into one of the output types noted in the following table.</span></span>
+<span data-ttu-id="2f58c-104">Azure CLI 2.0은 기본 출력 옵션으로 json을 사용하지만 모든 명령의 출력 형식을 지정하는 다양한 방법을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-104">Azure CLI 2.0 uses json as its default output option, but offers various ways for you to format the output of any command.</span></span>  <span data-ttu-id="2f58c-105">`--output`(또는 `--out` 또는 `-o`) 매개 변수를 사용하여 명령의 출력을 다음 테이블에 나와 있는 출력 형식 중 하나로 지정합니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-105">Use the `--output` (or `--out` or `-o`) parameter to format the output of the command into one of the output types noted in the following table:</span></span>
 
-<span data-ttu-id="c35c4-106">--output</span><span class="sxs-lookup"><span data-stu-id="c35c4-106">--output</span></span> | <span data-ttu-id="c35c4-107">설명</span><span class="sxs-lookup"><span data-stu-id="c35c4-107">Description</span></span>
+<span data-ttu-id="2f58c-106">--output</span><span class="sxs-lookup"><span data-stu-id="2f58c-106">--output</span></span> | <span data-ttu-id="2f58c-107">설명</span><span class="sxs-lookup"><span data-stu-id="2f58c-107">Description</span></span>
 ---------|-------------------------------
-`json`   | <span data-ttu-id="c35c4-108">json 문자열입니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-108">json string.</span></span> <span data-ttu-id="c35c4-109">기본값은 `json`입니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-109">`json` is the default.</span></span>
-`jsonc`  | <span data-ttu-id="c35c4-110">색으로 구분된 json 문자열입니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-110">colorized json string.</span></span>
-`table`  | <span data-ttu-id="c35c4-111">열 머리글이 있는 테이블입니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-111">table with column headings.</span></span>
-`tsv`    | <span data-ttu-id="c35c4-112">탭으로 구분된 값입니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-112">tab-separated values.</span></span>
+`json`   | <span data-ttu-id="2f58c-108">JSON 문자열</span><span class="sxs-lookup"><span data-stu-id="2f58c-108">JSON string.</span></span> <span data-ttu-id="2f58c-109">이 설정은 기본값입니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-109">This setting is the default.</span></span>
+`jsonc`  | <span data-ttu-id="2f58c-110">색으로 구분된 JSON</span><span class="sxs-lookup"><span data-stu-id="2f58c-110">Colorized JSON.</span></span>
+`table`  | <span data-ttu-id="2f58c-111">열 제목인 키가 포함된 ASCII 테이블</span><span class="sxs-lookup"><span data-stu-id="2f58c-111">ASCII table with keys as column headings.</span></span>
+`tsv`    | <span data-ttu-id="2f58c-112">키가 포함되지 않은 탭으로 구분된 값</span><span class="sxs-lookup"><span data-stu-id="2f58c-112">Tab-separated values, with no keys</span></span>
 
-[!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
+## <a name="json-output-format"></a><span data-ttu-id="2f58c-113">JSON 출력 형식</span><span class="sxs-lookup"><span data-stu-id="2f58c-113">JSON output format</span></span>
 
-## <a name="using-the-json-option"></a><span data-ttu-id="c35c4-113">Json 옵션 사용</span><span class="sxs-lookup"><span data-stu-id="c35c4-113">Using the json option</span></span>
+<span data-ttu-id="2f58c-114">다음 예제에서는 구독의 가상 머신 목록을 기본 json 형식으로 표시합니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-114">The following example displays the list of virtual machines in your subscriptions in the default json format.</span></span>
 
-<span data-ttu-id="c35c4-114">다음 예제에서는 구독의 가상 머신 목록을 기본 json 형식으로 표시합니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-114">The following example displays the list of virtual machines in your subscriptions in the default json format.</span></span>
-
-```azurecli-interactive
+```azurecli
 az vm list --output json
 ```
 
-<span data-ttu-id="c35c4-115">결과는 이 형식(간단하게 표시하기 위해 출력의 일부만 표시)입니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-115">The results are in this form (only showing partial output for sake of brevity).</span></span>
+<span data-ttu-id="2f58c-115">다음과 같은 출력에는 편의를 위해 생략되고, 교체된 정보를 식별하는 몇몇 필드가 있습니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-115">The following output has some fields omitted for brevity, and identifying information replaced.</span></span>
 
 ```json
 [
@@ -47,7 +45,7 @@ az vm list --output json
     "hardwareProfile": {
       "vmSize": "Standard_DS1"
     },
-    "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010",
+    "id": "/subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010",
     "instanceView": null,
     "licenseType": null,
     "location": "westus",
@@ -55,7 +53,7 @@ az vm list --output json
     "networkProfile": {
       "networkInterfaces": [
         {
-          "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/demorg1/providers/Microsoft.Network/networkInterfaces/DemoVM010VMNic",
+          "id": "/subscriptions/.../resourceGroups/demorg1/providers/Microsoft.Network/networkInterfaces/DemoVM010VMNic",
           "primary": null,
           "resourceGroup": "demorg1"
         }
@@ -67,15 +65,15 @@ az vm list --output json
 ]
 ```
 
-## <a name="using-the-table-option"></a><span data-ttu-id="c35c4-116">테이블 옵션 사용</span><span class="sxs-lookup"><span data-stu-id="c35c4-116">Using the table option</span></span>
+## <a name="table-output-format"></a><span data-ttu-id="2f58c-116">테이블 출력 형식</span><span class="sxs-lookup"><span data-stu-id="2f58c-116">Table output format</span></span>
 
-<span data-ttu-id="c35c4-117">테이블 옵션은 읽기 쉬운 출력 집합을 제공하지만, 이전의 json 예제와는 달리 중첩된 개체는 단순 `--output table`을 사용하는 출력에 포함되지 않습니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-117">The table option provides an easy to read set of output, but note that nested objects are not included in the output with the simple `--output table`, unlike the preceding .json example.</span></span>  <span data-ttu-id="c35c4-118">'테이블' 출력 형식의 동일한 예제를 사용하면 가장 일반적인 속성 값 큐 레이트 목록이 제공됩니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-118">Using the same example with 'table' output format provides a curated list of most common property values.</span></span>
+<span data-ttu-id="2f58c-117">`table` 출력 형식은 정렬된 데이터의 행과 열로 서식이 지정된 일반 출력을 제공하여 쉽게 읽고 검사할 수 있게 합니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-117">The `table` output format provides plain output formatted as rows and columns of collated data, making it easy to read and scan.</span></span> <span data-ttu-id="2f58c-118">중첩된 개체는 테이블 출력에 포함되지 않지만 쿼리의 일부로 필터링될 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-118">Nested objects are not included in table output, but can still be filtered as part of a query.</span></span> <span data-ttu-id="2f58c-119">일부 필드는 데이터에서 생략됩니다. 따라서 빠르고 검색 가능한 데이터의 개요를 만들려는 경우 이 형식을 사용하는 것이 좋습니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-119">Some fields are also omitted from the table data, so this format is best when you want a quick, human-searchable overview of data.</span></span>
 
-```azurecli-interactive
+```azurecli
 az vm list --out table
 ```
 
-```
+```output
 Name         ResourceGroup    Location
 -----------  ---------------  ----------
 DemoVM010    DEMORG1          westus
@@ -84,11 +82,10 @@ demovm213    DEMORG1          westus
 KBDemo001VM  RGDEMO001        westus
 KBDemo020    RGDEMO001        westus
 ```
+<span data-ttu-id="2f58c-120">`--query` 매개 변수를 사용하여 목록 출력에 표시할 속성과 열을 사용자 지정할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-120">You can use the `--query` parameter to customize the properties and columns you want to show in the list output.</span></span> <span data-ttu-id="2f58c-121">다음 예제에서는 `list` 명령에서 VM 이름 및 리소스 그룹 이름만 선택하는 방법을 보여 줍니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-121">The following example shows how to select just the VM Name and the Resource Group Name in the `list` command.</span></span>
 
-<span data-ttu-id="c35c4-119">`--query` 매개 변수를 사용하여 목록 출력에 표시할 속성과 열을 사용자 지정할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-119">You can use the `--query` parameter to customize the properties and columns you want to show in the list output.</span></span> <span data-ttu-id="c35c4-120">다음 예제에서는 `list` 명령에서 VM 이름 및 리소스 그룹 이름만 선택하는 방법을 보여 줍니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-120">The following example shows how to select just the VM Name and the Resource Group Name in the `list` command.</span></span>
-
-```azurecli-interactive
-az vm list --query "[].{ resource: resourceGroup, name: name }" -o table
+```azurecli
+az vm list --query "[].{resource:resourceGroup, name:name}" -o table
 ```
 
 ```
@@ -101,42 +98,70 @@ RGDEMO001   KBDemo001VM
 RGDEMO001   KBDemo020
 ```
 
-## <a name="using-the-tsv-option"></a><span data-ttu-id="c35c4-121">tsv 옵션 사용</span><span class="sxs-lookup"><span data-stu-id="c35c4-121">Using the tsv option</span></span>
+> [!NOTE]
+> <span data-ttu-id="2f58c-122">특정 키는 필터링되고 테이블 보기에 인쇄되지 않습니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-122">Certain keys are filtered out and not printed in the table view.</span></span> <span data-ttu-id="2f58c-123">`id`, `type` 및 `etag`가 포함됩니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-123">These are `id`, `type`, and `etag`.</span></span> <span data-ttu-id="2f58c-124">출력에 표시해야 하는 경우 JMESPath 리키잉 기능을 사용하여 키 이름을 변경하고 필터링을 방지할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-124">If you need to see these in your output, you can use the JMESPath re-keying feature to change the key name and avoid filtering.</span></span>
+>
+> ```azurecli
+> az vm list --query "[].{objectID:id}" -o table
+> ```
 
-<span data-ttu-id="c35c4-122">'tsv' 출력 형식은 머리글과 대시 없이 간단한 텍스트 기반의 탭으로 구분된 출력을 반환합니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-122">'tsv' output format returns a simple text-based and tab-separated output with no headings and dashes.</span></span> <span data-ttu-id="c35c4-123">이 형식은 출력을 어떤 형태의 텍스트를 처리해야 하는 다른 명령 및 도구에 간편하게 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-123">This format makes it easy to consume the output into other commands and tools that need to process the text in some form.</span></span> <span data-ttu-id="c35c4-124">앞의 예제에 `tsv` 옵션을 사용하면 탭으로 구분된 결과가 출력됩니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-124">Using the preceding example with the `tsv` option outputs the tab-separated result.</span></span>
+<span data-ttu-id="2f58c-125">데이터를 필터링하는 쿼리를 사용하는 방법에 대한 자세한 내용은 [Azure CLI 2.0과 함께 JMESPath 쿼리 사용](/cli/azure/query-azure-cli)을 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="2f58c-125">For more about using queries to filter data, see [Use JMESPath queries with Azure CLI 2.0](/cli/azure/query-azure-cli).</span></span>
 
-```azurecli-interactive
+## <a name="tsv-output-format"></a><span data-ttu-id="2f58c-126">TSV 출력 형식</span><span class="sxs-lookup"><span data-stu-id="2f58c-126">TSV output format</span></span>
+
+<span data-ttu-id="2f58c-127">`tsv` 출력 형식은 추가 서식 지정, 키 또는 다른 기호 없이 탭 및 줄 바꿈으로 구분된 값을 반환합니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-127">The `tsv` output format returns tab- and newline-separated values without additional formatting, keys, or other symbols.</span></span> <span data-ttu-id="2f58c-128">이 형식은 출력을 어떤 형태의 텍스트를 처리해야 하는 다른 명령 및 도구에 간편하게 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-128">This format makes it easy to consume the output into other commands and tools that need to process the text in some form.</span></span> <span data-ttu-id="2f58c-129">`table` 형식과 마찬가지로 `tsv` 출력 옵션은 중첩된 개체를 인쇄하지 않습니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-129">Like the `table` format, the `tsv` output option does not print nested objects.</span></span>
+
+<span data-ttu-id="2f58c-130">앞의 예제에 `tsv` 옵션을 사용하면 탭으로 구분된 결과가 출력됩니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-130">Using the preceding example with the `tsv` option outputs the tab-separated result.</span></span>
+
+```azurecli
 az vm list --out tsv
 ```
 
-```
-None    None        /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010    None    None    westus  DemoVM010           None    Succeeded   DEMORG1 None            Microsoft.Compute/virtualMachines   cbd56d9b-9340-44bc-a722-25f15b578444
-None    None        /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm212    None    None    westus  demovm212           None    Succeeded   DEMORG1 None            Microsoft.Compute/virtualMachines   4bdac85d-c2f7-410f-9907-ca7921d930b4
-None    None        /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm213    None    None    westus  demovm213           None    Succeeded   DEMORG1 None            Microsoft.Compute/virtualMachines   2131c664-221a-4b7f-9653-f6d542fbfa34
-None    None        /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo001VM    None    None    westus  KBDemo001VM         None    Succeeded   RGDEMO001   None            Microsoft.Compute/virtualMachines   14e74761-c17e-4530-a7be-9e4ff06ea74b
-None    None        /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo02None   None    westus  KBDemo020           None    Succeeded   RGDEMO001   None            Microsoft.Compute/virtualMachinesed36baa9-9b80-48a8-b4a9-854c7a858ece
+```output
+None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010 None    None    westus  DemoVM010           None    Succeeded   DEMORG1 None            Microsoft.Compute/virtualMachines   cbd56d9b-9340-44bc-a722-25f15b578444
+None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm212 None    None    westus  demovm212           None    Succeeded   DEMORG1 None            Microsoft.Compute/virtualMachines   4bdac85d-c2f7-410f-9907-ca7921d930b4
+None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm213 None    None    westus  demovm213           None    Succeeded   DEMORG1 None            Microsoft.Compute/virtualMachines   2131c664-221a-4b7f-9653-f6d542fbfa34
+None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo001VM None    None    westus  KBDemo001VM         None    Succeeded   RGDEMO001   None            Microsoft.Compute/virtualMachines   14e74761-c17e-4530-a7be-9e4ff06ea74b
+None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo02None    None    westus  KBDemo020           None    Succeeded   RGDEMO001   None            Microsoft.Compute/virtualMachines    36baa9-9b80-48a8-b4a9-854c7a858ece
 ```
 
-<span data-ttu-id="c35c4-125">다음 예제에서는 `tsv` 출력을 `grep` 및 `cut` 같은 명령으로 전달하여 `list` 출력의 특정 값을 자세히 구문 분석하는 방법을 보여 줍니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-125">The next example shows how the `tsv` output can be piped to commands like `grep` and `cut` to further parse specific values out of the `list` output.</span></span> <span data-ttu-id="c35c4-126">`grep` 명령은 이름에 "RGD"라는 텍스트가 포함된 항목만 선택하고, `cut` 명령은 8번째 필드(탭으로 구분됨) 값만 선택하여 출력에 표시합니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-126">The `grep` command selects only items that have text "RGD" in them and then the `cut` command selects only the eighth field (separated by tabs) value to show in the output.</span></span>
+<span data-ttu-id="2f58c-131">다음 예제에서는 `tsv` 출력을 UNIX 시스템의 다른 명령에 파이프하여 보다 구체적인 데이터를 추출할 수 있는 방법을 보여줍니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-131">The next example shows how the `tsv` output can be piped to other commands on UNIX systems to extract more specific data.</span></span> <span data-ttu-id="2f58c-132">`grep` 명령은 이름에 "RGD"라는 텍스트가 포함된 항목을 선택하고, `cut` 명령은 8번째 필드(탭으로 구분됨)를 선택하여 출력에 VM 이름을 표시합니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-132">The `grep` command selects items that have text "RGD" in them, and then the `cut` command selects the eighth field (separated by tabs) to show the name of the VM in output.</span></span>
 
-```azurecli
+```bash
 az vm list --out tsv | grep RGD | cut -f8
 ```
 
-```
+```output
 KBDemo001VM
 KBDemo020
 ```
 
-## <a name="setting-the-default-output-format"></a><span data-ttu-id="c35c4-127">기본 출력 형식 설정</span><span class="sxs-lookup"><span data-stu-id="c35c4-127">Setting the default output format</span></span>
+<span data-ttu-id="2f58c-133">값은 탭으로 구분된 필드를 처리할 용도로 인쇄된 JSON 개체에 표시되는 것과 동일한 순서입니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-133">For the purposes of processing tab-separated fields, the values are in the same order that they appear in the printed JSON object.</span></span> <span data-ttu-id="2f58c-134">이 순서는 명령에서 일관되게 실행되도록 보장됩니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-134">This order is guaranteed to be consistent between runs of the command.</span></span>
 
-<span data-ttu-id="c35c4-128">`az configure` 명령을 사용하여 환경을 설정하거나 출력 형식에 대한 기본 설정과 같은 기본 설정을 구성할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-128">You can use the `az configure` command to set up your environment or establish preferences such as default settings for output formats.</span></span> <span data-ttu-id="c35c4-129">일반적인 예로, 가장 간단한 출력 형식 기본값은 "테이블" 형식입니다. 출력 형식을 선택하라는 메시지가 표시되면 **3**을 선택하면 됩니다.</span><span class="sxs-lookup"><span data-stu-id="c35c4-129">For common use, the easiest output format default is the "table" format - select **3** when prompted for output format choices.</span></span>
+## <a name="set-the-default-output-format"></a><span data-ttu-id="2f58c-135">기본 출력 형식을 설정합니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-135">Set the default output format</span></span>
 
+<span data-ttu-id="2f58c-136">대화형 `az configure` 명령을 사용하여 환경을 설정하고 출력 형식에 대한 기본 설정을 지정합니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-136">Use the interactive `az configure` command to set up your environment and establish default settings for output formats.</span></span> <span data-ttu-id="2f58c-137">기본 출력 형식은 `json`입니다.</span><span class="sxs-lookup"><span data-stu-id="2f58c-137">The default output format is `json`.</span></span> 
+
+```azurecli
+az configure
 ```
+
+```output
+Welcome to the Azure CLI! This command will guide you through logging in and setting some default values.
+
+Your settings can be found at /home/defaultuser/.azure/config
+Your current configuration is as follows:
+
+  ...
+
+Do you wish to change your settings? (y/N): y
+
 What default output format would you like?
  [1] json - JSON formatted output that most closely matches API responses
  [2] jsonc - Colored JSON formatted output that most closely matches API responses
  [3] table - Human-readable output format
- [4] tsv - Tab and Newline delimited, great for GREP, AWK, etc.
-Please enter a choice [3]:
+ [4] tsv - Tab- and Newline-delimited, great for GREP, AWK, etc.
+Please enter a choice [1]:
 ```
+
+<span data-ttu-id="2f58c-138">환경을 구성하는 방법에 대해 자세히 알아보려면 [Azure CLI 2.0 구성](/cli/azure/azure-cli-configuration)을 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="2f58c-138">To learn more about configuring your environment, see [Azure CLI 2.0 configuration](/cli/azure/azure-cli-configuration).</span></span>
