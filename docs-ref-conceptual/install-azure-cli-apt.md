@@ -10,17 +10,17 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 4076fefb902a324f77f97bc042b9f5ba3e787734
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 840e5e7d6531fe92d30235f621e381589266d1d3
+ms.sourcegitcommit: f82774a6f92598c41da9956284f563757f402774
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt를 사용하여 Azure CLI 2.0 설치
 
 Ubuntu 또는 Debian과 같이 `apt`과(와) 함께 제공되는 배포판을 실행하는 경우, Azure CLI에 64비트 패키지를 사용할 수 있습니다. 이 패키지는 다음 항목에서 테스트되었습니다.
 
-* Ubuntu wheezy, xenial 및 artful
+* Ubuntu trusty, xenial 및 artful
 * Debian wheezy, jessie 및 stretch
 
 ## <a name="install"></a>설치

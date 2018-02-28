@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 4b92499d2cb81f64bfbb13215428365711b07874
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 5b7afe999d1afe5be40c4957d9cd0f832b680099
+ms.sourcegitcommit: f82774a6f92598c41da9956284f563757f402774
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="install-azure-cli-20-with-yum"></a>yum을 사용하여 Azure CLI 2.0 설치
 
@@ -36,10 +36,9 @@ RHEL, Fedora, CentOS 등의 `yum`과 함께 제공되는 배포를 실행하는 
    sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
    ```
 
-3. `yum` 패키지 인덱스를 업데이트하고 다음을 설치합니다.
+3. `yum install` 명령을 사용하여 설치됩니다. 
 
    ```bash
-   yum check-update
    sudo yum install azure-cli
    ```
 
@@ -50,7 +49,6 @@ RHEL, Fedora, CentOS 등의 `yum`과 함께 제공되는 배포를 실행하는 
 `yum update` 명령을 사용하여 Azure CLI를 업데이트합니다.
 
 ```bash
-yum check-update
 sudo yum update azure-cli
 ```
 
