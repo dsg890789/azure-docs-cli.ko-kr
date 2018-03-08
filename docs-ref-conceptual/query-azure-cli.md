@@ -1,166 +1,128 @@
 ---
 title: "Azure CLI 2.0을 사용한 쿼리 명령 결과"
 description: "Azure CLI 2.0 명령의 출력에 대해 JMESPath 쿼리를 수행하는 방법을 학습합니다."
-author: rloutlaw
-ms.author: routlaw
-manager: douge
-ms.date: 02/27/2017
+author: sptramer
+ms.author: sttramer
+manager: carmonm
+ms.date: 02/22/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 98bc35c1e8136231011a2303901f42c68c9a7758
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 2a0cdc34bbaf0864885588ecaddff725c744c90e
+ms.sourcegitcommit: 5a4c7205087d2f6c4800cf25178f0543a6157d99
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0과 함께 JMESPath 쿼리 사용
 
-Azure CLI 2.0은 `--query` 매개 변수를 사용하여 `az` 명령의 결과에 대해 [JMESPath 쿼리](http://jmespath.org)를 수행합니다. JMESPath는 JSON 출력에 대한 강력한 쿼리 언어입니다.  JMESPath 쿼리에 대해 잘 모르는 경우 [JMESPath.org/tutorial](http://JMESPath.org/tutorial.html)에서 자습서를 찾을 수 있습니다.
+Azure CLI 2.0은 `--query` 인수를 사용하여 명령의 결과에 대해 [JMESPath 쿼리](http://jmespath.org)를 실행합니다. JMESPath는 JSON의 쿼리 언어이며, CLI 출력의 데이터를 선택하고 표시하는 기능을 제공합니다. 다른 표시 형식을 지정하기 전에 이러한 쿼리를 JSON 출력에서 실행합니다.
 
-`Query` 매개 변수는 Azure CLI 2.0 내의 모든 리소스 유형(컨테이너 서비스, Web Apps, VM 등)에서 지원되며 다양한 용도로 사용할 수 있습니다.  아래에 몇 가지 예가 나열되어 있습니다.
+`--query` 인수는 Azure CLI의 모든 명령에서 지원됩니다. 이 문서의 예제는 일반적인 사용 사례를 다루고 JMESPath 기능을 사용하는 방법을 보여줍니다.
 
-## <a name="select-simple-properties"></a>단순 속성 선택
+## <a name="work-with-dictionary-output"></a>사전 출력으로 작업
 
-출력 형식이 `table`인 단순 `list` 명령은 각 리소스 유형에 대한 가장 일반적이고 간단한 큐 레이트 속성 집합을 읽기 쉬운 테이블 형식으로 반환합니다.
+JSON 사전을 반환하는 명령을 해당 키 이름만으로 탐색할 수 있습니다. 키 경로는 `.` 문자를 구분 기호로 사용합니다. 다음 예제에서는 Linux VM에 연결할 수 있도록 허용된 공용 SSH 키 목록을 끌어옵니다.
 
-```azurecli-interactive
-az vm list --out table
+```azurecli
+az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys
 ```
 
-```
-Name         ResourceGroup    Location
------------  ---------------  ----------
-DemoVM010    DEMORG1          westus
-demovm212    DEMORG1          westus
-demovm213    DEMORG1          westus
-KBDemo001VM  RGDEMO001        westus
-KBDemo020    RGDEMO001        westus
+또한 여러 값을 가져와서 정렬된 배열에 배치할 수 있습니다. 배열에는 키 정보가 없지만 배열의 요소 순서는 쿼리된 키 순서와 일치하지 않습니다. 다음 예제에서는 OS 디스크의 이름 및 크기를 제공하는 Azure 이미지를 검색하는 방법을 보여줍니다.
+
+```azurecli
+az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer, osDisk.diskSizeGb]'
 ```
 
-`--query` 매개 변수를 사용하여 구독의 모든 가상 컴퓨터에 대 한 리소스 그룹 이름과 VM 이름만을 표시할 수 있습니다.
-
-```azurecli-interactive
-az vm list \
-  --query "[].[name, resourceGroup]" --out table
+```json
+[
+  "UbuntuServer",
+  30
+]
 ```
 
-```
-Column1     Column2
----------   -----------
-DemoVM010   DEMORG1
-demovm111   DEMORG1
-demovm211   DEMORG1
-demovm212   DEMORG1
-demovm213   DEMORG1
-demovm214   DEMORG1
-demovm222   DEMORG1
-KBDemo001VM RGDEMO001
-KBDemo020   RGDEMO001
+출력에 키를 배치하는 경우 대체 사전 구문을 사용할 수 있습니다. 사전에 대한 여러 요소 선택 영역은 `{displayKey:keyPath, ...}` 형식을 사용하여 `keyPath` JMESPath 식으로 필터링합니다. 그러면 출력에 `{displayKey: value}`로 표시됩니다. 다음 예제에서는 마지막 예제의 쿼리를 사용하고 출력에 키를 할당하여 더 명확하게 합니다.
+
+```azurecli
+az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.offer, diskSize:osDisk.diskSizeGb}'
 ```
 
-이전 예제에서는 열 머리글이 "Column1" 및 "Column2" 였습니다.  사용자는 선택한 속성에 익숙한 레이블 또는 이름을 추가할 수 있습니다.  다음 예제에서는 선택한 속성 "name" 및 "resourceGroup"에 "VMName" 및 "RGName" 레이블을 추가했습니다.
-
-
-```azurecli-interactive
-az vm list \
-  --query "[].{RGName:resourceGroup, VMName:name}" --out table
+```json
+{
+  "diskSize": 30,
+  "image": "UbuntuServer"
+}
 ```
 
-```
-RGName     VMName
----------  -----------
-DEMORG1    DemoVM010
-DEMORG1    demovm111
-DEMORG1    demovm211
-DEMORG1    demovm212
-DEMORG1    demovm213
-DEMORG1    demovm214
-DEMORG1    demovm222
-RGDEMO001  KBDemo001VM
-RGDEMO001  KBDemo020
-```
+`table` 출력 형식으로 정보를 표시할 때 사전 표시가 특히 유용합니다. 이렇게 하면 고유한 열 헤드가 출력을 쉽게 읽을 수 있도록 설정합니다. 출력 형식에 대한 자세한 내용은 [Azure CLI 2.0 명령에 대한 출력 형식](/cli/azure/format-output-azure-cli)을 참조하세요.
 
-## <a name="select-complex-nested-properties"></a>복잡한 중첩 속성 선택
+> [!NOTE]
+> 특정 키는 필터링되고 테이블 보기에 인쇄되지 않습니다. 이러한 키는 `id`, `type` 및 `etag`입니다. 이 정보를 표시해야 하는 경우 키 이름을 변경하고 필터링하지 않을 수 있습니다.
+>
+> ```azurecli
+> az vm show -g QueryDemo -n TestVM --query "{objectID:id}" -o table
+> ```
 
-선택하려는 속성이 JSON 출력에서 깊숙이 중첩된 경우 해당 중첩 속성의 전체 경로를 제공해야 합니다. 다음 예제에서는 vm 목록 명령에서 VMName 및 OS 유형을 선택하는 방법을 보여 줍니다.
+## <a name="work-with-list-output"></a>목록 출력으로 작업
 
-```azurecli-interactive
-az vm list \
-  --query "[].{VMName:name, OSType:storageProfile.osDisk.osType}" --out table
+하나 이상의 값을 반환할 수 있는 CLI 명령은 항상 배열을 반환합니다. 배열은 인덱스가 해당 요소에 액세스하도록 할 수 있지만 CLI에서 순서를 보장하지 않습니다. 값의 배열을 쿼리하는 가장 좋은 방법은 `[]` 연산자를 사용하여 평면화하는 것입니다. 연산자는 배열의 키 이후에 또는 식의 첫 번째 요소로 작성됩니다. 평면화는 배열에서 각 개별 요소에서 쿼리를 실행하고 결과 값을 새 배열에 배치합니다. 다음 예제에서는 리소스 그룹의 각 VM에서 실행 중인 이름 및 OS를 인쇄합니다. 
+
+```azurecli
+az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
 ```
 
-```
-VMName       OSType
------------  --------
-DemoVM010    Linux
-demovm111    Linux
-demovm211    Linux
-demovm212    Linux
-demovm213    Linux
-demovm214    Linux
-demovm222    Linux
-KBDemo001VM  Linux
-KBDemo020    Linux
-```
-
-## <a name="filter-with-the-contains-function"></a>contains 함수로 필터링
-
-JMESPath `contains` 함수를 사용하여 쿼리에서 반환된 결과를 구체화할 수 있습니다.
-다음 예제의 명령은 이름에 "RGD"라는 텍스트가 포함된 VM만 선택합니다.
-
-```azurecli-interactive
-az vm list \
-  --query "[?contains(resourceGroup, 'RGD')].{ resource: resourceGroup, name: name }" --out table
-```
-
-```
-Resource    VMName
-----------  -----------
-RGDEMO001   KBDemo001VM
-RGDEMO001   KBDemo020
+```json
+[
+  {
+    "image": "CentOS",
+    "name": "CentBox"
+  },
+  {
+    "image": "openSUSE-Leap",
+    "name": "SUSEBox"
+  },
+  {
+    "image": "UbuntuServer",
+    "name": "TestVM"
+  },
+  {
+    "image": "UbuntuServer",
+    "name": "Test2"
+  },
+  {
+    "image": "WindowsServer",
+    "name": "WinServ"
+  }
+]
 ```
 
-다음 예제의 결과는 vmSize 'Standard_DS1'이 포함된 VM을 반환합니다.
+키 경로의 일부인 배열도 평면화될 수 있습니다. 이 예제에서는 VM이 연결된 NIC의 Azure 개체 ID를 가져오는 쿼리를 보여줍니다.
 
-```azurecli-interactive
-az vm list \
-  --query "[?contains(hardwareProfile.vmSize, 'Standard_DS1')]" --out table
+```azurecli
+az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id'
 ```
 
-```
-ResourceGroup    VMName     VmId                                  Location    ProvisioningState
----------------  ---------  ------------------------------------  ----------  -------------------
-DEMORG1          DemoVM010  cbd56d9b-9340-44bc-a722-25f15b578444  westus      Succeeded
-DEMORG1          demovm111  c1c024eb-3837-4075-9117-bfbc212fa7da  westus      Succeeded
-DEMORG1          demovm211  95eda642-417f-4036-9475-67246ac0f0d0  westus      Succeeded
-DEMORG1          demovm212  4bdac85d-c2f7-410f-9907-ca7921d930b4  westus      Succeeded
-DEMORG1          demovm213  2131c664-221a-4b7f-9653-f6d542fbfa34  westus      Succeeded
-DEMORG1          demovm214  48f419af-d27a-4df0-87f3-9481007c2e5a  westus      Succeeded
-DEMORG1          demovm222  e0f59516-1d69-4d54-b8a2-f6c4a5d031de  westus      Succeeded
+## <a name="filter-array-output-with-predicates"></a>조건자를 사용하여 배열 출력 필터링
+
+JMESPath는 [필터링 식](http://jmespath.org/specification.html#filterexpressions)을 제공하여 표시된 데이터를 필터링합니다. 이러한 식은 [JMESPath 기본 제공 함수](http://jmespath.org/specification.html#built-in-functions)와 함께 결합되어 부분적으로 일치를 수행하거나 표준 형식으로 데이터를 조작할 경우에 특히 강력합니다. 필터 식은 배열 데이터에서만 작동하고 다른 상황에서 사용될 때 `null` 값을 반환합니다. 예를 들어 `vm list`와 같은 명령의 출력을 사용하고 필터링하여 특정 형식의 VM을 찾을 수 있습니다. 다음 예제에서는 Windows VM만을 캡처하고 해당 이름을 인쇄하도록 VM 형식을 필터링하여 이전 항목으로 확장합니다.
+
+```azurecli
+az vm list --query '[?osProfile.windowsConfiguration!=null].name'
 ```
 
-## <a name="filter-with-grep"></a>grep를 사용하여 필터링
-
-`tsv` 출력 형식은 헤더 없이 탭으로 구분된 텍스트입니다. `grep` 및 `cut` 같은 명령으로 전달하여 `list` 출력의 특정 값을 자세히 구문 분석할 수 있습니다. 다음 예제의 `grep` 명령은 이름에 "RGD"라는 텍스트가 포함된 VM만 선택합니다.  `cut` 명령은 8번째 필드(탭으로 구분됨) 값만 선택하여 출력에 표시합니다.
-
-```azurecli-interactive
-az vm list --out tsv | grep RGD | cut -f8
+```json
+[
+  "WinServ"
+]
 ```
 
-```
-KBDemo001VM
-KBDemo020
-```
+## <a name="experiment-with-queries-interactively"></a>대화형으로 쿼리를 사용하여 실험
 
-## <a name="explore-with-jpterm"></a>Jpterm을 사용하여 탐색
-
-명령 출력을 [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal)로 전달하고 거기서 JMESPath 쿼리를 실험할 수도 있습니다.
+JMESPath 식을 사용하여 실험하려면 신속하게 쿼리를 편집하고 출력을 검사할 수 있는 방식으로 작업합니다. [JMESPath 터미널](https://github.com/jmespath/jmespath.terminal) Python 패키지에서 대화형 환경을 제공합니다. 이 기능은 데이터를 추출하기 위해 데이터를 입력으로 파이핑한 다음, 프로그램 내 쿼리를 작성하는 데 사용됩니다.
 
 ```bash
 pip install jmespath-terminal
 az vm list | jpterm
 ```
-

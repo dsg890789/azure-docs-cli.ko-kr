@@ -3,20 +3,80 @@ title: "Azure CLI 2.0 릴리스 정보"
 description: "Azure CLI 2.0 최신 업데이트 알아보기"
 author: sptramer
 ms.author: sttramer
-manager: routlaw
-ms.date: 02/13/2018
+manager: carmonm
+ms.date: 02/27/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 480b646b7230c8fb22f10b28a9204287cd0acc19
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 01078b7a3665f563f0a6b1d809c9a41f18d136d6
+ms.sourcegitcommit: f3ab5da6019083ef2482b62c7355817e6170dcfb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="february-27-2018"></a>2018년 2월 27일
+
+버전 2.0.28
+
+### <a name="core"></a>코어
+
+* [#5184](https://github.com/Azure/azure-cli/issues/5184): Homebrew 설치 문제 해결
+* 사용자 지정 키를 사용하는 확장 원격 분석에 대한 지원 추가
+* `--debug`에 대한 HTTP 로깅 추가
+
+### <a name="acs"></a>ACS
+
+* 기본적으로 `aks install-connector`에 `virtual-kubelet-for-aks` Helm 차트를 사용하도록 변경
+* 문제: ACI 컨테이너 그룹을 만들기 위해 서비스 주체에 대한 사용 권한 부족 문제 해결
+* `aks install-connector`에 `--aci-container-group`, `--location` 및 `--image-tag` 매개 변수 추가
+* `aks get-versions`에서 사용 중단 공지 제거
+
+### <a name="appservice"></a>App Service
+
+* 새 SDK 버전에 대한 업데이트(azure-mgmt-web 0.35.0)
+* [#5538](https://github.com/Azure/azure-cli/issues/5538): 잘못된 SKU로 보고된 `Free` 해결
+
+### <a name="cognitive-services"></a>Cognitive Services
+
+* 새 Cognitive Services 계정을 만들 때 '알림' 업데이트
+
+### <a name="consumption"></a>Consumption
+
+* 가격표 API의 새 명령 추가
+* 기존 사용량 세부 정보 및 예약 세부 정보 형식 업데이트
+
+### <a name="container"></a>컨테이너
+
+* ACI에서 암호를 사용하기 위해 `container create`에 `--secrets` 및 `--secrets-mount-path` 인수 추가
+
+### <a name="network"></a>네트워크
+
+* [#5559](https://github.com/Azure/azure-cli/issues/5559): `network vnet-gateway vpn-client generate`에서 누락된 클라이언트 해결
+
+### <a name="resource"></a>리소스
+
+* 실패 시 부분 템플릿 및 오류를 표시하도록 `group deployment export` 변경
+
+### <a name="role"></a>역할
+
+* 서비스 주체 역할의 감사를 허용하도록 `role assignment list-changelogs` 추가
+
+### <a name="sql"></a>SQL
+
+* 생성 및 업데이트 시 데이터베이스 및 탄력적 풀에 대한 영역 중복 지원 추가
+
+### <a name="storage"></a>Storage
+
+* `storage blob [upload-batch|download-batch]`에 대상-경로/접두사를 지정하도록 설정
+
+### <a name="vm"></a>VM
+
+* 단일 VMSS 인스턴스에서 디스크를 연결/분리하는 지원 추가
+
 
 ## <a name="february-13-2018"></a>2018년 2월 13일
 
