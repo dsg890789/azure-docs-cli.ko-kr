@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: c2758922d74080d3a3110b1e3a507ddf0f8d85d1
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 3f5fe1b01a8ce691846126a6c03e7222e9b20e0d
+ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
 
@@ -25,7 +25,7 @@ Azure CLI 2.0 시작! CLI는 특히 자동화 기능을 통해 Azure 서비스�
 
 아직 설치하지 않았으면 [CLI 설치](install-azure-cli.md)를 수행하거나 [Azure Cloud Shell](/azure/cloud-shell/overview)을 사용합니다.
 
-로컬 설치에 CLI 명령을 사용하려면 먼저 [az login](/cli/azure/index#az_login)으로 로그인해야 합니다.
+로컬 설치에 CLI 명령을 사용하려면 먼저 [az login](/cli/azure/reference-index#az_login)으로 로그인해야 합니다.
 
 ```azurecli
 az login
@@ -53,7 +53,7 @@ az login
 CLI에서 명령은 _그룹_의 _하위 명령_으로 제공됩니다.
 각 그룹은 Azure에서 제공되는 서비스를 나타내며, 하위 그룹은 이러한 서비스에 대한 명령을 논리적 그룹으로 구분합니다.
 
-명령을 검색하려면 [az find](/cli/azure/index#az_find)를 사용합니다. 예를 들어 이름에 `secret`이(가) 포함된 명령을 검색하려면 다음 명령을 사용합니다.
+명령을 검색하려면 [az find](/cli/azure/reference-index#az_find)를 사용합니다. 예를 들어 이름에 `secret`이(가) 포함된 명령을 검색하려면 다음 명령을 사용합니다.
 
 ```azurecli
 az find -q secret
@@ -95,8 +95,8 @@ Azure CLI 2.0을 시작하려면 가상 머신 설정 및 Azure 리소스 쿼리
 
 다른 서비스에 대해 자세히 알아보려면 CLI를 사용하는 Azure 서비스에 대한 여러 퀵 스타트를 참조할 수 있습니다.
 
-* [Azure CLI를 사용하여 저장소 계정 만들기](/azure/storage/common/storage-quickstart-create-storage-account-cl)
-* [CLI를 사용하여 Azure Blob 저장소에 대한 개체 전송](/storage/blobs/storage-quickstart-blobs-cli)
+* [Azure CLI를 사용하여 저장소 계정 만들기](/azure/storage/common/storage-quickstart-create-storage-account-cli)
+* [CLI를 사용하여 Azure Blob 저장소에 대한 개체 전송](/azure/storage/blobs/storage-quickstart-blobs-cli)
 * [Azure CLI를 사용하여 단일 Azure SQL 데이터베이스 만들기](/azure/sql-database/sql-database-get-started-cli)
 * [Azure CLI를 사용하여 Azure Database for MySQL 서버 만들기](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 * [Azure CLI를 사용하여 PostgreSQL용 Azure Database 만들기](/azure/postgresql/quickstart-create-server-database-azure-cli)

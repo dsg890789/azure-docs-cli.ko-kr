@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: d60ede5b971ee2489482fb5a72bde9bf5389d37c
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: a85824cfcd1eb4176c7675a6e38327eccb390ca0
+ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cli-20-configuration"></a>Azure CLI 2.0 구성
 
@@ -29,7 +29,7 @@ CLI에서 사용되는 구성 값은 다음 우선 순위에서 평가되며 목
 
 ## <a name="cli-configuration-with-az-configure"></a>az configure으로 CLI 구성
 
-[az configure](/cli/azure/?view=azure-cli-latest#az_configure) 명령으로 CLI에 대한 기본값을 설정합니다.
+[az configure](/cli/azure/reference-index#az_configure) 명령으로 CLI에 대한 기본값을 설정합니다.
 이 명령은 하나의 인수인 `--defaults`를 취하며 공백으로 구분된 `key=value` 쌍의 목록입니다. 제공된 값은 필수 인수 대신 CLI에 의해 사용됩니다.
 
 다음은 사용할 수 있는 사용 가능한 키 목록입니다.
@@ -52,7 +52,7 @@ az configure --defaults "location=westus2 group=MyResourceGroup"
 
 ## <a name="cli-configuration-file"></a>CLI 구성 파일
 
-CLI 구성 파일에는 CLI 동작 관리에 사용되는 다른 설정이 포함됩니다. 구성 파일 자체는 `$AZURE_CONFIG_DIR/config`에 있습니다. `AZURE_CONFIG_DIR`의 기본값은 Linux와 macOS의 경우 `$HOME/.azure/config`이고 Windows의 경우 `%USERPROFILE%\.azure\config`입니다.
+CLI 구성 파일에는 CLI 동작 관리에 사용되는 다른 설정이 포함됩니다. 구성 파일 자체는 `$AZURE_CONFIG_DIR/config`에 있습니다. `AZURE_CONFIG_DIR`의 기본값은 Linux와 macOS의 경우 `$HOME/.azure`이고 Windows의 경우 `%USERPROFILE%\.azure`입니다.
 
 구성 파일은 INI 파일 형식으로 작성됩니다. 이 파일들은 `[section-name]` 헤더로 시작하고 그 다음 `key=value` 항목 목록이 이어지는 섹션으로 구성됩니다. 세션 이름은 대/소문자를 구분하지만, 키 이름은 구분하지 않습니다.
 설명은 `#` 또는 `;`으로 시작하는 줄입니다. 인라인 주석은 허용되지 않습니다. 부울은 대/소문자를 구분하며 다음 값으로 표현됩니다.
