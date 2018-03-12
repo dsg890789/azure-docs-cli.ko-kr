@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: a140f8f54ad72f7f3b5e2d63e2300d0aa2c061ac
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 92c96b7e969de686689ef02bf068392b9f565698
+ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="log-in-with-azure-cli-20"></a>Azure CLI 2.0으로 로그인
 
@@ -42,6 +42,14 @@ Azure CLI를 사용하여 로그인하고 인증하는 여러 방법이 있습�
 az login -u <username> -p <password>
 ```
 
+## <a name="log-in-with-a-specific-tenant"></a>특정 테넌트로 로그인
+
+여러 테넌트를 사용할 때 `--tenant` 인수를 사용하여 로그인할 테넌트를 선택할 수 있습니다. 이 인수의 값은 `.onmicrosoft.com` 도메인 또는 테넌트에 대한 Azure 개체 ID일 수 있습니다. 대화형으로 로그인하거나 `--user` 및 `--password` 인수를 포함한 자격 증명을 제공할 수 있습니다. 
+
+```
+az login --tenant <tenant>
+```
+
 ## <a name="logging-in-with-a-service-principal"></a>서비스 주체로 로그인
 
 서비스 주체는 특정 사용자에게 연결되지 않은 계정으로서, 미리 정의된 역할을 통해 사용자에게 권한을 할당할 수 있습니다. 보안 스크립트 또는 프로그램 작성을 위한 가장 좋은 방법은 권한 제한 사항 및 로컬로 저장된 정적 자격 증명 정보를 적용할 수 있게 해주는 서비스 주체를 사용한 인증입니다. 서비스 주체에 대해 자세히 알아보려면 [Azure CLI를 사용하여 Azure 서비스 주체 만들기](create-an-azure-service-principal-azure-cli.md)를 참조하십시오.
@@ -52,10 +60,9 @@ az login -u <username> -p <password>
 az login --service-principal -u <user> -p <password-or-cert> --tenant <tenant>
 ```
 
-테넌트 값은 서비스 주체와 연결된 Azure Active Directory 테넌트입니다. 이 값은 .onmicrosoft.com 도메인 또는 테넌트에 대한 Azure 개체 ID일 수 있습니다.
+테넌트 값은 서비스 주체와 연결된 Azure Active Directory 테넌트입니다. 이 값은 `.onmicrosoft.com` 도메인 또는 테넌트에 대한 Azure 개체 ID일 수 있습니다.
 다음 명령을 사용하여 현재 로그인을 위한 테넌트 개체 ID를 가져올 수 있습니다.
 
 ```azurecli
 az account show --query 'tenantId' -o tsv
 ```
-

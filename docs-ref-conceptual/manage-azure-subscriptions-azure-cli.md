@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 9f03e52fa72a8dbd5753904839a833db01ffb59b
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: b0c0b3f5e4d9bc651ad4781cb0906dc98d8531a3
+ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-multiple-azure-subscriptions"></a>여러 Azure 구독 관리
 
@@ -26,6 +26,7 @@ Azure 내에서 테넌트, 사용자 및 구독 간의 차이에 대해 약간�
 
 테넌트, 사용자 및 구독 간의 차이점에 대한 자세한 내용은 [Azure 클라우드 용어 사전](/azure/azure-glossary-cloud-terminology)을 참조하세요.
 새 구독을 Azure Active Directory 테넌트에 추가하는 방법을 알아보려면 [Azure 구독을 Azure Active Directory에 추가하는 방법](/azure/active-directory/active-directory-how-subscriptions-associated-directory)을 참조하세요.
+여러 테넌트를 사용할 때 특정 테넌트에 로그인해야 합니다. 이 작업을 수행하려면 [Azure CLI 2.0 로그인](/cli/azure/authenticate-azure-cli)을 참조하세요.
 
 ## <a name="working-with-multiple-subscriptions"></a>여러 구독 작업
 
