@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 3e732ea7fae118ddb1564bed28d54d15bab4f7f0
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: df1c2b33589c160525710845cc81d076082a9ecc
+ms.sourcegitcommit: def1a07bfccf26a4178ba6dd836764a1df205929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Windows에 Azure CLI 2.0 설치
 
@@ -26,7 +26,7 @@ WSL(Linux용 Windows 하위 시스템)을 실행하는 경우 Linux 배포에 �
 MSI 배포판은 Windows에서 `az` 명령을 설치, 업데이트 및 제거하는 데 사용됩니다.
 
 > [!div class="nextstepaction"]
-> [MSI 설치 관리자 다운로드](https://azurecliprod.blob.core.windows.net/msi/azure-cli-latest.msi)
+> [MSI 설치 관리자 다운로드](https://aka.ms/installazurecliwindows)
 
 설치 관리자가 컴퓨터를 변경해도 되는지 물어보면 "예" 상자를 클릭합니다.
 
@@ -39,4 +39,4 @@ MSI 배포판은 Windows에서 `az` 명령을 설치, 업데이트 및 제거하
 MSI를 다시 실행 하 고 "제거" 옵션을 선택하여 제거할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [MSI 설치 관리자 다운로드](https://azurecliprod.blob.core.windows.net/msi/azure-cli-latest.msi)
+> [MSI 설치 관리자 다운로드](https://aka.ms/installazurecliwindows)
