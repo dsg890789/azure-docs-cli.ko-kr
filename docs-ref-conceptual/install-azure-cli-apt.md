@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 840e5e7d6531fe92d30235f621e381589266d1d3
-ms.sourcegitcommit: f82774a6f92598c41da9956284f563757f402774
+ms.openlocfilehash: 188e7dfded21bb5c7036b3a950b3e4cb10bc1d33
+ms.sourcegitcommit: 5c004b455eff196d853bfbe12901c6114a1652d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt를 사용하여 Azure CLI 2.0 설치
 
@@ -62,6 +62,16 @@ gpg: keyserver receive failed: No dirmngr
 ```bash
 sudo apt-get install dirmngr
 ```
+
+### <a name="apt-key-hangs"></a>apt-key 중지
+
+포트 11371로 나가는 연결을 차단하는 방화벽 뒤에 있는 경우 `apt-key` 명령이 무기한 중지될 수 있습니다. 방화벽은 나가는 연결을 위해 HTTP 프록시를 사용할 수 있습니다.
+
+```bash
+sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+```
+
+프록시가 있는지 여부를 모르는 경우 시스템 관리자에게 문의하세요. 프록시에 로그인이 필요하지 않으면 사용자, 암호 및 `@` 토큰은 생략합니다.
 
 ## <a name="update"></a>주 지역에서
 
