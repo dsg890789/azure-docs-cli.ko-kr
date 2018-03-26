@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0 릴리스 정보"
-description: "Azure CLI 2.0 최신 업데이트 알아보기"
+title: Azure CLI 2.0 릴리스 정보
+description: Azure CLI 2.0 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -10,13 +10,100 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 01078b7a3665f563f0a6b1d809c9a41f18d136d6
-ms.sourcegitcommit: f3ab5da6019083ef2482b62c7355817e6170dcfb
+ms.openlocfilehash: 116fa95e51399b9b97c1b35c38445f30db7efc94
+ms.sourcegitcommit: fefb5bb6a21cab30c44592c0577408a8d1a2ccc7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="march-13-2018"></a>2018년 3월 13일
+
+버전 2.0.29
+
+### <a name="acr"></a>ACR
+
+* `repository delete`에 `--image` 매개 변수에 대한 지원 추가
+* `repository delete` 명령의 `--manifest` 및 `--tag` 매개 변수 사용되지 않음
+* 데이터를 삭제하지 않고 태그를 제거하는 `repository untag` 명령 추가
+
+### <a name="acs"></a>ACS
+
+* 기존 커넥터를 업그레이드하는 `aks upgrade-connector` 명령 추가
+* 보다 읽기 쉬운 블록 스타일 YAML을 사용하는 `kubectl` 구성 파일 변경
+
+### <a name="advisor"></a>Advisor
+
+* [주요 변경 내용] 이름이 `advisor configuration get`에서 `advisor configuration list`로 변경됨
+* [주요 변경 내용] 이름이 `advisor configuration set`에서 `advisor configuration update`로 변경됨
+* [주요 변경 내용] `advisor recommendation generate` 제거 
+* `--refresh` 매개 변수가 `advisor recommendation list`에 추가됨
+* `advisor recommendation show` 명령이 추가됨
+
+### <a name="appservice"></a>App Service
+
+* `[webapp|functionapp] assign-identity` 사용되지 않음
+* `webapp identity [assign|show]` 및 `functionapp identity [assign|show]` 관리 ID 명령 추가
+
+### <a name="eventhubs"></a>Event Hubs
+
+* 최초 릴리스
+
+### <a name="extension"></a>내선 번호
+
+* 사용된 배포판이 패키지 원본 파일에 저장된 것과 다른 경우 오류가 발생할 수 있으므로 사용자에게 경고하도록 검사 추가
+
+### <a name="interactive"></a>대화형
+
+* [#5625](https://github.com/Azure/azure-cli/issues/5625) 해결: 여러 세션 간에 기록 유지
+* [#3016](https://github.com/Azure/azure-cli/issues/3016) 해결: 범위에 있는 동안 기록되지 않는 기록
+* [#5688](https://github.com/Azure/azure-cli/issues/5688) 해결: 명령 테이블 로드에 예외가 발생하는 경우 완료가 표시되지 않음
+* 장기 실행 작업의 진행률 표시기 해결
+
+### <a name="monitor"></a>모니터
+
+* `monitor autoscale-settings` 명령 사용되지 않음
+* `monitor autoscale` 명령이 추가됨
+* `monitor autoscale profile` 명령이 추가됨
+* `monitor autoscale rule` 명령이 추가됨
+
+### <a name="network"></a>네트워크
+
+* [주요 변경 내용] `route-filter rule create`에서 `--tags` 매개 변수 제거
+* 다음 명령의 일부 잘못된 기본값 제거:
+  * `network express-route update`
+  * `network nsg rule update`
+  * `network public-ip update`
+  * `traffic-manager profile update`
+  * `network vnet-gateway update`
+* `network watcher connection-monitor` 명령 추가
+* `network watcher show-topology`에 `--vnet` 및 `--subnet` 매개 변수 추가
+
+### <a name="profile"></a>프로필
+
+* `az login`의 `--msi` 매개 변수 사용되지 않음
+* `--msi`을 대체하는 `az login`의 `--identity` 매개 변수 추가
+
+### <a name="rdbms"></a>RDBMS
+
+* [미리 보기] API 2017-12-01-미리 보기를 사용하도록 변경
+
+### <a name="service-bus"></a>Service Bus
+
+* 최초 릴리스
+
+### <a name="storage"></a>Storage
+
+* [#4971](https://github.com/Azure/azure-cli/issues/4971) 해결: `storage blob copy`는 이제 다른 Azure 클라우드를 지원합니다.
+* [#5286](https://github.com/Azure/azure-cli/issues/5286) 해결: `storage blob [delete-batch|download-batch|upload-batch]` 명령 일괄 처리하여 더 이상 사전 조건 실패 시 오류를 throw하지 않습니다.
+
+### <a name="vm"></a>VM
+
+* 관리되지 않는 데이터 디스크를 추가하고 캐싱을 구성하는 `[vm|vmss] create`에 대한 지원 추가
+* `[vm|vmss] assign-identity` 및 `[vm|vmss] remove-identity` 사용되지 않음
+* 사용되지 않는 명령을 바꾸는 `vm identity [assign|remove|show]` 및 `vmss identity [assign|remove|show]` 명령 추가
+* `vmss create`의 기본 우선 순위를 None으로 변경
 
 ## <a name="february-27-2018"></a>2018년 2월 27일
 
@@ -1460,7 +1547,7 @@ vm (2.0.2)
 * VM/VMSS: 포털에서 사용하는 자격 증명 유효성 검사 논리 통합([#2537](https://github.com/Azure/azure-cli/pull/2537))
 * wait 명령 및 --no-wait 지원 추가([#2524](https://github.com/Azure/azure-cli/pull/2524))
 * 가상 머신 확장 집합: vm의 인스턴스 보기를 나열하는 * 지원([#2467](https://github.com/Azure/azure-cli/pull/2467))
-* VM 및 가상 머신 확장 집합에 --secrets 추가([#2212}(https://github.com/Azure/azure-cli/pull/2212))
+* 추가 - VM 및 가상 머신 확장 집합의 암호([#2212}(https://github.com/Azure/azure-cli/pull/2212))
 * 특수 VHD로 VM 만들기 허용([#2256](https://github.com/Azure/azure-cli/pull/2256))
 
 ## <a name="february-27-2017"></a>2017년 2월 27일
