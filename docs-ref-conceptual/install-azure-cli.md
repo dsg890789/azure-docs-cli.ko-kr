@@ -1,7 +1,7 @@
 ---
-title: "Azure CLI 2.0 설치"
-description: "Azure CLI 2.0 설치에 대한 참조 문서입니다."
-keywords: "Azure CLI,Azure CLI 설치"
+title: Azure CLI 2.0 설치
+description: Azure CLI 2.0 설치에 대한 참조 문서입니다.
+keywords: Azure CLI,Azure CLI 설치
 author: sptramer
 ms.author: sttramer
 manager: routlaw
