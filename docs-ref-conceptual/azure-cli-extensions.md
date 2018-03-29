@@ -1,7 +1,7 @@
 ---
-title: "Azure CLI 2.0 확장"
-description: "Azure CLI 2.0 확장 사용"
-keywords: "Azure CLI, 확장"
+title: Azure CLI 2.0 확장
+description: Azure CLI 2.0 확장 사용
+keywords: Azure CLI, 확장
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -12,10 +12,10 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.openlocfilehash: 548c06c64cc98598a2bd24bcc5959e59bffb4930
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.sourcegitcommit: f57b5666523ef3642bee644eb0e0fe7085b3194a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Azure CLI 2.0 확장 사용
 

@@ -1,7 +1,7 @@
 ---
-title: "Azure CLI 구성 옵션"
-description: "Azure CLI 2.0 구성 방법"
-keywords: "Azure CLI, 구성, 설정, Azure"
+title: Azure CLI 구성 옵션
+description: Azure CLI 2.0 구성 방법
+keywords: Azure CLI, 구성, 설정, Azure
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: a85824cfcd1eb4176c7675a6e38327eccb390ca0
-ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
+ms.openlocfilehash: 6970844bf9eba5ccf18b7603115de629e995f2c4
+ms.sourcegitcommit: f57b5666523ef3642bee644eb0e0fe7085b3194a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cli-20-configuration"></a>Azure CLI 2.0 구성
 
@@ -47,7 +47,7 @@ CLI에서 사용되는 구성 값은 다음 우선 순위에서 평가되며 목
 예를 들어, 다음은 모든 명령에 대해 기본 리소스 그룹 및 위치를 설정하는 방법입니다.
 
 ```azurecli
-az configure --defaults "location=westus2 group=MyResourceGroup"
+az configure --defaults location=westus2 group=MyResourceGroup
 ```
 
 ## <a name="cli-configuration-file"></a>CLI 구성 파일
@@ -79,7 +79,7 @@ log_dir=/var/log/azure
 
 사용할 수 있는 기본값의 값은 필요한 경우 명령줄 인수에 있지 않아도 됩니다.
 
-| 섹션 | Name      | 형식 | 설명|
+| 섹션 | Name      | 유형 | 설명|
 |---------|-----------|------|------------|
 | __core__ | output | string | 기본 출력 형식입니다. `json`, `jsonc`, `tsv` 또는 `table` 중 하나일 수 있습니다. |
 | | disable\_confirm\_prompt | 부울 | 확인 메시지를 표시하거나 표시하지 않습니다. |
