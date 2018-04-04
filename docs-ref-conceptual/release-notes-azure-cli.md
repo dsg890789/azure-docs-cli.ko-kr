@@ -10,13 +10,120 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 116fa95e51399b9b97c1b35c38445f30db7efc94
-ms.sourcegitcommit: fefb5bb6a21cab30c44592c0577408a8d1a2ccc7
+ms.openlocfilehash: 0e81f5723af47242f908b854045deb7d74c50c17
+ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="march-27-2018"></a>2018년 3월 27일
+
+버전 2.0.30
+
+### <a name="core"></a>코어
+
+* 도움말에서 미리 보기로 표시된 확장에 대한 메시지 표시
+
+### <a name="acs"></a>ACS
+
+* Cloud Shell에서 `aks install-cli`에 대한 SSL 인증서 확인 오류 수정
+
+### <a name="appservice"></a>App Service
+
+* `webapp update`에 HTTPS만 지원 추가됨
+* `az webapp identity [assign|show]` 및 `az functionapp identity [assign|show]`에 대한 슬롯 지원이 추가됨
+
+### <a name="backup"></a>Backup
+
+* 새 명령 `az backup protection isenabled-for-vm`이 추가되었습니다. 이 명령을 사용하여 구독의 자격 증명 모음에 의해 VM을 백업했는지 확인할 수 있습니다.
+* 다음 명령의 `--resource-group` 및 `--vault-name` 매개 변수에 대해 Azure 개체 ID를 사용할 수 있습니다.
+  * `backup container show`
+  * `backup item set-policy`
+  * `backup item show`
+  * `backup job show`
+  * `backup job stop`
+  * `backup job wait`
+  * `backup policy delete`
+  * `backup policy get-default-for-vm`
+  * `backup policy list-associated-items`
+  * `backup policy set`
+  * `backup policy show`
+  * `backup protection backup-now`
+  * `backup protection disable`
+  * `backup protection enable-for-vm`
+  * `backup recoverypoint show`
+  * `backup restore files mount-rp`
+  * `backup restore files unmount-rp`
+  * `backup restore restore-disks`
+  * `backup vault delete`
+  * `backup vault show`
+* `backup ... show` 명령의 출력 형식을 허용하도록 `--name` 매개 변수가 변경되었습니다.
+
+### <a name="container"></a>컨테이너
+
+* `container exec` 명령이 추가되었습니다. 실행 중인 컨테이너 그룹에 대해 컨테이너에서 명령을 실행합니다.
+* 컨테이너 그룹 생성 및 업데이트에 관한 테이블 출력 허용
+
+### <a name="extension"></a>확장
+
+* 확장이 미리 보기에 있는 경우 `extension add`에 대한 메시지가 추가됨
+* `--show-details`로 전체 확장 데이터를 표시하도록 `extension list-available`이 변경됨
+* [호환성이 손상되는 변경] 기본적으로 단순화된 확장 데이터를 표시하도록 `extension list-available`로 변경됨
+
+### <a name="interactive"></a>대화형
+
+* 명령 테이블 로딩이 완료되는 즉시 활성화로 변경 완료
+* `--style` 매개 변수를 사용하여 버그 수정됨
+* 누락된 경우 명령 테이블 덤프 후 대화형 렉서가 인스턴스화됨
+* 완성자 지원 향상됨
+
+### <a name="lab"></a>랩
+
+* `create environment` 명령을 사용하여 버그 수정됨
+
+### <a name="monitor"></a>모니터
+
+* `--top`, `--orderby`, `--namespace`에 대한 지원이 `metrics list` [#5785](https://github.com/Azure/azure-cli/issues/5785)에 추가됨
+* [#4529](https://github.com/Azure/azure-cli/issues/5785) 수정됨: `metrics list` 공백으로 구분된 메트릭 목록을 수락하여 검색
+* `--namespace`에 대한 지원이 `metrics list-definitions` [#5785](https://github.com/Azure/azure-cli/issues/5785)에 추가됨
+
+### <a name="network"></a>네트워크
+
+* 사설 DNS 영역에 대한 지원 추가됨
+
+### <a name="profile"></a>프로필
+
+* `--identity-port` 및 `--msi-port`에 대한 경고가 `login`에 추가됨
+
+### <a name="rdbms"></a>RDBMS
+
+* 비즈니스 모델 GA API 버전 2017-12-01 추가됨
+
+### <a name="resource"></a>리소스
+
+* [호환성이 손상되는 변경]: Changed `provider operation [list|show]` to not require `--api-version`
+
+### <a name="role"></a>역할
+
+* 필수 액세스 구성 및 네이티브 클라이언트에 대한 지원이 `az ad app create`에 추가됨
+* 개체 확인 시 1000개 미만의 ID를 반환하도록 `rbac` 명령이 변경됨
+* 자격 증명 관리 명령 `ad sp credential [reset|list|delete]` 추가됨
+* [호환성이 손상되는 변경] `az role assignment [list|show]` 출력에서 '속성' 제거됨
+* `dataActions` 및 `notDataActions` 권한에 대한 지원이 `role definition`에 추가됨
+
+### <a name="storage"></a>Storage
+
+* 크기가 195GB에서 200GB 사이인 파일을 업로드할 때 발생하는 문제 수정됨
+* [#4049](https://github.com/Azure/azure-cli/issues/4049) 수정됨: 조건 매개 변수를 무시하고 blob 업로드 추가 관련 문제
+
+### <a name="vm"></a>VM
+
+* 100개 이상의 인스턴스가 있는 세트의 향후 호환성이 손상되는 변경에 대한 경고가 `vmss create`에 추가됨
+* `vm [snapshot|image]`에 영역 복원 지원 추가됨
+* 향상된 암호화 상태를 보고하도록 디스크 인스턴스 보기 변경됨
+* [호환성이 손상되는 변경] 더 이상 출력을 반환하지 않도록 `vm extension delete` 변경됨
 
 ## <a name="march-13-2018"></a>2018년 3월 13일
 
@@ -35,9 +142,9 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="advisor"></a>Advisor
 
-* [주요 변경 내용] 이름이 `advisor configuration get`에서 `advisor configuration list`로 변경됨
-* [주요 변경 내용] 이름이 `advisor configuration set`에서 `advisor configuration update`로 변경됨
-* [주요 변경 내용] `advisor recommendation generate` 제거 
+* [호환성이 손상되는 변경] `advisor configuration get`에서 `advisor configuration list`로 이름이 변경됨
+* [호환성이 손상되는 변경] `advisor configuration set`에서 `advisor configuration update`로 이름이 변경됨
+* [호환성이 손상되는 변경] `advisor recommendation generate` 제거됨 
 * `--refresh` 매개 변수가 `advisor recommendation list`에 추가됨
 * `advisor recommendation show` 명령이 추가됨
 
@@ -70,7 +177,7 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="network"></a>네트워크
 
-* [주요 변경 내용] `route-filter rule create`에서 `--tags` 매개 변수 제거
+* [호환성이 손상되는 변경] `route-filter rule create`에서 `--tags` 매개 변수 제거됨
 * 다음 명령의 일부 잘못된 기본값 제거:
   * `network express-route update`
   * `network nsg rule update`
@@ -95,7 +202,7 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="storage"></a>Storage
 
-* [#4971](https://github.com/Azure/azure-cli/issues/4971) 해결: `storage blob copy`는 이제 다른 Azure 클라우드를 지원합니다.
+* [#4971](https://github.com/Azure/azure-cli/issues/4971) 수정됨: `storage blob copy`가 이제 다른 Azure 클라우드도 지원
 * [#5286](https://github.com/Azure/azure-cli/issues/5286) 해결: `storage blob [delete-batch|download-batch|upload-batch]` 명령 일괄 처리하여 더 이상 사전 조건 실패 시 오류를 throw하지 않습니다.
 
 ### <a name="vm"></a>VM
@@ -175,7 +282,7 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="acs"></a>ACS
 
-* [주요 변경 사항] 정확성을 위한 `aks get-versions`에서 `aks get-upgrades`(으)로 이름 변경
+* [호환성이 손상되는 변경] 정확성을 위해 `aks get-versions`에서 `aks get-upgrades`로 이름이 변경됨
 * `aks create`에 사용 가능한 Kubernetes 버전 표시를 위한 `aks get-versions` 변경
 * 서버가 Kubernetes 버전을 선택할 수 있도록 `aks create` 기본값 변경
 * AKS로 생성되는 서비스 주체를 나타내는 도움말 메시지 업데이트
@@ -218,8 +325,8 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="iot"></a>IoT
 
-* `iot dps access policy [create|update]`이(가) 성공 시 '찾을 수 없음' 오류를 반환하는 문제가 해결되었습니다.
-* `iot dps linked-hub [create|update]`이(가) 성공 시 '찾을 수 없음' 오류를 반환하는 문제가 해결되었습니다.
+* 성공 시 `iot dps access policy [create|update]`가 '찾을 수 없음' 오류를 반환하는 문제가 수정됨
+* 성공 시 `iot dps linked-hub [create|update]`가 '찾을 수 없음' 오류를 반환하는 문제가 수정됨
 * `iot dps access policy [create|update]` 및 `iot dps linked-hub [create|update]`에 대한 `--no-wait` 지원 추가
 * 파티션 수를 지정할 수 있도록 `iot hub create` 변경
 
@@ -378,9 +485,9 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="event-grid"></a>Event Grid
 
-* [주요 변경 내용] `az eventgrid topic event-subscription` 명령이 `eventgrid event-subscription`로 이동됨
-* [주요 변경 내용] `az eventgrid resource event-subscription` 명령이 `eventgrid event-subscription`로 이동됨
-* [주요 변경 내용] `eventgrid event-subscription show-endpoint-url` 명령 제거됨 대신 `eventgrid event-subscription show --include-full-endpoint-url`을 사용하세요.
+* [호환성이 손상되는 변경] `az eventgrid topic event-subscription` 명령이 `eventgrid event-subscription`으로 이동됨
+* [호환성이 손상되는 변경] `az eventgrid resource event-subscription` 명령이 `eventgrid event-subscription`으로 이동됨
+* [호환성이 손상되는 변경] `eventgrid event-subscription show-endpoint-url` 명령 제거됨 대신 `eventgrid event-subscription show --include-full-endpoint-url`을 사용하세요.
 * 명령 `eventgrid topic update` 추가됨
 * 명령 `eventgrid event-subscription update` 추가됨
 * `eventgrid topic` 명령에 대한 `--ids` 매개 변수 추가됨
@@ -424,8 +531,8 @@ ms.lasthandoff: 03/17/2018
 ### <a name="vm"></a>VM
 
 * [미리 보기] `vmss`에 대한 영역 간 지원
-* [주요 변경 내용] "표준" 부하 분산 장치에 단일 영역 `vmss` 기본값 변경됨
-* [주요 변경 내용] `externalIdentities`을 EMSI에 대한 `userAssignedIdentities`로 변경함
+* [호환성이 손상되는 변경] 단일 영역 `vmss` 기본값이 "표준" 부하 분산 장치로 변경됨
+* [호환성이 손상되는 변경] EMSI에 대해 `externalIdentities`을 `userAssignedIdentities`로 변경됨
 * [미리 보기] OS 디스크 교체에 대한 지원 추가됨
 * 다른 구독에서 VM 이미지를 사용하기 위한 지원 추가됨
 * `--plan-name`, `--plan-product`, `--plan-promotion-code`, `--plan-publisher` 인수를 `[vm|vmss] create`에 추가
@@ -729,7 +836,7 @@ ms.lasthandoff: 03/17/2018
 * 기본 제공 정책 정의를 표시하기 위한 지원 추가
 * 정책 정의를 만들기 위한 지원 모드 매개 변수 추가
 * UI 정의 및 템플릿에 대한 지원을 `managedapp definition create`에 추가
-* [주요 변경 내용] `appliances`에서 `applications`로 그리고 `applianceDefinitions`에서 `applicationDefinitions`로 `managedapp` 리소스 종류 변경
+* [호환성이 손상되는 변경] `managedapp` 리소스 종류가 `appliances`에서 `applications`로 그리고 `applianceDefinitions`에서 `applicationDefinitions`로 변경됨
 
 ### <a name="network"></a>네트워크
 
@@ -802,7 +909,7 @@ ms.lasthandoff: 03/17/2018
 
 * `cdn custom-domain create`에 대한 'CustomDomain is not interable' 버그 수정됨
 
-### <a name="extension"></a>내선 번호
+### <a name="extension"></a>확장
 
 * 최초 릴리스
 
@@ -860,17 +967,17 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="cli"></a>CLI
 
-* `--version`에 법적 정보가 추가되었습니다.
+* `--version`에 법적 정보가 추가됨
 
 ### <a name="acs"></a>ACS
 
-* 미리 보기 지역이 수정되었습니다.
-* `dns_name_prefix`의 기본 형식이 올바르게 지정되었습니다.
-* acs 명령 출력이 최적화되었습니다.
+* 미리 보기 영역 수정됨
+* `dns_name_prefix`의 기본 형식이 올바르게 지정됨
+* acs 명령 출력이 최적화됨
 
 ### <a name="appservice"></a>App Service
 
-* [주요 변경 내용] `az webapp config appsettings [delete|set]` 출력의 불일치가 수정됨
+* [호환성이 손상되는 변경] `az webapp config appsettings [delete|set]` 출력의 불일치가 수정됨
 * `az webapp config container set --docker-custom-image-name`에 대해 새로운 `-i` 별칭이 추가됨
 * `az webapp log show`가 공개됨
 * `az webapp delete`에서 앱 서비스 계획, 통계 또는 DNS 등록을 유지하는 새 인수가 공개됨
@@ -882,8 +989,8 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="network"></a>네트워크
 
-* [주요 변경 내용] 이름이 `vnet list-private-access-services`에서 `vnet list-endpoint-services`로 변경됨
-* [주요 변경 내용] `vnet subnet [create|update]`에 대한 옵션 이름이 `--private-access-services`에서 `--service-endpoints`로 변경됨
+* [호환성이 손상되는 변경] `vnet list-private-access-services`에서 `vnet list-endpoint-services`로 이름이 변경됨
+* [호환성이 손상되는 변경] `vnet subnet [create|update]`에 대한 옵션 이름이 `--private-access-services`에서 `--service-endpoints`로 변경됨
 * 여러 IP 및 포트 범위에 대한 지원이 `nsg rule [create|update]`에 추가됨
 * SKU에 대한 지원이 `lb create`에 추가됨
 * SKU에 대한 지원이 `public-ip create`에 추가됨
@@ -905,7 +1012,7 @@ ms.lasthandoff: 03/17/2018
 * 서비스 터널링을 지원하는 `--bypass` 및 `--default-action` 인수가 `storage account [create|update]`에 추가됨
 * VNET 규칙 및 IP 기반 규칙을 추가하는 명령이 `storage account network-rule`에 추가됨
 * 고객 관리 키에 의한 서비스 암호화가 사용됨
-* [주요 변경 내용] `az storage account create and az storage account update` 명령에 대한 옵션 이름이 `--encryption`에서 `--encryption-services`로 변경됨
+* [호환성이 손상되는 변경] `az storage account create and az storage account update` 명령에 대한 옵션 이름이 `--encryption`에서 `--encryption-services`로 변경됨
 * #4220: `az storage account update encryption` - 구문 불일치가 수정됨
 
 ### <a name="vm"></a>VM
@@ -1091,7 +1198,7 @@ vm (2.0.11)
 
 ### <a name="cdn"></a>CDN
 
-* `--profile-name`에서 지정된 프로필이 존재하지 않을 때 `cdn endpoint list`에 대한 더 나은 오류 메시지가 제공됩니다.
+* `--profile-name`에서 지정된 프로필이 존재하지 않을 때 `cdn endpoint list`에 대한 더 나은 오류 메시지가 제공됨
 
 ### <a name="cloud"></a>클라우드
 
@@ -1104,10 +1211,9 @@ vm (2.0.11)
 ### <a name="cosmosdb"></a>CosmosDB
 
 * 사용자 지정 파티션 키를 사용하여 컬렉션을 만들 수 있도록 수정되었습니다.
-* 컬렉션 기본 TTL에 대한 지원이 추가되었습니다.
+* 컬렉션 기본 TTL에 대한 지원이 추가됨
 
 ### <a name="data-lake-analytics"></a>Data Lake Analytics
-
 
 * `dla account compute-policy` 제목 아래에 계산 정책을 관리하는 명령이 추가됨
 * `dla job pipeline show`가 추가됨
@@ -1259,7 +1365,7 @@ vm (2.0.11)
 * NSG 구성이 지원됨
 * DNS 서버가 올바르게 구성되지 않는 버그가 수정되었습니다.
 * 관리되는 서비스 ID가 지원됨
-* 기존 부하 분산 장치가 있는 `cmss create`에 `--backend-pool-name`이 필요했던 문제가 해결되었습니다.
+* 기존 부하 분산 장치가 있는 `cmss create`에 `--backend-pool-name`이 필요했던 문제가 수정됨
 * `vm image create` lun을 사용하여 만든 데이터 디스크가 0으로 시작됨
 
 
@@ -1269,12 +1375,12 @@ vm (2.0.11)
 
 * documentdb가 cosmosdb로 바뀜
 * rdbms(mysql, postgres) 추가
-* Data Lake Analytics 및 Data Lake Store 모듈을 포함합니다.
-* Cognitive Services 모듈을 포함합니다.
-* Service Fabric 모듈을 포함합니다.
-* 대화형 모듈(az-shell 이름 바꾸기)을 포함합니다.
-* CDN 명령에 대한 지원을 추가합니다.
-* 컨테이너 모듈을 제거합니다.
+* Data Lake Analytics 및 Data Lake Store 모듈 포함
+* Cognitive Services 모듈 포함
+* Service Fabric 모듈 포함
+* 대화형 모듈(az-shell 이름 바꾸기) 포함
+* CDN 명령에 대한 지원 추가
+* 컨테이너 모듈 제거
 * 'az --version'에 대한 바로 가기로 'az -v' 추가([#2926](https://github.com/Azure/azure-cli/issues/2926))
 * 패키지 로드 및 명령 실행의 성능 개선([#2819](https://github.com/Azure/azure-cli/issues/2819))
 
@@ -1351,26 +1457,25 @@ vm (2.0.6)
 
 ### <a name="cosmosdb"></a>CosmosDB
 
-* documentdb 모듈 이름을 cosmosdb로 바꿈
+* documentdb 모듈을 cosmosdb로 이름 바꾸기
 * Documentdb 데이터 평면에 API: 데이터베이스 및 컬렉션 관리에 대한 지원이 추가됨
 * 데이터베이스 계정에 대해 자동 장애 조치(Failover)를 사용하도록 설정하기 위한 지원이 추가됨
 * 새 일관성 정책 ConsistentPrefix에 대한 지원이 추가됨
 
 ### <a name="data-lake-analytics"></a>Data Lake Analytics
 
-
-* 작업 목록의 결과 및 상태에 대한 필터링 시 오류가 throw되는 버그를 수정합니다.
+* 작업 목록의 결과 및 상태에 대한 필터링 시 오류가 throw되는 버그 수정
 * 새 카탈로그 항목 형식: 패키지에 대한 지원을 추가합니다. `az dla catalog package`를 통해 액세스
 * 데이터베이스 내에서 다음 카탈로그 항목을 나열할 수 있음(스키마 사양 필요 없음):
 
   * 테이블
   * 테이블 반환 함수
   * 보기
-  * 테이블 통계. 테이블 이름을 지정하지 않고 스키마와 함께 나열될 수도 있습니다.
+  * 테이블 통계. 테이블 이름을 지정하지 않고 스키마와 함께 나열될 수도 있음
 
 ### <a name="data-lake-store"></a>Data Lake Store
 
-* 기본 파일 시스템 SDK 버전을 업데이트하여 서버 쪽 제한 시나리오 처리에 대해 보다 나은 지원을 제공합니다.
+* 기본 파일 시스템 SDK 버전을 업데이트하여 서버 쪽 제한 시나리오 처리에 보다 나은 지원 제공
 * 패키지 로드 및 명령 실행의 성능 개선([#2819](https://github.com/Azure/azure-cli/issues/2819))
 * 액세스 표시에 대한 도움말 누락. 추가됩니다. ([#2743](https://github.com/Azure/azure-cli/issues/2743))
 
@@ -1390,9 +1495,9 @@ vm (2.0.6)
 
 * 랩 환경에 대한 create, show, delete 및 list 명령 추가
 * 랩에서 ARM 템플릿을 보기 위해 show 및 list 명령 추가
-* `az lab vm list`에 --environment 플래그를 추가하여 랩의 환경별로 VM을 필터링합니다.
-* 편의성 명령 `az lab formula export-artifacts`를 추가하여 랩 수식 내에 아티팩트 스캐폴드를 내보냅니다.
-* 랩 내에서 비밀을 관리하는 명령을 추가합니다.
+* `az lab vm list`에 --environment 플래그를 추가하여 랩의 환경별로 VM 필터링
+* 편의성 명령 `az lab formula export-artifacts`를 추가하여 랩 수식 내에 아티팩트 스캐폴드를 내보냄
+* 랩 내에서 비밀을 관리하는 명령을 추가
 
 ### <a name="monitor"></a>모니터
 
@@ -1401,22 +1506,22 @@ vm (2.0.6)
 
 ### <a name="network"></a>네트워크
 
-* `network watcher test-connectivity` 명령을 추가합니다.
-* `network watcher packet-capture create`에 대한 `--filters` 매개 변수 지원을 추가합니다.
-* Application Gateway 연결 드레이닝에 대한 지원을 추가합니다.
-* Application Gateway WAF 규칙 집합 구성에 대한 지원을 추가합니다.
-* ExpressRoute 경로 필터 및 규칙에 대한 지원을 추가합니다.
-* TrafficManager 지리적 라우팅에 대한 지원을 추가합니다.
-* VPN 연결 정책 기반 트래픽 선택기에 대한 지원을 추가합니다.
-* VPN 연결 IPSec 정책에 대한 지원을 추가합니다.
-* `--no-wait` 또는 `--validate` 매개 변수를 사용할 때 `vpn-connection create`를 사용하여 버그를 수정합니다.
+* `network watcher test-connectivity` 명령 추가
+* `network watcher packet-capture create`의 `--filters` 매개 변수 지원 추가
+* Application Gateway 연결 드레이닝에 대한 지원 추가
+* Application Gateway WAF 규칙 집합 구성에 대한 지원 추가
+* ExpressRoute 경로 필터 및 규칙에 대한 지원 추가
+* TrafficManager 지리적 라우팅에 대한 지원 추가
+* VPN 연결 정책 기반 트래픽 선택기에 대한 지원 추가
+* VPN 연결 IPSec 정책에 대한 지원 추가
+* `--no-wait` 또는 `--validate` 매개 변수를 사용할 때 `vpn-connection create` 관련 버그 수정
 * 활성-활성 VNet 게이트웨이에 대한 지원 추가
 * `network vpn-connection list/show` 명령의 출력에서 null 값 제거
 * BC: `vpn-connection create`의 출력에서 버그 수정
-* 'vpn-connection create'의 '--key-length' 인수가 제대로 구문 분석되지 않는 버그를 수정합니다.
-* 레코드가 제대로 가져와지지 않는 `dns zone import`의 버그를 수정합니다.
-* `traffic-manager endpoint update`가 작동하지 않는 버그를 수정합니다.
-* 'network watcher' 미리 보기 명령을 추가합니다.
+* 'vpn-connection create'의 '--key-length' 인수가 제대로 구문 분석되지 않는 버그 수정
+* `dns zone import`에서 레코드를 제대로 가져오지 않는 버그 수정
+* `traffic-manager endpoint update`가 작동하지 않는 버그를 수정
+* 'network watcher' 미리 보기 명령 추가
 
 ### <a name="profile"></a>프로필
 
@@ -1426,7 +1531,7 @@ vm (2.0.6)
 ### <a name="redis"></a>Redis
 
 * redis cache에 대해 규모를 조정하는 기능도 추가하는 update 명령 추가
-* 'update-settings' 명령은 더 이상 사용되지 않습니다.
+* 'update-settings' 명령은 더 이상 사용하지 않음
 
 ### <a name="resource"></a>리소스
 
@@ -1448,12 +1553,12 @@ vm (2.0.6)
 
 ### <a name="sql"></a>SQL
 
-* az sql server list-usages 및 az sql db list-usages 명령이 추가되었습니다.
+* az sql server list-usages 및 az sql db list-usages 명령이 추가됨
 * SQL - 리소스 공급자에 직접 연결하는 기능([#2832](https://github.com/Azure/azure-cli/issues/2832))
 
 ### <a name="storage"></a>Storage
 
-* 기본 위치를 `storage account create`에 대한 리소스 그룹 위치로 지정합니다.
+* `storage account create`의 리소스 그룹 위치에 대한 기본 위치
 * 증분 blob 복사에 대한 지원 추가
 * 큰 블록 blob 업로드에 대한 지원 추가
 * 업로드할 파일이 200GB보다 큰 경우 블록 크기를 100MB로 변경
@@ -1474,7 +1579,7 @@ vm (2.0.6)
 
 버전 2.0.2
 
-이 릴리스에서는 ACR, Batch, KeyVault 및 SQL 구성 요소가 출시되었습니다.
+이 릴리스에서는 ACR, Batch, KeyVault 및 SQL 구성 요소가 릴리스되었습니다.
 
 ```
 azure-cli (2.0.2)
@@ -1508,7 +1613,7 @@ vm (2.0.2)
 
 ### <a name="core"></a>코어
 
-* 기본 목록에 acr, 랩, 모니터 및 찾기 모듈을 추가합니다.
+* 기본 목록에 acr, 랩, 모니터 및 찾기 모듈 추가
 * 로그인: 잘못된 테넌트 건너뛰기([#2634](https://github.com/Azure/azure-cli/pull/2634))
 * 로그인: 상태가 "사용"인 구독에 기본 구독 설정([#2575](https://github.com/Azure/azure-cli/pull/2575))
 * 더 많은 명령에 wait 명령 및 --no-wait 지원 추가([#2524](https://github.com/Azure/azure-cli/pull/2524))
@@ -1533,8 +1638,8 @@ vm (2.0.2)
 
 ### <a name="datalake"></a>DataLake
 
-* Data Lake Analytics 모듈의 초기 릴리스.
-* Data Lake Store 모듈의 초기 릴리스.
+* Data Lake Analytics 모듈의 초기 릴리스
+* Data Lake Store 모듈의 초기 릴리스
 
 ### <a name="docuemntdb"></a>DocuemntDB
 
@@ -1554,21 +1659,17 @@ vm (2.0.2)
 
 버전 2.0.0
 
-Azure CLI 2.0 릴리스는 최초의 "일반 공급" 릴리스입니다.
-일반 공급은 다음 명령 모듈에 적용됩니다.
+이 Azure CLI 2.0 릴리스는 최초의 "일반 공급" 릴리스입니다. 일반 공급은 다음 명령 모듈에 적용됩니다.
 - 컨테이너 서비스(acs)
 - Compute(Resource Manager, VM, 가상 머신 확장 집합, Managed Disks 포함)
 - 네트워킹
 - Storage
 
-이러한 명령은 모듈은 프로덕션 환경에서 사용할 수 있으며 표준 Microsoft SLA를 지원합니다.
-Microsoft 지원 또는 [github 문제 목록](https://github.com/azure/azure-cli/issues/)에서 직접 문제를 개설할 수 있습니다.
-[azure-cli 태그를 사용하는 StackOverflow](http://stackoverflow.com/questions/tagged/azure-cli)에 대해 질문하거나 제품 팀([azfeedback@microsoft.com](mailto:azfeedback@microsoft.com))으로 문의하실 수 있습니다. `az feedback` 명령을 사용하여 명령줄에서 피드백을 제공할 수 있습니다.
+이러한 명령 모듈은 프로덕션 환경에서 사용할 수 있으며 표준 Microsoft SLA에서 지원됩니다. Microsoft 지원 부서 또는 [github 문제 목록](https://github.com/azure/azure-cli/issues/)에서 직접 문제를 열 수 있습니다. [azure-cli 태그를 사용하여 StackOverflow](http://stackoverflow.com/questions/tagged/azure-cli)에 대한 질문을 하거나 [azfeedback@microsoft.com](mailto:azfeedback@microsoft.com)에 있는 제품 팀에 문의할 수 있습니다. `az feedback` 명령을 사용하여 명령줄에서 피드백을 제공할 수 있습니다.
 
 이러한 모듈의 명령은 안정적이므로 이 Azure CLI 버전의 이후 릴리스에서 구문이 변경되지는 않을 것입니다.
 
-CLI 버전을 확인하려면 `az --version`을 사용합니다.
-출력은 CLI 자체 버전(이 릴리스에서는 2.0.0), 개별 명령 모듈, 현재 사용 중인 Python 및 GCC CLI의 버전을 나열합니다.
+CLI 버전을 확인하려면 `az --version`을 사용합니다. 출력은 CLI 자체 버전(이 릴리스에서는 2.0.0), 개별 명령 모듈, 현재 사용 중인 Python 및 GCC CLI의 버전을 나열합니다.
 
 ```
 azure-cli (2.0.0)
@@ -1600,14 +1701,12 @@ Python (Darwin) 2.7.10 (default, Jul 30 2016, 19:40:32)
 ```
 
 > [!Note]
-> 일부 명령 모듈에는 "b*n*" 또는 "rc*n*" 접미사가 있습니다.
-> 이러한 명령 모듈은 아직 미리 보기이며 나중에 일반 공급될 것입니다.
+> 명령 모듈 중 일부에는 "b*n*" 또는 "rc*n*" 접미사가 있습니다. 이러한 명령 모듈은 아직 미리 보기이며 나중에 일반 공급될 것입니다.
 
-CLI 야간 미리 보기 빌드도 있습니다.
-자세한 내용은 [야간 빌드 받기](https://github.com/Azure/azure-cli#nightly-builds) 및 [개발자 설치 및 코드 기여](https://github.com/Azure/azure-cli#developer-setup)에 대한 지침을 참조하세요.
+또한 야간 미리 보기 CLI 빌드가 있습니다. 자세한 내용은 [야간 빌드 받기](https://github.com/Azure/azure-cli#nightly-builds) 및 [개발자 설치 및 코드 기여](https://github.com/Azure/azure-cli#developer-setup)에 대한 지침을 참조하세요.
 
 다음과 같은 방법으로 야간 미리 보기 빌드의 문제를 보고할 수 있습니다.
 - [github 문제 목록](https://github.com/azure/azure-cli/issues/)에서 문제 보고
-- 제품팀([azfeedback@microsoft.com](mailto:azfeedback@microsoft.com))에 문의.
-- `az feedback` 명령을 사용하여 명령줄에서 피드백 제공.
+- 제품팀([azfeedback@microsoft.com](mailto:azfeedback@microsoft.com))에 문의
+- `az feedback` 명령을 사용하여 명령줄에서 피드백 제공
 

@@ -52,7 +52,12 @@
     - name: 쿼리
       href: query-azure-cli.md
     - name: 확장
-      href: azure-cli-extensions.md
+      href: azure-cli-extensions-overview.md
+      items:
+        - name: 사용 가능한 확장
+          href: azure-cli-extensions-list.md
+        - name: 별칭 확장
+          href: azure-cli-extension-alias.md
     - name: 구성 설정
       href: azure-cli-Configuration.md
     - name: 릴리스 정보
