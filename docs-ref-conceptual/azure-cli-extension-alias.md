@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: e8419394bb221d2614e15171bd19dd76fd9cd773
-ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
+ms.openlocfilehash: e457d78b1009fe573554df36db18f525516e0b4a
+ms.sourcegitcommit: 335c11e6c34f7907e61a43507745ba84ed4e7469
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="the-azure-cli-20-alias-extension"></a>Azure CLI 2.0 별칭 확장
 
@@ -99,7 +99,7 @@ az ls-groups
 
 ## <a name="create-an-alias-command-with-arguments"></a>인수를 사용하여 별칭 명령 만들기
 
-별칭 이름에 위치 인수를 `{{ arg_name }}`으로 포함하여 별칭 명령에 추가할 수도 있습니다. 중괄호 안의 공백이 필요합니다.
+별칭 이름에 위치 인수를 `{{ arg_name }}`으로 포함하여 별칭 명령에 추가할 수도 있습니다. 중괄호 안의 공백이 필요 합니다.
 
 ```
 [alias_name {{ arg1 }} {{ arg2 }} ...]
@@ -115,7 +115,7 @@ command = vm list-ip-addresses --resource-group {{ resourceGroup }} --name {{ vm
 
 이 명령을 실행할 때 위치 인수에 값을 제공합니다.
 
-```azruecli
+```azurecli
 az get-vm-ip MyResourceGroup MyVM
 ```
 
@@ -143,7 +143,7 @@ Jinja2 템플릿 엔진에 대한 자세한 내용은 [Jinja2 설명서](http://
 
 확장을 설치 제거하려면 [az extension remove](/cli/azure/extension#az-extension-remove) 명령을 사용합니다.
 
-```bash
+```azurecli
 az extension remove --name alias
 ```
 
