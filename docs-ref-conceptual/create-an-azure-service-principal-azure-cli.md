@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0에서 Azure 서비스 주체 사용"
-description: "Azure CLI 2.0에서 서비스 주체를 만들고 사용하는 방법을 알아봅니다."
+title: Azure CLI 2.0에서 Azure 서비스 주체 사용
+description: Azure CLI 2.0에서 서비스 주체를 만들고 사용하는 방법을 알아봅니다.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: b46c735a14240bddd07659475ada1c33c75a1e67
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: fd615c762f997cb8bd4835d387cd96dd9c475928
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 02/15/2018
 
 ## <a name="create-the-service-principal"></a>서비스 주체 만들기
 
-[az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) 명령을 사용하여 서비스 주체를 만듭니다. 서비스 주체 이름은 기존 응용 프로그램 또는 사용자 이름에 연결되지 않습니다. 원하는 인증 유형을 선택하여 서비스 주체를 만들 수 있습니다.
+[az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 서비스 주체를 만듭니다. 서비스 주체 이름은 기존 응용 프로그램 또는 사용자 이름에 연결되지 않습니다. 원하는 인증 유형을 선택하여 서비스 주체를 만들 수 있습니다.
 
 * `--password`은(는) 암호 기반 인증에 사용됩니다. [Azure Active Directory 암호 규칙 및 제한 사항](/azure/active-directory/active-directory-passwords-policy)에 따라 강력한 암호를 만들어야 합니다. 암호를 지정하지 않으면, 자동으로 생성됩니다.
 
@@ -67,9 +67,9 @@ ms.lasthandoff: 02/15/2018
 
 Azure CLI 2.0은 역할 할당 관리를 위해 다음 명령을 제공합니다.
 
-* [az 역할 할당 나열](/cli/azure/role/assignment#list)
-* [az 역할 할당 만들기](/cli/azure/role/assignment#create)
-* [az 역할 할당 삭제](/cli/azure/role/assignment#delete)
+* [az 역할 할당 나열](/cli/azure/role/assignment#az-role-assignment-list)
+* [az 역할 할당 만들기](/cli/azure/role/assignment#az-role-assignment-create)
+* [az 역할 할당 삭제](/cli/azure/role/assignment#az-role-assignment-delete)
 
 서비스 주체의 기본 역할은 **참가자**입니다. 이 역할은 Azure 계정에 대한 모든 읽기 및 쓰기 권한을 포함하며, 일반적으로 응용 프로그램에 적합하지 않습니다. **Reader** 역할은 보다 제한적이며, 읽기 전용 액세스를 제공합니다.  RBAC(역할 기반 액세스 제어) 및 역할에 대한 자세한 내용은 [RBAC: 기본 제공 역할](/azure/active-directory/role-based-access-built-in-roles)을 참조하십시오.
 
@@ -108,7 +108,7 @@ az login --service-principal --username APP_ID --tenant TENANT_ID --password PAT
 ```
 ## <a name="reset-credentials"></a>자격 증명 다시 설정
 
-서비스 주체의 자격 증명을 잊은 경우에는 [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials) 명령으로 다시 설정할 수 있습니다. 여기에서도 새로운 서비스 주체를 만들 때와 동일한 제한 사항 및 옵션이 적용됩니다.
+서비스 주체의 자격 증명을 잊은 경우에는 [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials) 명령으로 다시 설정할 수 있습니다. 여기에서도 새로운 서비스 주체를 만들 때와 동일한 제한 사항 및 옵션이 적용됩니다.
 
 ```azurecli
 az ad sp reset-credentials --name APP_ID --password NEW_PASSWORD

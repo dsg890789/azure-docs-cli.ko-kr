@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 6970844bf9eba5ccf18b7603115de629e995f2c4
-ms.sourcegitcommit: f57b5666523ef3642bee644eb0e0fe7085b3194a
+ms.openlocfilehash: 7ef6175815014ac3f822e8c1038b4f5af8bba9dc
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cli-20-configuration"></a>Azure CLI 2.0 구성
 
@@ -29,7 +29,7 @@ CLI에서 사용되는 구성 값은 다음 우선 순위에서 평가되며 목
 
 ## <a name="cli-configuration-with-az-configure"></a>az configure으로 CLI 구성
 
-[az configure](/cli/azure/reference-index#az_configure) 명령으로 CLI에 대한 기본값을 설정합니다.
+[az configure](/cli/azure/reference-index#az-configure) 명령으로 CLI에 대한 기본값을 설정합니다.
 이 명령은 하나의 인수인 `--defaults`를 취하며 공백으로 구분된 `key=value` 쌍의 목록입니다. 제공된 값은 필수 인수 대신 CLI에 의해 사용됩니다.
 
 다음은 사용할 수 있는 사용 가능한 키 목록입니다.

@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 5695d1df42689b315dd9d8783232ce35205a0a0e
-ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
+ms.openlocfilehash: a150edbc174ff77f4320a2cb60e031dc3c6ad1cc
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Azure CLI 2.0 확장 사용
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="find-extensions"></a>확장 찾기
 
-[az extension list-available](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)을 사용하면 사용할 수 있는 확장을 확인할 수 있습니다. 이 명령은 Microsoft에서 제공하고 관리하는 공식 확장 프로그램을 나열합니다.
+[az extension list-available](/cli/azure/extension#az-extension-list-available)을 사용하면 사용할 수 있는 확장을 확인할 수 있습니다. 이 명령은 Microsoft에서 제공하고 관리하는 공식 확장 프로그램을 나열합니다.
 
 ```azurecli
 az extension list-available --output table
@@ -35,7 +35,7 @@ az extension list-available --output table
 
 ## <a name="install-extensions"></a>확장 설치
 
-설치할 확장을 찾은 다음에는 [az extension add](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add)를 사용하여 가져옵니다. 확장이 `az extension list-available`에 나열된 경우 해당 이름으로 확장을 설치할 수 있습니다.
+설치할 확장을 찾은 다음에는 [az extension add](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-add)를 사용하여 가져옵니다. 확장이 `az extension list-available`에 나열된 경우 해당 이름으로 확장을 설치할 수 있습니다.
 
 ```azurecli
 az extension add --name <extension-name>
@@ -51,7 +51,7 @@ az extension add --source <URL-or-path>
 
 ## <a name="update-extensions"></a>확장 업데이트
 
-확장이 이름별로 설치된 경우 [az 확장 업데이트](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-update)를 사용하여 업데이트할 수 있습니다.
+확장이 이름별로 설치된 경우 [az 확장 업데이트](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-update)를 사용하여 업데이트할 수 있습니다.
 
 ```azurecli
 az extension update --name <extension-name>
@@ -63,7 +63,7 @@ CLI가 확장 이름을 해석할 수 없는 경우 이를 제거하고 다시 �
 
 ## <a name="uninstall-extensions"></a>확장 제거
 
-확장이 더 이상 필요하지 않으면 [az extension remove](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-remove)를 사용하여 제거할 수 있습니다.
+확장이 더 이상 필요하지 않으면 [az extension remove](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-remove)를 사용하여 제거할 수 있습니다.
 
 ```azurecli
 az extension remove --name <extension-name>
