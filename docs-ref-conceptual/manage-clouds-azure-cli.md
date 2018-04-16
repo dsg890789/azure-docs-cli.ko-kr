@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0을 사용하여 여러 클라우드 관리"
-description: "Azure CLI 2.0을 사용하여 여러 클라우드를 만들고, 로그인하고, 관리합니다."
+title: Azure CLI 2.0을 사용하여 여러 클라우드 관리
+description: Azure CLI 2.0을 사용하여 여러 클라우드를 만들고, 로그인하고, 관리합니다.
 author: sptramer
 manager: routlaw
 ms.author: sttramer
@@ -9,11 +9,11 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
-ms.openlocfilehash: ee6b1b6b1e611229ba6e6e0c4b2ca2de6f7ceaee
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: c17506cc81adc859ff5778b109c1832c857764e6
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="managing-multiple-clouds-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 여러 클라우드 관리
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 02/15/2018
 
 ## <a name="listing-clouds"></a>클라우드 나열
 
-[cloud list](/cli/azure/cloud#list) 명령을 사용하여 사용 가능한 클라우드를 나열할 수 있습니다. 이렇게 하면 현재 활성 클라우드, 현재 프로필, 지역별 접미사 및 호스트 이름에 대한 정보를 알 수 있습니다.
+[az cloud list](/cli/azure/cloud#az-cloud-list) 명령을 사용하여 사용 가능한 클라우드를 나열할 수 있습니다. 이렇게 하면 현재 활성 클라우드, 현재 프로필, 지역별 접미사 및 호스트 이름에 대한 정보를 알 수 있습니다.
 
 활성 클라우드와 모든 사용 가능한 클라우드 목록을 가져오려면:
 
@@ -73,7 +73,7 @@ az cloud show --name AzureChinaCloud --output json
 
 ## <a name="switching-the-active-cloud"></a>활성 클라우드 전환
 
-현재 활성 클라우드를 전환하려면 [cloud set](/cli/azure/cloud#set) 명령을 실행합니다. 이 명령은 하나의 필수 인수인 클라우드 이름을 사용합니다.
+현재 활성 클라우드를 전환하려면 [az cloud set](/cli/azure/cloud#az-cloud-set) 명령을 실행합니다. 이 명령은 하나의 필수 인수인 클라우드 이름을 사용합니다.
 
 ```azurecli
 az cloud set --name AzureChinaCloud
@@ -85,20 +85,20 @@ az cloud set --name AzureChinaCloud
 
 ## <a name="register-a-cloud"></a>클라우드 등록
 
-Azure Stack에 대한 사용자 고유의 끝점이 있는 경우 새 클라우드를 등록합니다. 클라우드를 만들려면 [cloud register](/cli/azure/cloud#register) 명령을 사용합니다. 이 명령에는 이름 그리고 연관된 끝점이 있는 기능 집합이 필요합니다. Azure Stack과 함께 사용할 클라우드를 등록하는 방법에 대해 알아보려면 [Azure Stack과 함께 사용할 CLI 설치 및 구성](/azure/azure-stack/user/azure-stack-connect-cli#connect-to-azure-stack)을 참조하세요.
+Azure Stack에 대한 사용자 고유의 끝점이 있는 경우 새 클라우드를 등록합니다. 클라우드를 만들려면 [az cloud register](/cli/azure/cloud#az-cloud-register) 명령을 사용합니다. 이 명령에는 이름 그리고 연관된 끝점이 있는 기능 집합이 필요합니다. Azure Stack과 함께 사용할 클라우드를 등록하는 방법에 대해 알아보려면 [Azure Stack과 함께 사용할 CLI 설치 및 구성](/azure/azure-stack/user/azure-stack-connect-cli#connect-to-azure-stack)을 참조하세요.
 
-중국, 미국 정부 또는 독일 지역의 경우 클라우드를 등록할 필요가 없습니다. 이들 지역은 Microsoft에서 관리하며 기본적으로 사용할 수 있습니다.  사용 가능한 모든 끝점 설정에 대한 자세한 내용은 [에 대한  설명서를 참조하세요`az cloud register`](/cli/azure/cloud?view=azure-cli-latest#az_cloud_register).
+중국, 미국 정부 또는 독일 지역의 경우 클라우드를 등록할 필요가 없습니다. 이들 지역은 Microsoft에서 관리하며 기본적으로 사용할 수 있습니다.  사용 가능한 모든 끝점 설정에 대한 자세한 내용은 [에 대한  설명서를 참조하세요`az cloud register`](/cli/azure/cloud#az-cloud-register).
 
 클라우드를 등록하더라도 자동으로 해당 클라우드로 전환되지 않습니다. 위에서 설명한 대로 `az cloud set` 명령을 사용하여 새로 만든 클라우드를 선택합니다.
 
 ## <a name="update-an-existing-cloud"></a>기존 클라우드 업데이트
 
 권한이 있는 경우 기존 클라우드를 업데이트할 수도 있습니다. 다른 Azure 프로필로 전환하거나 끝점을 추가하거나 끝점을 변경해야 하는 경우 이를 수행합니다.
-`az cloud register`과 동일한 인수를 사용하여 `az cloud update` 명령으로 이 작업을 수행합니다. 자세한 내용은 [의  설명서를 참조하세요`az cloud update`](/cli/azure/cloud?view=azure-cli-latest#az_cloud_update).
+`az cloud register`와 동일한 인수를 사용하여 [az cloud update](/cli/azure/cloud#az-cloud-update) 명령으로 이 작업을 수행합니다.
 
 ## <a name="unregister-a-cloud"></a>클라우드 등록 취소
 
-등록한 클라우드가 더 이상 필요하지 않으면 [cloud unregister](/cli/azure/cloud#unregister) 명령을 사용하여 등록을 취소할 수 있습니다.
+등록한 클라우드가 더 이상 필요하지 않으면 [az cloud unregister](/cli/azure/cloud#az-cloud-unregister) 명령을 사용하여 등록을 취소할 수 있습니다.
 
 ```azurecli
 az cloud unregister --name MyCloud
