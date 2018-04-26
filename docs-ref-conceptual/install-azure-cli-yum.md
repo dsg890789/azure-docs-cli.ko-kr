@@ -1,6 +1,6 @@
 ---
-title: "yum을 사용하여 Linux에 Azure CLI 2.0 설치"
-description: "yum을 사용하여 Azure CLI 2.0을 설치하는 방법"
+title: yum을 사용하여 Linux에 Azure CLI 2.0 설치
+description: yum을 사용하여 Azure CLI 2.0을 설치하는 방법
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 5b7afe999d1afe5be40c4957d9cd0f832b680099
-ms.sourcegitcommit: f82774a6f92598c41da9956284f563757f402774
+ms.openlocfilehash: 6a63d1ccd6b182b0c7144101f7efbf3264a6cb72
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="install-azure-cli-20-with-yum"></a>yum을 사용하여 Azure CLI 2.0 설치
 
@@ -42,7 +42,13 @@ RHEL, Fedora, CentOS 등의 `yum`과 함께 제공되는 배포를 실행하는 
    sudo yum install azure-cli
    ```
 
-`az` 명령을 사용하여 Azure CLI를 실행합니다.
+그런 다음 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다. 로그인 하려면 `az login` 명령을 실행합니다.
+
+```azurecli
+az login
+```
+
+다른 로그인 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
 
 ## <a name="update"></a>주 지역에서
 

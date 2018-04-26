@@ -1,6 +1,6 @@
 ---
-title: "Linux용 Azure CLI 2.0 수동 설치"
-description: "Linux용 Azure CLI 2.0을 수동으로 설치하는 방법"
+title: Linux용 Azure CLI 2.0 수동 설치
+description: Linux용 Azure CLI 2.0을 수동으로 설치하는 방법
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 4ab1f70308810e045b9a1d923fd809ad9848f6c6
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: a74a4d30709f5d10fc3a3f2b63c9df931ab0516b
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Linux에 Azure CLI 2.0 수동 설치
 
@@ -39,7 +39,15 @@ CLI를 설치하든 또는 업데이트하는, 전체 설치를 수행해야 합
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-스크립트를 다운로드해 대신 로컬로 실행할 수 있습니다. 변경 내용을 적용하려면 셸을 다시 시작해야 합니다. 설치 후 `az` 명령을 사용하여 CLI를 실행합니다.
+스크립트를 다운로드해 대신 로컬로 실행할 수 있습니다. 변경 내용을 적용하려면 셸을 다시 시작해야 합니다. 
+
+그런 다음 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다. 로그인 하려면 `az login` 명령을 실행합니다.
+
+```azurecli
+az login
+```
+
+다른 로그인 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: fd615c762f997cb8bd4835d387cd96dd9c475928
-ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
+ms.openlocfilehash: fc87e3476d3a58bb16dd37bdde9679679a860f53
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기
 
@@ -38,10 +38,20 @@ ms.lasthandoff: 04/06/2018
 
   인증서가 Azure Key Vault에 저장되는 것을 나타내기 위해서는 `--keyvault` 인수를 추가할 수 있습니다. 이 경우 `--cert` 값은 Key Vault에 있는 인증서 이름을 나타냅니다.
 
-* `--create-cert`은(는) 인증을 위해 _자체 서명된_ 인증서를 만듭니다. `--keyvault` 인수를 추가하면 Azure Key Vault에 인증서를 저장할 수 있습니다.
+  ```azurecli
+  az ad sp create-for-rbac --name ServicePrincipalName --cert CertName --keyvault VaultName
+  ```
+
+* `--create-cert`은(는) 인증을 위해 _자체 서명된_ 인증서를 만듭니다. `--cert` 인수가 제공되지 않으면 임의의 인증서 이름이 생성됩니다.
 
   ```azurecli
   az ad sp create-for-rbac --name ServicePrincipalName --create-cert
+  ```
+
+  `--keyvault` 인수를 추가하면 Azure Key Vault에 인증서를 저장할 수 있습니다. `--keyvault`을 사용하는 경우 `--cert` 인수 또한 필요합니다.
+
+  ```azurecli
+  az ad sp create-for-rbac --name ServicePrincipalName --create-cert --cert CertName --keyvault VaultName
   ```
 
 인증 유형을 나타내는 인수가 포함되지 않은 경우, 기본적으로 `--password`이(가) 사용됩니다.

@@ -1,6 +1,6 @@
 ---
-title: "Docker 컨테이너에서 Azure CLI 2.0 실행"
-description: "Azure CLI 2.0을 호스팅하는 Docker 컨테이너 실행 방법"
+title: Docker 컨테이너에서 Azure CLI 2.0 실행
+description: Azure CLI 2.0을 호스팅하는 Docker 컨테이너 실행 방법
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 3a09eb6d83bb5401628bd952d199a03ecbb8216e
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: e394dc5cd375ec6d3393f45f38694f71369379d4
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="run-azure-cli-20-in-a-docker-container"></a>Docker 컨테이너에서 Azure CLI 2.0 실행
 
@@ -28,7 +28,13 @@ Docker를 사용하여 Azure CLI 2.0이 사전 설치된 독립 실행형 Linux 
    docker run -it microsoft/azure-cli
    ```
 
-CLI는 `/usr/local/bin`에 있는 `az` 명령으로 이미지에 설치됩니다.
+CLI는 `/usr/local/bin`에 있는 `az` 명령으로 이미지에 설치됩니다. 로그인 하려면 `az login` 명령을 실행합니다.
+
+```azurecli
+az login
+```
+
+다른 로그인 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
 
 > [!NOTE]
 > 사용자 환경에서 SSH 키를 선택하려는 경우 `-v ${HOME}:/root`를 사용하여 $HOME을 `/root`로 탑재할 수 있습니다.

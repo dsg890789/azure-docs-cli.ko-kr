@@ -4,19 +4,136 @@ description: Azure CLI 2.0 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/27/2018
+ms.date: 04/10/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 0e81f5723af47242f908b854045deb7d74c50c17
-ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
+ms.openlocfilehash: 1e6bd4cd8bab853fb417ed9c4dd71d56e5de7cdc
+ms.sourcegitcommit: 204fd027d3668959b98b936969ccb41eada0fd29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="april-10-2018"></a>2018년 4월 10일
+
+버전 2.0.31
+
+### <a name="acr"></a>ACR
+
+* Wincred 대체(fallback)의 향상된 오류 처리
+
+### <a name="acs"></a>ACS
+
+* SPN이 5년 동안 유효하도록 만든 aks 변경
+
+### <a name="appservice"></a>App Service
+
+* [호환성이 손상되는 변경]: Removed `assign-identity`
+* 존재하지 않는 webapp 계획에 대한 확인할 수 없는 예외가 수정됨
+
+### <a name="batchai"></a>BatchAI
+
+* 2018-03-01 API에 대한 지원이 추가됨
+
+ - 작업 수준 탑재
+ - 비밀 값을 가진 환경 변수
+ - 성능 카운터 설정
+ - 작업 특정 직선 세그먼트 보고
+ - 목록 파일 api의 하위 폴더 지원
+ - 사용 및 제한 보고
+ - NFS 서버에 대한 캐싱 유형을 지정하도록 허용
+ - 사용자 지정 이미지 지원
+ - pyTorch 툴킷 지원 추가
+
+* 작업 완료를 기다리고 작업 종료 코드를 보고할 수 있도록 하는 `job wait` 명령 추가
+* 현재 Batch AI 리소스 사용을 나열하고 서로 다른 지역에 대해 제한하는 `usage show` 명령 추가
+* 국가별 클라우드가 지원됨
+* 구성 파일 외에도 파일 시스템을 작업 수준에 탑재하기 위한 작업 명령줄 인수 추가
+* 클러스터를 사용자 지정하는 더 많은 옵션 추가 - vm 우선 순위, 서브넷, 자동 크기 조정 클러스터에 대한 초기 노드 수, 사용자 지정 이미지 지정
+* Batch AI 관리 NFS에 대한 캐싱 유형을 지정하는 명령줄 옵션 추가
+* 구성 파일에 파일 시스템 탑재를 간소화합니다. 이제 Azure File Share 및 Azure Blob Container에 대한 자격 증명을 생략 할 수 있습니다 - CLI는 명령줄 매개 변수를 통해 제공되거나 환경 변수를 통해 지정된 저장소 계정 키를 사용하여 누락된 자격 증명을 채우거나 Azure Storage에서 키를 쿼리합니다.(저장소 계정이 현재 구독에 속한 경우)
+* 이제 작업 파일 스트림 명령은 작업이 완료될 때 자동 완료합니다.(성공, 실패, 종료 또는 삭제)
+* `show` 작업에 대한 `table` 출력이 향상되었습니다.
+* 클러스터 생성을 위해 `--use-auto-storage` 옵션이 추가되었습니다. 이 옵션을 사용하면 보다 쉽게 저장소 계정을 관리하고 Azure File Share 및 Azure Blob Containers를 클러스터에 탑재할 수 있습니다.
+* `--generate-ssh-keys` 옵션을 `cluster create` 및 `file-server create`에 추가
+* 명령줄을 통해 노드 설정 작업을 제공하는 기능 추가
+* [호환성이 손상되는 변경] `job stream-file` 및 `job list-files` 명령을 `job file`로 이동함
+* [호환성이 손상되는 변경] `cluster create` 명령과 호환되도록 `file-server create` 명령에서 `--admin-user-name`을 `--user-name`로 이름을 변경함
+
+### <a name="billing"></a>결제
+
+* 등록 계정 명령 추가
+
+### <a name="consumption"></a>Consumption
+
+* `marketplace` 명령이 추가됨
+* [호환성이 손상되는 변경] `reservations summaries`에서 `reservation summary`로 이름이 변경됨
+* [호환성이 손상되는 변경] `reservations details`에서 `reservation detail`로 이름이 변경됨
+* [호환성이 손상되는 변경] `reservation` 명령에 대한 `--reservation-order-id`과 `--reservation-id` 짧은 옵션이 제거됨
+* [호환성이 손상되는 변경] `reservation summary` 명령에 대한 `--grain` 짧은 옵션이 제거됨
+* [호환성이 손상되는 변경] `pricesheet` 명령에 대한 `--include-meter-details` 짧은 옵션이 제거됨
+
+### <a name="container"></a>컨테이너
+
+* Git 리포지토리 볼륨 탑재 매개 변수 `--gitrepo-url` `--gitrepo-dir` `--gitrepo-revision` 및 `--gitrepo-mount-path`를 추가함
+* [#5926](https://github.com/Azure/azure-cli/issues/5926) 수정됨: --컨테이너-이름이 지정될 때 `az container exec` 실패
+
+### <a name="extension"></a>내선 번호
+
+* 배포 확인 메시지를 디버그 수준으로 변경
+
+### <a name="interactive"></a>대화형
+
+* 인식할 수 없는 명령이 있으면 완료를 중지하도록 변경함
+* 명령 하위 트리를 만들기 전과 후에 이벤트 후크 추가
+* `--ids` 매개 변수에 대한 완료 추가
+
+### <a name="network"></a>네트워크
+
+* [#5936](https://github.com/Azure/azure-cli/issues/5936) 수정됨: `application-gateway create` 태그는 bet 설정할 수 없습니다.
+* `application-gateway http-settings [create|update]`에 대한 인증 인증서를 첨부하기 위해 인수 `--auth-certs`이 추가되었습니다. [#4910](https://github.com/Azure/azure-cli/issues/4910)
+* DDoS 보호 계획을 만들기 위해 `ddos-protection` 명령이 추가되었습니다. 
+* VNet을 DDoS 보호 계획에 연결하기 위해 `--ddos-protection-plan`에 대한 지원을 `vnet [create|update]`에 추가함
+* `network route-table [create|update]`에서 `--disable-bgp-route-propagation` 플래그 문제 해결
+* `network lb [create|update]`에 대해 더미 인수 `--public-ip-address-type` 및 `--subnet-type`가 제거됨
+* `network dns zone [import|export]` 및 `network dns record-set txt add-record`에 대한 RFC 1035 이스케이프 시퀀스를 가진 TXT 레코드에 대한 지원이 추가됨
+
+### <a name="profile"></a>프로필
+
+* `account list`에 있는 Azure Classic 계정에 대한 지원이 추가됨
+* [호환성이 손상되는 변경] `--msi` & `--msi-port` 인수가 제거됨
+
+### <a name="rdbms"></a>RDBMS
+
+* `georestore` 명령이 추가됨
+* `create` 명령에서 저장소 크기 제한이 제거됨
+
+### <a name="resource"></a>리소스
+
+* `--metadata`에 대한 지원이 `policy definition create`에 추가됨
+* `--metadata`, `--set`, `--add`, `--remove`에 대한 지원이 `policy definition update`에 추가됨
+
+### <a name="sql"></a>SQL
+
+* `sql elastic-pool op list` 및 `sql elastic-pool op cancel`가 추가됨
+
+### <a name="storage"></a>Storage
+
+* 잘못된 형식의 연결 문자열에 대한 오류 메시지가 향상됨
+
+### <a name="vm"></a>VM
+
+* 플랫폼 장애 도메인 수를 `vmss create`로 구성하는 지원이 추가됨
+* 영역, 대형 또는 단일 배치 그룹 비활성화 스케일 집합에 대해 `vmss create`을 기본값인 표준 LB로 변경함
+* [호환성이 손상되는 변경]: Removed `vm assign-identity`, `vm remove-identity and `vm format-secret`
+* 공용-IP SKU에 대한 지원이 `vm create`에 추가됨
+* 명령이 자격 증명 모음 ID를 확인할 수 없는 시나리오를 지원하기 위해 `--keyvault` 및 `--resource-group` 인수가 `vm secret format`에 추가되었습니다. [#5718](https://github.com/Azure/azure-cli/issues/5718)
+* 리소스 그룹의 위치에 영역 지원이 없는 경우 `[vm|vmss create]`에 대한 오류가 개선됨
+
 
 ## <a name="march-27-2018"></a>2018년 3월 27일
 
@@ -66,7 +183,7 @@ ms.lasthandoff: 03/28/2018
 * `container exec` 명령이 추가되었습니다. 실행 중인 컨테이너 그룹에 대해 컨테이너에서 명령을 실행합니다.
 * 컨테이너 그룹 생성 및 업데이트에 관한 테이블 출력 허용
 
-### <a name="extension"></a>확장
+### <a name="extension"></a>내선 번호
 
 * 확장이 미리 보기에 있는 경우 `extension add`에 대한 메시지가 추가됨
 * `--show-details`로 전체 확장 데이터를 표시하도록 `extension list-available`이 변경됨
@@ -671,7 +788,6 @@ ms.lasthandoff: 03/28/2018
 
 ### <a name="data-lake-analytics"></a>Data Lake Analytics
 
-
 * 보다 간결한 정보를 반환하기 위해 `[job|account] list` 변경
 
 ### <a name="data-lake-store"></a>Data Lake Store
@@ -909,7 +1025,7 @@ ms.lasthandoff: 03/28/2018
 
 * `cdn custom-domain create`에 대한 'CustomDomain is not interable' 버그 수정됨
 
-### <a name="extension"></a>확장
+### <a name="extension"></a>내선 번호
 
 * 최초 릴리스
 
