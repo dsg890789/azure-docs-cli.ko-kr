@@ -1,6 +1,6 @@
 ---
-title: "Docker 컨테이너에서 Azure CLI 2.0 실행"
-description: "Azure CLI 2.0을 호스팅하는 Docker 컨테이너 실행 방법"
+title: Docker 컨테이너에서 Azure CLI 2.0 실행
+description: Azure CLI 2.0을 호스팅하는 Docker 컨테이너 실행 방법
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,48 +10,54 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 3a09eb6d83bb5401628bd952d199a03ecbb8216e
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: e394dc5cd375ec6d3393f45f38694f71369379d4
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/20/2018
 ---
-# <a name="run-azure-cli-20-in-a-docker-container"></a><span data-ttu-id="04c77-103">Docker 컨테이너에서 Azure CLI 2.0 실행</span><span class="sxs-lookup"><span data-stu-id="04c77-103">Run Azure CLI 2.0 in a Docker container</span></span>
+# <a name="run-azure-cli-20-in-a-docker-container"></a><span data-ttu-id="240b8-103">Docker 컨테이너에서 Azure CLI 2.0 실행</span><span class="sxs-lookup"><span data-stu-id="240b8-103">Run Azure CLI 2.0 in a Docker container</span></span>
 
-<span data-ttu-id="04c77-104">Docker를 사용하여 Azure CLI 2.0이 사전 설치된 독립 실행형 Linux 컨테이너를 실행할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="04c77-104">You can use Docker to run a standalone Linux container with the Azure CLI 2.0 pre-installed.</span></span> <span data-ttu-id="04c77-105">Docker는 CLI를 사용해보고 자신에게 적합한지 확인할 수 있는 환경을 신속하게 시작하거나, 우리 이미지를 자신의 배포를 위한 기본으로 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="04c77-105">Docker lets you get started quickly with an environment where you can try out the CLI to decide if it's right for you, or use our image as a base for your own deployment.</span></span>
+<span data-ttu-id="240b8-104">Docker를 사용하여 Azure CLI 2.0이 사전 설치된 독립 실행형 Linux 컨테이너를 실행할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="240b8-104">You can use Docker to run a standalone Linux container with the Azure CLI 2.0 pre-installed.</span></span> <span data-ttu-id="240b8-105">Docker는 CLI를 사용해보고 자신에게 적합한지 확인할 수 있는 환경을 신속하게 시작하거나, 우리 이미지를 자신의 배포를 위한 기본으로 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="240b8-105">Docker lets you get started quickly with an environment where you can try out the CLI to decide if it's right for you, or use our image as a base for your own deployment.</span></span>
 
-## <a name="run-in-a-docker-container"></a><span data-ttu-id="04c77-106">Docker 컨테이너에서 실행</span><span class="sxs-lookup"><span data-stu-id="04c77-106">Run in a Docker container</span></span>
+## <a name="run-in-a-docker-container"></a><span data-ttu-id="240b8-106">Docker 컨테이너에서 실행</span><span class="sxs-lookup"><span data-stu-id="240b8-106">Run in a Docker container</span></span>
 
-<span data-ttu-id="04c77-107">`docker run`을 사용하여 CLI를 설치합니다.</span><span class="sxs-lookup"><span data-stu-id="04c77-107">Install the CLI using `docker run`.</span></span>
+<span data-ttu-id="240b8-107">`docker run`을 사용하여 CLI를 설치합니다.</span><span class="sxs-lookup"><span data-stu-id="240b8-107">Install the CLI using `docker run`.</span></span>
 
    ```bash
    docker run -it microsoft/azure-cli
    ```
 
-<span data-ttu-id="04c77-108">CLI는 `/usr/local/bin`에 있는 `az` 명령으로 이미지에 설치됩니다.</span><span class="sxs-lookup"><span data-stu-id="04c77-108">The CLI is installed on the image as the `az` command in `/usr/local/bin`.</span></span>
+<span data-ttu-id="240b8-108">CLI는 `/usr/local/bin`에 있는 `az` 명령으로 이미지에 설치됩니다.</span><span class="sxs-lookup"><span data-stu-id="240b8-108">The CLI is installed on the image as the `az` command in `/usr/local/bin`.</span></span> <span data-ttu-id="240b8-109">로그인 하려면 `az login` 명령을 실행합니다.</span><span class="sxs-lookup"><span data-stu-id="240b8-109">To log in, run the `az login` command.</span></span>
+
+```azurecli
+az login
+```
+
+<span data-ttu-id="240b8-110">다른 로그인 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="240b8-110">To learn more about different login methods, see [Log in with Azure CLI 2.0](authenticate-azure-cli.md).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="04c77-109">사용자 환경에서 SSH 키를 선택하려는 경우 `-v ${HOME}:/root`를 사용하여 $HOME을 `/root`로 탑재할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="04c77-109">If you want to pick up the SSH keys from your user environment, you can use `-v ${HOME}:/root` to mount $HOME as `/root`.</span></span>
+> <span data-ttu-id="240b8-111">사용자 환경에서 SSH 키를 선택하려는 경우 `-v ${HOME}:/root`를 사용하여 $HOME을 `/root`로 탑재할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="240b8-111">If you want to pick up the SSH keys from your user environment, you can use `-v ${HOME}:/root` to mount $HOME as `/root`.</span></span>
 
 > ```bash
 > docker run -it -v ${HOME}:/root microsoft/azure-cli
 > ```
 
-## <a name="update-docker-image"></a><span data-ttu-id="04c77-110">Docker 이미지 업데이트</span><span class="sxs-lookup"><span data-stu-id="04c77-110">Update Docker image</span></span>
+## <a name="update-docker-image"></a><span data-ttu-id="240b8-112">Docker 이미지 업데이트</span><span class="sxs-lookup"><span data-stu-id="240b8-112">Update Docker image</span></span>
 
-<span data-ttu-id="04c77-111">Docker를 사용하여 업데이트하려면 새 이미지를 풀링하고 모든 기존 컨테이너를 다시 만들어야 합니다.</span><span class="sxs-lookup"><span data-stu-id="04c77-111">Updating with Docker requires both pulling the new image and re-creating any existing containers.</span></span> <span data-ttu-id="04c77-112">이러한 이유로 CLI를 데이터 저장소로 호스트하는 컨테이너를 사용하지 말아야 합니다.</span><span class="sxs-lookup"><span data-stu-id="04c77-112">For this reason you should try to avoid using a container that hosts the CLI as a data store.</span></span>
+<span data-ttu-id="240b8-113">Docker를 사용하여 업데이트하려면 새 이미지를 풀링하고 모든 기존 컨테이너를 다시 만들어야 합니다.</span><span class="sxs-lookup"><span data-stu-id="240b8-113">Updating with Docker requires both pulling the new image and re-creating any existing containers.</span></span> <span data-ttu-id="240b8-114">이러한 이유로 CLI를 데이터 저장소로 호스트하는 컨테이너를 사용하지 말아야 합니다.</span><span class="sxs-lookup"><span data-stu-id="240b8-114">For this reason you should try to avoid using a container that hosts the CLI as a data store.</span></span>
 
-<span data-ttu-id="04c77-113">`docker pull`을 사용하여 로컬 이미지를 업데이트합니다.</span><span class="sxs-lookup"><span data-stu-id="04c77-113">Update your local image with `docker pull`.</span></span>
+<span data-ttu-id="240b8-115">`docker pull`을 사용하여 로컬 이미지를 업데이트합니다.</span><span class="sxs-lookup"><span data-stu-id="240b8-115">Update your local image with `docker pull`.</span></span>
 
 ```bash
 docker pull microsoft/azure-cli
 ```
 
-## <a name="uninstall-docker-image"></a><span data-ttu-id="04c77-114">Docker 이미지 제거</span><span class="sxs-lookup"><span data-stu-id="04c77-114">Uninstall Docker image</span></span>
+## <a name="uninstall-docker-image"></a><span data-ttu-id="240b8-116">Docker 이미지 제거</span><span class="sxs-lookup"><span data-stu-id="240b8-116">Uninstall Docker image</span></span>
 
 [!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-<span data-ttu-id="04c77-115">CLI 이미지를 실행하는 모든 컨테이너를 중지한 후 이미지를 제거합니다.</span><span class="sxs-lookup"><span data-stu-id="04c77-115">After halting any containers running the CLI image, remove it.</span></span>
+<span data-ttu-id="240b8-117">CLI 이미지를 실행하는 모든 컨테이너를 중지한 후 이미지를 제거합니다.</span><span class="sxs-lookup"><span data-stu-id="240b8-117">After halting any containers running the CLI image, remove it.</span></span>
 
 ```bash
 docker rmi microsoft/azure-cli
