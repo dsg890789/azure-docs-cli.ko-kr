@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0으로 로그인"
-description: "Azure CLI 2.0을 사용하여 대화형으로 또는 로컬 자격 증명을 사용하여 로그인"
+title: Azure CLI 2.0으로 로그인
+description: Azure CLI 2.0을 사용하여 대화형으로 또는 로컬 자격 증명을 사용하여 로그인
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 92c96b7e969de686689ef02bf068392b9f565698
-ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
+ms.openlocfilehash: a8bdf99d12e988cc6fdfabb5038c99c9430a9acd
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="log-in-with-azure-cli-20"></a>Azure CLI 2.0으로 로그인
 
@@ -33,7 +33,7 @@ Azure CLI를 사용하여 로그인하고 인증하는 여러 방법이 있습�
 
 ## <a name="command-line"></a>명령 줄
 
-명령줄에 자격 증명을 입력합니다.
+명령줄에 Azure 사용자 자격 증명을 입력합니다.
 
 > [!Note]
 > 이 접근 방식은 Microsoft 계정 또는 2단계 인증을 사용하는 계정에서는 작동하지 않습니다.
@@ -41,6 +41,22 @@ Azure CLI를 사용하여 로그인하고 인증하는 여러 방법이 있습�
 ```azurecli
 az login -u <username> -p <password>
 ```
+
+> [!IMPORTANT]
+> 콘솔에 암호를 표시하지 않고 `az login`을 대화식으로 사용하려는 경우 `bash`에서 `read -s` 명령을 사용합니다.
+> 
+> ```bash
+> read -sp "Azure password: " AZ_PASS && echo && az login -u <username> -p $AZ_PASS
+> ```
+>
+> PowerShell에서 `Read-Host -AsSecureString` cmdlet를 사용하고 문자열 변환을 보호합니다.
+> 
+> ```powershell
+> $securePass =  Read-Host "Azure password: " -AsSecureString;
+> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
+> az login -u <username> -p $AzPass;
+> $AzPass = ""
+> ```
 
 ## <a name="log-in-with-a-specific-tenant"></a>특정 테넌트로 로그인
 
@@ -50,14 +66,14 @@ az login -u <username> -p <password>
 az login --tenant <tenant>
 ```
 
-## <a name="logging-in-with-a-service-principal"></a>서비스 주체로 로그인
+## <a name="log-in-with-a-service-principal"></a>서비스 주체를 사용하여 로그인
 
 서비스 주체는 특정 사용자에게 연결되지 않은 계정으로서, 미리 정의된 역할을 통해 사용자에게 권한을 할당할 수 있습니다. 보안 스크립트 또는 프로그램 작성을 위한 가장 좋은 방법은 권한 제한 사항 및 로컬로 저장된 정적 자격 증명 정보를 적용할 수 있게 해주는 서비스 주체를 사용한 인증입니다. 서비스 주체에 대해 자세히 알아보려면 [Azure CLI를 사용하여 Azure 서비스 주체 만들기](create-an-azure-service-principal-azure-cli.md)를 참조하십시오.
 
 서비스 주체로 로그인하려면 사용자 이름, 암호 또는 인증서 PEM 파일 및 서비스 주체와 연결된 테넌트를 제공합니다.
 
 ```azurecli
-az login --service-principal -u <user> -p <password-or-cert> --tenant <tenant>
+az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant>
 ```
 
 테넌트 값은 서비스 주체와 연결된 Azure Active Directory 테넌트입니다. 이 값은 `.onmicrosoft.com` 도메인 또는 테넌트에 대한 Azure 개체 ID일 수 있습니다.
@@ -66,3 +82,19 @@ az login --service-principal -u <user> -p <password-or-cert> --tenant <tenant>
 ```azurecli
 az account show --query 'tenantId' -o tsv
 ```
+
+> [!IMPORTANT]
+> 콘솔에 암호를 표시하지 않고 `az login`을 대화식으로 사용하려는 경우 `bash`에서 `read -s` 명령을 사용합니다.
+> 
+> ```bash
+> read -sp "Azure password: " AZ_PASS && echo && az login --service-principal -u <app-url> -p $AZ_PASS --tenant <tenant>
+> ```
+>
+> PowerShell에서 `Read-Host -AsSecureString` cmdlet를 사용하고 문자열 변환을 보호합니다.
+> 
+> ```powershell
+> $securePass =  Read-Host "Azure password: " -AsSecureString;
+> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
+> az login --service-principal -u <app-url> -p $AzPass --tenant <tenant>;
+> $AzPass = ""
+> ```

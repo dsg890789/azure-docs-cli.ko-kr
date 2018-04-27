@@ -1,6 +1,6 @@
 ---
-title: "apt를 사용하여 Linux에 Azure CLI 2.0 설치"
-description: "apt 패키지 관리자를 사용하여 Azure CLI 2.0을 설치하는 방법"
+title: apt를 사용하여 Linux에 Azure CLI 2.0 설치
+description: apt 패키지 관리자를 사용하여 Azure CLI 2.0을 설치하는 방법
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 188e7dfded21bb5c7036b3a950b3e4cb10bc1d33
-ms.sourcegitcommit: 5c004b455eff196d853bfbe12901c6114a1652d7
+ms.openlocfilehash: a2578c79ba961cb12f3f49e77a9eaa73c4fe97a2
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt를 사용하여 Azure CLI 2.0 설치
 
@@ -33,15 +33,33 @@ Ubuntu 또는 Debian과 같이 `apt`과(와) 함께 제공되는 배포판을 �
           sudo tee /etc/apt/sources.list.d/azure-cli.list
      ```
 
-2. 다음과 같은 sudo 명령을 실행합니다.
+2. Microsoft 서명 키 가져오기:
 
    ```bash
    sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+   ```
+
+  > [!WARNING]
+  > 이 서명 키는 사용되지 않으며 2018년 5월말 대체될 예정입니다. `apt`를 사용하여 계속 업데이트하려면 새 키도 설치해야 합니다.
+  > 
+  > ```bash
+  > curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+  > ``` 
+
+3. CLI 설치:
+
+   ```bash
    sudo apt-get install apt-transport-https
    sudo apt-get update && sudo apt-get install azure-cli
    ```
 
-`az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다.
+그런 다음 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다. 로그인 하려면 `az login` 명령을 실행합니다.
+
+```azurecli
+az login
+```
+
+다른 로그인 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
