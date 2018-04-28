@@ -4,18 +4,17 @@ description: Azure CLI 2.0 구성 방법
 keywords: Azure CLI, 구성, 설정, Azure
 author: sptramer
 ms.author: sttramer
-manager: routlaw
+manager: carmonm
 ms.date: 12/13/2017
-ms.topic: article
+ms.topic: conceptual
 ms.prod: azure
-ms.technology: azure
-ms.devlang: azurecli
-ms.service: multiple
-ms.openlocfilehash: 7ef6175815014ac3f822e8c1038b4f5af8bba9dc
-ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
+ms.technology: azure-cli
+ms.devlang: azure-cli
+ms.openlocfilehash: be5938dcee360932342b4867728516e8ddd4a7cf
+ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cli-20-configuration"></a>Azure CLI 2.0 구성
 
@@ -79,7 +78,7 @@ log_dir=/var/log/azure
 
 사용할 수 있는 기본값의 값은 필요한 경우 명령줄 인수에 있지 않아도 됩니다.
 
-| 섹션 | Name      | 유형 | 설명|
+| 섹션 | Name      | type | 설명|
 |---------|-----------|------|------------|
 | __core__ | output | string | 기본 출력 형식입니다. `json`, `jsonc`, `tsv` 또는 `table` 중 하나일 수 있습니다. |
 | | disable\_confirm\_prompt | 부울 | 확인 메시지를 표시하거나 표시하지 않습니다. |

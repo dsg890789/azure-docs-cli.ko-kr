@@ -4,18 +4,16 @@ description: Azure CLI 2.0 설치에 대한 참조 문서입니다.
 keywords: Azure CLI,Azure CLI 설치
 author: sptramer
 ms.author: sttramer
-manager: routlaw
-ms.date: 01/29/2018
-ms.topic: article
+manager: carmonm
+ms.topic: conceptual
 ms.prod: azure
-ms.technology: azure
-ms.devlang: azurecli
-ms.service: multiple
-ms.openlocfilehash: 878a7f1621aceb1e610d611f1faaee2fea4e7712
-ms.sourcegitcommit: 204fd027d3668959b98b936969ccb41eada0fd29
+ms.technology: azure-cli
+ms.devlang: azure-cli
+ms.openlocfilehash: 79266015106f125d893455e82ec7b6800c5c276d
+ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 설치
 

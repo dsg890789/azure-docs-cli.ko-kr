@@ -4,18 +4,17 @@ description: 명령 기본 사항을 학습하여 Azure CLI 2.0 사용을 시작
 keywords: Azure CLI, CLI 도움말, Azure 도움말, 쿼리, 자동화,
 author: sptramer
 ms.author: sttramer
-manager: routlaw
+manager: carmonm
 ms.date: 02/05/2018
-ms.topic: article
+ms.topic: conceptual
 ms.prod: azure
-ms.technology: azure
-ms.devlang: azurecli
-ms.service: multiple
-ms.openlocfilehash: 9eec3161a726d6cca53d92f80992059bfd056bf7
-ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
+ms.technology: azure-cli
+ms.devlang: azure-cli
+ms.openlocfilehash: afed3b187f9e5437ecd42217a374b82fb12699b8
+ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
 
