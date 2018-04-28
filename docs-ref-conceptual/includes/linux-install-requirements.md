@@ -1,4 +1,16 @@
+---
+author: sptramer
+ms.author: sttramer
+manager: carmonm
+ms.date: 12/08/2017
+ms.topic: include
+ms.openlocfilehash: 1748cc2d3a97a7b05a0fa13c9dafda5edf4f74d9
+ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/28/2018
+---
 > [!NOTE]
-> <span data-ttu-id="5109f-101">CLI를 설치하려면 배포판에 다음 소프트웨어가 포함된 패키지가 있어야 합니다.</span><span class="sxs-lookup"><span data-stu-id="5109f-101">To install the CLI, your distribution must have packages with the following software:</span></span>
-> * [<span data-ttu-id="5109f-102">Python 2.7x 또는 Python 3.x</span><span class="sxs-lookup"><span data-stu-id="5109f-102">Python 2.7x or Python 3.x</span></span>](https://ww.python.org/downloads/)
-> * [<span data-ttu-id="5109f-103">OpenSSL 1.0.2</span><span class="sxs-lookup"><span data-stu-id="5109f-103">OpenSSL 1.0.2</span></span>](https://www.openssl.org/source/)
+> <span data-ttu-id="0cdae-101">CLI를 설치하려면 배포판에 다음 소프트웨어가 포함된 패키지가 있어야 합니다.</span><span class="sxs-lookup"><span data-stu-id="0cdae-101">To install the CLI, your distribution must have packages with the following software:</span></span>
+> * [<span data-ttu-id="0cdae-102">Python 2.7x 또는 Python 3.x</span><span class="sxs-lookup"><span data-stu-id="0cdae-102">Python 2.7x or Python 3.x</span></span>](https://ww.python.org/downloads/)
+> * [<span data-ttu-id="0cdae-103">OpenSSL 1.0.2</span><span class="sxs-lookup"><span data-stu-id="0cdae-103">OpenSSL 1.0.2</span></span>](https://www.openssl.org/source/)
