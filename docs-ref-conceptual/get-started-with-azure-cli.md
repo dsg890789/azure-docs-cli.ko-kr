@@ -1,0 +1,111 @@
+---
+title: Azure CLI 2.0 시작
+description: 명령 기본 사항을 학습하여 Azure CLI 2.0 사용을 시작합니다.
+keywords: Azure CLI, CLI 도움말, Azure 도움말, 쿼리, 자동화,
+author: sptramer
+ms.author: sttramer
+manager: carmonm
+ms.date: 02/05/2018
+ms.topic: conceptual
+ms.prod: azure
+ms.technology: azure-cli
+ms.devlang: azure-cli
+ms.openlocfilehash: afed3b187f9e5437ecd42217a374b82fb12699b8
+ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/28/2018
+---
+# <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
+
+Azure CLI 2.0 시작! CLI는 특히 자동화 기능을 통해 Azure 서비스를 빠르고 효율적으로 사용할 수 있도록 디자인된 도구입니다. 이 문서에서는 CLI의 여러 기능을 소개하고 생산성 향상에 도움이 되는 리소스에 대한 링크를 제공합니다.
+
+## <a name="install-and-log-in"></a>설치 및 로그인
+
+아직 설치하지 않았으면 [CLI 설치](install-azure-cli.md)를 수행하거나 [Azure Cloud Shell](/azure/cloud-shell/overview)을 사용합니다.
+
+로컬 설치에 CLI 명령을 사용하려면 먼저 [az login](/cli/azure/reference-index#az-login)으로 로그인해야 합니다.
+
+```azurecli
+az login
+```
+
+이 명령은 웹 사이트를 통해 인증 코드를 사용하여 로그인하도록 프롬프트합니다. 비 대화형으로 로그인할 수 있는 방법도 여러 가지가 있으며, 이에 대해서는 [Azure CLI 2.0에 로그인](authenticate-azure-cli.md)에서 자세히 설명됩니다.
+
+## <a name="common-commands"></a>일반적인 명령
+
+이 표에서는 CLI에 사용되는 몇 가지 일반적인 명령과 해당 참조 설명서 페이지 링크를 보여줍니다.
+이러한 그룹의 모든 하위 명령 및 해당 설명은 온라인 참조 또는 `--help` 인수를 사용하여 확인할 수 있습니다.
+
+| 리소스 종류 | Azure CLI 명령 그룹 |
+|---------------|-------------------------|
+| [리소스 그룹](/azure/azure-resource-manager/resource-group-overview) | [az group](/cli/azure/group) |
+| [가상 머신](/azure/virtual-machines) | [az vm](/cli/azure/vm) |
+| [저장소 계정](/azure/storage/common/storage-introduction) | [az 저장소 계정](/cli/azure/storage/account) |
+| [Key Vault](/azure/key-vault/key-vault-whatis) | [az keyvault](/cli/azure/keyvault) |
+| [웹 응용 프로그램](/azure/ap-service) | [az webapp](/cli/azure/webapp) |
+| [SQL 데이터베이스](/azure/sql-database) | [az sql server](/cli/azure/sql/server) |
+| [CosmosDB](/azure/cosmos-db) | [az cosmosdb](/cli/azure/cosmosdb) |
+
+## <a name="finding-commands"></a>명령 찾기
+
+CLI에서 명령은 _그룹_의 _하위 명령_으로 제공됩니다.
+각 그룹은 Azure에서 제공되는 서비스를 나타내며, 하위 그룹은 이러한 서비스에 대한 명령을 논리적 그룹으로 구분합니다.
+
+명령을 검색하려면 [az find](/cli/azure/reference-index#az-find)를 사용합니다. 예를 들어 이름에 `secret`이(가) 포함된 명령을 검색하려면 다음 명령을 사용합니다.
+
+```azurecli
+az find -q secret
+```
+
+작업하려는 명령의 그룹을 알고 있으면 `--help` 인수를 사용하는 것이 더 효과적일 수 있습니다. 그러면 명령에 대한 자세한 정보가 표시될 뿐만 아니라, 명령 그룹과 함께 사용할 경우, 사용 가능한 모든 하위 명령도 표시됩니다. 예를 들어 NSG(네트워크 보안 그룹)와 함께 사용할 경우, 사용 가능한 NSG 하위 그룹 및 명령을 찾을 수 있습니다.
+
+```azurecli
+az network nsg --help
+```
+
+CLI에는 Bash 셸에서 명령에 대한 전체 탭 완성 기능이 포함됩니다.
+
+## <a name="globally-available-arguments"></a>전역으로 사용 가능한 인수
+
+일부 인수는 모든 명령에 사용할 수 있습니다.
+
+* `--help`은(는) 명령 및 해당 인수에 대한 CLI 참조 정보를 출력하고 사용 가능한 하위 그룹 및 명령을 나열합니다.
+* `--output`은(는) 출력 형식을 변경합니다. 사용 가능한 출력 형식은 `json`, `jsonc`(색상으로 표시된 JSON), `tsv`(탭으로 구분된 값) 및 `table`(휴먼 판독 가능한 ASCII 테이블)입니다. 기본적인 CLI 출력은 `json`입니다. 사용 가능한 출력 형식에 대해 자세히 알아보려면 [Azure CLI 2.0의 출력 형식](format-output-azure-cli.md)을 참조하십시오.
+* `--query`은(는) [JMESPath 쿼리 언어](http://jmespath.org/)를 사용하여 Azure 서비스에서 반환되는 출력을 필터링합니다. 쿼리에 대해 자세히 알아보려면 [Azure CLI 2.0을 사용한 쿼리 명령 결과](query-azure-cli.md) 및 [JMESPath 자습서](http://jmespath.org/tutorial.html)를 참조하십시오.
+* `--verbose`은(는) 작업 중 Azure에서 생성되는 리소스에 대한 정보 및 기타 유용한 정보를 출력합니다.
+* `--debug`은(는) 디버깅 목적으로 사용되는 CLI 작업에 대한 자세한 정보를 출력합니다. 버그가 발견된 경우, 버그 보고서를 제출할 때 `--debug` 플래그를 사용해서 생성된 출력을 제공하십시오.
+
+
+## <a name="interactive-mode"></a>대화형 모드
+
+CLI는 도움말 정보를 자동으로 표시하고 하위 명령을 더 쉽게 선택할 수 있게 해주는 대화형 모드를 제공합니다. 대화형 모드로 전환하려면 [az interactive](/cli/azure/reference-index#az-interactive) 명령을 사용합니다. 대화형 모드 및 CLI 학습에 대화형 모드를 활용하는 방법에 대한 자세한 내용은 [Azure CLI 2.0 대화형 모드](interactive-azure-cli.md)를 참조하십시오.
+
+또한 자동 완성 및 마우스를 위로 가져갈 때 표시되는 설명을 포함하여 대화형 환경을 제공하는 [Visual Studio Code 플러그인](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)도 있습니다.
+
+
+
+## <a name="learn-cli-basics-with-quickstarts-and-tutorials"></a>퀵 스타트 및 자습서로 CLI 기본 내용 학습
+
+Azure CLI 2.0을 시작하려면 가상 머신 설정 및 Azure 리소스 쿼리를 위한 CLI 기능 사용에 대한 세부 자습서를 참조하십시오.
+
+> [!div class="nextstepaction"]
+> [Azure CLI 2.0을 사용하여 가상 머신 만들기 자습서](azure-cli-vm-tutorial.yml)
+
+다른 서비스에 대해 자세히 알아보려면 CLI를 사용하는 Azure 서비스에 대한 여러 퀵 스타트를 참조할 수 있습니다.
+
+* [Azure CLI를 사용하여 저장소 계정 만들기](/azure/storage/common/storage-quickstart-create-storage-account-cli)
+* [CLI를 사용하여 Azure Blob 저장소에 대한 개체 전송](/azure/storage/blobs/storage-quickstart-blobs-cli)
+* [Azure CLI를 사용하여 단일 Azure SQL 데이터베이스 만들기](/azure/sql-database/sql-database-get-started-cli)
+* [Azure CLI를 사용하여 Azure Database for MySQL 서버 만들기](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
+* [Azure CLI를 사용하여 PostgreSQL용 Azure Database 만들기](/azure/postgresql/quickstart-create-server-database-azure-cli)
+* [Azure에서 Python 웹앱 만들기](/azure/app-service/app-service-web-get-started-python)
+* [Azure Web Apps for Containers에서 사용자 지정 Docker Hub 이미지 실행](/azure/app-service/containers/quickstart-custom-docker-image)
+
+## <a name="give-feedback"></a>피드백 제공
+
+CLI 기능 개선 및 버그 해결을 위해 피드백을 보내주시기 바랍니다. [Github에서 문제를 제출](https://github.com/azure/azure-cli/issues)하거나 CLI의 기본 제공 기능을 사용하여 [az feedback](/cli/azure/reference-index#az-feedback) 명령으로 일반적인 피드백을 제출할 수 있습니다.
+
+```azurecli
+az feedback
+```
