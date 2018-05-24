@@ -4,16 +4,16 @@ description: Azure CLI 2.0을 사용하여 여러 클라우드를 만들고, 로
 author: sptramer
 manager: carmonm
 ms.author: sttramer
-ms.date: 10/20/2017
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 98915fb43f2ad3eb45164f7e47c1a41345f3f9c5
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 7ccee3a336f4c596f29783a70ba0cd4398e20b95
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="managing-multiple-clouds-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 여러 클라우드 관리
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/28/2018
 
 활성 클라우드와 모든 사용 가능한 클라우드 목록을 가져오려면:
 
-```azurecli
+```azurecli-interactive
 az cloud list --output table
 ```
 
@@ -40,7 +40,7 @@ True        AzureCloud         latest
 
 현재 활성 클라우드에는 `IsActive` 열에 `True`가 있습니다. 언제든지 하나의 클라우드만 활성화할 수 있습니다. Azure 서비스에 사용하는 끝점을 포함하여 클라우드에 대한 자세한 정보를 알아보려면 `cloud show` 명령을 사용하세요.
 
-```azurecli
+```azurecli-interactive
 az cloud show --name AzureChinaCloud --output json
 ```
 
@@ -75,7 +75,7 @@ az cloud show --name AzureChinaCloud --output json
 
 현재 활성 클라우드를 전환하려면 [az cloud set](/cli/azure/cloud#az-cloud-set) 명령을 실행합니다. 이 명령은 하나의 필수 인수인 클라우드 이름을 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az cloud set --name AzureChinaCloud
 ```
 
@@ -100,6 +100,6 @@ Azure Stack에 대한 사용자 고유의 끝점이 있는 경우 새 클라우�
 
 등록한 클라우드가 더 이상 필요하지 않으면 [az cloud unregister](/cli/azure/cloud#az-cloud-unregister) 명령을 사용하여 등록을 취소할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az cloud unregister --name MyCloud
 ```

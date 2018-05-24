@@ -5,16 +5,16 @@ keywords: Azure CLI, 확장
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/15/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 01d7b3d58bf24d5a30386564fb64630d4db055e3
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: fde52c29a3ec82a1c6a03438a5d84dd4684e296a
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Azure CLI 2.0 확장 사용
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/28/2018
 
 [az extension list-available](/cli/azure/extension#az-extension-list-available)을 사용하면 사용할 수 있는 확장을 확인할 수 있습니다. 이 명령은 Microsoft에서 제공하고 관리하는 공식 확장 프로그램을 나열합니다.
 
-```azurecli
+```azurecli-interactive
 az extension list-available --output table
 ```
 
@@ -36,13 +36,13 @@ az extension list-available --output table
 
 설치할 확장을 찾은 다음에는 [az extension add](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-add)를 사용하여 가져옵니다. 확장이 `az extension list-available`에 나열된 경우 해당 이름으로 확장을 설치할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az extension add --name <extension-name>
 ```
 
 확장이 외부 리소스에 있거나 직접 연결되는 링크가 있는 경우 원본 URL 또는 로컬 경로를 제공할 수 있습니다. 이는 _컴파일된 Python 휠 파일이어야 합니다_.
 
-```azurecli
+```azurecli-interactive
 az extension add --source <URL-or-path>
 ```
 
@@ -52,7 +52,7 @@ az extension add --source <URL-or-path>
 
 확장이 이름별로 설치된 경우 [az 확장 업데이트](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-update)를 사용하여 업데이트할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az extension update --name <extension-name>
 ```
 
@@ -64,7 +64,7 @@ CLI가 확장 이름을 해석할 수 없는 경우 이를 제거하고 다시 �
 
 확장이 더 이상 필요하지 않으면 [az extension remove](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-remove)를 사용하여 제거할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az extension remove --name <extension-name>
 ```
 

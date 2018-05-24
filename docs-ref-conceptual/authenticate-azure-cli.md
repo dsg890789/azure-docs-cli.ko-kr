@@ -11,11 +11,11 @@ ms.technology: azure-cli
 ms.devlang: azurecli
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: db676c7d81d1ea5628ebb52f3bcead763c5527f9
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 11f81e5d710763c818a2ed3cdf347dc657a6f664
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="log-in-with-azure-cli-20"></a>Azure CLI 2.0으로 로그인
 
@@ -63,7 +63,7 @@ az login -u <username> -p <password>
 
 여러 테넌트를 사용할 때 `--tenant` 인수를 사용하여 로그인할 테넌트를 선택할 수 있습니다. 이 인수의 값은 `.onmicrosoft.com` 도메인 또는 테넌트에 대한 Azure 개체 ID일 수 있습니다. 대화형으로 로그인하거나 `--user` 및 `--password` 인수를 포함한 자격 증명을 제공할 수 있습니다. 
 
-```
+```azurecli
 az login --tenant <tenant>
 ```
 
@@ -80,7 +80,7 @@ az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant
 테넌트 값은 서비스 주체와 연결된 Azure Active Directory 테넌트입니다. 이 값은 `.onmicrosoft.com` 도메인 또는 테넌트에 대한 Azure 개체 ID일 수 있습니다.
 다음 명령을 사용하여 현재 로그인을 위한 테넌트 개체 ID를 가져올 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az account show --query 'tenantId' -o tsv
 ```
 

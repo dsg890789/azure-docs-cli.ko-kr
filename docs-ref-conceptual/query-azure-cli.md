@@ -4,16 +4,16 @@ description: Azure CLI 2.0 명령의 출력에 대해 JMESPath 쿼리를 수행�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/22/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: eb9311686bf950a450db4bc450da363bbe409f49
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: ed8f8ac160dd8225170ffcfff9619d94b92e456a
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="use-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0과 함께 JMESPath 쿼리 사용
 
@@ -25,13 +25,13 @@ Azure CLI 2.0은 `--query` 인수를 사용하여 명령의 결과에 대해 [JM
 
 JSON 사전을 반환하는 명령을 해당 키 이름만으로 탐색할 수 있습니다. 키 경로는 `.` 문자를 구분 기호로 사용합니다. 다음 예제에서는 Linux VM에 연결할 수 있도록 허용된 공용 SSH 키 목록을 끌어옵니다.
 
-```azurecli
+```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys
 ```
 
 또한 여러 값을 가져와서 정렬된 배열에 배치할 수 있습니다. 배열에는 키 정보가 없지만 배열의 요소 순서는 쿼리된 키 순서와 일치하지 않습니다. 다음 예제에서는 OS 디스크의 이름 및 크기를 제공하는 Azure 이미지를 검색하는 방법을 보여줍니다.
 
-```azurecli
+```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer, osDisk.diskSizeGb]'
 ```
 
@@ -44,7 +44,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer,
 
 출력에 키를 배치하는 경우 대체 사전 구문을 사용할 수 있습니다. 사전에 대한 여러 요소 선택 영역은 `{displayKey:keyPath, ...}` 형식을 사용하여 `keyPath` JMESPath 식으로 필터링합니다. 그러면 출력에 `{displayKey: value}`로 표시됩니다. 다음 예제에서는 마지막 예제의 쿼리를 사용하고 출력에 키를 할당하여 더 명확하게 합니다.
 
-```azurecli
+```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.offer, diskSize:osDisk.diskSizeGb}'
 ```
 
@@ -68,7 +68,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.
 
 하나 이상의 값을 반환할 수 있는 CLI 명령은 항상 배열을 반환합니다. 배열은 인덱스가 해당 요소에 액세스하도록 할 수 있지만 CLI에서 순서를 보장하지 않습니다. 값의 배열을 쿼리하는 가장 좋은 방법은 `[]` 연산자를 사용하여 평면화하는 것입니다. 연산자는 배열의 키 이후에 또는 식의 첫 번째 요소로 작성됩니다. 평면화는 배열에서 각 개별 요소에서 쿼리를 실행하고 결과 값을 새 배열에 배치합니다. 다음 예제에서는 리소스 그룹의 각 VM에서 실행 중인 이름 및 OS를 인쇄합니다. 
 
-```azurecli
+```azurecli-interactive
 az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
 ```
 
@@ -99,7 +99,7 @@ az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageRefere
 
 키 경로의 일부인 배열도 평면화될 수 있습니다. 이 예제에서는 VM이 연결된 NIC의 Azure 개체 ID를 가져오는 쿼리를 보여줍니다.
 
-```azurecli
+```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id'
 ```
 
@@ -107,7 +107,7 @@ az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id
 
 JMESPath는 [필터링 식](http://jmespath.org/specification.html#filterexpressions)을 제공하여 표시된 데이터를 필터링합니다. 이러한 식은 [JMESPath 기본 제공 함수](http://jmespath.org/specification.html#built-in-functions)와 함께 결합되어 부분적으로 일치를 수행하거나 표준 형식으로 데이터를 조작할 경우에 특히 강력합니다. 필터 식은 배열 데이터에서만 작동하고 다른 상황에서 사용될 때 `null` 값을 반환합니다. 예를 들어 `vm list`와 같은 명령의 출력을 사용하고 필터링하여 특정 형식의 VM을 찾을 수 있습니다. 다음 예제에서는 Windows VM만을 캡처하고 해당 이름을 인쇄하도록 VM 형식을 필터링하여 이전 항목으로 확장합니다.
 
-```azurecli
+```azurecli-interactive
 az vm list --query '[?osProfile.windowsConfiguration!=null].name'
 ```
 
