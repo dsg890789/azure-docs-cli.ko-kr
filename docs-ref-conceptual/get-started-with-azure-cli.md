@@ -5,16 +5,17 @@ keywords: Azure CLI, CLI 도움말, Azure 도움말, 쿼리, 자동화,
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/05/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: afed3b187f9e5437ecd42217a374b82fb12699b8
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 0c7746e70125dcc1678ed19f93322efea8a2b01b
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306100"
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
 
@@ -54,13 +55,13 @@ CLI에서 명령은 _그룹_의 _하위 명령_으로 제공됩니다.
 
 명령을 검색하려면 [az find](/cli/azure/reference-index#az-find)를 사용합니다. 예를 들어 이름에 `secret`이(가) 포함된 명령을 검색하려면 다음 명령을 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az find -q secret
 ```
 
 작업하려는 명령의 그룹을 알고 있으면 `--help` 인수를 사용하는 것이 더 효과적일 수 있습니다. 그러면 명령에 대한 자세한 정보가 표시될 뿐만 아니라, 명령 그룹과 함께 사용할 경우, 사용 가능한 모든 하위 명령도 표시됩니다. 예를 들어 NSG(네트워크 보안 그룹)와 함께 사용할 경우, 사용 가능한 NSG 하위 그룹 및 명령을 찾을 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az network nsg --help
 ```
 
@@ -79,11 +80,15 @@ CLI에는 Bash 셸에서 명령에 대한 전체 탭 완성 기능이 포함됩�
 
 ## <a name="interactive-mode"></a>대화형 모드
 
-CLI는 도움말 정보를 자동으로 표시하고 하위 명령을 더 쉽게 선택할 수 있게 해주는 대화형 모드를 제공합니다. 대화형 모드로 전환하려면 [az interactive](/cli/azure/reference-index#az-interactive) 명령을 사용합니다. 대화형 모드 및 CLI 학습에 대화형 모드를 활용하는 방법에 대한 자세한 내용은 [Azure CLI 2.0 대화형 모드](interactive-azure-cli.md)를 참조하십시오.
+CLI는 도움말 정보를 자동으로 표시하고 하위 명령을 더 쉽게 선택할 수 있게 해주는 대화형 모드를 제공합니다. 대화형 모드로 전환하려면 [az interactive](/cli/azure/reference-index#az-interactive) 명령을 사용합니다.
+
+```azurecli-interactive
+az interactive
+```
+
+대화형 모드에 대한 자세한 내용은 [Azure CLI 2.0 대화형 모드](interactive-azure-cli.md)를 참조하십시오.
 
 또한 자동 완성 및 마우스를 위로 가져갈 때 표시되는 설명을 포함하여 대화형 환경을 제공하는 [Visual Studio Code 플러그인](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)도 있습니다.
-
-
 
 ## <a name="learn-cli-basics-with-quickstarts-and-tutorials"></a>퀵 스타트 및 자습서로 CLI 기본 내용 학습
 
@@ -106,6 +111,6 @@ Azure CLI 2.0을 시작하려면 가상 머신 설정 및 Azure 리소스 쿼리
 
 CLI 기능 개선 및 버그 해결을 위해 피드백을 보내주시기 바랍니다. [Github에서 문제를 제출](https://github.com/azure/azure-cli/issues)하거나 CLI의 기본 제공 기능을 사용하여 [az feedback](/cli/azure/reference-index#az-feedback) 명령으로 일반적인 피드백을 제출할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az feedback
 ```

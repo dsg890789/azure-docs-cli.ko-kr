@@ -4,16 +4,17 @@ description: Azure CLI 2.0에 대해 공식적으로 지원되는 확장의 전�
 author: derekbekoe
 ms.author: debekoe
 manager: routlaw
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 82f2aec902ff7a9061f056139551990334ff6fb9
-ms.sourcegitcommit: 42f1ba77b2f562d89dadd302655d1f02ee4b6130
+ms.openlocfilehash: fdf67f7d041f95b194beb5c72e2c3b905b9b3133
+ms.sourcegitcommit: bdc7db76b48e007a2022e4c2b23fdd1bc1d25600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/23/2018
+ms.locfileid: "34470189"
 ---
 # <a name="available-extensions-for-the-azure-cli-20"></a>Azure CLI 2.0에 대해 사용 가능한 확장
 
@@ -30,9 +31,9 @@ az extension list-available --output table
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | SAP용 Azure 고급 모니터링 확장 관리 |  |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.1 | 명령 별칭 지원 | 예 |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.2.2 | Azure Batch 서비스와 함께 사용하기 위한 추가 명령 |  |
-| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.4.4 | Azure IoT Hub, IoT Edge 및 IoT 장치 프로비전 서비스에 대한 데이터 플레인 명령 계층 제공 |  |
+| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.4.5 | Azure IoT Hub, IoT Edge 및 IoT 장치 프로비전 서비스에 대한 데이터 플레인 명령 계층 제공 |  |
 | [botservice](https://github.com/Azure/azure-cli-extensions) | 0.0.1 | Azure Bot Service 2017-12-01 미리 보기 기능 지원 | 예 |
-| [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. | 예 |
+| [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. | 예 |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | DNS 영역을 위한 Azure CLI Extension |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.0 | Azure EventGrid 2018-05-01 미리 보기 기능에 대한 지원 | 예 |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.6 | 지역 간 관리 vm 이미지 복사 기능에 대한 지원 |  |

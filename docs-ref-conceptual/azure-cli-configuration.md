@@ -5,16 +5,17 @@ keywords: Azure CLI, 구성, 설정, Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/13/2017
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: dac383fa0dbd785f9448514e3d0a3242e4853038
-ms.sourcegitcommit: 42f1ba77b2f562d89dadd302655d1f02ee4b6130
+ms.openlocfilehash: b0d26beac83a7ce3bba44d5e64d129a211c82836
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305879"
 ---
 # <a name="azure-cli-20-configuration"></a>Azure CLI 2.0 구성
 
@@ -45,7 +46,7 @@ CLI에서 사용되는 구성 값은 다음 우선 순위에서 평가되며 목
 
 예를 들어, 다음은 모든 명령에 대해 기본 리소스 그룹 및 위치를 설정하는 방법입니다.
 
-```azurecli
+```azurecli-interactive
 az configure --defaults location=westus2 group=MyResourceGroup
 ```
 
@@ -61,7 +62,7 @@ CLI 구성 파일에는 CLI 동작 관리에 사용되는 다른 설정이 포�
 
 다음은 확인 프롬프트를 비활성화하고 `/var/log/azure` 디렉토리에 로깅을 설정하는 CLI 구성 파일의 예입니다.
 
-```
+```ini
 [core]
 disable_confirm_prompt=Yes
 
