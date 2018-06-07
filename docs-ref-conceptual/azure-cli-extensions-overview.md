@@ -10,11 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: fde52c29a3ec82a1c6a03438a5d84dd4684e296a
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: 1b983faef4c1678763b3483192e94a6c96e24f32
+ms.sourcegitcommit: 80189ff103c91f8c47ab8ebf586df815fff5dd5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34479481"
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Azure CLI 2.0 확장 사용
 
@@ -34,7 +35,7 @@ az extension list-available --output table
 
 ## <a name="install-extensions"></a>확장 설치
 
-설치할 확장을 찾은 다음에는 [az extension add](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-add)를 사용하여 가져옵니다. 확장이 `az extension list-available`에 나열된 경우 해당 이름으로 확장을 설치할 수 있습니다.
+설치할 확장을 찾은 다음에는 [az extension add](https://docs.microsoft.com/cli/azure/extension#az-extension-add)를 사용하여 가져옵니다. 확장이 `az extension list-available`에 나열된 경우 해당 이름으로 확장을 설치할 수 있습니다.
 
 ```azurecli-interactive
 az extension add --name <extension-name>
@@ -50,7 +51,7 @@ az extension add --source <URL-or-path>
 
 ## <a name="update-extensions"></a>확장 업데이트
 
-확장이 이름별로 설치된 경우 [az 확장 업데이트](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-update)를 사용하여 업데이트할 수 있습니다.
+확장이 이름별로 설치된 경우 [az 확장 업데이트](https://docs.microsoft.com/cli/azure/extension#az-extension-update)를 사용하여 업데이트할 수 있습니다.
 
 ```azurecli-interactive
 az extension update --name <extension-name>
@@ -62,7 +63,7 @@ CLI가 확장 이름을 해석할 수 없는 경우 이를 제거하고 다시 �
 
 ## <a name="uninstall-extensions"></a>확장 제거
 
-확장이 더 이상 필요하지 않으면 [az extension remove](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-remove)를 사용하여 제거할 수 있습니다.
+확장이 더 이상 필요하지 않으면 [az extension remove](https://docs.microsoft.com/cli/azure/extension#az-extension-remove)를 사용하여 제거할 수 있습니다.
 
 ```azurecli-interactive
 az extension remove --name <extension-name>
