@@ -4,18 +4,153 @@ description: Azure CLI 2.0 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 04/10/2018
+ms.date: 06/01/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 254c7b306440d921cef6b611268839150fdf3196
-ms.sourcegitcommit: 15d6dfaee2075d0abceb2aa2423f0b6ef7b2ac9b
+ms.openlocfilehash: 57f13c7d17e2d248132e2e9c49bb0b4994f041f5
+ms.sourcegitcommit: 80189ff103c91f8c47ab8ebf586df815fff5dd5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34799263"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="june-5-2018"></a>2018년 6월 5일
+
+버전 2.0.34
+
+### <a name="core"></a>코어
+
+* 상호 테넌트 리소스 참조에 대한 지원이 추가됨
+* 원격 분석 업로드 신뢰성이 향상됨
+
+### <a name="acr"></a>ACR
+
+* 원격 원본 위치로 VSTS 지원이 추가됨
+* `acr import` 명령이 추가됨
+
+### <a name="aks"></a>AKS
+
+* 보다 안전한 파일 시스템 권한으로 kube 구성 파일을 만들기 위해 `aks get-credentials`변경함
+
+### <a name="batch"></a>Batch
+
+* 풀 목록 표 서식수정 버그가 수정됨 [[문제 #4378](https://github.com/Azure/azure-cli/issues/4378)]
+
+### <a name="iot"></a>IOT
+
+* 기본 계층 IoT Hub 생성을 위한 지원이 추가됨
+
+### <a name="network"></a>네트워크
+
+* 향상됨 `network vnet peering`
+
+### <a name="policy-insights"></a>Policy Insights
+
+* 최초 릴리스
+
+### <a name="arm"></a>ARM
+
+* `account management-group` 명령이 추가됨
+
+### <a name="sql"></a>SQL
+
+* 관리형 새 인스턴스 명령이 추가됨
+  * `sql mi create`
+  * `sql mi show`
+  * `sql mi list`
+  * `sql mi update`
+  * `sql mi delete`
+* 관리형 새 데이터베이스 명령이 추가됨
+  * `sql midb create`
+  * `sql midb show`
+  * `sql midb list`
+  * `sql midb restore`
+  * `sql midb delete`
+
+### <a name="storage"></a>Storage
+
+* 파일 확장명에서 유추할 수 있도록 json 및 javascript를 추가 mimetypes으로 추가함
+
+### <a name="vm"></a>VM
+
+* 열을 고정시켜 사용하고 `Tier` 및 `Size`가 제거될 예정이라는 경고를 추가하도록 `vm list-skus` 변경
+* `--accelerated-networking` 옵션을 `vm create`에 추가
+* `--tags`를 `identity create`에 추가
+
+## <a name="may-22-2018"></a>2018년 5월 22일
+
+버전 2.0.33
+
+### <a name="core"></a>코어
+
+* 파일 이름에 `@` 확장을 위한 지원이 추가됨
+
+### <a name="acs"></a>ACS
+
+* 새 Dev-Space 명령 `aks use-dev-spaces` 및 `aks remove-dev-spaces` 추가
+* 도움말 메시지 내 오류 해결
+
+### <a name="appservice"></a>AppService
+
+* 일반 업데이트 명령이 향상됨
+* `webapp deployment source config-zip`에 대한 비동기 지원이 추가됨
+
+### <a name="container"></a>컨테이너
+
+* 컨테이너 그룹을 yaml 형식으로 내보내기 위한 지원이 추가됨
+* Yaml 파일을 사용하여 컨테이너 그룹 만들기 / 업데이트하기에 대한 지원 추가
+
+### <a name="extension"></a>내선 번호
+
+* 확장 제거가 향상됨
+
+### <a name="interactive"></a>대화형
+
+* 완료 시 파서를 음소거하도록 로깅을 변경함
+* 잘못된 도움말 캐시의 처리가 향상됨 
+
+### <a name="keyvault"></a>KeyVault
+
+* 클라우드 셸 또는 id를 가진 Vm에서 실행 하도록 keyvault 명령을 수정함
+
+### <a name="network"></a>네트워크
+
+* `network watcher show-topology`이 vnet 및/또는 서브넷 이름[#6326](https://github.com/Azure/azure-cli/issues/6326)으로 작동하지 않는 문제 해결 
+* `network watcher` 명령 결과 실제로 [#6264](https://github.com/Azure/azure-cli/issues/6264)인 영역에 대해 Network Watcher가 사용 가능하지 않다는 문제 해결
+
+### <a name="sql"></a>SQL
+
+* [호환성이 손상되는 변경] `db` 및 `dw` 명령으로 리턴되는 응답 개체 변경 :
+    * `serviceLevelObjective` 속성을 `currentServiceObjectiveName`로 이름을 바꿈 
+    * `currentServiceObjectiveId` 및 `requestedServiceObjectiveId` 속성 제거 
+    * `maxSizeBytes` 속성을 문자열 대신 정수값으로 변경
+* [호환성이 손상되는 변경] `db` 및 `dw`를 읽기 전용 속성으로 변경
+    * `requestedServiceObjectiveName`  업데이트하려면, `--service-objective` 매개 변수를 사용하거나 `sku.name` 속성 설정
+    * `edition` 업데이트하려면, `--edition` 매개 변수를 사용하거나 `sku.tier` 속성 설정
+    * `elasticPoolName` 업데이트하려면, `--elastic-pool` 매개 변수를 사용하거나 `elasticPoolId` 속성 설정
+* [호환성이 손상되는 변경] 다음 `elastic-pool` 속성을 읽기 전용으로 변경
+    * `edition` 업데이트하려면 `--edition` 매개 변수를 사용 
+    * `dtu` 업데이트하려면 `--capacity` 매개 변수를 사용 
+    *  `databaseDtuMin` 업데이트하려면 `--db-min-capacity` 매개 변수를 사용 
+    *  `databaseDtuMax` 업데이트하려면 `--db-max-capacity` 매개 변수를 사용 
+* `db`,`dw`,`elastic-pool` 명령에 `--family`, `--capacity` 매개 변수 추가합니다.
+* `elastic-pool` 명령에 `db`, `dw` 테이블 포맷터를 추가합니다.
+
+### <a name="storage"></a>Storage
+
+* `--account-name` 인수에 완료자 추가
+* `storage entity query`의 문제가 해결됨
+
+### <a name="vm"></a>VM
+
+* [호환성이 손상되는 변경] `vm create`에서 `--write-accelerator`제거됨. 동일한 지원을 `vm update` 또는 `vm disk attach`를 통해 액세스할 수 있음
+* `[vm|vmss] extension`에서 일치하는 확장 이미지 수정 
+* 부팅 로그를 캡처하기 위해 `vm create`에 `--boot-diagnostics-storage` 추가 
+* `[vm|vmss] update`에 `--license-type` 추가
 
 ## <a name="may-7-2018"></a>2018년 5월 7일
 
@@ -1352,7 +1487,7 @@ ms.lasthandoff: 05/07/2018
 * 컨테이너 명령이 추가됨
 * 청구 및 소비 모듈이 추가됨
 
-```
+```text
 azure-cli (2.0.12)
 
 acr (2.0.9)
@@ -1630,7 +1765,7 @@ vm (2.0.11)
 * 'az --version'에 대한 바로 가기로 'az -v' 추가([#2926](https://github.com/Azure/azure-cli/issues/2926))
 * 패키지 로드 및 명령 실행의 성능 개선([#2819](https://github.com/Azure/azure-cli/issues/2819))
 
-```
+```text
 azure-cli (2.0.6)
 
 acr (2.0.4)
@@ -1827,7 +1962,7 @@ vm (2.0.6)
 
 이 릴리스에서는 ACR, Batch, KeyVault 및 SQL 구성 요소가 릴리스되었습니다.
 
-```
+```text
 azure-cli (2.0.2)
 
 acr (2.0.0)
@@ -1917,7 +2052,7 @@ vm (2.0.2)
 
 CLI 버전을 확인하려면 `az --version`을 사용합니다. 출력은 CLI 자체 버전(이 릴리스에서는 2.0.0), 개별 명령 모듈, 현재 사용 중인 Python 및 GCC CLI의 버전을 나열합니다.
 
-```
+```text
 azure-cli (2.0.0)
 
 acs (2.0.0)

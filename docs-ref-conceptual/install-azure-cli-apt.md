@@ -4,38 +4,40 @@ description: apt 패키지 관리자를 사용하여 Azure CLI 2.0을 설치하�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/06/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.sourcegitcommit: 1d18f667af28b59f5524a3499a4b7dc12af5163d
+ms.openlocfilehash: 7b5835581bf1e14e2d9fdc7c9584c704d1a5d82f
+ms.sourcegitcommit: 38549f60d76d4b6b65d180367e83749769fe6e43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34703182"
 ---
+# <a name="install-azure-cli-20-with-apt"></a>apt를 사용하여 Azure CLI 2.0 설치
+
+Ubuntu 또는 Debian과 같이 `apt`과(와) 함께 제공되는 배포판을 실행하는 경우, Azure CLI에 64비트 패키지를 사용할 수 있습니다. 이 패키지는 다음 항목에서 테스트되었습니다.
+
+* Ubuntu trusty, xenial 및 artful
+* Debian wheezy, jessie 및 stretch
+
 ## <a name="install"></a>설치
 
-1. 원본 목록을 수정합니다.
+1. <a name="install-step-1"/>원본 목록을 수정합니다.
 
-     ```bash
-     AZ_REPO=$(lsb_release -cs)
-     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
-          sudo tee /etc/apt/sources.list.d/azure-cli.list
-     ```
+    ```bash
+    AZ_REPO=$(lsb_release -cs)
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
+        sudo tee /etc/apt/sources.list.d/azure-cli.list
+    ```
 
-2. Microsoft 서명 키 가져오기:
+2. <a name="signingKey"></a>Microsoft 서명 키를 가져옵니다.
 
    ```bash
-   sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+   curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
    ```
-
-  > [!WARNING]
-  > 이 서명 키는 사용되지 않으며 2018년 5월말 대체될 예정입니다. `apt`를 사용하여 계속 업데이트하려면 새 키도 설치해야 합니다.
-  > 
-  > ```bash
-  > curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-  > ``` 
 
 3. CLI 설치:
 
@@ -43,6 +45,9 @@ ms.lasthandoff: 05/09/2018
    sudo apt-get install apt-transport-https
    sudo apt-get update && sudo apt-get install azure-cli
    ```
+
+   > [!WARNING]
+   > 서명 키는 2018년 5월 업데이트되었으며 대체 되었습니다. 서명 키 오류를 수신하는 경우 [최신 서명 키를 획득](#signingKey)했는지 확인합니다.
 
 그런 다음 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다. 로그인 하려면 `az login` 명령을 실행합니다.
 
@@ -69,6 +74,10 @@ az login
 ```bash
 sudo apt-get install lsb-release
 ```
+
+### <a name="lsbrelease-does-not-return-the-base-distribution-version"></a>lsb_release는 기본 배포 버전을 반환하지 않습니다.
+
+Linux Mint 같은 일부 Ubuntu 또는 Debian 파생 배포판은 `lsb_release`로부터 올바른 버전 이름을 반환하지 않을 수 있습니다. 이 값은 설치 과정에서 패키지 설치를 확인하는 데 사용됩니다. 귀하의 배포가 파생된 출처 버전의 이름을 알고 있는 경우는 `AZ_REPO` 값을 수동으로 [1 단계 설치](#install-step-1)에 설정합니다. 그렇지 않은 경우 귀하의 배포에 대해 기본 배포 이름을 확인하고 `AZ_REPO`를 올바른 값으로 설정 하는 방법에 대해 알아봅니다.
 
 ### <a name="apt-key-fails-with-no-dirmngr"></a>apt-key가 "dirmngr 없음"과 함께 실패
 
@@ -104,6 +113,9 @@ sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-
    sudo apt-get update && sudo apt-get upgrade
    ```
 
+> [!WARNING]
+> 서명 키는 2018년 5월 업데이트되었으며 대체 되었습니다. 서명 키 오류를 수신하는 경우 [최신 서명 키를 획득](#signingKey)했는지 확인합니다.
+   
 > [!NOTE]
 > 이 명령은 시스템에 설치되었지만 종속성이 변경되지 않은 모든 패키지를 업그레이드합니다.
 > CLI만 업그레이드하려면 `apt-get install`을 사용하세요.
