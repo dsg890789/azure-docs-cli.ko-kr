@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: dde90e78f3ec53d323ca78c816ceefb8cf65608b
-ms.sourcegitcommit: 15d6dfaee2075d0abceb2aa2423f0b6ef7b2ac9b
+ms.openlocfilehash: a862cca17adb1bfa0201af250819158081c29813
+ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35512974"
 ---
 # <a name="install-azure-cli-20-with-zypper"></a>zypper를 사용하여 Azure CLI 2.0 설치
 
@@ -26,7 +27,6 @@ openSUSE 또는 SLES 등의 `zypper`과 함께 제공되는 배포를 실행하�
 1. `curl` 설치:
 
    ```bash
-   sudo zypper refresh
    sudo zypper install -y curl
    ```
 
@@ -39,13 +39,12 @@ openSUSE 또는 SLES 등의 `zypper`과 함께 제공되는 배포를 실행하�
 3. 로컬 `azure-cli` 리포지토리 정보를 만듭니다.
 
    ```bash
-   sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/zypp/repos.d/azure-cli.repo'
+   sudo zypper addrepo --name 'Azure CLI' --check https://packages.microsoft.com/yumrepos/azure-cli azure-cli
    ```
 
 4. `zypper` 패키지 인덱스를 업데이트하고 다음을 설치합니다.
 
    ```bash
-   sudo zypper refresh
    sudo zypper install --from azure-cli -y azure-cli
    ```
 
@@ -79,7 +78,7 @@ sudo zypper update azure-cli
 2. CLI를 다시 설치하지 않으려면 리포지토리 정보를 제거합니다.
 
   ```bash
-  sudo rm /etc/zypp/repos.d/azure-cli.repo
+  sudo zypper removerepo azure-cli
   ```
 
 3. 리포지토리 정보를 제거한 경우 Microsoft GPG 서명 키도 제거합니다.
