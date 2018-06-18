@@ -9,14 +9,38 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 57f13c7d17e2d248132e2e9c49bb0b4994f041f5
-ms.sourcegitcommit: 80189ff103c91f8c47ab8ebf586df815fff5dd5d
+ms.openlocfilehash: 72e667d74ff8d55f26ecbf3b3c8845c9c03b56be
+ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34799263"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35512906"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="june-13-2018"></a>2018년 6월 13일
+
+Version 2.0.36
+
+### <a name="aks"></a>AKS
+
+* 고급 네트워킹 옵션이 `aks create`에 추가됨
+* 인수를  `aks create`에 추가하여 모니터링 및 HTTP 라우팅을 활성화 
+* `--no-ssh-key` 인수를 `aks create`에 추가
+* `--enable-rbac` 인수를 `aks create`에 추가
+* [미리 보기] Azure Active Directory 인증에 대한 지원이 `aks create`에 추가됨
+
+### <a name="appservice"></a>AppService
+
+* 호환되지 않는 urllib 버전 관련 문제 해결
+
+## <a name="june-5-2018"></a>2018년 6월 5일
+
+Version 2.0.35
+
+### <a name="interactive"></a>대화형
+
+* 대화형 모드의 종속성에 제한 추가 
 
 ## <a name="june-5-2018"></a>2018년 6월 5일
 
@@ -79,7 +103,7 @@ ms.locfileid: "34799263"
 
 * 열을 고정시켜 사용하고 `Tier` 및 `Size`가 제거될 예정이라는 경고를 추가하도록 `vm list-skus` 변경
 * `--accelerated-networking` 옵션을 `vm create`에 추가
-* `--tags`를 `identity create`에 추가
+* `identity create`에 `--tags` 추가
 
 ## <a name="may-22-2018"></a>2018년 5월 22일
 
