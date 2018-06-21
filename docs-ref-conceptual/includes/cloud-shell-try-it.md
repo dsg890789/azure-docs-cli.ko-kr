@@ -5,10 +5,11 @@ manager: carmonm
 ms.date: 01/19/2018
 ms.topic: include
 ms.openlocfilehash: af927d4ddd1811b05c4f9f2f6bf0f4a1b2a9ff51
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36262753"
 ---
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. **복사**를 클릭하여 코드를 복사하고, Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.  Cloud Shell을 시작하는 몇 가지 방법이 있습니다.
 
