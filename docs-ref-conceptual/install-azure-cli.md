@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1509349716d153ad94fa842f0f84a993a7bc1bfd
-ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
+ms.openlocfilehash: 8448ac19127ceefd048a23904d9e692e3b68c9bb
+ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35512872"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36262729"
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 설치
 
 Azure CLI 2.0은 Azure 리소스를 관리하기 위한 훌륭한 경험을 제공하는 명령줄 도구입니다. CLI는 스크립팅을 쉽고 유연한 쿼리 데이터로 만들고 장기 실행 작업을 비중단 프로세스로 지원하기 위해 디자인되었습니다. 지금 시도해 CLI가 무엇을 제공하는지 확인!
 
-CLI의 현재 버전은 __2.0.36__입니다. 최신 릴리스에 대한 자세한 내용은 [릴리스 정보](release-notes-azure-cli.md)를 참조하세요.
+CLI의 현재 버전은 __2.0.38__입니다. 최신 릴리스에 대한 자세한 내용은 [릴리스 정보](release-notes-azure-cli.md)를 참조하세요.
 
 * [Windows에 설치](install-azure-cli-windows.md)
 * [macOS에 설치](install-azure-cli-macos.md)

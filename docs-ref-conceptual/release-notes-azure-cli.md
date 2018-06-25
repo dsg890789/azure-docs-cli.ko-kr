@@ -9,14 +9,109 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 72e667d74ff8d55f26ecbf3b3c8845c9c03b56be
-ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
+ms.openlocfilehash: 64db2b58ca883518757d8e189bf7263ed818b283
+ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35512906"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36262661"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="june-19-2018"></a>2018년 6월 19일
+
+Version 2.0.38
+
+### <a name="core"></a>코어
+
+* 대부분의 명령으로 `--subscription`에 대한 전역 지원 추가
+
+### <a name="acr"></a>ACR
+
+* `azure-storage-blob`이 종속성으로 추가됨
+* `acr build-task create`가 코어 2개를 사용하도록 기본 CPU 구성이 변경됨
+
+### <a name="acs"></a>ACS
+
+* `aks use-dev-spaces` 명령 옵션이 업데이트됨. `--update` 지원이 추가됨
+* `$HOME/.kube/config` 안의 사용자 컨텍스트를 대체하지 않도록 `aks get-credentials --admin` 변경
+* 읽기 전용 `nodeResourceGroup` 속성을 관리되는 클러스터에서 공개
+* `acs browse` 명령 오류 수정
+* `aks install-connector`, `aks upgrade-connector` 및 `aks remove-connector`에 대해 `--connector-name`을 옵션으로 설정
+* `aks install-connector`에 대해 새 Azure 컨테이너 인스턴스 영역 추가
+* helm 릴리스 이름과 `aks install-connector` 노드 이름에 정규화된 위치 추가 
+
+### <a name="appservice"></a>AppService
+
+* Urllib의 최신 버전에 대한 지원 추가
+* `functionapp create`가 외부 리소스 그룹 제공 앱 서비스 계획을 사용하도록 지원 추가
+
+### <a name="batch"></a>Batch
+
+* `azure-batch-extensions` 종속성 제거
+
+### <a name="batch-ai"></a>Batch AI
+
+* 작업 영역에 대한 지원 추가. 그룹 클러스터, 파일 서버 및 그룹 내 실험에 작업 영역 허용, 리소스의 수에 대한 제한을 제거
+* 실험에 대한 지원 추가. 실험을 컬렉션의 그룹 작업에 허용, 생성된 작업의 수에 대한 제한 제거
+* Docker 컨테이너에서 실행 중인 작업에 대해 `/dev/shm`을 구성하는 지원 추가
+* `batchai cluster node exec` 및 `batchai job node exec` 명령이 추가됨. 이 명령은 노드에서 직접 모든 명령을 실행하도록 허용하고 포트 포워드를 위한 기능을 제공합니다.
+* `--ids`에 대한 지원이 `batchai` 명령에 추가됨 
+* [호환성이 손상되는 변경] 모든 클러스터 및 파일 서버는 작업 영역에서 만들어야 합니다
+* [호환성이 손상되는 변경] 실험 아래에 작업을 만들어야 합니다
+* [호환성이 손상되는 변경] `cluster create`, `job create` 명령에서 `--nfs-resource-group`제거. 다른 작업 영역/리소스 그룹에 속한 NFS를 탑재하려면 `--nfs` 옵션을 통해 파일 서버의 ARM ID를 제공
+* [호환성이 손상되는 변경] `job create` 명령에서 `--cluster-resource-group`제거. 다른 작업 영역/리소스 그룹에 속한 클러스터 상의 작업을 제출하려면 `--cluster` 옵션을 통해 클러스터의 ARM ID를 제공
+* [호환성이 손상되는 변경] `location` 특성을 작업, 클러스터 및 파일 서버에서 제거. 이제 이 위치는 작업 영역의 특성입니다.
+* [호환성이 손상되는 변경] `job create`, `cluster create`, `file-server create` 명령에서 `--location`제거
+* [호환성이 손상되는 변경] 보다 일관된 인터페이스를 위해 간단한 옵션의 이름을 변경:
+ - [`--config`, `-c`]를 [`--config-file`, `-f`]로 이름 바꿈
+ - [`--cluster`, `-r`]을 [`--cluster`, `-c`]로 이름 바꿈
+ - [`--cluster`, `-n`]을 [`--cluster`, `-c`]로 이름 바꿈
+ - [`--job`, `-n`]을 [`--job`, `-j`]로 이름 바꿈
+
+### <a name="maps"></a>지도
+
+* [호환성이 손상되는 변경] 대화형 프롬프트 또는 `--accept-tos` 플래그로 서비스 약관을 수락하도록 `maps account create` 변경
+
+### <a name="network"></a>네트워크
+
+* `https`에 대한 지원이 `network lb probe create` [#6571](https://github.com/Azure/azure-cli/issues/6571)에 추가됨
+* `--endpoint-status`가 대/소문자를 구분하는 문제 해결 [#6502](https://github.com/Azure/azure-cli/issues/6502)
+
+### <a name="reservations"></a>예약
+
+* [호환성이 손상되는 변경] 필수 매개 변수 `ReservedResourceType`을 `reservations catalog show`에 추가
+* `Location` 매개 변수가 `reservations catalog show`에 추가됨
+* [호환성이 손상되는 변경] `ReservationProperties`에서 `kind`제거
+* [호환성이 손상되는 변경] `Catalog` 내에서 `capabilities`에서 `sku_properties`로 이름이 변경됨
+* [호환성이 손상되는 변경] `Catalog`에서 `size`, `tier` 속성 제거
+* `InstanceFlexibility` 매개 변수가 `reservations reservation update`에 추가됨
+
+### <a name="role"></a>역할
+
+* 오류 처리 개선
+
+### <a name="sql"></a>SQL
+
+* 구독에 사용할 수 없는 위치에 대해 `az sql db list-editions` 실행 시 발생하는 혼란스러운 오류 수정
+
+### <a name="storage"></a>Storage
+
+* `storage blob download`에 대한 출력 테이블을 가독성을 높이도록 변경 
+
+### <a name="vm"></a>VM
+
+* `vm create` 내 네트워킹 지원 가속화에 대한 구체화 vm 크기 확인 향상
+* 기본 vm 크기가 `Standard_D1_v2`에서 `Standard_DS1_v2`로 전환된다는, `vmss create`에 대한 경고 추가
+* 구성이 변경되지 않은 경우에도 확장을 업데이트하도록 `--force-update`를 `[vm|vmss] extension set`에 추가
+
+## <a name="june-13-2018"></a>2018년 6월 13일
+
+Version 2.0.37
+
+### <a name="core"></a>코어
+
+* 개선된 대화형 원격 분석
 
 ## <a name="june-13-2018"></a>2018년 6월 13일
 
