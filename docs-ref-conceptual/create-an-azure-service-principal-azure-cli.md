@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: role-based-access-control
-ms.openlocfilehash: d250cb2d35a128c789fccd3aca17c47074121a25
-ms.sourcegitcommit: 38549f60d76d4b6b65d180367e83749769fe6e43
+ms.openlocfilehash: cd9a41b66d18410afa091ede50ca24e7d4b5e9ed
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34703114"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439961"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기
 
@@ -101,7 +101,7 @@ az role assignment list --assignee APP_ID
 > [!NOTE] 
 > 계정에 역할 할당 권한이 없으면 계정에 "'/subscriptions/{guid}' 범위에 대해 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 수 있는 권한이 없습니다." 오류 메시지가 표시됩니다. 역할을 관리하려면 Azure Active Directory 관리자에게 문의하십시오.
 
-## <a name="log-in-using-the-service-principal"></a>서비스 주체를 사용하여 로그인
+## <a name="sign-in-using-the-service-principal"></a>서비스 주체를 사용하여 로그인
 
 Azure CLI 내에서 로그인하여 새로운 서비스 주체의 로그인 및 권한을 테스트할 수 있습니다. `appId`, `tenant` 및 자격 증명 값을 사용하여 새로운 서비스 주체로 로그인합니다. 사용자가 제공하는 인증 정보는 서비스 주체를 만들 때 암호 또는 인증서를 사용하도록 선택했는지 여부에 따라 달라집니다.
 
