@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: abbffb1c474d752130dfffa8e60937b3d632fa14
-ms.sourcegitcommit: c6c3058254974b3a1d5d2fa2cd231a900c53d321
+ms.openlocfilehash: 3f52f1545dc4bad44280c7e58ad17ec2302fd436
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126585"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439621"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt를 사용하여 Azure CLI 2.0 설치
 
@@ -49,11 +49,9 @@ Ubuntu 또는 Debian과 같이 `apt`과(와) 함께 제공되는 배포판을 �
    > [!WARNING]
    > 서명 키는 2018년 5월 업데이트되었으며 대체 되었습니다. 서명 키 오류를 수신하는 경우 [최신 서명 키를 획득](#signingKey)했는지 확인합니다.
 
-그런 다음 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다. 로그인 하려면 `az login` 명령을 실행합니다.
+그런 다음 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다. 로그인하려면, [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.
 
-```azurecli
-az login
-```
+[!INCLUDE [interactive-login](includes/interactive-login.md)]
 
 다른 로그인 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
 

@@ -4,19 +4,100 @@ description: Azure CLI 2.0 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/01/2018
+ms.date: 07/03/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 64db2b58ca883518757d8e189bf7263ed818b283
-ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
+ms.openlocfilehash: 102152b7d99de253ccb2fea09b99be91e3c9135e
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36262661"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439672"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="july-3-2018"></a>2018년 7월 3일
+
+버전 2.0.41
+
+### <a name="aks"></a>AKS
+
+* 구독 ID를 사용하도록 모니터링 변경
+
+## <a name="july-3-2018"></a>2018년 7월 3일
+
+버전 2.0.40
+
+### <a name="core"></a>코어
+
+* 대화형 로그인에 대한 새 권한 부여 코드 흐름을 추가
+
+### <a name="acr"></a>ACR
+
+* 빌드 상태 폴링 추가
+* 대/소문자 열거형 값에 대한 지원 추가
+* `show-manifests`에 `--top` 및 `--orderby` 매개 변수 추가
+
+### <a name="acs"></a>ACS
+
+* [호환성이 손상되는 변경]Kubernetes 역할 기반 액세스 제어를 기본값으로 활성화합니다.
+* `--disable-rbac` 인수를 추가 그리고 `--enable-rbac`가 기본값이므로 이제 사용되지 않음
+* `aks browse` 명령 옵션이 업데이트됨. `--listen-port` 지원이 추가됨
+* `aks install-connector` 명령에 대한 기본 helm 차트 패키지 업데이트  virtual-kubelet-for-aks-latest.tgz 사용
+* 기존 클러스터 업데이트에 `aks enable-addons`과 `aks disable-addons` 명령 추가
+
+### <a name="appservice"></a>AppService
+
+* `webapp identity remove`를 통해 ID를 사용하지 않도록 하는 것에 대한 지원 추가
+* `preview` 태그의 ID 기능 제거
+
+### <a name="backup"></a>Backup
+
+* 모듈 정의 업데이트
+
+### <a name="batchai"></a>BatchAI
+
+* `batchai cluster node list`, `batchai job node list` 명령에 대한 테이블 출력이 수정됨
+
+### <a name="cloud"></a>클라우드
+
+* `acr login` 서버 접미사를 클라우드 구성에 추가
+
+### <a name="container"></a>컨테이너
+
+* `container create`의 기본값을 장기 실행 작업으로 변경
+* Log Analytics 매개 변수를 `--log-analytics-workspace` 및 `--log-analytics-workspace-key`에 추가
+* `--protocol` 매개 변수를 사용할 네트워크 프로토콜을 지정하도록 추가
+
+### <a name="extension"></a>내선 번호
+
+* CLI 버전과 호환되는 확장명만 표시하도록 `extension list-available` 변경
+
+### <a name="network"></a>네트워크
+
+* 레코드 형식이 대/소문자를 구분하는 문제 수정([#6602](https://github.com/Azure/azure-cli/issues/6602))
+
+### <a name="rdbms"></a>Rdbms
+
+* `[postgres|myql] server vnet-rule` 명령이 추가됨
+
+### <a name="resource"></a>리소스
+
+* 새 작업 그룹 `deployment` 추가
+
+### <a name="vm"></a>VM
+
+* 시스템 할당 ID를 제거하기 위한 지원 추가
+
+## <a name="june-25-2018"></a>2018년 6월 25일
+
+버전 2.0.39
+
+### <a name="cli"></a>CLI
+
+* 확장 설치 문제를 해결하기 위해 MSI 설치 관리자에서 파일 잘라내기 업데이트
 
 ## <a name="june-19-2018"></a>2018년 6월 19일
 

@@ -10,12 +10,12 @@ ms.technology: azure-cli
 ms.devlang: azurecli
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: 4d5bee6514477c494ec53d2bd7bba778301ba490
-ms.sourcegitcommit: 38549f60d76d4b6b65d180367e83749769fe6e43
+ms.openlocfilehash: bbd64458b49d3e6c6a533a489d5c8105f364d3d7
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34703148"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439876"
 ---
 # <a name="log-in-with-azure-cli-20"></a>Azure CLI 2.0으로 로그인
 
@@ -26,9 +26,9 @@ Azure CLI를 사용하여 로그인하고 인증하는 여러 방법이 있습�
 
 로그인한 후 CLI 명령은 기본 구독에 대해 실행됩니다. 구독이 두 개 이상인 경우 [기본 구독 변경](manage-azure-subscriptions-azure-cli.md)을 수행할 수 있습니다.
 
-## <a name="interactive-log-in"></a>대화형 로그인
+## <a name="interactive-sign-in"></a>대화형 로그인
 
-웹 브라우저에서 대화형으로 로그인합니다.
+Azure CLI의 기본 인증 방법은 웹 브라우저에서 대화형으로 로그인하는 것입니다.
 
 [!INCLUDE [interactive_login](includes/interactive-login.md)]
 

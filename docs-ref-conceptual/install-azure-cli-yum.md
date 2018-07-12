@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b3c82825af3d1d2420b0111d1a370a17f37d9426
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 7729077d9240f09e0ad93ad8ab154d1477d8c3fd
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32043706"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439893"
 ---
 # <a name="install-azure-cli-20-with-yum"></a>yum을 사용하여 Azure CLI 2.0 설치
 
@@ -42,11 +42,9 @@ RHEL, Fedora, CentOS 등의 `yum`과 함께 제공되는 배포를 실행하는 
    sudo yum install azure-cli
    ```
 
-그런 다음 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다. 로그인 하려면 `az login` 명령을 실행합니다.
+그런 다음 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다. 로그인하려면, [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.
 
-```azurecli
-az login
-```
+[!INCLUDE [interactive-login](includes/interactive-login.md)]
 
 다른 로그인 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
 

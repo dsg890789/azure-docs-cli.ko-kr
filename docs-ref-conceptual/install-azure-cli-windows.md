@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: c3ed3585b601ee55b267ea6cfc43ce41c54f084a
-ms.sourcegitcommit: 15d6dfaee2075d0abceb2aa2423f0b6ef7b2ac9b
+ms.openlocfilehash: d662333f828c65fa709fa622de7de3a18bea58d8
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815979"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439837"
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Windows에 Azure CLI 2.0 설치
 
@@ -30,11 +30,9 @@ MSI 배포판은 Windows에서 `az` 명령을 설치, 업데이트 및 제거하
 
 설치 관리자가 컴퓨터를 변경해도 되는지 물어보면 "예" 상자를 클릭합니다.
 
-이제 Windows 명령 프롬프트 또는 PowerShell에서 `az` 명령으로 Azure CLI를 실행할 수 있습니다. PowerShell은 Windows 명령 프롬프트에서 사용할 수 없는 일부 탭 완성 기능을 제공합니다. 로그인 하려면 `az login` 명령을 실행합니다.
+이제 Windows 명령 프롬프트 또는 PowerShell에서 `az` 명령으로 Azure CLI를 실행할 수 있습니다. PowerShell은 Windows 명령 프롬프트에서 사용할 수 없는 일부 탭 완성 기능을 제공합니다. 로그인하려면, [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.
 
-```azurecli
-az login
-```
+[!INCLUDE [interactive-login](includes/interactive-login.md)]
 
 다른 로그인 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
 
