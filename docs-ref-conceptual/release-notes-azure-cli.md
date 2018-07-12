@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 102152b7d99de253ccb2fea09b99be91e3c9135e
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: b44a387a144b9d7daca8d87309d8a5e1a47b078a
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439672"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967880"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
 
@@ -120,7 +120,7 @@ Version 2.0.38
 * `acs browse` 명령 오류 수정
 * `aks install-connector`, `aks upgrade-connector` 및 `aks remove-connector`에 대해 `--connector-name`을 옵션으로 설정
 * `aks install-connector`에 대해 새 Azure 컨테이너 인스턴스 영역 추가
-* helm 릴리스 이름과 `aks install-connector` 노드 이름에 정규화된 위치 추가 
+* helm 릴리스 이름과 `aks install-connector` 노드 이름에 정규화된 위치 추가
 
 ### <a name="appservice"></a>AppService
 
@@ -137,7 +137,7 @@ Version 2.0.38
 * 실험에 대한 지원 추가. 실험을 컬렉션의 그룹 작업에 허용, 생성된 작업의 수에 대한 제한 제거
 * Docker 컨테이너에서 실행 중인 작업에 대해 `/dev/shm`을 구성하는 지원 추가
 * `batchai cluster node exec` 및 `batchai job node exec` 명령이 추가됨. 이 명령은 노드에서 직접 모든 명령을 실행하도록 허용하고 포트 포워드를 위한 기능을 제공합니다.
-* `--ids`에 대한 지원이 `batchai` 명령에 추가됨 
+* `--ids`에 대한 지원이 `batchai` 명령에 추가됨
 * [호환성이 손상되는 변경] 모든 클러스터 및 파일 서버는 작업 영역에서 만들어야 합니다
 * [호환성이 손상되는 변경] 실험 아래에 작업을 만들어야 합니다
 * [호환성이 손상되는 변경] `cluster create`, `job create` 명령에서 `--nfs-resource-group`제거. 다른 작업 영역/리소스 그룹에 속한 NFS를 탑재하려면 `--nfs` 옵션을 통해 파일 서버의 ARM ID를 제공
@@ -201,7 +201,7 @@ Version 2.0.36
 ### <a name="aks"></a>AKS
 
 * 고급 네트워킹 옵션이 `aks create`에 추가됨
-* 인수를  `aks create`에 추가하여 모니터링 및 HTTP 라우팅을 활성화 
+* 인수를  `aks create`에 추가하여 모니터링 및 HTTP 라우팅을 활성화
 * `--no-ssh-key` 인수를 `aks create`에 추가
 * `--enable-rbac` 인수를 `aks create`에 추가
 * [미리 보기] Azure Active Directory 인증에 대한 지원이 `aks create`에 추가됨
@@ -326,7 +326,7 @@ Version 2.0.35
 
 * [호환성이 손상되는 변경] `db` 및 `dw` 명령으로 리턴되는 응답 개체 변경 :
     * `serviceLevelObjective` 속성을 `currentServiceObjectiveName`로 이름을 바꿈 
-    * `currentServiceObjectiveId` 및 `requestedServiceObjectiveId` 속성 제거 
+    * `currentServiceObjectiveId` 및 `requestedServiceObjectiveId` 속성 제거
     * `maxSizeBytes` 속성을 문자열 대신 정수값으로 변경
 * [호환성이 손상되는 변경] `db` 및 `dw`를 읽기 전용 속성으로 변경
     * `requestedServiceObjectiveName`  업데이트하려면, `--service-objective` 매개 변수를 사용하거나 `sku.name` 속성 설정
@@ -432,7 +432,7 @@ Version 2.0.35
 
 ### <a name="network"></a>네트워크
 
-* [호환성이 손상되는 변경] 다음 항목에서 `--ids` 매개 변수가 제거됨 
+* [호환성이 손상되는 변경] 다음 항목에서 `--ids` 매개 변수가 제거됨
   * `express-route auth list`
   * `express-route peering list`
   * `nic ip-config list`
@@ -477,7 +477,7 @@ Version 2.0.35
   * `vm secret list`
   * `vm unmanaged-disk list`
   * `vmss nic list`
-* Write Accelerator 지원이 추가됨 
+* Write Accelerator 지원이 추가됨
 * `vmss perform-maintenance`가 추가됨
 * VM의 OS 유형을 안정적으로 감지하도록 `vm diagnostics set`가 수정됨
 * 요청된 크기가 현재 설정과 다른지 확인하고 변경 시에만 업데이트하도록 `vm resize` 변경
@@ -561,7 +561,7 @@ Version 2.0.35
 
 * [#5936](https://github.com/Azure/azure-cli/issues/5936) 수정됨: `application-gateway create` 태그는 bet 설정할 수 없습니다.
 * `application-gateway http-settings [create|update]`에 대한 인증 인증서를 첨부하기 위해 인수 `--auth-certs`이 추가되었습니다. [#4910](https://github.com/Azure/azure-cli/issues/4910)
-* DDoS 보호 계획을 만들기 위해 `ddos-protection` 명령이 추가되었습니다. 
+* DDoS 보호 계획을 만들기 위해 `ddos-protection` 명령이 추가되었습니다.
 * VNet을 DDoS 보호 계획에 연결하기 위해 `--ddos-protection-plan`에 대한 지원을 `vnet [create|update]`에 추가함
 * `network route-table [create|update]`에서 `--disable-bgp-route-propagation` 플래그 문제 해결
 * `network lb [create|update]`에 대해 더미 인수 `--public-ip-address-type` 및 `--subnet-type`가 제거됨
@@ -726,7 +726,7 @@ Version 2.0.35
 
 * [호환성이 손상되는 변경] `advisor configuration get`에서 `advisor configuration list`로 이름이 변경됨
 * [호환성이 손상되는 변경] `advisor configuration set`에서 `advisor configuration update`로 이름이 변경됨
-* [호환성이 손상되는 변경] `advisor recommendation generate` 제거됨 
+* [호환성이 손상되는 변경] `advisor recommendation generate` 제거됨
 * `--refresh` 매개 변수가 `advisor recommendation list`에 추가됨
 * `advisor recommendation show` 명령이 추가됨
 
@@ -998,7 +998,7 @@ Version 2.0.35
 * `dns zone export`의 다음 문제 해결:
   * 긴 TXT 레코드가 잘못 내보내지는 문제 해결
   * 따옴표 붙은 TXT 레코드가 이스케이프 처리 없이 잘못 내보내지는 문제 해결
-* `dns zone import`에서 특정 레코드를 두 번 가져오는 문제 해결 
+* `dns zone import`에서 특정 레코드를 두 번 가져오는 문제 해결
 * `vnet-gateway root-cert` 및 `vnet-gateway revoked-cert` 명령 복원
 
 ### <a name="profile"></a>프로필
@@ -1013,7 +1013,7 @@ Version 2.0.35
 
 * 저장소 V1 계정을 저장소 V2로 마이그레이션할 때의 문제 해결
 * 모든 upload/download 명령에 대한 진행률 보고 추가
-* `storage account check-name`에서 "-n" 인수 옵션을 방해하는 버그 수정  
+* `storage account check-name`에서 "-n" 인수 옵션을 방해하는 버그 수정
 * `blob [list|show]`에 대한 테이블 출력에 'snapshot' 열 추가
 * Ints로 구문 분석되어야 하는 여러 매개 변수의 버그 수정
 

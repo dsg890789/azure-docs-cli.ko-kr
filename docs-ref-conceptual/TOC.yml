@@ -66,8 +66,6 @@
   items:
     - name: 가상 머신 만들기
       href: azure-cli-vm-tutorial.yml
-    - name: 학습 - VM 만들기
-      href: 'https://docs.microsoft.com/learn/azure-cli-2-0/index'
 - name: 샘플 스크립트
   items:
     - name: Linux VM

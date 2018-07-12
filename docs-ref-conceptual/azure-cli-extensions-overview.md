@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1b983faef4c1678763b3483192e94a6c96e24f32
-ms.sourcegitcommit: 80189ff103c91f8c47ab8ebf586df815fff5dd5d
+ms.openlocfilehash: b503c51ffc55ceda30738e34171c7da92532f328
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34479481"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967727"
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Azure CLI 2.0 확장 사용
 
@@ -59,7 +59,7 @@ az extension update --name <extension-name>
 
 그렇지 않으면 [설치 확장](#install-extensions) 지침에 따라 소스에서 확장을 업데이트할 수 있습니다.
 
-CLI가 확장 이름을 해석할 수 없는 경우 이를 제거하고 다시 설치합니다. 확장이 미리 보기에서 CLI의 기본 명령으로 전환되었을 수도 있습니다. [Azure CLI 2.0 설치](install-azure-cli.md)에 설명된 대로 CLI를 업데이트하고 확장 프로그램의 명령이 추가되었는지 확인합니다. 
+CLI가 확장 이름을 해석할 수 없는 경우 이를 제거하고 다시 설치합니다. 확장이 미리 보기에서 CLI의 기본 명령으로 전환되었을 수도 있습니다. [Azure CLI 2.0 설치](install-azure-cli.md)에 설명된 대로 CLI를 업데이트하고 확장 프로그램의 명령이 추가되었는지 확인합니다.
 
 ## <a name="uninstall-extensions"></a>확장 제거
 
@@ -69,7 +69,8 @@ CLI가 확장 이름을 해석할 수 없는 경우 이를 제거하고 다시 �
 az extension remove --name <extension-name>
 ```
 
-확장을 설치한 위치에서 수동으로 삭제하여 제거할 수도 있습니다. 이는 `$AZURE_EXTENSION_DIR` 셸 변수의 값입니다. 이 변수가 설정되어 있지 않으면 기본적으로 Linux 및 macOS에서는 `$HOME/.azure/cliextensions`, Windows에서는 `%USERPROFILE%\.azure\cliextensions`입니다.
+확장을 설치한 위치에서 수동으로 삭제하여 제거할 수도 있습니다. 이는 `$AZURE_EXTENSION_DIR` 셸 변수의 값입니다.
+이 변수가 설정되어 있지 않으면 기본적으로 Linux 및 macOS에서는 `$HOME/.azure/cliextensions`, Windows에서는 `%USERPROFILE%\.azure\cliextensions`입니다.
 
 ```bash
 rm -rf $AZURE_EXTENSION_DIR/<extension-name>
@@ -95,8 +96,8 @@ rm -rf $AZURE_EXTENSION_DIR/<extension-name>
 
 ### <a name="can-extensions-depend-upon-each-other"></a>확장은 서로 종속될 수 있나요?
 
-번호 확장은 각각 독립적인 개별 패키지입니다. 이는 CLI에서 확장이 로드되는 시기를 보장하지 않으므로 종속성이 충족되지 못할 수 있기 때문입니다. 확장을 설치하는 경우 해당 확장만 설치되며 다른 확장을 제거하더라도 계속 작동합니다.
+아니요. 확장은 각각 독립적인 개별 패키지입니다. 이는 CLI에서 확장이 로드되는 시기를 보장하지 않으므로 종속성이 충족되지 못할 수 있기 때문입니다. 확장을 설치하는 경우 해당 확장만 설치되며 다른 확장을 제거하더라도 계속 작동합니다.
 
 ### <a name="are-extensions-updated-along-with-the-cli"></a>확장은 CLI와 함께 업데이트되나요?
 
-번호 [확장 업데이트](#update-extensions)에 설명된 대로 확장은 별도로 업데이트해야 합니다.
+아니요. [확장 업데이트](#update-extensions)에 설명된 대로 확장은 별도로 업데이트해야 합니다.

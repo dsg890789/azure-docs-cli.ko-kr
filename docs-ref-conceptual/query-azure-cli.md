@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: ed8f8ac160dd8225170ffcfff9619d94b92e456a
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: 97fcd9d5b5a65480957734cec0ead68029918a49
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306168"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967795"
 ---
 # <a name="use-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0과 함께 JMESPath 쿼리 사용
 
@@ -67,7 +67,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.
 
 ## <a name="work-with-list-output"></a>목록 출력으로 작업
 
-하나 이상의 값을 반환할 수 있는 CLI 명령은 항상 배열을 반환합니다. 배열은 인덱스가 해당 요소에 액세스하도록 할 수 있지만 CLI에서 순서를 보장하지 않습니다. 값의 배열을 쿼리하는 가장 좋은 방법은 `[]` 연산자를 사용하여 평면화하는 것입니다. 연산자는 배열의 키 이후에 또는 식의 첫 번째 요소로 작성됩니다. 평면화는 배열에서 각 개별 요소에서 쿼리를 실행하고 결과 값을 새 배열에 배치합니다. 다음 예제에서는 리소스 그룹의 각 VM에서 실행 중인 이름 및 OS를 인쇄합니다. 
+하나 이상의 값을 반환할 수 있는 CLI 명령은 항상 배열을 반환합니다. 배열은 인덱스가 해당 요소에 액세스하도록 할 수 있지만 CLI에서 순서를 보장하지 않습니다. 값의 배열을 쿼리하는 가장 좋은 방법은 `[]` 연산자를 사용하여 평면화하는 것입니다. 연산자는 배열의 키 이후에 또는 식의 첫 번째 요소로 작성됩니다. 평면화는 배열에서 각 개별 요소에서 쿼리를 실행하고 결과 값을 새 배열에 배치합니다. 다음 예제에서는 리소스 그룹의 각 VM에서 실행 중인 이름 및 OS를 인쇄합니다.
 
 ```azurecli-interactive
 az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
@@ -120,7 +120,8 @@ az vm list --query '[?osProfile.windowsConfiguration!=null].name'
 
 ## <a name="experiment-with-queries-interactively"></a>대화형으로 쿼리를 사용하여 실험
 
-JMESPath 식을 사용하여 실험하려면 신속하게 쿼리를 편집하고 출력을 검사할 수 있는 방식으로 작업합니다. [JMESPath 터미널](https://github.com/jmespath/jmespath.terminal) Python 패키지에서 대화형 환경을 제공합니다. 이 기능은 데이터를 추출하기 위해 데이터를 입력으로 파이핑한 다음, 프로그램 내 쿼리를 작성하는 데 사용됩니다.
+JMESPath 식을 사용하여 실험하려면 신속하게 쿼리를 편집하고 출력을 검사할 수 있는 방식으로 작업합니다. 
+  [JMESPath 터미널](https://github.com/jmespath/jmespath.terminal) Python 패키지에서 대화형 환경을 제공합니다. 이 기능은 데이터를 추출하기 위해 데이터를 입력으로 파이핑한 다음, 프로그램 내 쿼리를 작성하는 데 사용됩니다.
 
 ```bash
 pip install jmespath-terminal
