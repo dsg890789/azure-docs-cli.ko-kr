@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: dade772f178ed9fd321ff45727aea991acd6d311
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: 7e73ae8bbbba80bf48c6f01fc1c37a3c32c6eb31
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439638"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967557"
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Linux에 Azure CLI 2.0 수동 설치
 
@@ -39,17 +39,18 @@ CLI를 설치하든 또는 업데이트하는, 전체 설치를 수행해야 합
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-스크립트를 다운로드해 대신 로컬로 실행할 수 있습니다. 변경 내용을 적용하려면 셸을 다시 시작해야 합니다. 
+스크립트를 다운로드해 대신 로컬로 실행할 수 있습니다. 변경 내용을 적용하려면 셸을 다시 시작해야 합니다.
 
 그런 다음 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다. 로그인하려면, [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-다른 로그인 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
+다른 인증 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
 수동 설치 중에 몇 가지 공통 문제가 발견됐습니다. 해당 문제가 여기에 없으면 [Github에 문제를 제출하세요](https://github.com/Azure/azure-cli/issues).
+
 ### <a name="curl-object-moved-error"></a>"개체 이동됨" curl 오류
 
 `-L` 매개 변수와 관련된 `curl`에서 오류가 발생하거나 "개체 이동됨"이라는 텍스트가 포함된 오류 메시지가 표시되면 `aka.ms` 리디렉션 전체 URL을 사용해 보세요.
@@ -86,6 +87,7 @@ hash -r
   rm -r <install location>/lib/azure-cli
   rm <install location>/bin/az
   ```
+
 2. `$HOME/.bash_profile` 파일을 수정하여 다음 선을 제거합니다.
 
   ```text

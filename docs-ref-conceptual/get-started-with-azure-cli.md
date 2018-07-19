@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: c973d31312fbe0f9232bf3f0f3ed5f3b70b6559a
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: f45c3acfdb4edb82cde755472d240ae18d82aba2
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439944"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967744"
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
 
@@ -29,7 +29,7 @@ Azure CLI 2.0 시작! CLI는 특히 자동화 기능을 통해 Azure 서비스�
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-비 대화형으로 로그인할 수 있는 방법도 여러 가지가 있으며, 이에 대해서는 [Azure CLI 2.0에 로그인](authenticate-azure-cli.md)에서 자세히 설명됩니다.
+비 대화형으로 로그인할 수 있는 방법도 여러 가지가 있으며, 이는 [Azure CLI 2.0에 로그인](authenticate-azure-cli.md)에서 자세히 설명됩니다.
 
 ## <a name="common-commands"></a>일반적인 명령
 
@@ -74,7 +74,6 @@ CLI에는 Bash 셸에서 명령에 대한 전체 탭 완성 기능이 포함됩�
 * `--query`은(는) [JMESPath 쿼리 언어](http://jmespath.org/)를 사용하여 Azure 서비스에서 반환되는 출력을 필터링합니다. 쿼리에 대해 자세히 알아보려면 [Azure CLI 2.0을 사용한 쿼리 명령 결과](query-azure-cli.md) 및 [JMESPath 자습서](http://jmespath.org/tutorial.html)를 참조하십시오.
 * `--verbose`은(는) 작업 중 Azure에서 생성되는 리소스에 대한 정보 및 기타 유용한 정보를 출력합니다.
 * `--debug`은(는) 디버깅 목적으로 사용되는 CLI 작업에 대한 자세한 정보를 출력합니다. 버그가 발견된 경우, 버그 보고서를 제출할 때 `--debug` 플래그를 사용해서 생성된 출력을 제공하십시오.
-
 
 ## <a name="interactive-mode"></a>대화형 모드
 

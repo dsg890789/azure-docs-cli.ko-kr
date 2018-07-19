@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 7729077d9240f09e0ad93ad8ab154d1477d8c3fd
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: 03276af8fc9640b6c74f7417ecdaecfe48762782
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439893"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967523"
 ---
 # <a name="install-azure-cli-20-with-yum"></a>yum을 사용하여 Azure CLI 2.0 설치
 
@@ -36,7 +36,7 @@ RHEL, Fedora, CentOS 등의 `yum`과 함께 제공되는 배포를 실행하는 
    sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
    ```
 
-3. `yum install` 명령을 사용하여 설치됩니다. 
+3. `yum install` 명령을 사용하여 설치됩니다.
 
    ```bash
    sudo yum install azure-cli
@@ -46,7 +46,7 @@ RHEL, Fedora, CentOS 등의 `yum`과 함께 제공되는 배포를 실행하는 
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-다른 로그인 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
+다른 인증 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
 
 ## <a name="update"></a>주 지역에서
 

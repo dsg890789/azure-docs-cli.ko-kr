@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: f5923592b465d01e12737211a6eaa5aa2a6ee68a
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: 427ed13d8b853034b263d50cc6b1f0e86eb8b4f9
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439978"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967710"
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 설치
 
@@ -27,10 +27,9 @@ CLI의 현재 버전은 __2.0.41__입니다. 최신 릴리스에 대한 자세�
 * Linux(WSL)용 Linux 또는 Windows 하위 시스템에 설치
   * [apt를 사용하여 Debian 또는 Ubuntu에 설치](install-azure-cli-apt.md)
   * [yum을 사용하여 RHEL, Fedora 또는 CentOS에 설치](install-azure-cli-yum.md)
-  * [zypper를 사용하여 openSUSE 또는 SLE에 설치 ](install-azure-cli-zypper.md)
+  * [zypper를 사용하여 openSUSE 또는 SLE에 설치](install-azure-cli-zypper.md)
   * [스크립트에서 설치](install-azure-cli-linux.md)
 * [Docker 컨테이너에서 실행](run-azure-cli-docker.md)
 
 > [!NOTE]
 > Azure 클래식 배포 모델을 사용하는 경우 [Azure CLI 1.0을 설치합니다](install-cli-version-1.0.md).
-

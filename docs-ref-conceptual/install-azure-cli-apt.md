@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 3f52f1545dc4bad44280c7e58ad17ec2302fd436
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: a0908c5b5bda7ec903b702eecb61eabbbedaf533
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439621"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967846"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt를 사용하여 Azure CLI 2.0 설치
 
@@ -25,7 +25,7 @@ Ubuntu 또는 Debian과 같이 `apt`과(와) 함께 제공되는 배포판을 �
 
 ## <a name="install"></a>설치
 
-1. <a name="install-step-1"/>원본 목록을 수정합니다.
+1. <div id="install-step-1"/>원본 목록을 수정합니다.
 
     ```bash
     AZ_REPO=$(lsb_release -cs)
@@ -33,7 +33,7 @@ Ubuntu 또는 Debian과 같이 `apt`과(와) 함께 제공되는 배포판을 �
         sudo tee /etc/apt/sources.list.d/azure-cli.list
     ```
 
-2. <a name="signingKey"></a>Microsoft 서명 키를 가져옵니다.
+2. <div id="signingKey"/>Microsoft 서명 키 가져오기:
 
    ```bash
    curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -53,7 +53,7 @@ Ubuntu 또는 Debian과 같이 `apt`과(와) 함께 제공되는 배포판을 �
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-다른 로그인 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
+다른 인증 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -113,7 +113,7 @@ sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-
 
 > [!WARNING]
 > 서명 키는 2018년 5월 업데이트되었으며 대체 되었습니다. 서명 키 오류를 수신하는 경우 [최신 서명 키를 획득](#signingKey)했는지 확인합니다.
-   
+>
 > [!NOTE]
 > 이 명령은 시스템에 설치되었지만 종속성이 변경되지 않은 모든 패키지를 업그레이드합니다.
 > CLI만 업그레이드하려면 `apt-get install`을 사용하세요.
