@@ -9,14 +9,83 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b44a387a144b9d7daca8d87309d8a5e1a47b078a
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 8d4f0879a18d2cf99ea7a284155bec86413406f8
+ms.sourcegitcommit: da34d0eecf19c676826bd32ab254a92bd0976124
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967880"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138239"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="july-18-2018"></a>2018년 7월 18일
+
+버전 2.0.42
+
+### <a name="core"></a>코어
+
+* WSL bash 창에서 브라우저 기반 로그인에 대한 지원 추가
+* 모든 일반 업데이트 명령에 `--force-string` 플래그 추가
+* [호환성이 손상되는 변경] '표시' 명령이 리소스 누락 시 오류 메시지를 기록하고 종료 코드 3과 함께 실패하도록 변경됨
+
+### <a name="acr"></a>ACR
+
+* [호환성이 손상되는 변경] '--no-push'를 'acr 빌드' 명령에서 순수 플래그로 업데이트
+* `show` 및 `update` 명령이 `acr repository` 그룹 아래 추가됨
+* 세부 정보를 표시 하기 위해 `--detail` 플래그를 `show-manifests` 및 `show-tags`에 대해 추가
+* `--image` 매개 변수를 이미지로 빌드 세부 사항이나 로그를 얻을 수 있도록 지원하기 위해 추가
+
+### <a name="acs"></a>ACS
+
+* `--max-pods`가 5보다 작은 경우 오류가 발생하도록 `az aks create`을 변경
+
+### <a name="appservice"></a>AppService
+
+* PremiumV2 sku에 대한 지원 추가
+
+### <a name="batch"></a>Batch
+
+* 클라우드 셸 모드에서 토큰 자격 증명을 사용할 때의 버그 수정
+* JSON 입력을 대/소문자를 구분하지 않도록 변경
+
+### <a name="batch-ai"></a>Batch AI
+
+* `az batchai job exec` 명령 수정됨
+
+### <a name="container"></a>컨테이너
+
+* 비 dockerhub 레지스트리의 사용자 이름 및 암호에 대한 요구 사항을 제거
+* yaml 파일에서 컨테이너 그룹을 만들 때 발생하는 오류 수정
+
+### <a name="network"></a>네트워크
+
+* `network nic [create|update|delete]`에 `--no-wait` 지원이 추가됨 
+* `network nic wait`가 추가됨
+* `network vnet [subnet|peering] list`에 대한 `--ids` 인수가 사용되지 않음
+* `network nsg rule list` 출력의 기본 보안 규칙을 포함하도록 `--include-default` 플래그를 추가  
+
+### <a name="resource"></a>리소스
+
+* `group deployment delete`에 `--no-wait` 지원이 추가됨
+* `deployment delete`에 `--no-wait` 지원이 추가됨
+* `deployment wait` 명령이 추가됨
+* 구독 수준 `az deployment` 명령이 프로필 2017-03-09-profile에 잘못 표시되는 문제가 해결됨
+
+### <a name="sql"></a>SQL
+
+* `sql db copy` 및 `sql db replica create` 명령에 탄력적 풀 이름을 지정할 때 ‘제공된 리소스 그룹의 이름이 ... URL 내의 이름과 일치하지 않습니다’ 오류가 해결됨
+* `az configure --defaults sql-server=<name>`를 실행하여 기본 SQL Server 구성 허용
+* `sql server`, `sql server firewall-rule`, `sql list-usages`, `sql show-usage` 명령에 테이블 포맷터를 구현함
+
+### <a name="storage"></a>Storage
+
+* 페이지 Blob에 대해 채워질 `storage blob show` 출력에 `pageRanges` 속성을 추가
+
+### <a name="vm"></a>VM
+
+* [호환성이 손상되는 변경] `vmss create`가 `Standard_DS1_v2`를 기본 인스턴스 크기로 사용하도록 변경
+* `vm extension [set|delete]` 및 `vmss extension [set|delete]`에 대한 `--no-wait` 지원 추가
+* `vm extension wait`가 추가됨
 
 ## <a name="july-3-2018"></a>2018년 7월 3일
 
