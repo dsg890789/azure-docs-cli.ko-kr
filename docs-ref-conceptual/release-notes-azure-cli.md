@@ -9,14 +9,72 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 8d4f0879a18d2cf99ea7a284155bec86413406f8
-ms.sourcegitcommit: da34d0eecf19c676826bd32ab254a92bd0976124
+ms.openlocfilehash: d0f8c01495cc95ecfbf6a41d510eb4bc54d47ba2
+ms.sourcegitcommit: 8019690502e9f89c083839d83a0a245cc812e8b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39138239"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39392356"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="july-31-2018"></a>2018년 7월 31일
+
+Version 2.0.43
+
+### <a name="acr"></a>ACR
+
+* `--with-secure-properties` 플래그를 `acr build-task show` 명령에 추가
+* `acr build-task update-build` 명령이 추가됨
+
+### <a name="acs"></a>ACS
+
+* `az aks browse`를 종료할 때 [Ctrl + C]를 눌러 return 0(성공)을 반환하도록 변경
+
+### <a name="batch"></a>Batch
+
+* cloudshell에서 AAD 토큰을 보여줄 때의 버그가 수정됨
+
+### <a name="container"></a>컨테이너
+
+* 집합 구독에서 이름 또는ID에 대한 `--log-analytics-workspace-key` 요구 사항이 제거됨
+
+### <a name="network"></a>네트워크
+
+* Azure Stack에 대해 2017-03-09-profile에 dns 지원 추가 
+
+### <a name="resource"></a>리소스
+
+* `group deployment create`에 `--rollback-on-error`를 추가하여 오류 시 성공한 배포를 실행하도록 함
+* `group deployment create`를 사용하여 `--parameters {}`에서 오류가 발생하는 문제를 해결
+
+### <a name="role"></a>역할
+
+* 스택 프로필 2017-03-09-profile에 대한 지원 추가
+* `app update`에 다한 제네릭 업데이트 매개 변수가 올바르게 작동하지 않는 문제 해결
+
+### <a name="search"></a>검색
+
+* Azure Search 서비스에 대한 명령 추가
+
+### <a name="service-bus"></a>Service Bus
+
+* Service Bus 표준에서 프리미엄으로 네임 스페이스를 마이그레이션하는 추가 마이그레이션 명령 그룹이 추가됨
+* Service Bus 큐 및 구독에 새로운 선택적 속성이 추가됨
+  *  `queue` 내 `--enable-batched-operations` 및 `--enable-dead-lettering-on-message-expiration`
+  *  `subscriptions` 내 `--dead-letter-on-filter-exceptions`
+
+### <a name="storage"></a>Storage
+
+* 단일 연결을 사용하는 대용량 파일 다운로드에 대한 지원 추가
+* 리소스 누락으로 종료 코드 3으로 실패할 때 누락되었던 `show` 명령 변환
+
+### <a name="vm"></a>VM
+
+* 구독 별로 가용성 집합을 리스팅하도록 지원 추가
+* `StandardSSD_LRS` 지원에 대한 지원이 추가됨
+* VM 확장 집합 생성 시 응용 프로그램 보안 그룹에 대한 지원이 추가됨
+* [호환성이 손상되는 변경] `[vm|vmss] create`, `[vm|vmss] identity assign`, 및 `[vm|vmss] identity remove`를 사전 형식으로 사용자 할당 ID를 출력하도록 변경
 
 ## <a name="july-18-2018"></a>2018년 7월 18일
 
