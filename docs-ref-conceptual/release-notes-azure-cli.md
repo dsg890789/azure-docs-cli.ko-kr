@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: d0f8c01495cc95ecfbf6a41d510eb4bc54d47ba2
-ms.sourcegitcommit: 8019690502e9f89c083839d83a0a245cc812e8b6
+ms.openlocfilehash: 549317fb3ffffbe5f392e7a2bbc5cb4ed10b7e89
+ms.sourcegitcommit: 772aad0d9696156d6e87fa00e255dfd0b6394d23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392356"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39718017"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
 
@@ -72,7 +72,7 @@ Version 2.0.43
 ### <a name="vm"></a>VM
 
 * 구독 별로 가용성 집합을 리스팅하도록 지원 추가
-* `StandardSSD_LRS` 지원에 대한 지원이 추가됨
+* `StandardSSD_LRS`에 대한 지원이 추가됨
 * VM 확장 집합 생성 시 응용 프로그램 보안 그룹에 대한 지원이 추가됨
 * [호환성이 손상되는 변경] `[vm|vmss] create`, `[vm|vmss] identity assign`, 및 `[vm|vmss] identity remove`를 사전 형식으로 사용자 할당 ID를 출력하도록 변경
 
@@ -385,7 +385,7 @@ Version 2.0.35
 
 ### <a name="sql"></a>SQL
 
-* 관리형 새 인스턴스 명령이 추가됨
+* 새로운 추가된 관리되는 인스턴스 명령:
   * `sql mi create`
   * `sql mi show`
   * `sql mi list`
