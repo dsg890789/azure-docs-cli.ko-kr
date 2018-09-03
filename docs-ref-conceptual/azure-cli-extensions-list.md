@@ -4,17 +4,17 @@ description: Azure CLI 2.0에 대해 공식적으로 지원되는 확장의 전�
 author: derekbekoe
 ms.author: debekoe
 manager: routlaw
-ms.date: 08/08/2018
+ms.date: 08/13/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 36657d29f6708bc60f7d9386ffa0671a9639edc9
-ms.sourcegitcommit: 772aad0d9696156d6e87fa00e255dfd0b6394d23
+ms.openlocfilehash: 09735708946e40fd0d515bcd43bbf4798c70673d
+ms.sourcegitcommit: 4cf5784b741dd55c0a4240443d3180d8ec83526c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39718034"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "43144934"
 ---
 # <a name="available-extensions-for-the-azure-cli-20"></a>Azure CLI 2.0에 대해 사용 가능한 확장
 
@@ -37,6 +37,7 @@ az extension list-available --output table
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | DNS 영역을 위한 Azure CLI Extension |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Azure EventGrid 2018-05-01 미리 보기 기능에 대한 지원 | yes |
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.0 | ExpressRoute 간 연결을 사용하여 고객의 ExpressRoute 회로를 관리 합니다. |  |
+| [find](https://github.com/Azure/azure-cli-extensions/tree/master/src/find) | 0.1.0 | CLI 정보에 대한 지능형 쿼리. | yes |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.7 | 지역 간 관리 vm 이미지 복사 기능에 대한 지원 |  |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Azure Key Vault 미리보기 명령어 | yes |
 | [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.2 | Azure Log Analytics 쿼리 기능을 지원합니다. | yes |

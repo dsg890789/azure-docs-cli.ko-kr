@@ -4,19 +4,159 @@ description: Azure CLI 2.0 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/03/2018
+ms.date: 08/28/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 549317fb3ffffbe5f392e7a2bbc5cb4ed10b7e89
-ms.sourcegitcommit: 772aad0d9696156d6e87fa00e255dfd0b6394d23
+ms.openlocfilehash: 62e57d048666f478b670f182bb9348dba90de6a0
+ms.sourcegitcommit: 8f060bc009278eafc0ed448bad4b7d08c742ff63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39718017"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43145093"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="auguest-28-2018"></a>2018년 8월 28일
+
+Version 2.0.45
+
+### <a name="core"></a>코어
+
+* 빈 구성 파일을 로드하는 문제 해결
+* Azure Stack에 대해 `2018-03-01-hybrid` 프로필에 대한 지원 추가
+
+### <a name="acr"></a>ACR
+
+* ARM 요청 없이 런타임 작업에 대한 해결 방법 추가
+* 기본적으로 `build` 명령에서 버전 제어 파일 (예:.git,.gitignore)을 업로드된 tar에서 제외하도록 변경
+
+### <a name="acs"></a>ACS
+
+* `aks create`의 기본값을 `Standard_DS2_v2` VM으로 변경
+* 이제 새 api를 호출하여 클러스터 자격 증명을 가져오도록 `aks get-credentials` 변경
+
+### <a name="appservice"></a>AppService
+
+* Functionapp 및 Webapp에서 CORS 지원 추가
+* 명령 생성에 대한 ARM 태그 지원이 추가되었습니다.
+* 누락된 리소스 발생 시 코드 3을 사용하여 종료하도록 `[webapp|functionapp] identity show` 변경
+
+### <a name="backup"></a>Backup
+
+* 누락된 리소스 발생 시 코드 3을 사용하여 종료하도록 `backup vault backup-properties show` 변경
+
+### <a name="bot-service"></a>Bot 서비스
+
+* 초기 Bot Service CLI 릴리스
+
+### <a name="cognitive-services"></a>Cognitive Services
+
+* 일부 서비스를 만드는 데 필요한 새 매개 변수 `--api-properties,` 추가
+
+### <a name="iot"></a>IoT
+
+* 연결된 허브 연관 문제 해결
+
+### <a name="monitor"></a>모니터
+
+* 근 실시간 메트릭 경고에 대한 `monitor metrics alert` 명령 추가
+* 사용되지 않는 `monitor alert` 명령
+
+### <a name="network"></a>네트워크
+
+* 누락된 리소스 발생 시 코드 3을 사용하여 종료하도록 `network application-gateway ssl-policy predefined show` 변경
+
+### <a name="resource"></a>리소스
+
+* 누락된 리소스 발생 시 코드 3을 사용하여 종료하도록 `provider operation show` 변경
+
+### <a name="storage"></a>Storage
+
+* 누락된 리소스 발생 시 코드 3을 사용하여 종료하도록 `storage share policy show` 변경
+
+### <a name="vm"></a>VM
+
+* 누락된 리소스 발생 시 코드 3을 사용하여 종료하도록 `vm/vmss identity show` 변경 
+* `vm create`에 `--storage-caching`이 사용되지 않도록 함
+
+## <a name="auguest-14-2018"></a>2018년 8월 14일
+
+Version 2.0.44
+
+### <a name="core"></a>코어
+
+* `table` 출력에 숫자 표시 해결
+* 추가된 YAML 출력 형식
+
+### <a name="telemetry"></a>원격 분석
+
+* 향상된 원격 분석 보고
+
+### <a name="acr"></a>ACR
+
+* `content-trust policy` 명령이 추가됨
+* `.dockerignore`가 제대로 처리되지 않는 문제 해결
+
+### <a name="acs"></a>ACS
+
+* Windows에서 `%USERPROFILE%\.azure-kubectl` 하에서 설치하도록 `az acs/aks install-cli` 변경
+* 클러스터에 RBAC가 있는지 감지하여 ACI 커넥터를 적절하게 구성하도록 `az aks install-connector` 변경
+* 제공되는 서브넷에 대한 역할 할당 변경
+* 서브넷에 대해 제공하는 경우 "역할 할당 건너뛰기" 새 옵션 추가                                 
+* 할당이 이미 있는 경우 서브넷으로의 역할 할당을 건너뛸 수 있도록 변경                
+
+### <a name="appservice"></a>AppService
+
+* 외부 리소스 그룹에 저장소 계정을 사용하여 함수 앱을 만들지 못하도록 하는 버그가 수정됨
+* Zip 배포 충돌을 해결
+
+### <a name="batchai"></a>BatchAI
+
+* 자동 저장소 계정 만들기가 "리소스 *그룹*"을 지정하도록 로거 출력 변경        
+
+### <a name="container"></a>컨테이너
+
+* 보안 환경 변수 전달을 위해 컨테이너에 `--secure-environment-variables` 추가      
+
+### <a name="iot"></a>IoT
+
+* [호환성이 손상되는 변경] 사용되지 않는 명령을 제거하여 iot 확장으로 이동
+* `azure-devices.net` 도메인을 가정하지 않도록 요소를 업데이트
+
+### <a name="iot-central"></a>Iot Central
+
+* IoT Central 모듈의 초기 릴리스
+
+### <a name="keyvault"></a>KeyVault
+
+
+* 저장소 계정 및 sas 정의를 관리하는 것에 대한 명령이 추가됨
+* 네트워크 규칙에 대한 명령이 추가됨                                                           
+* 비밀, 키 및 인증서 작업에 `--id` 매개 변수를 추가
+* KV mgmt 다중 api 버전에 대한 지원 추가
+* KV 데이터 평면 다중 api 버전에 대한 지원 추가
+
+### <a name="relay"></a>릴레이
+
+* 최초 릴리스
+
+### <a name="sql"></a>Sql
+
+* `sql failover-group` 명령이 추가됨
+
+### <a name="storage"></a>Storage
+
+* [호환성이 손상되는 변경] `--location` 매개 변수를 요구하도록 `storage account show-usage`를 변경하여 지역에 따라 나열됨
+* `--resource-group` 매개 변수가 `storage account` 명령에 대해 선택 사항이 되도록 변경
+* 단일 집계된 메시지에 대한 일괄 처리 명령에서 개별 오류에 대한 '전제 조건 실패’ 경고를 제거
+* `[blob|file] delete-batch` 명령을 변경하여 더 이상 null 배열을 출력하지 않도록 함
+* 컨테이너 url에서 sas 토큰을 읽도록 `blob [download|upload|delete-batch]` 명령 변경
+
+### <a name="vm"></a>VM
+
+* 사용 편의성을 위해 일반 필터를 `vm list-skus`에 추가
 
 ## <a name="july-31-2018"></a>2018년 7월 31일
 
@@ -1186,7 +1326,7 @@ Version 2.0.35
 
 ### <a name="cloud"></a>클라우드
 
-* 클라우드에서 `--profile`을 설정할 때 끝점을 요구하지 않도록 변경됨
+* 클라우드에서 `--profile`을 설정할 때 엔드포인트를 요구하지 않도록 변경됨
 
 ### <a name="consumption"></a>Consumption
 
@@ -1279,7 +1419,7 @@ Version 2.0.35
 * `az component` 명령이 제거되었습니다. 대신 `az extension`을 사용하세요.
 
 ### <a name="core"></a>코어
-* `AZURE_US_GOV_CLOUD` AAD 권한 끝점이 login.microsoftonline.com에서 login.microsoftonline.us로 수정됨
+* `AZURE_US_GOV_CLOUD` AAD 권한 엔드포인트가 login.microsoftonline.com에서 login.microsoftonline.us로 수정됨
 * 원격 분석이 지속적으로 다시 전송되는 문제가 해결됨
 
 ### <a name="acs"></a>ACS
@@ -1369,7 +1509,7 @@ Version 2.0.35
 
 ### <a name="cloud"></a>클라우드
 
-* 필요한 끝점이 누락된 클라우드를 등록하지 못하도록 `cloud [register|update]` 변경
+* 필요한 엔드포인트가 누락된 클라우드를 등록하지 못하도록 `cloud [register|update]` 변경
 
 ### <a name="container"></a>컨테이너
 
@@ -1402,7 +1542,7 @@ Version 2.0.35
 ### <a name="network"></a>네트워크
 
 * CAA DNS 레코드에 대한 지원 추가
-* `traffic-manager profile update`로 끝점을 업데이트할 수 없는 문제 해결
+* `traffic-manager profile update`로 엔드포인트를 업데이트할 수 없는 문제 해결
 * VNET이 만들어지는 방법에 따라 `vnet update --dns-servers`가 작동하지 않는 문제 해결
 * `dns zone import`가 상대 DNS 이름을 잘못 가져오는 문제 해결
 
@@ -1762,7 +1902,7 @@ Version 2.0.35
 * Batch SDK 3.1.0 및 Batch Management SDK 4.1.0으로 업데이트됨
 * 작업의 태스크 수를 표시하는 새 명령이 추가됨
 * 리소스 파일 SAS URL 처리에서 발견된 버그가 수정됨
-* 배치 계정 끝점에서 이제 선택적 'https://' 접두사를 지원합니다.
+* 배치 계정 엔드포인트에서 이제 선택적 'https://' 접두사를 지원합니다.
 * 100개 이상의 태스크를 포함한 목록이 작업에 추가되도록 지원합니다.
 * 확장 명령 모듈 로드에 대한 디버그 로깅이 추가됨
 
@@ -1858,7 +1998,7 @@ vm (2.0.11)
 
 * 인증서가 있는 서비스 사용자에 대한 SDK 인증 정보가 출력됨
 * 배포 진행률 예외가 해결됨
-* 현재 클라우드의 ARM 끝점을 사용하여 구독 클라이언트를 만들 수 있음
+* 현재 클라우드의 ARM 엔드포인트를 사용하여 구독 클라이언트를 만들 수 있음
 * clouds.config 파일의 동시 처리가 향상됨(#3636)
 * 각 명령 실행에 대한 클라이언트 요청 ID를 새로 고침
 * 오른쪽 SDK 프로필을 사용하여 구독 클라이언트를 만들 수 있음(#3635)
@@ -1910,9 +2050,9 @@ vm (2.0.11)
 
 ### <a name="cloud"></a>클라우드
 
-* 클라우드 메타데이터 끝점의 API 버전이 YYYY-MM-DD 형식으로 변경됨
-* 갤러리 끝점이 필요하지 않음
-* ARM 리소스 관리자 끝점을 사용한 클라우드 등록이 지원됨
+* 클라우드 메타데이터 엔드포인트의 API 버전이 YYYY-MM-DD 형식으로 변경됨
+* 갤러리 엔드포인트가 필요하지 않음
+* ARM 리소스 관리자 엔드포인트를 사용한 클라우드 등록이 지원됨
 * 현재 클라우드를 선택하는 동안에 `cloud set`에서 프로필을 선택하는 옵션이 제공됨
 * `endpoint_vm_image_alias_doc`가 공개됨
 
@@ -2142,7 +2282,7 @@ vm (2.0.6)
 * core: 구성된 기본값이 선택적 인수에 적용하도록 허용([#2703](https://github.com/Azure/azure-cli/issues/2703))
 * core: 향상된 성능
 * core: 사용자 지정 CA 인증서 - REQUESTS_CA_BUNDLE 환경 변수 설정 지원
-* core: 클라우드 구성 - '관리' 끝점을 설정하지 않은 경우 '리소스 관리자' 끝점 사용
+* core: 클라우드 구성 - '관리' 엔드포인트를 설정하지 않은 경우 '리소스 관리자' 엔드포인트 사용
 
 ### <a name="acs"></a>ACS
 
