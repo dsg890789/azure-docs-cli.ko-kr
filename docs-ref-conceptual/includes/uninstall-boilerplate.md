@@ -2,13 +2,13 @@
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: include
-ms.openlocfilehash: 24127042e7c44071616d46c967c84fb648f5e353
-ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
+ms.openlocfilehash: c0543b11c83a84479197f0b40b330dabeea2af8e
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38229307"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388663"
 ---
-<span data-ttu-id="892af-101">Azure CLI를 제거하려는 경우 유감스럽게 생각합니다.</span><span class="sxs-lookup"><span data-stu-id="892af-101">If you decide to uninstall the Azure CLI, we're sorry to see you go.</span></span> <span data-ttu-id="892af-102">제거하기 전에 `az feedback` 명령을 사용하여 제거하려는 이유와 CLI를 개선할 수 있는 방법에 관한 몇 가지 정보를 남겨주시기 바랍니다.</span><span class="sxs-lookup"><span data-stu-id="892af-102">Before you uninstall, use the `az feedback` command to give some information about why you chose to uninstall and how the CLI could be improved.</span></span> <span data-ttu-id="892af-103">우리 목표는 Azure CLI를 버그가 없고 사용자에게 친숙하게 만드는 것입니다.</span><span class="sxs-lookup"><span data-stu-id="892af-103">Our goal is to make the Azure CLI bug-free and user-friendly.</span></span> <span data-ttu-id="892af-104">버그가 발생한 경우 [GitHub 문제를 제출](https://github.com/Azure/azure-cli/issues)해주시면 감사하겠습니다.</span><span class="sxs-lookup"><span data-stu-id="892af-104">If you encountered a bug, we'd appreciate it if you [file a GitHub issue](https://github.com/Azure/azure-cli/issues).</span></span>
+<span data-ttu-id="7a187-101">Azure CLI를 제거하려는 경우 유감스럽게 생각합니다.</span><span class="sxs-lookup"><span data-stu-id="7a187-101">If you decide to uninstall the Azure CLI, we're sorry to see you go.</span></span> <span data-ttu-id="7a187-102">제거하기 전에 `az feedback` 명령을 사용하여 향상 또는 수정할 사항을 알려주세요.</span><span class="sxs-lookup"><span data-stu-id="7a187-102">Before you uninstall, use the `az feedback` command to let us know what could be improved or fixed.</span></span> <span data-ttu-id="7a187-103">우리 목표는 Azure CLI를 버그가 없고 사용자에게 친숙하게 만드는 것입니다.</span><span class="sxs-lookup"><span data-stu-id="7a187-103">Our goal is to make the Azure CLI bug-free and user-friendly.</span></span> <span data-ttu-id="7a187-104">버그가 발생한 경우 [GitHub 문제를 제출](https://github.com/Azure/azure-cli/issues)해주시면 감사하겠습니다.</span><span class="sxs-lookup"><span data-stu-id="7a187-104">If you found a bug, we'd appreciate it if you [file a GitHub issue](https://github.com/Azure/azure-cli/issues).</span></span>
