@@ -4,17 +4,17 @@ description: Azure CLI 2.0에 대해 공식적으로 지원되는 확장의 전�
 author: derekbekoe
 ms.author: debekoe
 manager: routlaw
-ms.date: 08/31/2018
+ms.date: 09/06/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 11125445d09ec8f0c62b1f508093bdfef9ad9e44
-ms.sourcegitcommit: 252e5e1b5d0ab868044a9c03f2c9fefc22d362b4
+ms.openlocfilehash: 24134d9769f7e89afe82f74490c6b49c81c7883f
+ms.sourcegitcommit: 46d4040eae1923c59caaac22aedab303b3116dad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43380920"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44048751"
 ---
 # <a name="available-extensions-for-the-azure-cli-20"></a>Azure CLI 2.0에 대해 사용 가능한 확장
 
@@ -31,8 +31,8 @@ az extension list-available --output table
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | SAP용 Azure 고급 모니터링 확장 관리 |  |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.1 | 명령 별칭 지원 | yes |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.4.1 | Azure Batch 서비스와 함께 사용하기 위한 추가 명령 |  |
-| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.5.1 | Azure IoT Hub, IoT Edge 및 IoT 장치 프로비전 서비스에 대한 데이터 플레인 명령 계층 제공 |  |
-| [botservice](https://github.com/Azure/azure-cli-extensions) | 0.0.3 | Azure Bot Service 2017-12-01 미리 보기 기능 지원 | yes |
+| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.5.2 | Azure IoT Hub, IoT Edge 및 IoT 장치 프로비전 서비스에 대한 데이터 플레인 명령 계층 제공 |  |
+| [botservice](https://github.com/Azure/azure-cli-extensions) | 0.4.0 | 네이티브 botservice cli 명령 모듈 문제에 대한 버그가 수정되었습니다. | yes |
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.6 | Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. | yes |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | DNS 영역을 위한 Azure CLI Extension |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Azure EventGrid 2018-05-01 미리 보기 기능에 대한 지원 | yes |

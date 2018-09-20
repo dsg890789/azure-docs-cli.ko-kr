@@ -4,21 +4,21 @@ description: Azure CLI 2.0 별칭 확장 사용 방법
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 39996693d6b796c2d9a45cd909121829f00291a8
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: a2cd277640ab0a55d2e1da5ecb491e72eee1e0df
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306270"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388629"
 ---
 # <a name="the-azure-cli-20-alias-extension"></a>Azure CLI 2.0 별칭 확장
 
-별칭 확장을 사용하면 기존 명령을 사용하여 Azure CLI에 대한 사용자 정의 명령을 정의할 수 있습니다. 별칭을 사용하면 바로 가기를 허용하고 위치 인수를 사용할 수 있으므로 워크플로를 간결하고 간단하게 유지할 수 있습니다. 별칭은 Jinja2 템플릿 엔진을 기반으로 하기 때문에 고급 인수 처리도 제공합니다.
+별칭 확장을 사용하면 기존 명령을 사용하여 Azure CLI에 대한 사용자 정의 명령을 정의할 수 있습니다. 별칭은 바로 가기를 허용하여 워크플로 단순하게 유지하는 데 도움이 됩니다. 별칭은 Jinja2 템플릿 엔진을 기반으로 하기 때문에 고급 인수 처리도 제공합니다.
 
 > [!NOTE]
 > 별칭 확장은 공개 미리 보기에 있습니다. 기능 및 구성 파일 형식이 변경될 수 있습니다.
@@ -47,7 +47,7 @@ alias
 
 ## <a name="keep-the-extension-up-to-date"></a>확장을 최신 상태로 유지
 
-별칭 확장은 현재 개발 중이며 새 버전은 정기적으로 릴리스됩니다. 새 버전은 CLI를 업데이트할 때마다 자동으로 설치되지 않습니다. [az 확장 업데이트](/cli/azure/extension#az-extension-update)를 사용하여 확장 업데이트를 설치합니다.
+별칭 확장은 현재 개발 중이며 새 버전은 정기적으로 릴리스됩니다. CLI를 업데이트하는 경우 새 버전이 설치되지 않습니다. [az 확장 업데이트](/cli/azure/extension#az-extension-update)를 사용하여 확장 업데이트를 설치합니다.
 
 ```azurecli-interactive
 az extension update --name alias
@@ -55,7 +55,7 @@ az extension update --name alias
 
 ## <a name="manage-aliases-for-the-azure-cli"></a>Azure CLI에 대한 별칭 관리
 
-별칭 확장은 별칭을 관리하는데 편리하고 친숙한 명령을 제공합니다. 모든 사용 가능한 명령 및 매개 변수 세부 정보를 보려면 `--help`을 사용하여 별칭 명령을 호출합니다.
+별칭 확장을 사용하여 다른 CLI 명령에 대한 별칭을 만들고 관리할 수 있습니다. 모든 사용 가능한 명령 및 매개 변수 세부 정보를 보려면 `--help`을 사용하여 별칭 명령을 실행합니다.
 
 ```azurecli-interactive
 az alias --help
@@ -115,7 +115,7 @@ az alias create \
 az get-vm-ip MyResourceGroup MyVM
 ```
 
-별칭으로 호출된 명령에서 환경 변수를 사용할 수도 있으며, 이 명령은 런타임에서 평가됩니다. 다음 예는 `eastus`에 리소스 그룹을 만들고 `owner` 태그를 추가하는 `create-rg` 별칭을 추가합니다. 이 태그에는 로컬 환경 변수 `USER`의 값이 지정됩니다.
+별칭 명령에서 환경 변수를 사용할 수도 있으며, 이 명령은 런타임에서 평가됩니다. 다음 예는 `eastus`에 리소스 그룹을 만들고 `owner` 태그를 추가하는 `create-rg` 별칭을 추가합니다. 이 태그에는 로컬 환경 변수 `USER`의 값이 지정됩니다.
 
 ```azurecli-interactive
 az alias create \
@@ -127,7 +127,7 @@ az alias create \
 
 ## <a name="process-arguments-using-jinja2-templates"></a>Jinja2 템플릿을 사용하는 프로세스 인수
 
-별칭 확장의 인수 대체는 [Jinja2](http://jinja.pocoo.org/docs/2.10/)에 의해 수행되어 Jinja2 템플릿 엔진의 기능에 대한 모든 액세스 권한을 제공합니다. 템플릿을 사용하면 문자열에서 데이터 추출 및 대체와 같은 작업을 수행할 수 있습니다.
+[Jinja2](http://jinja.pocoo.org/docs/2.10/)로 별칭 확장에서 인수 대체를 수행합니다. Jinja2 템플릿은 인수 조작을 허용합니다.
 
 Jinja2 템플릿을 사용하면 기본 명령과 다른 인수 유형을 사용하는 별칭을 작성할 수 있습니다. 예를 들어 저장소 URL을 사용하는 별칭을 만들 수 있습니다. 그런 다음 이 URL을 구문 분석하여 계정 및 컨테이너 이름을 저장소 명령에 전달합니다.
 
@@ -150,7 +150,7 @@ Jinja2 템플릿 엔진에 대한 자세한 내용은 [Jinja2 설명서](http://
 command = invoked_commands
 ```
 
-위치 인수가 포함된 별칭의 경우, 별칭 명령에 대한 형식은 다음과 같습니다.
+위치 인수가 있는 별칭의 경우, 별칭 명령에 대한 형식은 다음과 같습니다.
 
 ```ini
 [alias_name {{ arg1 }} {{ arg2 }} ...]
@@ -159,7 +159,7 @@ command = invoked_commands_including_args
 
 ## <a name="create-an-alias-command-with-arguments-via-the-alias-configuration-file"></a>별칭 구성 파일을 통해 인수를 갖는 별칭 명령 만들기
 
-다음은 VM의 공용 IP 주소를 가져오는 인수가 있는 예제 별칭 명령을 포함하는 별칭 구성 파일입니다. 호출된 명령이 한 줄에 있으며 별칭에 정의된 동일한 인수를 포함하는지 확인하십시오.
+다음 예제에서는 인수를 사용하는 명령에 대한 별칭을 보여 줍니다. 이 명령은 VM에 대한 공용 IP 주소를 가져옵니다. 별칭이 지정된 명령은 단일 줄에 있어야 하며, 별칭 이름에 모든 인수를 사용합니다.
 
 ```ini
 [get-vm-ip {{ resourceGroup }} {{ vmName }}]

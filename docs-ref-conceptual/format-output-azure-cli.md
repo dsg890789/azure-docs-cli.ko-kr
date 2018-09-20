@@ -4,21 +4,21 @@ description: Azure CLI 2.0 명령 출력을 테이블, 목록 또는 json 형식
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b402ce89cbf51adb3d521a604e992dd1fb5a42fa
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 07a5e9d913257d6aeb20a68263a6256ffadbe627
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967608"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388510"
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Azure CLI 2.0 명령의 출력 형식
 
-Azure CLI 2.0은 기본 출력 옵션으로 json을 사용하지만 모든 명령의 출력 형식을 지정하는 다양한 방법을 제공합니다.  `--output`(또는 `--out` 또는 `-o`) 매개 변수를 사용하여 명령의 출력을 다음 테이블에 나와 있는 출력 형식 중 하나로 지정합니다.
+Azure CLI 2.0는 기본 출력 형식으로 JSON을 사용하지만 다른 형식도 제공합니다.  `--output`(`--out` 또는 `-o`) 매개 변수를 사용하여 CLI 출력의 형식을 지정합니다. 인수 값과 출력의 형식은 다음과 같습니다.
 
 --output | 설명
 ---------|-------------------------------
@@ -67,7 +67,7 @@ az vm list --output json
 
 ## <a name="table-output-format"></a>테이블 출력 형식
 
-`table` 출력 형식은 정렬된 데이터의 행과 열로 서식이 지정된 일반 출력을 제공하여 쉽게 읽고 검사할 수 있게 합니다. 중첩된 개체는 테이블 출력에 포함되지 않지만 쿼리의 일부로 필터링될 수 있습니다. 일부 필드는 데이터에서 생략됩니다. 따라서 빠르고 검색 가능한 데이터의 개요를 만들려는 경우 이 형식을 사용하는 것이 좋습니다.
+`table` 형식은 ASCII 테이블로 출력을 인쇄하여 읽고 검사하기 쉽게 합니다. 중첩된 개체는 테이블 출력에 포함되지 않지만 쿼리의 일부로 필터링될 수 있습니다. 일부 필드는 테이블에 포함되지 않습니다. 따라서 빠르고 검색 가능한 데이터의 개요를 만들려는 경우 이 형식을 사용하는 것이 좋습니다.
 
 ```azurecli-interactive
 az vm list --out table
@@ -100,7 +100,7 @@ RGDEMO001   KBDemo020
 ```
 
 > [!NOTE]
-> 특정 키는 필터링되고 테이블 보기에 인쇄되지 않습니다. `id`, `type` 및 `etag`가 포함됩니다. 출력에 표시해야 하는 경우 JMESPath 리키잉 기능을 사용하여 키 이름을 변경하고 필터링을 방지할 수 있습니다.
+> 일부 키는 기본적으로 테이블 보기에 인쇄되지 않습니다. `id`, `type` 및 `etag`가 포함됩니다. 출력에 표시해야 하는 경우 JMESPath 리키잉 기능을 사용하여 키 이름을 변경하고 필터링을 방지할 수 있습니다.
 >
 > ```azurecli
 > az vm list --query "[].{objectID:id}" -o table
@@ -110,7 +110,7 @@ RGDEMO001   KBDemo020
 
 ## <a name="tsv-output-format"></a>TSV 출력 형식
 
-`tsv` 출력 형식은 추가 서식 지정, 키 또는 다른 기호 없이 탭 및 줄 바꿈으로 구분된 값을 반환합니다. 이 형식은 출력을 어떤 형태의 텍스트를 처리해야 하는 다른 명령 및 도구에 간편하게 사용할 수 있습니다. `table` 형식과 마찬가지로 `tsv` 출력 옵션은 중첩된 개체를 인쇄하지 않습니다.
+`tsv` 출력 형식은 추가 서식 지정, 키 또는 다른 기호 없이 탭 및 줄 바꿈으로 구분된 값을 반환합니다. 이 형식은 출력을 어떤 형태의 텍스트를 처리해야 하는 다른 명령 및 도구에 간편하게 사용할 수 있습니다. `table` 형식과 마찬가지로 `tsv`는 중첩된 개체를 인쇄하지 않습니다.
 
 앞의 예제에 `tsv` 옵션을 사용하면 탭으로 구분된 결과가 출력됩니다.
 
@@ -126,7 +126,7 @@ None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Micros
 None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo02None    None    westus    KBDemo020            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    36baa9-9b80-48a8-b4a9-854c7a858ece
 ```
 
-다음 예제에서는 `tsv` 출력을 UNIX 시스템의 다른 명령에 파이프하여 보다 구체적인 데이터를 추출할 수 있는 방법을 보여줍니다. `grep` 명령은 이름에 "RGD"라는 텍스트가 포함된 항목을 선택하고, `cut` 명령은 8번째 필드(탭으로 구분됨)를 선택하여 출력에 VM 이름을 표시합니다.
+다음 예제는 `tsv` 출력이 bash에서 다른 명령에 파이프되는 방법을 보여줍니다. `grep`은 이름에 "RGD"라는 텍스트가 포함된 항목을 선택하고, `cut` 명령은 8번째 필드를 선택하여 출력에 VM 이름을 표시합니다.
 
 ```bash
 az vm list --out tsv | grep RGD | cut -f8

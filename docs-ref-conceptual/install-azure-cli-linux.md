@@ -4,28 +4,28 @@ description: Linux용 Azure CLI 2.0을 수동으로 설치하는 방법
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 01/29/2018
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 7e73ae8bbbba80bf48c6f01fc1c37a3c32c6eb31
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: c5c7ea61a35e915760081897e88d8c43b80919e0
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967557"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388357"
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Linux에 Azure CLI 2.0 수동 설치
 
-배포에 사용할 수 있는 Azure CLI용 패키지가 없는 경우 언제든지 설치 스크립트를 실행하여 수동으로 CLI를 설치할 수 있습니다.
+배포를 위한 Azure CLI용 패키지가 없다면 스크립트를 실행하여 수동으로 CLI를 설치하십시오.
 
 > [!NOTE]
-> CLI용 패키지 관리자를 사용하는 것이 좋습니다 패키지 관리자가 항상 최신 업데이트를 갖추도록 확인하고 CLI 구성 요소의 안정성을 보장합니다. 수동으로 설치하기 전에 배포에 필요한 패키지가 있는지 확인합니다.
+> 패키지 관리자를 사용하여 CLI를 설치하는 것이 좋습니다. 패키지 관리자가 항상 최신 업데이트를 갖추도록 확인하고 CLI 구성 요소의 안정성을 보장합니다. 수동으로 설치하기 전에 배포에 필요한 패키지가 있는지 확인합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-CLI를 설치하려면 시스템에 다음과 같은 소프트웨어가 필요합니다.
+CLI에는 다음과 같은 소프트웨어가 필요합니다.
 
 * [Python 2.7 또는 Python 3.x](https://www.python.org/downloads/)
 * [libffi](https://sourceware.org/libffi/)
@@ -33,13 +33,13 @@ CLI를 설치하려면 시스템에 다음과 같은 소프트웨어가 필요�
 
 ## <a name="install-or-update"></a>설치 또는 업데이트
 
-CLI를 설치하든 또는 업데이트하는, 전체 설치를 수행해야 합니다. 필수 구성 요소를 모두 갖춘 후에는 `curl`을 실행하여 CLI를 설치할 수 있습니다.
+CLI 설치 및 업데이트 모두 설치 스크립트를 다시 실행해야 합니다. `curl`을 실행하여 CLI를 설치합니다.
 
 ```bash
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-스크립트를 다운로드해 대신 로컬로 실행할 수 있습니다. 변경 내용을 적용하려면 셸을 다시 시작해야 합니다.
+또한 스크립트를 다운로드하여 로컬로 실행할 수 있습니다. 변경 내용을 적용하려면 셸을 다시 시작해야 합니다.
 
 그런 다음 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다. 로그인하려면, [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.
 
@@ -49,7 +49,7 @@ curl -L https://aka.ms/InstallAzureCli | bash
 
 ## <a name="troubleshooting"></a>문제 해결
 
-수동 설치 중에 몇 가지 공통 문제가 발견됐습니다. 해당 문제가 여기에 없으면 [Github에 문제를 제출하세요](https://github.com/Azure/azure-cli/issues).
+수동 설치 중에 몇 가지 공통 문제가 발견됐습니다. 여기에서 다루지 않는 문제가 발생하는 경우, [github에 문제를 제출합니다](https://github.com/Azure/azure-cli/issues).
 
 ### <a name="curl-object-moved-error"></a>"개체 이동됨" curl 오류
 

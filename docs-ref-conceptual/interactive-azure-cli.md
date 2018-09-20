@@ -4,22 +4,22 @@ description: 대화형 모드에서 Azure CLI 2.0을 사용합니다.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 04/06/2017
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1ee7da8dfdde402d4d536f7ab4bb0599a8f3fa1d
-ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
+ms.openlocfilehash: f07689a323314c076f1eb2a8844875d9543d4b2e
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38229195"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388578"
 ---
 # <a name="interactive-azure-cli-20"></a>대화형 Azure CLI 2.0
 
 `az interactive` 명령을 실행하여 대화형 모드에서 Azure CLI 2.0을 사용할 수 있습니다.
-그러면 명령이 자동으로 완성되고, 명령 및 해당 매개 변수에 대한 설명과 명령 예제에 액세스할 수 있는 대화형 셸로 이동됩니다.
+이 모드는 자동 완성, 명령 설명 및 예제를 사용하는 대화형 셸을 시작합니다.
 
 ![대화형 모드](./media/interactive-azure-cli/webapp-create.png)
 

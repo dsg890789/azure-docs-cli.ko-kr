@@ -4,21 +4,21 @@ description: apt 패키지 관리자를 사용하여 Azure CLI 2.0을 설치하�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/24/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: a0908c5b5bda7ec903b702eecb61eabbbedaf533
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 88b4570f62858ec1e12898aea51a5dbce6d677b5
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967846"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388425"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt를 사용하여 Azure CLI 2.0 설치
 
-Ubuntu 또는 Debian과 같이 `apt`과(와) 함께 제공되는 배포판을 실행하는 경우, Azure CLI에 64비트 패키지를 사용할 수 있습니다. 이 패키지는 다음 항목에서 테스트되었습니다.
+Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행하는 경우, Azure CLI에 64비트 패키지를 사용할 수 있습니다. 이 패키지는 다음 항목에서 테스트되었습니다.
 
 * Ubuntu trusty, xenial, artful 및 bionic
 * Debian wheezy, jessie 및 stretch
@@ -57,7 +57,7 @@ Ubuntu 또는 Debian과 같이 `apt`과(와) 함께 제공되는 배포판을 �
 
 ## <a name="troubleshooting"></a>문제 해결
 
-`apt`을 사용해 설치할 때 몇 가지 일반적인 문제가 여기에 표시됩니다. 해당 문제가 여기에 없으면 [Github에 문제를 제출하세요](https://github.com/Azure/azure-cli/issues).
+`apt`을 사용해 설치할 때 몇 가지 일반적인 문제가 여기에 표시됩니다. 여기에서 다루지 않는 문제가 발생하는 경우, [github에 문제를 제출합니다](https://github.com/Azure/azure-cli/issues).
 
 ### <a name="lsbrelease-fails-with-command-not-found"></a>lsb_release가 “명령을 찾을 수 없음”으로 인해 실패
 
@@ -67,7 +67,7 @@ Ubuntu 또는 Debian과 같이 `apt`과(와) 함께 제공되는 배포판을 �
 -bash: lsb_release: command not found
 ```
 
-이 오류는 lsb_release가 설치되어 있지 않기 때문에 발생합니다. `lsb-release` 패키지를 설치하면 이 문제를 해결할 수 있습니다.
+이 오류는 `lsb_release`명령이 설치되어 있지 않기 때문에 발생합니다. `lsb-release` 패키지를 설치하면 이 문제를 해결할 수 있습니다.
 
 ```bash
 sudo apt-get install lsb-release
@@ -101,7 +101,7 @@ sudo apt-get install dirmngr
 sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
 ```
 
-프록시가 있는지 여부를 모르는 경우 시스템 관리자에게 문의하세요. 프록시에 로그인이 필요하지 않으면 사용자, 암호 및 `@` 토큰은 생략합니다.
+프록시가 있는지 알아보려면, 시스템 관리자에게 문의하세요. 프록시에 로그인이 필요하지 않으면 사용자, 암호 및 `@` 토큰은 생략합니다.
 
 ## <a name="update"></a>주 지역에서
 

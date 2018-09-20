@@ -4,21 +4,21 @@ description: Azure CLI 2.0 명령의 출력에 대해 JMESPath 쿼리를 수행�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 97fcd9d5b5a65480957734cec0ead68029918a49
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 55880b87e1bffc37bbdeaeb84206deb5b9b7b227
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967795"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388376"
 ---
 # <a name="use-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0과 함께 JMESPath 쿼리 사용
 
-Azure CLI 2.0은 `--query` 인수를 사용하여 명령의 결과에 대해 [JMESPath 쿼리](http://jmespath.org)를 실행합니다. JMESPath는 JSON의 쿼리 언어이며, CLI 출력의 데이터를 선택하고 표시하는 기능을 제공합니다. 다른 표시 형식을 지정하기 전에 이러한 쿼리를 JSON 출력에서 실행합니다.
+Azure CLI 2.0은 `--query` 인수를 사용하여 명령의 결과에 대해 [JMESPath 쿼리](http://jmespath.org)를 실행합니다. JMESPath는 JSON의 쿼리 언어이며, CLI 출력의 데이터를 선택하고 표시하는 기능을 제공합니다. 다른 표시 형식 전에 이러한 쿼리를 JSON 출력에서 실행합니다.
 
 `--query` 인수는 Azure CLI의 모든 명령에서 지원됩니다. 이 문서의 예제는 일반적인 사용 사례를 다루고 JMESPath 기능을 사용하는 방법을 보여줍니다.
 
@@ -30,7 +30,7 @@ JSON 사전을 반환하는 명령을 해당 키 이름만으로 탐색할 수 �
 az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys
 ```
 
-또한 여러 값을 가져와서 정렬된 배열에 배치할 수 있습니다. 배열에는 키 정보가 없지만 배열의 요소 순서는 쿼리된 키 순서와 일치하지 않습니다. 다음 예제에서는 OS 디스크의 이름 및 크기를 제공하는 Azure 이미지를 검색하는 방법을 보여줍니다.
+여러 값을 정렬된 배열에 배치할 수 있습니다. 다음 예제에서는 OS 디스크의 이름 및 크기를 제공하는 Azure 이미지를 검색하는 방법을 보여줍니다.
 
 ```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer, osDisk.diskSizeGb]'
@@ -43,7 +43,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer,
 ]
 ```
 
-출력에 키를 배치하는 경우 대체 사전 구문을 사용할 수 있습니다. 사전에 대한 여러 요소 선택 영역은 `{displayKey:keyPath, ...}` 형식을 사용하여 `keyPath` JMESPath 식으로 필터링합니다. 그러면 출력에 `{displayKey: value}`로 표시됩니다. 다음 예제에서는 마지막 예제의 쿼리를 사용하고 출력에 키를 할당하여 더 명확하게 합니다.
+출력에 키를 배치하는 경우 대체 사전 구문을 사용할 수 있습니다.  사전 출력할 요소 선택 영역은 `{displayKey:keyPath, ...}` 형식을 사용하여 `keyPath` JMESPath 식으로 필터링합니다. 출력 값에서, 키/값 쌍은 `{displayKey: value}`(으)로 변경됩니다. 다음 예제에서는 마지막 예제의 쿼리를 사용하고 출력에 키를 할당하여 더 명확하게 합니다.
 
 ```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.offer, diskSize:osDisk.diskSizeGb}'
@@ -56,7 +56,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.
 }
 ```
 
-`table` 출력 형식으로 정보를 표시할 때 사전 표시가 특히 유용합니다. 이렇게 하면 고유한 열 헤드가 출력을 쉽게 읽을 수 있도록 설정합니다. 출력 형식에 대한 자세한 내용은 [Azure CLI 2.0 명령에 대한 출력 형식](/cli/azure/format-output-azure-cli)을 참조하세요.
+`table` 출력 형식으로 정보를 표시할 때 사전 표시는 열 헤더를 설정할 수 있게 합니다. 출력 형식에 대한 자세한 내용은 [Azure CLI 2.0 명령에 대한 출력 형식](/cli/azure/format-output-azure-cli)을 참조하세요.
 
 > [!NOTE]
 > 특정 키는 필터링되고 테이블 보기에 인쇄되지 않습니다. 이러한 키는 `id`, `type` 및 `etag`입니다. 이 정보를 표시해야 하는 경우 키 이름을 변경하고 필터링하지 않을 수 있습니다.
@@ -67,7 +67,9 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.
 
 ## <a name="work-with-list-output"></a>목록 출력으로 작업
 
-하나 이상의 값을 반환할 수 있는 CLI 명령은 항상 배열을 반환합니다. 배열은 인덱스가 해당 요소에 액세스하도록 할 수 있지만 CLI에서 순서를 보장하지 않습니다. 값의 배열을 쿼리하는 가장 좋은 방법은 `[]` 연산자를 사용하여 평면화하는 것입니다. 연산자는 배열의 키 이후에 또는 식의 첫 번째 요소로 작성됩니다. 평면화는 배열에서 각 개별 요소에서 쿼리를 실행하고 결과 값을 새 배열에 배치합니다. 다음 예제에서는 리소스 그룹의 각 VM에서 실행 중인 이름 및 OS를 인쇄합니다.
+하나 이상의 값을 반환할 수 있는 CLI 명령은 배열을 반환합니다. 배열 요소는 인덱스에 의해 액세스되며 매번 같은 순서로 반환되지 않을 수 있습니다. `[]` 연산자를 사용하여 평면화하여 한 번에 모든 배열 요소를 쿼리할 수 있습니다. 연산자는 배열 뒤에 또는 식의 첫 번째 요소로 위치합니다. 배열을 평면화하면 배열의 각 요소에 대해 다음 쿼리를 실행합니다.
+
+다음 예제에서는 리소스 그룹의 각 VM에서 실행 중인 이름 및 OS를 인쇄합니다.
 
 ```azurecli-interactive
 az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
@@ -98,7 +100,7 @@ az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageRefere
 ]
 ```
 
-키 경로의 일부인 배열도 평면화될 수 있습니다. 이 예제에서는 VM이 연결된 NIC의 Azure 개체 ID를 가져오는 쿼리를 보여줍니다.
+키 경로의 일부인 배열도 평면화될 수 있습니다. 다음 쿼리는 VM이 연결된 NIC의 Azure 개체 ID를 가져옵니다.
 
 ```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id'
@@ -120,8 +122,7 @@ az vm list --query '[?osProfile.windowsConfiguration!=null].name'
 
 ## <a name="experiment-with-queries-interactively"></a>대화형으로 쿼리를 사용하여 실험
 
-JMESPath 식을 사용하여 실험하려면 신속하게 쿼리를 편집하고 출력을 검사할 수 있는 방식으로 작업합니다. 
-  [JMESPath 터미널](https://github.com/jmespath/jmespath.terminal) Python 패키지에서 대화형 환경을 제공합니다. 이 기능은 데이터를 추출하기 위해 데이터를 입력으로 파이핑한 다음, 프로그램 내 쿼리를 작성하는 데 사용됩니다.
+JMESPath 학습을 시작하기 위해 [JMESPath-터미널](https://github.com/jmespath/jmespath.terminal) Python 패키지는 쿼리를 실험할 수 있는 대화형 환경을 제공합니다. 데이터는 입력으로 파이프되며 프로그램 내 쿼리는 데이터 추출을 위해 작성되고 편집됩니다.
 
 ```bash
 pip install jmespath-terminal

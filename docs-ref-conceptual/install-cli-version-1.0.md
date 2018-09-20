@@ -4,17 +4,17 @@ description: Mac, Linux 및 Windows용 Azure CLI 1.0을 설치하여 Azure 서�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/20/2017
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 5f185e02217d6a3b54a9c252825c0f3fed3ab09e
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: dd2d8658819c03742ae65c639717837ca940659e
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967676"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388612"
 ---
 # <a name="install-the-azure-cli-10"></a>Azure CLI 1.0 설치
 
@@ -67,7 +67,7 @@ Mac 또는 Windows 컴퓨터를 사용한다면, 다음과 같은 CLI 설치 관
 
 ## <a name="option-3-use-a-docker-container"></a>옵션 3: Docker 컨테이너 사용
 
-컴퓨터를 [Docker](https://docs.docker.com/engine/understanding-docker/) 호스트로 설정한 경우 Docker 컨테이너에서 최신 Azure CLI 1.0을 실행할 수 있습니다. 다음 명령을 실행합니다. Linux 배포에서는 **sudo**를 사용해야 할 수도 있습니다.
+컴퓨터를 [Docker](https://docs.docker.com/engine/understanding-docker/) 호스트로 설정한 경우 Docker 컨테이너에서 최신 Azure CLI 1.0을 실행할 수 있습니다. 해당 명령을 실행합니다. Linux 배포에서는 **sudo**를 사용해야 할 수도 있습니다.
 
 ```bash
 docker run -it microsoft/azure-cli:0.10.17
@@ -75,7 +75,7 @@ docker run -it microsoft/azure-cli:0.10.17
 
 ## <a name="run-azure-cli-10-commands"></a>Azure CLI 1.0 명령 실행
 
-Azure CLI 1.0이 설치되면 명령줄 사용자 인터페이스(Bash, 터미널, 명령 프롬프트 등)에서 **azure** 명령을 실행합니다. 예를 들어 help 명령을 실행하려면 다음을 입력합니다.
+Azure CLI 1.0이 설치되면 명령줄 사용자 인터페이스에서 **azure** 명령을 실행합니다. 예를 들어 help 명령을 실행하려면 다음을 수행합니다.
 
 ```azurecli
 azure help
@@ -94,7 +94,7 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 azure --version
 ```
 
-이제 준비가 되었습니다! 사용자 고유의 리소스 작업을 수행하기 위해 모든 CLI 명령 액세스 권한을 얻으려면 [Azure CLI에서 Azure 구독에 연결](/cli/azure/authenticate-azure-cli)합니다.
+모든 CLI 명령에 액세스하려면 [Azure CLI에서 Azure 구독에 연결](/cli/azure/authenticate-azure-cli)합니다.
 
 > [!NOTE]
 > Azure CLI를 처음 사용할 때, 사용 정보를 Microsoft가 수집하도록 허용할 것인지 묻는 메시지가 표시됩니다. 참여는 자발적입니다. 참여하기로 선택한 경우, `azure telemetry --disable`을 실행하여 언제든지 중지할 수 있습니다. 언제라도 참여를 활성화하려면, `azure telemetry --enable`을 실행합니다.
@@ -130,8 +130,8 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 * Azure CLI에 대한 자세한 내용을 보거나, 소스 코드를 다운로드하거나, 문제를 보고하거나, 프로젝트에 기여하려면 [Azure CLI에 대한 GitHub 리포지토리](https://github.com/azure/azure-xplat-cli)를 방문하세요.
 * Azure CLI 또는 Azure 사용에 대한 질문이 있는 경우 [Azure 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting)을 방문하세요.
 
-[mac-installer]: http://aka.ms/mac-azure-cli
-[windows-installer]: http://aka.ms/webpi-azure-cli
-[linux-installer]: http://aka.ms/linux-azure-cli
+[mac-installer]: https://aka.ms/mac-azure-cli
+[windows-installer]: https://aka.ms/webpi-azure-cli
+[linux-installer]: https://aka.ms/linux-azure-cli
 [cliasm]: /cli/azure/get-started-with-az-cli2
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md

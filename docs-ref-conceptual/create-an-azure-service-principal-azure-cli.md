@@ -4,17 +4,17 @@ description: Azure CLI 2.0에서 서비스 주체를 만들고 사용하는 방�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: role-based-access-control
-ms.openlocfilehash: 3f20892e846bd07f8e97ccf788d05c4305fe3301
-ms.sourcegitcommit: 83826ca154c9f32c6091c63ce4b3e480694ba8d1
+ms.openlocfilehash: 5f98fd8d3897b11a9b37eefa6295b8b25b2b1c95
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "43144923"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388442"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기
 
@@ -81,7 +81,7 @@ Azure CLI 2.0은 역할 할당 관리를 위해 다음 명령을 제공합니다
 * [az 역할 할당 만들기](/cli/azure/role/assignment#az-role-assignment-create)
 * [az 역할 할당 삭제](/cli/azure/role/assignment#az-role-assignment-delete)
 
-서비스 주체의 기본 역할은 **참가자**입니다. 이 역할은 Azure 계정에 대한 모든 읽기 및 쓰기 권한을 포함하며, 일반적으로 응용 프로그램에 적합하지 않습니다. **Reader** 역할은 보다 제한적이며, 읽기 전용 액세스를 제공합니다.  RBAC(역할 기반 액세스 제어) 및 역할에 대한 자세한 내용은 [RBAC: 기본 제공 역할](/azure/active-directory/role-based-access-built-in-roles)을 참조하십시오.
+서비스 주체의 기본 역할은 **참가자**입니다. 이 역할은 Azure 계정에 대한 모든 읽기 및 쓰기 권한을 포함하며, 응용 프로그램에 적합하지 않습니다. **Reader** 역할은 보다 제한적이며, 읽기 전용 액세스를 제공합니다.  RBAC(역할 기반 액세스 제어) 및 역할에 대한 자세한 내용은 [RBAC: 기본 제공 역할](/azure/active-directory/role-based-access-built-in-roles)을 참조하십시오.
 
 이 예제에서는 **Reader** 역할을 추가하고 **Contributor** 역할을 삭제합니다.
 
@@ -103,7 +103,7 @@ az role assignment list --assignee APP_ID
 
 ## <a name="sign-in-using-the-service-principal"></a>서비스 주체를 사용하여 로그인
 
-Azure CLI 내에서 로그인하여 새로운 서비스 주체의 자격 증명 및 권한을 테스트할 수 있습니다. `appId`, `tenant` 및 자격 증명 값을 사용하여 새로운 서비스 주체로 로그인합니다. 사용자가 제공하는 인증 정보는 서비스 주체를 만들 때 암호 또는 인증서를 사용하도록 선택했는지 여부에 따라 달라집니다.
+Azure CLI 내에서 로그인하여 새로운 서비스 주체의 자격 증명 및 권한을 테스트할 수 있습니다. `appId`, `tenant` 및 자격 증명 값을 사용하여 새로운 서비스 주체로 로그인합니다. 서비스 주체를 생성한 인증 유형을 사용합니다.
 
 암호를 사용하여 로그인하려면 암호를 인수 매개 변수로 제공합니다.
 
@@ -119,7 +119,7 @@ az login --service-principal --username APP_ID --tenant TENANT_ID --password PAT
 
 ## <a name="reset-credentials"></a>자격 증명 다시 설정
 
-서비스 주체의 자격 증명을 잊은 경우에는 [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials) 명령으로 다시 설정할 수 있습니다. 여기에서도 새로운 서비스 주체를 만들 때와 동일한 제한 사항 및 옵션이 적용됩니다.
+서비스 주체의 자격 증명을 잊은 경우에는 [az ad sp credential reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) 명령으로 다시 설정할 수 있습니다. 여기에서도 새로운 서비스 주체를 만들 때와 동일한 제한 사항 및 옵션이 적용됩니다.
 
 ```azurecli-interactive
 az ad sp credential reset --name APP_ID --password NEW_PASSWORD
