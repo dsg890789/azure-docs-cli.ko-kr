@@ -10,20 +10,24 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 165da295d187edf7dbc19a332670fd49d8f8bdd5
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 00cfca8d55f0b404cae32ba9b4ce464dfa8afa08
+ms.sourcegitcommit: 8318ce761c279afa4cd45a81a58d83fc38c616bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388561"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45561578"
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
 
 Azure CLI 2.0 시작! CLI는 특히 자동화 기능을 통해 Azure 서비스를 빠르고 효율적으로 사용할 수 있도록 디자인된 도구입니다. 이 문서에서는 CLI의 여러 기능을 소개하고 생산성 향상에 도움이 되는 리소스에 대한 링크를 제공합니다.
 
-## <a name="install-and-sign-in"></a>설치 및 로그인
+## <a name="install-or-run-in-azure-cloud-shell"></a>Azure Cloud Shell에서 설치 또는 실행
 
-아직 설치하지 않았으면 [CLI 설치](install-azure-cli.md)를 수행하거나 [Azure Cloud Shell](/azure/cloud-shell/overview)을 사용합니다.
+Azure CLI를 시작하는 가장 쉬운 방법은 브라우저를 통해 Azure Cloud Shell 환경에서 실행하는 것입니다. Cloud Shell에 대해 자세히 알아보려면 [Azure Cloud Shell의 Bash에 대한 빠른 시작](/azure/cloud-shell/quickstart)을 참조하세요.
+
+CLI를 설치할 준비가 되었으면 [설치 지침](install-azure-cli.md)을 참조하세요.
+
+## <a name="sign-in"></a>로그인
 
 로컬 설치에 CLI 명령을 사용하려면 먼저 [az login](/cli/azure/reference-index#az-login)으로 로그인해야 합니다.
 

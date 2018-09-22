@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 30bdb327601c7d898b5e64a3a472a104dc5db3b4
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 6e57837313faf0edd95d822132ae282ed416aae7
+ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388459"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46469966"
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Windows에 Azure CLI 2.0 설치
 
@@ -44,3 +44,10 @@ MSI를 다시 실행 하 고 "제거" 옵션을 선택하여 제거할 수 있�
 
 > [!div class="nextstepaction"]
 > [MSI 설치 관리자 다운로드](https://aka.ms/installazurecliwindows)
+
+## <a name="next-steps"></a>다음 단계
+
+Azure CLI를 설치한 후 해당 기능 및 일반 명령을 잠시 둘러보세요.
+
+> [!div class="nextstepaction"]
+> [Azure CLI 시작](get-started-with-azure-cli.md)

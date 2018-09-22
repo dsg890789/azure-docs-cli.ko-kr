@@ -4,19 +4,123 @@ description: Azure CLI 2.0 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 08/28/2018
+ms.date: 09/21/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 5d179a49ad64201270be7848a72535b871081125
-ms.sourcegitcommit: c90bc90c9a2b3adf2836d7cfb84951cd3ab51317
+ms.openlocfilehash: f6dd04e088651527b1ac13e719b7fc3c5522b310
+ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43828748"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46470068"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 릴리스 정보
+
+## <a name="september-21-2018"></a>2018년 9월 21일
+
+버전 20.46
+
+### <a name="acr"></a>ACR
+* ACR 작업 명령 추가
+* 빠른 실행 명령 추가
+* `build-task` 명령 그룹 사용되지 않음
+* ACR에서 Helm 차트 관리를 지원하기 위해 `helm` 명령 그룹 추가
+* 관리되는 레지스트리의 명등원 만들기를 위한 지원 추가
+* 빌드 로그 표시를 위한 비형식 플래그 추가
+
+### <a name="acs"></a>ACS
+* AKS 마스터 FQDN 설정을 위한 `install-connector` 명령 변경
+* 서비스 주체 및 skip-role-assignemnt를 지정하지 않은 경우의 vnet-subnet-id에 대한 역할 할당 만들기 수정
+
+### <a name="appservice"></a>AppService
+
+* 웹 작업(연속 및 트리거) 작업 관리 지원 추가
+* az webapp config set 지원 --fts-state 속성. functionapp config set 및 show 지원 추가
+* 웹앱에 대한 Bring Your Own Storage 지원 추가
+* 삭제된 웹앱 나열 및 복원을 위한 지원 추가
+
+### <a name="batch"></a>Batch
+* AddTaskCollectionParameter 구문 지원을 위해 `--json-file`을 통한 작업 추가 변경
+* 수락된 `--json-file` 형식에 대한 설명서 업데이트
+* `batch pool create`에 `--max-tasks-per-node-option` 추가
+* 옵션이 지정되지 않은 경우 현재 로그인된 계정을 표시하도록 `batch account` 동작 변경
+
+### <a name="batch-ai"></a>Batch AI 
+* `batchai cluster create` 명령에서 자동 저장소 계정 만들기 오류 해결
+
+### <a name="cognitive-services"></a>Cognitive Services
+* `--sku`, `--kind`, `--location` 인수에 대한 완료자 추가
+* 명령 `cognitiveservices account list-usage` 추가됨
+* 명령 `cognitiveservices account list-kinds` 추가됨
+* 명령 `cognitiveservices account list` 추가됨
+* `cognitiveservices list` 사용되지 않음
+* `cognitiveservices account list-skus`에 대해 선택 사항으로 `--name` 변경
+
+### <a name="container"></a>컨테이너
+* 실행 중인 컨테이너 그룹 다시 시작 및 중지 기능 추가
+* 네트워크 프로필 전달을 위한 `--network-profile` 추가
+* VNET에서 컨테이너 그룹 생성을 허용하도록 `--subnet`, `--vnet_name` 추가
+* 컨테이너 그룹의 상태를 표시하도록 테이블 출력 변경
+
+### <a name="datalake"></a>Datalake
+* 가상 네트워크 규칙에 대한 명령 추가
+
+### <a name="interactive-shell"></a>대화형 셸
+* 명령 실행이 실패하는 Windows 오류 해결
+* 사용되지 않는 개체로 인해 발생하는 대화식 명령 로드 문제 해결
+
+### <a name="iot"></a>IoT
+* IoT 허브 라우팅을 위한 지원 추가
+
+### <a name="key-vault"></a>Key Vault
+* RSA 키에 대한 Key Vault 키 가져오기 수정
+
+### <a name="network"></a>네트워크
+* 공용 IP 접두사 기능을 지원하기 위한 `network public-ip prefix` 명령 추가
+* 서비스 엔드포인트 정책 기능을 지원하기 위한 `network service-endpoint` 명령 추가
+* 표준 Load Balancer 아웃바운드 규칙 생성을 지원하기 위한 `network lb outbound-rule` 명령 추가
+* 공용 IP 접두사를 사용한 프런트 엔드 IP 구성 지원을 위해 `network lb frontend-ip create/update`에 `--public-ip-prefix` 추가
+* `network lb rule/inbound-nat-rule/inbound-nat-pool create/update`에 `--enable-tcp-reset` 추가
+* `network lb rule create/update`에 `--disable-outbound-snat` 추가
+* 클래식 NSG에 `network watcher flow-log show/configure` 사용 허용
+* `network watcher run-configuration-diagnostic` 명령 추가
+* `network watcher test-connectivity` 명령 수정 및 `--method`, `--valid-status-codes` 및 `--headers` 속성 추가
+* `network express-route create/update`: `--allow-global-reach` 플래그 추가
+* `network vnet subnet create/update`: `--delegation` 지원 추가
+* `network vnet subnet list-available-delegations` 명령이 추가됨
+* `network traffic-manager profile create/update`: 모니터 구성을 위한 `--interval`, `--timeout` 및 `--max-failures` 지원 추가. `--path`, `--port`, `--protocol`로 인해 `--monitor-path`, `--monitor-port` 및 `--monitor-protocol` 옵션이 사용되지 않음
+* `network lb frontend-ip create/update`: 사설 IP 할당 방법을 설정하기 위한 논리 수정. 사설 IP 주소가 제공된 경우 할당이 정적이 됨. 사설 IP 주소가 제공되지 않은 경우 사설 IP 주소에 대해 빈 문자열이 제공되고 할당이 동적이 됨.
+* `dns record-set * create/update`: `--target-resource` 지원 추가
+* 인터페이스 엔드포인트 개체를 쿼리하기 위한 `network interface-endpoint` 명령 추가
+* 네트워크 프로필의 부분 관리를 위한 `network profile show/list/delete` 추가
+* ExpressRoute 간 피어링 연결을 관리하기 위한 `network express-route peering connection` 명령 추가
+
+### <a name="rdbms"></a>RDBMS
+* MariaDB 서비스 지원 추가
+
+### <a name="reservation"></a>예약
+* 예약된 리소스 열거형 형식에 CosmosDb 추가
+* 패치 모델에서 이름 속성 추가
+
+### <a name="manage-app"></a>앱 관리
+* 마켓플레이스 관리 앱의 인스턴스 생성이 충돌하는 `managedapp create --kind MarketPlace` 버그 해결
+* 지원되는 프로필로 제한되도록 `feature` 명령 변경
+
+### <a name="role"></a>역할
+* 사용자 그룹 멤버 자격을 나열하기 위한 지원 추가
+
+### <a name="signalr"></a>SignalR
+* 첫번째 릴리스
+
+### <a name="storage"></a>Storage
+* blob 및 큐 권한 부여에 대한 사용자 로그자인 격 증명 사용을 위해 `--auth-mode login` 매개 변수 추가
+* 변경할 수 없는 저장소 관리를 위한 `storage container immutability-policy/legal-hold` 추가
+
+### <a name="vm"></a>VM
+* 공개 키 파일이 누락된 경우 `vm create --generate-ssh-keys`가 개인 키 파일을 덮어쓰는 문제 해결(#4725, #6780)
+* `az sig`를 통한 공유 이미지 갤러리에 대한 지원 추가
 
 ## <a name="august-28-2018"></a>2018년 8월 28일
 

@@ -10,18 +10,18 @@ ms.technology: azure-cli
 ms.devlang: azurecli
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: ef77f407284752ad4f4a1585f8a4036b32b3eb1b
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: f6f3e8bc015420795dda48da093bc92bbf246529
+ms.sourcegitcommit: 8e6e3129f8f4824a8acfa12edb5dae52466d4be8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388323"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45626927"
 ---
 # <a name="sign-in-with-azure-cli-20"></a>Azure CLI 2.0으로 로그인
 
 Azure CLI에 대한 인증 유형은 여러 가지가 있습니다. 시작하는 가장 쉬운 방법은 [Azure Cloud Shell](/azure/cloud-shell/overview)을 사용하는 것으로서, 자동으로 로그인합니다. 로컬에서는, `az login` 명령을 사용하여 브라우저를 통해 대화형으로 로그인할 수 있습니다. 스크립트를 작성할 때 서비스 주체를 사용하는 것이 좋습니다. 서비스 주체에게 필요한 접근 권한만 부여하여 자동화를 안전하게 보호할 수 있습니다.
 
-CLI에 의해 저장된 로그인 정보가 없습니다. 대신, Azure에서 인증 토큰이 생성되고 저장됩니다. 로그인 후에는 사용되지 않더라도 인증 토큰이 90일 동안 유효합니다.
+CLI에 의해 저장된 로그인 정보가 없습니다. 대신 [인증 새로 고침 토큰](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens)이 Azure에서 생성되고 저장됩니다. 2018년 8월부터 비활성 기간이 90일 지나면 이 토큰이 철회되지만, Microsoft 또는 테넌트 관리자가 이 값을 변경할 수 있습니다. 토큰이 철회되면 CLI에서 다시 로그인하라는 메시지가 표시됩니다.
 
 로그인한 후 CLI 명령은 기본 구독에 대해 실행됩니다. 구독이 두 개 이상인 경우 [기본 구독 변경](manage-azure-subscriptions-azure-cli.md)을 수행할 수 있습니다.
 

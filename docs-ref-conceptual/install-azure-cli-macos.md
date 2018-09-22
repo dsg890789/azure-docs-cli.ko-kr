@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: fd829c6ff9162b660a889d3e08615a76f42aeb97
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 1dab4d6aece78999e9d97ac5c8e3598c55a8a55d
+ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388476"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46469932"
 ---
 # <a name="install-azure-cli-20-on-macos"></a>macOS에 Azure CLI 2.0 설치
 
@@ -71,3 +71,10 @@ Homebrew를 사용하여 `azure-cli` 패키지를 제거합니다.
 ```bash
 brew uninstall azure-cli
 ```
+
+## <a name="next-steps"></a>다음 단계
+
+Azure CLI를 설치한 후 해당 기능 및 일반 명령을 잠시 둘러보세요.
+
+> [!div class="nextstepaction"]
+> [Azure CLI 시작](get-started-with-azure-cli.md)

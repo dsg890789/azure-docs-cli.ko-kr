@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 07a5e9d913257d6aeb20a68263a6256ffadbe627
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 1430d817a7e6c10a8f8021cf9d763f62d560ba71
+ms.sourcegitcommit: 8318ce761c279afa4cd45a81a58d83fc38c616bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388510"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45561561"
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Azure CLI 2.0 명령의 출력 형식
 
@@ -24,6 +24,7 @@ Azure CLI 2.0는 기본 출력 형식으로 JSON을 사용하지만 다른 형�
 ---------|-------------------------------
 `json`   | JSON 문자열 이 설정은 기본값입니다.
 `jsonc`  | 색으로 구분된 JSON
+`yaml`   | 머신이 읽을 수 있는 JSON 대안인 YAML.
 `table`  | 열 제목인 키가 포함된 ASCII 테이블
 `tsv`    | 키가 포함되지 않은 탭으로 구분된 값
 
@@ -63,6 +64,36 @@ az vm list --output json
           ...
           ...
 ]
+```
+
+## <a name="yaml-output-format"></a>YAML 출력 형식
+
+`yaml` 형식은 출력을 일반 텍스트 데이터 serialization 형식인 [YAML](http://yaml.org/)로 인쇄합니다. YAML은 JSON보다 읽기 쉬우며, 해당 형식으로 쉽게 매핑됩니다. 일부 응용 프로그램 및 CLI 명령은 JSON 대신 YAML을 구성 입력으로 사용합니다.
+
+```azurecli-interactive
+az vm list --out yaml
+```
+
+다음과 같은 출력에는 편의를 위해 생략되고, 교체된 정보를 식별하는 몇몇 필드가 있습니다.
+
+```yaml
+- availabilitySet: null
+  diagnosticsProfile: null
+  hardwareProfile:
+    vmSize: Standard_DS1_v2
+  id: /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010
+  identity: null
+  instanceView: null
+  licenseType: null
+  location: westus
+  name: ExampleVM1
+  networkProfile:
+    networkInterfaces:
+    - id: /subscriptions/.../resourceGroups/DemoRG1/providers/Microsoft.Network/networkInterfaces/DemoVM010Nic
+      primary: null
+      resourceGroup: DemoRG1
+  ...
+...
 ```
 
 ## <a name="table-output-format"></a>테이블 출력 형식
