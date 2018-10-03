@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0의 출력 형식
-description: Azure CLI 2.0 명령 출력을 테이블, 목록 또는 json 형식으로 지정하는 방법을 알아봅니다.
+title: Azure CLI의 출력 형식
+description: Azure CLI 명령 출력을 테이블, 목록 또는 json 형식으로 지정하는 방법을 알아봅니다.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1430d817a7e6c10a8f8021cf9d763f62d560ba71
-ms.sourcegitcommit: 8318ce761c279afa4cd45a81a58d83fc38c616bc
+ms.openlocfilehash: 5b5d962e244037d9c904fc5c75314661130d1910
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45561561"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47178068"
 ---
-# <a name="output-formats-for-azure-cli-20-commands"></a>Azure CLI 2.0 명령의 출력 형식
+# <a name="output-formats-for-azure-cli-commands"></a>Azure CLI 명령의 출력 형식
 
-Azure CLI 2.0는 기본 출력 형식으로 JSON을 사용하지만 다른 형식도 제공합니다.  `--output`(`--out` 또는 `-o`) 매개 변수를 사용하여 CLI 출력의 형식을 지정합니다. 인수 값과 출력의 형식은 다음과 같습니다.
+Azure CLI는 기본 출력 형식으로 JSON을 사용하지만 다른 형식도 제공합니다.  `--output`(`--out` 또는 `-o`) 매개 변수를 사용하여 CLI 출력의 형식을 지정합니다. 인수 값과 출력의 형식은 다음과 같습니다.
 
 --output | 설명
 ---------|-------------------------------
@@ -137,7 +137,7 @@ RGDEMO001   KBDemo020
 > az vm list --query "[].{objectID:id}" -o table
 > ```
 
-데이터를 필터링하는 쿼리를 사용하는 방법에 대한 자세한 내용은 [Azure CLI 2.0과 함께 JMESPath 쿼리 사용](/cli/azure/query-azure-cli)을 참조하세요.
+데이터를 필터링하는 쿼리를 사용하는 방법에 대한 자세한 내용은 [Azure CLI와 함께 JMESPath 쿼리 사용](/cli/azure/query-azure-cli)을 참조하세요.
 
 ## <a name="tsv-output-format"></a>TSV 출력 형식
 
@@ -196,4 +196,4 @@ What default output format would you like?
 Please enter a choice [1]:
 ```
 
-환경을 구성하는 방법에 대해 자세히 알아보려면 [Azure CLI 2.0 구성](/cli/azure/azure-cli-configuration)을 참조하세요.
+환경을 구성하는 방법에 대해 자세히 알아보려면 [Azure CLI 구성](/cli/azure/azure-cli-configuration)을 참조하세요.

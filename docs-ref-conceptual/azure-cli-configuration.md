@@ -1,25 +1,25 @@
 ---
 title: Azure CLI 구성 옵션
-description: Azure CLI 2.0 구성 방법
+description: Azure CLI 구성 방법
 keywords: Azure CLI, 구성, 설정, Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 06/11/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 75ea347b0d4d018142a26bf985ee3639f2b79924
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: f4f1e89e5541d741ef4e02f309a49eece033af5d
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388595"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177983"
 ---
-# <a name="azure-cli-20-configuration"></a>Azure CLI 2.0 구성
+# <a name="azure-cli-configuration"></a>Azure CLI 구성
 
-Azure CLI 2.0은 로깅, 데이터 컬렉션 및 기본 인수 값과 같은 사용자 구성 설정을 허용합니다.
+Azure CLI는 로깅, 데이터 컬렉션 및 기본 인수 값과 같은 사용자 구성 설정을 허용합니다.
 CLI는 몇 가지 기본값을 관리하기 위한 편리한 명령 `az configure`를 제공합니다. 구성 파일 또는 환경 변수를 사용하여 다른 값을 설정할 수 있습니다.
 
 CLI에서 사용되는 구성 값은 다음 우선 순위에서 평가되며 목록의 상위 항목이 우선 순위를 갖습니다.
@@ -35,7 +35,7 @@ CLI에서 사용되는 구성 값은 다음 우선 순위에서 평가되며 목
 
 다음 표는 사용할 수 있는 구성 키의 목록을 보여 줍니다.
 
-| Name | 설명 |
+| 이름 | 설명 |
 |------|-------------|
 | group | 모든 명령에 사용할 기본 리소스 그룹입니다. |
 | location | 모든 명령에 사용할 기본 위치입니다. |
@@ -84,11 +84,11 @@ log_dir=/var/log/azure
 
 기본값을 제공하면, 명령에 더 이상 인수가 필요하지 않습니다. 대신 기본값이 사용됩니다.
 
-| 섹션 | Name      | type | 설명|
+| 섹션 | 이름      | type | 설명|
 |---------|-----------|------|------------|
 | __core__ | output | string | 기본 출력 형식입니다. `json`, `jsonc`, `tsv` 또는 `table` 중 하나일 수 있습니다. |
 | | disable\_confirm\_prompt | 부울 | 확인 메시지를 표시하거나 표시하지 않습니다. |
-| | collect\_telemetry | 부울 | Microsoft가 CLI의 사용에 대해 익명의 데이터를 수집하도록 허용합니다. 개인 정보에 대한 자세한 내용은 [Azure CLI 2.0 사용 약관](https://aka.ms/AzureCliLegal)을 참조하세요. |
+| | collect\_telemetry | 부울 | Microsoft가 CLI의 사용에 대해 익명의 데이터를 수집하도록 허용합니다. 개인 정보에 대한 자세한 내용은 [Azure CLI 사용 약관](http://aka.ms/AzureCliLegal)을 참조하세요. |
 | __logging__ | enable\_log\_file | 부울 | 로깅을 켜거나 끕니다. |
 | | log\_dir | string | 로그를 쓸 디렉터리입니다. 이 값은 기본적으로 `${AZURE_CONFIG_DIR}/logs`입니다. |
 | __storage__ | connection\_string | string | `az storage` 명령에 사용할 기본 연결 문자열입니다. |

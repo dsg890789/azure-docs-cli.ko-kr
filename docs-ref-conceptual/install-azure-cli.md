@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 설치
-description: Azure CLI 2.0 설치에 대한 참조 문서입니다.
+title: Azure CLI 설치
+description: Azure CLI 설치에 대한 참조 문서입니다.
 keywords: Azure CLI,Azure CLI 설치
 author: sptramer
 ms.author: sttramer
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 67367926aa7d01635417b1f6e11c8898a402db55
-ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
+ms.openlocfilehash: dafde67d4d5685367ffbf0202c258b2d1f70b8ec
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46470000"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177626"
 ---
-# <a name="install-azure-cli-20"></a>Azure CLI 2.0 설치
+# <a name="install-the-azure-cli"></a>Azure CLI 설치
 
-Azure CLI 2.0은 Azure 리소스를 관리하기 위한 훌륭한 경험을 제공하는 명령줄 도구입니다. CLI는 스크립팅을 쉽게 하고, 데이터를 쿼리하고, 장기 실행 작업을 지원하기 위해 디자인되었습니다. 지금 시도해 CLI가 무엇을 제공하는지 확인!
+Azure CLI는 Azure 리소스를 관리하기 위한 훌륭한 경험을 제공하는 명령줄 도구입니다. CLI는 스크립팅을 쉽게 하고, 데이터를 쿼리하고, 장기 실행 작업을 지원하기 위해 디자인되었습니다. 지금 시도해 CLI가 무엇을 제공하는지 확인!
 
 CLI의 현재 버전은 __2.0.46__입니다. 최신 릴리스에 대한 자세한 내용은 [릴리스 정보](release-notes-azure-cli.md)를 참조하세요.
 
@@ -33,4 +33,4 @@ CLI의 현재 버전은 __2.0.46__입니다. 최신 릴리스에 대한 자세�
 * [Docker 컨테이너에서 실행](run-azure-cli-docker.md)
 
 > [!NOTE]
-> Azure 클래식 배포 모델을 사용하는 경우 [Azure CLI 1.0을 설치합니다](install-cli-version-1.0.md).
+> Azure 클래식 배포 모델을 사용하는 경우 [Azure클래식 CLI를 설치합니다](install-classic-cli.md).

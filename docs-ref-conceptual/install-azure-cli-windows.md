@@ -1,6 +1,6 @@
 ---
 title: Windows용 Azure CLI 설치
-description: Windows에 Azure CLI 2.0을 설치하는 방법
+description: Windows에 Azure CLI를 설치하는 방법
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 6e57837313faf0edd95d822132ae282ed416aae7
-ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
+ms.openlocfilehash: c65cff52211b4c77e32c2992cd71392c8b0e44d6
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46469966"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177966"
 ---
-# <a name="install-azure-cli-20-on-windows"></a>Windows에 Azure CLI 2.0 설치
+# <a name="install-azure-cli-on-windows"></a>Windows에 Azure CLI 설치
 
 MSI를 통해 Azure CLI를 Windows에 설치하면 Windows 명령 프롬프트(CMD) 또는 PowerShell을 통해 CLI에 대한 액세스 권한을 제공 합니다.
 WSL(Linux용 Windows 하위 시스템)을 설치하는 경우 Linux 배포에 패키지를 사용할 수 있습니다. 지원되는 패키지 관리자 목록 또는 WSL에서 수동으로 설치하는 방법은 [주 설치 페이지](install-azure-cli.md)를 참조하세요.
@@ -34,7 +34,7 @@ MSI 배포판은 Windows에서 `az` 명령을 설치, 업데이트 및 제거하
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-다른 인증 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
+다른 인증 방법에 대한 자세한 내용은 [Azure CLI로 로그인](authenticate-azure-cli.md)을 참조하세요.
 
 ## <a name="uninstall"></a>제거
 

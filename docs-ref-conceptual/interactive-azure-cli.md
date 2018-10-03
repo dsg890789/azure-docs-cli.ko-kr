@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 대화형 모드
-description: 대화형 모드에서 Azure CLI 2.0을 사용합니다.
+title: Azure CLI 대화형 모드
+description: 대화형 모드에서 Azure CLI를 사용합니다.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: f07689a323314c076f1eb2a8844875d9543d4b2e
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 2a07b77873f4b0439e494a96243b0298f7d77b8d
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388578"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177694"
 ---
-# <a name="interactive-azure-cli-20"></a>대화형 Azure CLI 2.0
+# <a name="azure-cli-interactive-mode"></a>Azure CLI 대화형 모드
 
-`az interactive` 명령을 실행하여 대화형 모드에서 Azure CLI 2.0을 사용할 수 있습니다.
+`az interactive` 명령을 실행하여 대화형 모드에서 Azure CLI 를 사용할 수 있습니다.
 이 모드는 자동 완성, 명령 설명 및 예제를 사용하는 대화형 셸을 시작합니다.
 
 ![대화형 모드](./media/interactive-azure-cli/webapp-create.png)
@@ -96,7 +96,7 @@ az>> ? [*].provisioningState
 ]
 ```
 
-명령의 결과를 쿼리하는 방법에 대한 자세한 내용은 [Azure 2.0을 사용한 쿼리 명령 결과](query-azure-cli.md)를 참조하세요.
+명령의 결과를 쿼리하는 방법에 대한 자세한 내용은 [Azure CLI를 사용한 쿼리 명령 결과](query-azure-cli.md)를 참조하세요.
 
 ## <a name="bash-commands"></a>Bash 명령
 

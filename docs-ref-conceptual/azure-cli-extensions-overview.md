@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 확장
-description: Azure CLI 2.0 확장 사용
+title: Azure CLI 확장
+description: Azure CLI 확장 사용
 keywords: Azure CLI, 확장
 author: sptramer
 ms.author: sttramer
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 8df4c82253e958fdad37ef1551c051f3d17fb191
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 0ba204063c00bf706f6af5a14dc59ba317385f95
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388544"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47178119"
 ---
-# <a name="use-extensions-with-azure-cli-20"></a>Azure CLI 2.0 확장 사용
+# <a name="use-extensions-with-azure-cli"></a>Azure CLI 확장 사용 
 
-Azure CLI 2.0은 확장을 로드하는 기능을 제공합니다. 확장은 Python 휠로, CLI의 일부로 함께 제공되지 않지만 CLI 명령으로 실행됩니다.
+Azure CLI는 확장을 로드하는 기능을 제공합니다. 확장은 Python 휠로, CLI의 일부로 함께 제공되지 않지만 CLI 명령으로 실행됩니다.
 확장 기능을 사용하면 자체 CLI 인터페이스를 작성하는 기능과 함께 시험 및 시험판 명령에 액세스할 수 있습니다. 이 문서에서는 확장을 관리하는 방법을 설명하고 해당 사용에 대한 일반적인 질문에 답변합니다.
 
 ## <a name="find-extensions"></a>확장 찾기
@@ -59,7 +59,7 @@ az extension update --name <extension-name>
 그렇지 않으면 [설치 확장](#install-extensions) 지침에 따라 소스에서 확장을 업데이트할 수 있습니다.
 
 CLI가 확장 이름을 해석할 수 없는 경우 이를 제거하고 다시 설치합니다. 확장은 기본 CLI의 일부가 되었을 수 있습니다.
-[Azure CLI 2.0 설치](install-azure-cli.md)에 설명된 대로 CLI를 업데이트하고 확장 프로그램의 명령이 추가되었는지 확인합니다.
+[Azure CLI 설치](install-azure-cli.md)에 설명된 대로 CLI를 업데이트하고 확장 프로그램의 명령이 추가되었는지 확인합니다.
 
 ## <a name="uninstall-extensions"></a>확장 제거
 

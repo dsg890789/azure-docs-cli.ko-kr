@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0에서 Azure 서비스 주체 사용
-description: Azure CLI 2.0에서 서비스 주체를 만들고 사용하는 방법을 알아봅니다.
+title: Azure CLI에서 Azure 서비스 주체 사용
+description: Azure CLI에서 서비스 주체를 만들고 사용하는 방법을 알아봅니다.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -8,15 +8,14 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.service: role-based-access-control
-ms.openlocfilehash: 5f98fd8d3897b11a9b37eefa6295b8b25b2b1c95
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 5ba7d8b0bf313a8d8ea1b20fb861c2ac0086b2be
+ms.sourcegitcommit: f7554c00b5d5dca0ec716cbf996eb6654183ec37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388442"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47237615"
 ---
-# <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기
+# <a name="create-an-azure-service-principal-with-azure-cli"></a>Azure CLI를 사용하여 Azure 서비스 주체 만들기
 
 액세스가 제한된 개별 로그인을 만들려면 서비스 주체를 통해 수행할 수 있습니다. 서비스 주체는 계정과 연결할 수 있는 별도의 ID입니다. 서비스 주체는 자동화해야 하는 응용 프로그램 및 작업을 사용할 때 유용합니다. 이 문서에서는 서비스 주체를 만들기 위한 단계를 안내합니다.
 
@@ -75,7 +74,7 @@ ms.locfileid: "44388442"
 
 ## <a name="manage-service-principal-roles"></a>서비스 주체 역할 관리
 
-Azure CLI 2.0은 역할 할당 관리를 위해 다음 명령을 제공합니다.
+Azure CLI는 역할 할당 관리를 위해 다음 명령을 제공합니다.
 
 * [az 역할 할당 나열](/cli/azure/role/assignment#az-role-assignment-list)
 * [az 역할 할당 만들기](/cli/azure/role/assignment#az-role-assignment-create)

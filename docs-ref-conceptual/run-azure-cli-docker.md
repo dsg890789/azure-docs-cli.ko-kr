@@ -1,6 +1,6 @@
 ---
-title: Docker 컨테이너에서 Azure CLI 2.0 실행
-description: Azure CLI 2.0을 호스팅하는 Docker 컨테이너 실행 방법
+title: Docker 컨테이너에서 Azure CLI 실행
+description: Azure CLI를 호스팅하는 Docker 컨테이너 실행 방법
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: f22962717ec6a623dd69a266f660b67f2523b204
-ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
+ms.openlocfilehash: 40e6865ce07b6ccb8e84a2666f0bcd6df3b5cfcf
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46470034"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177762"
 ---
-# <a name="run-azure-cli-20-in-a-docker-container"></a>Docker 컨테이너에서 Azure CLI 2.0 실행
+# <a name="run-azure-cli-in-a-docker-container"></a>Docker 컨테이너에서 Azure CLI 실행
 
-Docker를 사용하여 Azure CLI 2.0이 사전 설치된 독립 실행형 Linux 컨테이너를 실행할 수 있습니다. Docker로 CLI를 실행하는 격리 환경을 신속하게 시작할 수 있습니다. 이미지를 배포를 위한 베이스로 사용할 수도 있습니다.
+Docker를 사용하여 Azure CLI가 사전 설치된 독립 실행형 Linux 컨테이너를 실행할 수 있습니다. Docker로 CLI를 실행하는 격리 환경을 신속하게 시작할 수 있습니다. 이미지를 배포를 위한 베이스로 사용할 수도 있습니다.
 
 ## <a name="run-in-a-docker-container"></a>Docker 컨테이너에서 실행
 
@@ -39,7 +39,7 @@ CLI는 `/usr/local/bin`에 있는 `az` 명령으로 이미지에 설치됩니다
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-다른 인증 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
+다른 인증 방법에 대한 자세한 내용은 [Azure CLI로 로그인](authenticate-azure-cli.md)을 참조하세요.
 
 ## <a name="update-docker-image"></a>Docker 이미지 업데이트
 

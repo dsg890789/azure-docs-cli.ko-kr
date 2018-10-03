@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 시작
-description: 명령 기본 사항을 학습하여 Azure CLI 2.0 사용을 시작합니다.
+title: Azure CLI 시작
+description: 명령 기본 사항을 학습하여 Azure CLI 사용을 시작합니다.
 keywords: Azure CLI, CLI 도움말, Azure 도움말, 쿼리, 자동화,
 author: sptramer
 ms.author: sttramer
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 00cfca8d55f0b404cae32ba9b4ce464dfa8afa08
-ms.sourcegitcommit: 8318ce761c279afa4cd45a81a58d83fc38c616bc
+ms.openlocfilehash: d23548a9cdfe307c2597d992dc014125f80704d0
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45561578"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47178000"
 ---
-# <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 시작
+# <a name="get-started-with-azure-cli"></a>Azure CLI 시작
 
-Azure CLI 2.0 시작! CLI는 특히 자동화 기능을 통해 Azure 서비스를 빠르고 효율적으로 사용할 수 있도록 디자인된 도구입니다. 이 문서에서는 CLI의 여러 기능을 소개하고 생산성 향상에 도움이 되는 리소스에 대한 링크를 제공합니다.
+Azure CLI 시작! CLI는 특히 자동화 기능을 통해 Azure 서비스를 빠르고 효율적으로 사용할 수 있도록 디자인된 도구입니다. 이 문서에서는 CLI의 여러 기능을 소개하고 생산성 향상에 도움이 되는 리소스에 대한 링크를 제공합니다.
 
 ## <a name="install-or-run-in-azure-cloud-shell"></a>Azure Cloud Shell에서 설치 또는 실행
 
@@ -33,7 +33,7 @@ CLI를 설치할 준비가 되었으면 [설치 지침](install-azure-cli.md)을
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-비 대화형으로 로그인할 수 있는 방법도 여러 가지가 있으며, 이는 [Azure CLI 2.0에 로그인](authenticate-azure-cli.md)에서 자세히 설명됩니다.
+비 대화형으로 로그인할 수 있는 방법도 여러 가지가 있으며, 이는 [Azure CLI에 로그인](authenticate-azure-cli.md)에서 자세히 설명됩니다.
 
 ## <a name="common-commands"></a>일반적인 명령
 
@@ -72,8 +72,8 @@ CLI에는 Bash 셸에서 명령에 대한 전체 탭 완성 기능이 포함됩�
 일부 인수는 모든 명령에 사용할 수 있습니다.
 
 * `--help`은(는) 명령 및 해당 인수에 대한 CLI 참조 정보를 출력하고 사용 가능한 하위 그룹 및 명령을 나열합니다.
-* `--output`은(는) 출력 형식을 변경합니다. 사용 가능한 출력 형식은 `json`, `jsonc`(색상으로 표시된 JSON), `tsv`(탭으로 구분된 값) 및 `table`(휴먼 판독 가능한 ASCII 테이블)입니다. 기본적인 CLI 출력은 `json`입니다. 사용 가능한 출력 형식에 대해 자세히 알아보려면 [Azure CLI 2.0의 출력 형식](format-output-azure-cli.md)을 참조하십시오.
-* `--query`은(는) [JMESPath 쿼리 언어](http://jmespath.org/)를 사용하여 Azure 서비스에서 반환되는 출력을 필터링합니다. 쿼리에 대해 자세히 알아보려면 [Azure CLI 2.0을 사용한 쿼리 명령 결과](query-azure-cli.md) 및 [JMESPath 자습서](http://jmespath.org/tutorial.html)를 참조하십시오.
+* `--output`은(는) 출력 형식을 변경합니다. 사용 가능한 출력 형식은 `json`, `jsonc`(색상으로 표시된 JSON), `tsv`(탭으로 구분된 값) 및 `table`(휴먼 판독 가능한 ASCII 테이블)입니다. 기본적인 CLI 출력은 `json`입니다. 사용 가능한 출력 형식에 대해 자세히 알아보려면 [Azure CLI의 출력 형식](format-output-azure-cli.md)을 참조하십시오.
+* `--query`은(는) [JMESPath 쿼리 언어](http://jmespath.org/)를 사용하여 Azure 서비스에서 반환되는 출력을 필터링합니다. 쿼리에 대해 자세히 알아보려면 [Azure CLI를 사용한 쿼리 명령 결과](query-azure-cli.md) 및 [JMESPath 자습서](http://jmespath.org/tutorial.html)를 참조하십시오.
 * `--verbose`은(는) 작업 중 Azure에서 생성되는 리소스에 대한 정보 및 기타 유용한 정보를 출력합니다.
 * `--debug`은(는) 디버깅 목적으로 사용되는 CLI 작업에 대한 자세한 정보를 출력합니다. 버그가 발견된 경우, 버그 보고서를 제출할 때 `--debug` 플래그를 사용해서 생성된 출력을 제공하십시오.
 
@@ -85,16 +85,16 @@ CLI는 도움말 정보를 자동으로 표시하고 하위 명령을 더 쉽게
 az interactive
 ```
 
-대화형 모드에 대한 자세한 내용은 [Azure CLI 2.0 대화형 모드](interactive-azure-cli.md)를 참조하십시오.
+대화형 모드에 대한 자세한 내용은 [Azure CLI 대화형 모드](interactive-azure-cli.md)를 참조하십시오.
 
 또한 자동 완성 및 마우스를 위로 가져갈 때 표시되는 설명을 포함하여 대화형 환경을 제공하는 [Visual Studio Code 플러그인](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)도 있습니다.
 
 ## <a name="learn-cli-basics-with-quickstarts-and-tutorials"></a>퀵 스타트 및 자습서로 CLI 기본 내용 학습
 
-Azure CLI 2.0을 시작하려면 가상 머신 설정 및 Azure 리소스 쿼리를 위한 CLI 기능 사용에 대한 세부 자습서를 참조하십시오.
+Azure CLI를 시작하려면 가상 머신 설정 및 Azure 리소스 쿼리를 위한 CLI 기능 사용에 대한 세부 자습서를 참조하십시오.
 
 > [!div class="nextstepaction"]
-> [Azure CLI 2.0을 사용하여 가상 머신 만들기 자습서](azure-cli-vm-tutorial.yml)
+> [Azure CLI를 사용하여 가상 머신 만들기 자습서](azure-cli-vm-tutorial.yml)
 
 다른 인기 있는 서비스에 대한 빠른 시작도 있습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 별칭 확장
-description: Azure CLI 2.0 별칭 확장 사용 방법
+title: Azure CLI 별칭 확장
+description: Azure CLI 별칭 확장 사용 방법
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: a2cd277640ab0a55d2e1da5ecb491e72eee1e0df
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 47afede5cb1954ddd33f03fd4a6a6dc6c5ed7aee
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388629"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177932"
 ---
-# <a name="the-azure-cli-20-alias-extension"></a>Azure CLI 2.0 별칭 확장
+# <a name="the-azure-cli-alias-extension"></a>Azure CLI 별칭 확장
 
 별칭 확장을 사용하면 기존 명령을 사용하여 Azure CLI에 대한 사용자 정의 명령을 정의할 수 있습니다. 별칭은 바로 가기를 허용하여 워크플로 단순하게 유지하는 데 도움이 됩니다. 별칭은 Jinja2 템플릿 엔진을 기반으로 하기 때문에 고급 인수 처리도 제공합니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "44388629"
 
 ## <a name="install-the-alias-extension"></a>별칭 확장 설치
 
-별칭 확장을 사용하는 데 필요한 최소 Azure CLI 버전은 **2.0.28**입니다. CLI 버전을 확인하려면 `az --version`을 실행합니다. 설치를 업데이트해야 하는 경우 [Azure CLI 2.0 설치](./install-azure-cli.md)의 지침을 따릅니다.
+별칭 확장을 사용하는 데 필요한 최소 Azure CLI 버전은 **2.0.28**입니다. CLI 버전을 확인하려면 `az --version`을 실행합니다. 설치를 업데이트해야 하는 경우 [Azure CLI 설치](./install-azure-cli.md)의 지침을 따릅니다.
 
 [az extension add](/cli/azure/extension#az-extension-add) 명령을 사용하여 확장을 설치합니다.
 

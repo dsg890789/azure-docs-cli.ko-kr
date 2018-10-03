@@ -1,6 +1,6 @@
 ---
-title: apt를 사용하여 Linux에 Azure CLI 2.0 설치
-description: apt 패키지 관리자를 사용하여 Azure CLI 2.0을 설치하는 방법
+title: apt를 사용하여 Linux에 Azure CLI 설치
+description: apt 패키지 관리자를 사용하여 Azure CLI를 설치하는 방법
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 13cc995e099cee47534a46097b2e1afd8e96e8b4
-ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
+ms.openlocfilehash: b388d3ecaf2d978aed11f925b9a479d8e95fb101
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46469983"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47178102"
 ---
-# <a name="install-azure-cli-20-with-apt"></a>apt를 사용하여 Azure CLI 2.0 설치
+# <a name="install-azure-cli-with-apt"></a>apt를 사용하여 Azure CLI 설치
 
 Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행하는 경우, Azure CLI에 64비트 패키지를 사용할 수 있습니다. 이 패키지는 다음 항목에서 테스트되었습니다.
 
@@ -53,7 +53,7 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-다른 인증 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.
+다른 인증 방법에 대한 자세한 내용은 [Azure CLI로 로그인](authenticate-azure-cli.md)을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
