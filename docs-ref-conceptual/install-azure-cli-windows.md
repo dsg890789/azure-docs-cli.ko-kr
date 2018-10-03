@@ -1,6 +1,6 @@
 ---
 title: Windows용 Azure CLI 설치
-description: Windows에 Azure CLI 2.0을 설치하는 방법
+description: Windows에 Azure CLI를 설치하는 방법
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,45 +9,45 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 6e57837313faf0edd95d822132ae282ed416aae7
-ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
+ms.openlocfilehash: c65cff52211b4c77e32c2992cd71392c8b0e44d6
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46469966"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177966"
 ---
-# <a name="install-azure-cli-20-on-windows"></a><span data-ttu-id="e7c69-103">Windows에 Azure CLI 2.0 설치</span><span class="sxs-lookup"><span data-stu-id="e7c69-103">Install Azure CLI 2.0 on Windows</span></span>
+# <a name="install-azure-cli-on-windows"></a><span data-ttu-id="91eb4-103">Windows에 Azure CLI 설치</span><span class="sxs-lookup"><span data-stu-id="91eb4-103">Install Azure CLI on Windows</span></span>
 
-<span data-ttu-id="e7c69-104">MSI를 통해 Azure CLI를 Windows에 설치하면 Windows 명령 프롬프트(CMD) 또는 PowerShell을 통해 CLI에 대한 액세스 권한을 제공 합니다.</span><span class="sxs-lookup"><span data-stu-id="e7c69-104">For Windows the Azure CLI is installed via an MSI, which gives you access to the CLI through the Windows Command Prompt (CMD) or PowerShell.</span></span>
-<span data-ttu-id="e7c69-105">WSL(Linux용 Windows 하위 시스템)을 설치하는 경우 Linux 배포에 패키지를 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="e7c69-105">When installing for Windows Subsystem for Linux (WSL), packages are available for your Linux distribution.</span></span> <span data-ttu-id="e7c69-106">지원되는 패키지 관리자 목록 또는 WSL에서 수동으로 설치하는 방법은 [주 설치 페이지](install-azure-cli.md)를 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="e7c69-106">See the [main install page](install-azure-cli.md) for the list of supported package managers or how to install manually under WSL.</span></span>
+<span data-ttu-id="91eb4-104">MSI를 통해 Azure CLI를 Windows에 설치하면 Windows 명령 프롬프트(CMD) 또는 PowerShell을 통해 CLI에 대한 액세스 권한을 제공 합니다.</span><span class="sxs-lookup"><span data-stu-id="91eb4-104">For Windows the Azure CLI is installed via an MSI, which gives you access to the CLI through the Windows Command Prompt (CMD) or PowerShell.</span></span>
+<span data-ttu-id="91eb4-105">WSL(Linux용 Windows 하위 시스템)을 설치하는 경우 Linux 배포에 패키지를 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="91eb4-105">When installing for Windows Subsystem for Linux (WSL), packages are available for your Linux distribution.</span></span> <span data-ttu-id="91eb4-106">지원되는 패키지 관리자 목록 또는 WSL에서 수동으로 설치하는 방법은 [주 설치 페이지](install-azure-cli.md)를 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="91eb4-106">See the [main install page](install-azure-cli.md) for the list of supported package managers or how to install manually under WSL.</span></span>
 
-## <a name="install-or-update"></a><span data-ttu-id="e7c69-107">설치 또는 업데이트</span><span class="sxs-lookup"><span data-stu-id="e7c69-107">Install or update</span></span>
+## <a name="install-or-update"></a><span data-ttu-id="91eb4-107">설치 또는 업데이트</span><span class="sxs-lookup"><span data-stu-id="91eb4-107">Install or update</span></span>
 
-<span data-ttu-id="e7c69-108">MSI 배포판은 Windows에서 `az` 명령을 설치, 업데이트 및 제거하는 데 사용됩니다.</span><span class="sxs-lookup"><span data-stu-id="e7c69-108">The MSI distributable is used for installing, updating, and uninstalling the `az` command on Windows.</span></span>
+<span data-ttu-id="91eb4-108">MSI 배포판은 Windows에서 `az` 명령을 설치, 업데이트 및 제거하는 데 사용됩니다.</span><span class="sxs-lookup"><span data-stu-id="91eb4-108">The MSI distributable is used for installing, updating, and uninstalling the `az` command on Windows.</span></span>
 
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="e7c69-109">MSI 설치 관리자 다운로드</span><span class="sxs-lookup"><span data-stu-id="e7c69-109">Download the MSI installer</span></span>](https://aka.ms/installazurecliwindows)
+> [<span data-ttu-id="91eb4-109">MSI 설치 관리자 다운로드</span><span class="sxs-lookup"><span data-stu-id="91eb4-109">Download the MSI installer</span></span>](https://aka.ms/installazurecliwindows)
 
-<span data-ttu-id="e7c69-110">설치 관리자가 컴퓨터를 변경해도 되는지 물어보면 "예" 상자를 클릭합니다.</span><span class="sxs-lookup"><span data-stu-id="e7c69-110">When the installer asks if it can make changes to your computer, click the "Yes" box.</span></span>
+<span data-ttu-id="91eb4-110">설치 관리자가 컴퓨터를 변경해도 되는지 물어보면 "예" 상자를 클릭합니다.</span><span class="sxs-lookup"><span data-stu-id="91eb4-110">When the installer asks if it can make changes to your computer, click the "Yes" box.</span></span>
 
-<span data-ttu-id="e7c69-111">이제 Windows 명령 프롬프트 또는 PowerShell에서 `az` 명령으로 Azure CLI를 실행할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="e7c69-111">You can now run the Azure CLI with the `az` command from either Windows Command Prompt or PowerShell.</span></span> <span data-ttu-id="e7c69-112">PowerShell은 Windows 명령 프롬프트에서 사용할 수 없는 일부 탭 완성 기능을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="e7c69-112">PowerShell offers some tab completion features not available from Windows Command Prompt.</span></span> <span data-ttu-id="e7c69-113">로그인하려면, [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="e7c69-113">To sign in, run the [az login](/cli/azure/reference-index#az-login) command.</span></span>
+<span data-ttu-id="91eb4-111">이제 Windows 명령 프롬프트 또는 PowerShell에서 `az` 명령으로 Azure CLI를 실행할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="91eb4-111">You can now run the Azure CLI with the `az` command from either Windows Command Prompt or PowerShell.</span></span> <span data-ttu-id="91eb4-112">PowerShell은 Windows 명령 프롬프트에서 사용할 수 없는 일부 탭 완성 기능을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="91eb4-112">PowerShell offers some tab completion features not available from Windows Command Prompt.</span></span> <span data-ttu-id="91eb4-113">로그인하려면, [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="91eb4-113">To sign in, run the [az login](/cli/azure/reference-index#az-login) command.</span></span>
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-<span data-ttu-id="e7c69-114">다른 인증 방법에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](authenticate-azure-cli.md)을 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="e7c69-114">To learn more about different authentication methods, see [Sign in with Azure CLI 2.0](authenticate-azure-cli.md).</span></span>
+<span data-ttu-id="91eb4-114">다른 인증 방법에 대한 자세한 내용은 [Azure CLI로 로그인](authenticate-azure-cli.md)을 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="91eb4-114">To learn more about different authentication methods, see [Sign in with Azure CLI](authenticate-azure-cli.md).</span></span>
 
-## <a name="uninstall"></a><span data-ttu-id="e7c69-115">제거</span><span class="sxs-lookup"><span data-stu-id="e7c69-115">Uninstall</span></span>
+## <a name="uninstall"></a><span data-ttu-id="91eb4-115">제거</span><span class="sxs-lookup"><span data-stu-id="91eb4-115">Uninstall</span></span>
 
 [!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-<span data-ttu-id="e7c69-116">MSI를 다시 실행 하 고 "제거" 옵션을 선택하여 제거할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="e7c69-116">Uninstalling can be done by running the MSI again, and choosing the "Uninstall" option.</span></span>
+<span data-ttu-id="91eb4-116">MSI를 다시 실행 하 고 "제거" 옵션을 선택하여 제거할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="91eb4-116">Uninstalling can be done by running the MSI again, and choosing the "Uninstall" option.</span></span>
 
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="e7c69-117">MSI 설치 관리자 다운로드</span><span class="sxs-lookup"><span data-stu-id="e7c69-117">Download the MSI installer</span></span>](https://aka.ms/installazurecliwindows)
+> [<span data-ttu-id="91eb4-117">MSI 설치 관리자 다운로드</span><span class="sxs-lookup"><span data-stu-id="91eb4-117">Download the MSI installer</span></span>](https://aka.ms/installazurecliwindows)
 
-## <a name="next-steps"></a><span data-ttu-id="e7c69-118">다음 단계</span><span class="sxs-lookup"><span data-stu-id="e7c69-118">Next Steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="91eb4-118">다음 단계</span><span class="sxs-lookup"><span data-stu-id="91eb4-118">Next Steps</span></span>
 
-<span data-ttu-id="e7c69-119">Azure CLI를 설치한 후 해당 기능 및 일반 명령을 잠시 둘러보세요.</span><span class="sxs-lookup"><span data-stu-id="e7c69-119">Now that you've installed the Azure CLI, take a short tour of its features and common commands.</span></span>
+<span data-ttu-id="91eb4-119">Azure CLI를 설치한 후 해당 기능 및 일반 명령을 잠시 둘러보세요.</span><span class="sxs-lookup"><span data-stu-id="91eb4-119">Now that you've installed the Azure CLI, take a short tour of its features and common commands.</span></span>
 
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="e7c69-120">Azure CLI 시작</span><span class="sxs-lookup"><span data-stu-id="e7c69-120">Get started with the Azure CLI</span></span>](get-started-with-azure-cli.md)
+> [<span data-ttu-id="91eb4-120">Azure CLI 시작</span><span class="sxs-lookup"><span data-stu-id="91eb4-120">Get started with the Azure CLI</span></span>](get-started-with-azure-cli.md)
