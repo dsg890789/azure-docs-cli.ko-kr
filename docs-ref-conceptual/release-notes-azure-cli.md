@@ -4,23 +4,85 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/21/2018
+ms.date: 10/09/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: f0ee84c3f70cf168818de447289d6c7ab5a40c9e
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: 0aec9dce0eda007c71df3693b39c7ec8cc9856cd
+ms.sourcegitcommit: 0fc354c24454f5c9c5ff4b7296ad7b18ffdf31b1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47178085"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48904789"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
 
+## <a name="october-9-2018"></a>2018년 10월 9일
+
+버전 2.0.47
+
+### <a name="core"></a>코어
+* "잘못된 요청" 오류의 오류 처리를 향상
+
+### <a name="acr"></a>ACR
+* helm 클라이언트와 유사한 테이블 형식에 대한 지원 추가
+
+### <a name="acs"></a>ACS
+* `aks [create|scale] --nodepool-name`을 추가하여 nodepool 이름 구성, 12 문자로 잘림, 기본값 - nodepool1 
+* Parimiko가 실패할 때 'scp'로 되돌아가도록 수정
+* `aks create`가 `--aad-tenant-id`를 요구하지 않도록 변경
+* 중복된 항목이 있을 때 Kubernetes 자격 증명에 대한 병합 향상
+
+### <a name="container"></a>컨테이너
+* 특정 런타임을 사용하여 Linux 소비 계획 형식 만들기를 지원하도록 `functionapp create` 변경
+* [미리 보기] Windows 컨테이너에 웹앱을 호스트하기 위한 지원 추가
+
+### <a name="event-hub"></a>이벤트 허브
+* `eventhub update` 명령 수정됨
+* [호환성이 손상되는 변경] 빈 목록을 표시하는 대신 일반적인 방법으로 resource(s) NotFound(404)에 대한 오류를 처리하도록 `list` 명령을 변경
+
+### <a name="extensions"></a>확장
+* 이미 설치되어 있는 확장을 추가하려고 시도할 때의 문제 해결
+
+### <a name="hdinsight"></a>HDInsight
+* 최초 릴리스
+
+### <a name="iot"></a>IoT
+* 첫 번째 실행 배너에 확장 설치 명령 추가
+
+### <a name="keyvault"></a>KeyVault
+* 최신 API 프로필에 keyvault 저장소 명령을 제한하도록 변경
+
+### <a name="network"></a>네트워크
+* `network dns zone create` 수정: 사용자가 기본 위치를 구성한 경우에도 명령은 성공합니다. #6052 참조
+* `network vnet peering create`에 `--remote-vnet-id`이 사용되지 않도록 함
+* 이름 또는 ID를 허용하는 `network vnet peering create`에 `--remote-vnet` 추가
+* 서브넷에서 `--subnet-prefixes`를 사용하는 여러 주소 접두사에 대한 지원이 `network vnet create`에 추가되었습니다.
+* 서브넷에서 `--address-prefixes`를 사용하는 여러 주소 접두사에 대한 지원이 `network vnet subnet [create|update]`에 추가되었습니다.
+* `WAF_v2` 또는 `Standard_v2` SKU로 게이트웨이를 만들지 못하던 `network application-gateway create` 문제가 해결되었습니다.
+* `--service-endpoint-policy` 편의 인수가 `network vnet subnet update`에 추가되었습니다.
+
+### <a name="role"></a>역할
+* `ad app owner`에 Azure AD 앱 소유자를 나열하기 위한 지원이 추가되었습니다.
+* `ad sp owner`에 Azure AD 서비스 주체 소유자를 나열하기 위한 지원이 추가되었습니다.
+* 역할 정의 작성 및 업데이트 명령이 여러 권한 구성을 허용하도록 변경되었습니다.
+* 홈 페이지 URI가 항상 "https"가 되도록 `ad sp create-for-rbac`가 변경되었습니다.
+
+### <a name="service-bus"></a>Service Bus
+* [호환성이 손상되는 변경] 빈 목록을 표시하는 대신 일반적인 방법으로 resource(s) NotFound(404)에 대한 오류를 처리하도록 `list` 명령을 변경
+
+### <a name="vm"></a>VM
+* `disk grant-access` 내 빈 `accessSas` 수정
+* 오버프로비저닝을 처리하기 위해 충분히 큰 프런트 엔드 포트 범위를 예약하도록 `vmss create`를 변경했습니다.
+* `sig`에 대한 업데이트 명령을 수정했습니다.
+* `sig`에 이미지 버전 관리에 대한 `--no-wait` 지원이 추가되었습니다.
+* 공용 IP 주소 가용성 영역을 표시하도록 `vm list-ip-addresses`가 변경되었습니다.
+* 디스크의 기본 lun을 첫 번째 사용 가능한 지점으로 설정하도록 `[vm|vmss] disk attach`를 변경했습니다.
+
 ## <a name="september-21-2018"></a>2018년 9월 21일
 
-버전 20.46
+버전 2.0.46
 
 ### <a name="acr"></a>ACR
 * ACR 작업 명령 추가
