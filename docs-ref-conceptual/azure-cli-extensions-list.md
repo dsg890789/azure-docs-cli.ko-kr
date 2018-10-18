@@ -4,17 +4,17 @@ description: Azure CLI에 대해 공식적으로 지원되는 확장의 전체 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/09/2018
+ms.date: 10/11/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 44f640f59b8796d5778e20a0e013e69ce2546550
-ms.sourcegitcommit: 0fc354c24454f5c9c5ff4b7296ad7b18ffdf31b1
+ms.openlocfilehash: 76512c665728ada85edebc867edfcd772be6237c
+ms.sourcegitcommit: f0e00f09db87617328a081d43cd53bb8b16db0fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904721"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113325"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI에 대해 사용 가능한 확장
 
@@ -35,7 +35,7 @@ az extension list-available --output table
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.0 | Azure Firewall 리소스를 관리합니다. | yes |
 | [botservice](https://github.com/Azure/azure-cli-extensions) | 0.4.1 | 네이티브 botservice cli 명령 모듈 문제에 대한 버그가 수정되었습니다. | yes |
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.6 | Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. | yes |
-| [dms-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/dms-preview) | 0.4.0 | Database Migration Service의 새로운 시나리오에 대한 지원. | yes |
+| [dms-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/dms-preview) | 0.5.0 | Database Migration Service의 새로운 시나리오에 대한 지원. | yes |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | DNS 영역을 위한 Azure CLI Extension |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Azure EventGrid 2018-05-01 미리 보기 기능에 대한 지원 | yes |
 | [express-route](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route) | 0.1.0 | 미리 보기 기능을 사용하여 Expressroute를 관리합니다. | yes |
