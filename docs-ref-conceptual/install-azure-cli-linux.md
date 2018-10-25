@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 221e8904fdb938b15b28cb369085dcacb08e4091
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: 38d32f62cbaff7d5f1bdf7fd52bf00d47e9e14b1
+ms.sourcegitcommit: 6d9169ed547df151f99e5a3ac86578634486419a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47177949"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652501"
 ---
 # <a name="install-azure-cli-on-linux-manually"></a>Linux에 Azure CLI 수동 설치
 
@@ -83,22 +83,22 @@ hash -r
 
 1. 설치된 CLI 파일을 제거합니다.
 
-  ```bash
-  rm -r <install location>/lib/azure-cli
-  rm <install location>/bin/az
-  ```
+   ```bash
+   rm -r <install location>/lib/azure-cli
+   rm <install location>/bin/az
+   ```
 
 2. `$HOME/.bash_profile` 파일을 수정하여 다음 선을 제거합니다.
 
-  ```text
-  <install location>/lib/azure-cli/az.completion
-  ```
+   ```text
+   <install location>/lib/azure-cli/az.completion
+   ```
 
 3. `bash` 또는 `zsh`를 사용하는 경우 셸의 명령 캐시를 다시 로드합니다.
 
-  ```bash
-  hash -r
-  ```
+   ```bash
+   hash -r
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 
