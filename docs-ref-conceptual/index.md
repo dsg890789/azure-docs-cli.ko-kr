@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 047a953a0ab8ccaf145d56e4d774d2bf9852ed6f
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: 8ab8435f2d8337f63a73aef39472646dc8ebcd74
+ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47177728"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51222296"
 ---
 # <a name="azure-cli"></a>Azure CLI
 
@@ -26,6 +26,10 @@ Azure CLI는 사용하기 쉽고, Azure Resource Manager에 작동하는 자동�
 ```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS
 ```
+
+> [!NOTE]
+>
+> 스크립트 및 Microsoft 설명서 사이트에 작성된 Azure CLI 예제는 `bash` 셸용입니다. 한 줄 예제는 모든 플랫폼에서 실행됩니다. 연속하는 줄을 포함하는 더 길거나 더 복잡한 예제 (`\`) 또는 변수 할당은 PowerShell을 포함하여 다른 셸에서 작동하도록 수정해야 합니다.
 
 ## <a name="run-or-install"></a>실행 또는 설치
 
