@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 4522242952e5d257449c9c593885c62de2f56d0f
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: 1736d1677fb6c7fc83a092493e8706c2d5edfccd
+ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47178034"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51222534"
 ---
 # <a name="use-jmespath-queries-with-azure-cli"></a>Azure CLI와 함께 JMESPath 쿼리 사용 
 
@@ -61,7 +61,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.
 > [!NOTE]
 > 특정 키는 필터링되고 테이블 보기에 인쇄되지 않습니다. 이러한 키는 `id`, `type` 및 `etag`입니다. 이 정보를 표시해야 하는 경우 키 이름을 변경하고 필터링하지 않을 수 있습니다.
 >
-> ```azurecli
+> ```azurecli-interactive
 > az vm show -g QueryDemo -n TestVM --query "{objectID:id}" -o table
 > ```
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 68aa728b9b9324a53856008f05d8ce30eb61c76d
-ms.sourcegitcommit: 6d9169ed547df151f99e5a3ac86578634486419a
+ms.openlocfilehash: 78043f9c070626545030971dea2a8fd155ac76c2
+ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652484"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51222466"
 ---
 # <a name="install-the-azure-classic-cli"></a>Azure 클래식 CLI 설치
 
@@ -74,7 +74,7 @@ docker run -it microsoft/azure-cli:0.10.17
 
 클래식 CLI가 설치되면 명령줄 사용자 인터페이스(Bash, 터미널, 명령 프롬프트 등)에서 `azure` 명령을 실행할 수 있습니다. 예를 들어 help 명령을 실행하려면 다음을 입력합니다.
 
-```azurecli
+```azurecli-interactive
 azure help
 ```
 
@@ -87,7 +87,7 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 설치한 Azure 클래식 CLI의 버전을 보려면 다음을 입력합니다.
 
-```azurecli
+```azurecli-interactive
 azure --version
 ```
 
