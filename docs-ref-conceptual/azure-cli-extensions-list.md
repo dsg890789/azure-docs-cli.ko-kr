@@ -4,17 +4,17 @@ description: Azure CLI에 대해 공식적으로 지원되는 확장의 전체 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/31/2018
+ms.date: 11/07/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: cf1182cee6b48ba7f6400cafe43ed6c90bfa5a11
-ms.sourcegitcommit: a44203b9392edf3a35018099db40d6bf9ade59c4
+ms.openlocfilehash: 97636487677a0f28837c474d10cffedc7a52d5a5
+ms.sourcegitcommit: 2a2c87c21289cdfef3d0e5b3f07b0bea42c6c267
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50738549"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51273177"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI에 대해 사용 가능한 확장
 
@@ -22,13 +22,14 @@ ms.locfileid: "50738549"
 
 확장 목록도 CLI로부터 가져올 수 있습니다. 가져오려면 [az extension list-available](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)을 실행합니다.
 
-```azurecli
+```azurecli-interactive
 az extension list-available --output table
 ```
 
 | 이름 | 버전 | 요약 | 미리 보기 |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | SAP용 Azure 고급 모니터링 확장 관리 |  |
+| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.1.0 | 예정된 AKS 기능에 대한 미리 보기 제공 | yes |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | 명령 별칭 지원 | yes |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.5.1 | Azure Batch 서비스와 함께 사용하기 위한 추가 명령 |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.6.0 | Azure IoT Hub, IoT Edge 및 IoT 장치 프로비전 서비스에 대한 데이터 플레인 명령 계층 제공 |  |
@@ -53,8 +54,8 @@ az extension list-available --output table
 | [resource-graph](https://github.com/Azure/azure-cli-extensions/tree/master/src/resource-graph) | 0.1.8 | Resource Graph로 Azure 리소스 쿼리에 대한 지원 | yes |
 | [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.1.6 | SAP HanaOnAzure 인스턴스와 함께 사용하기 위한 추가 명령 |  |
 | [signalr](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | signalr 관리 미리 보기를 지원합니다. | yes |
-| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.1.6 | 예정된 저장소 기능에 대한 미리 보기를 제공합니다. | yes |
+| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.1.7 | 예정된 저장소 기능에 대한 미리 보기를 제공합니다. | yes |
 | [subscription](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | 구독 관리 미리 보기를 지원합니다. |  |
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | 가상 네트워크 관리 탭(VTAP) | yes |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.0 | 가상 WAN, 허브, VPN 게이트웨이 및 VPN 사이트를 관리합니다. | yes |
-| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.13 | Azure AppService에 대한 추가 명령입니다. | yes |
+| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.14 | Azure AppService에 대한 추가 명령입니다. | yes |

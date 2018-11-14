@@ -4,17 +4,17 @@ description: macOS에 Azure CLI를 설치하는 방법
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/09/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 9eb816ef68d24d1dbbaaeb5fd4877580edbe87ad
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: a79e5445654a9f339321db18b54e558aa598e19b
+ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47177660"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51222262"
 ---
 # <a name="install-azure-cli-on-macos"></a>macOS에 Azure CLI 설치
 
@@ -71,6 +71,12 @@ Homebrew를 사용하여 `azure-cli` 패키지를 제거합니다.
 ```bash
 brew uninstall azure-cli
 ```
+
+## <a name="other-installation-methods"></a>다른 설치 방법
+
+Homebrew를 사용하여 사용자 환경에 Azure CLI를 설치할 수 없는 경우 Linux용 설명서 지침을 사용할 수 있습니다. 이 프로세스는 공식적으로 macOS와 호환되도록 유지되지 않습니다. Homebrew와 같은 패키지 관리자를 사용하는 것이 항상 권장됩니다. 사용할 수 있는 다른 옵션이 없는 경우에만 수동 설치 방법을 사용합니다.
+
+수동 설치 지침은 [Linux에 Azure CLI 수동 설치](install-azure-cli-linux.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
