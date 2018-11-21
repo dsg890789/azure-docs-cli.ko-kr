@@ -4,17 +4,17 @@ description: apt 패키지 관리자를 사용하여 Azure CLI를 설치하는 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/07/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b388d3ecaf2d978aed11f925b9a479d8e95fb101
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: 0d4311e88fec9903c1aab1410cc71328f896dc65
+ms.sourcegitcommit: 728a050f13d3682122be4a8993596cc4185a45ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47178102"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51680937"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt를 사용하여 Azure CLI 설치
 
@@ -28,6 +28,7 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
 1. <div id="install-step-1"/>원본 목록을 수정합니다.
 
     ```bash
+    sudo apt-get install apt-transport-https lsb-release software-properties-common -y
     AZ_REPO=$(lsb_release -cs)
     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
         sudo tee /etc/apt/sources.list.d/azure-cli.list
@@ -36,18 +37,20 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
 2. <div id="signingKey"/>Microsoft 서명 키 가져오기:
 
    ```bash
-   curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+   sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
+        --keyserver packages.microsoft.com \
+        --recv-keys BC528686B50D79E339D3721CEB3E94ADBE1229CF
    ```
 
 3. CLI 설치:
 
    ```bash
    sudo apt-get update
-   sudo apt-get install apt-transport-https azure-cli
+   sudo apt-get install azure-cli
    ```
 
    > [!WARNING]
-   > 서명 키는 2018년 5월 업데이트되었으며 대체 되었습니다. 서명 키 오류를 수신하는 경우 [최신 서명 키를 획득](#signingKey)했는지 확인합니다.
+   > 서명 키는 2018년 5월 업데이트되었으며 대체 되었습니다. 서명 오류가 발생할 경우 [최신 서명 키](#signingKey)가 있는 지 확인합니다.
 
 그런 다음 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다. 로그인하려면, [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.
 
@@ -58,20 +61,6 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
 ## <a name="troubleshooting"></a>문제 해결
 
 `apt`을 사용해 설치할 때 몇 가지 일반적인 문제가 여기에 표시됩니다. 여기에서 다루지 않는 문제가 발생하는 경우, [github에 문제를 제출합니다](https://github.com/Azure/azure-cli/issues).
-
-### <a name="lsbrelease-fails-with-command-not-found"></a>lsb_release가 “명령을 찾을 수 없음”으로 인해 실패
-
-`lsb_release` 명령을 실행할 때 다음 오류와 유사한 출력이 표시될 수 있습니다.
-
-```output
--bash: lsb_release: command not found
-```
-
-이 오류는 `lsb_release`명령이 설치되어 있지 않기 때문에 발생합니다. `lsb-release` 패키지를 설치하면 이 문제를 해결할 수 있습니다.
-
-```bash
-sudo apt-get install lsb-release
-```
 
 ### <a name="lsbrelease-does-not-return-the-base-distribution-version"></a>lsb_release는 기본 배포 버전을 반환하지 않습니다.
 
@@ -95,13 +84,17 @@ sudo apt-get install dirmngr
 
 ### <a name="apt-key-hangs"></a>apt-key 중지
 
-포트 11371로 나가는 연결을 차단하는 방화벽 뒤에 있는 경우 `apt-key` 명령이 무기한 중지될 수 있습니다. 방화벽은 나가는 연결을 위해 HTTP 프록시를 사용할 수 있습니다.
+포트 11371로 나가는 연결을 차단하는 방화벽 뒤에 있는 경우 `apt-key` 명령이 무기한 중지될 수 있습니다.
+방화벽에 나가는 연결에 대한 HTTP 프록시가 필요할 수도 있습니다.
 
 ```bash
-sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
+    --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ \
+    --keyserver packages.microsoft.com \
+    --recv-keys BC528686B50D79E339D3721CEB3E94ADBE1229CF
 ```
 
-프록시가 있는지 알아보려면, 시스템 관리자에게 문의하세요. 프록시에 로그인이 필요하지 않으면 사용자, 암호 및 `@` 토큰은 생략합니다.
+프록시가 있는지 알아보려면, 시스템 관리자에게 문의하세요. 프록시에 로그인이 필요하지 않으면 사용자와 암호 정보는 생략합니다.
 
 ## <a name="update"></a>주 지역에서
 
@@ -112,11 +105,12 @@ sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-
    ```
 
 > [!WARNING]
-> 서명 키는 2018년 5월 업데이트되었으며 대체 되었습니다. 서명 키 오류를 수신하는 경우 [최신 서명 키를 획득](#signingKey)했는지 확인합니다.
+> 서명 키는 2018년 5월 업데이트되었으며 대체 되었습니다. 서명 오류가 발생할 경우 [최신 서명 키](#signingKey)가 있는 지 확인합니다.
 >
 > [!NOTE]
 > 이 명령은 시스템에 설치되었지만 종속성이 변경되지 않은 모든 패키지를 업그레이드합니다.
 > CLI만 업그레이드하려면 `apt-get install`을 사용하세요.
+> 
 > ```bash
 > sudo apt-get update && sudo apt-get install --only-upgrade -y azure-cli
 > ```
@@ -137,7 +131,13 @@ sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-
    sudo rm /etc/apt/sources.list.d/azure-cli.list
    ```
 
-3. 불필요한 패키지를 제거합니다.
+3. 서명 키를 제거합니다.
+
+    ```bash
+    sudo rm /etc/apt/trusted.gpg.d/Microsoft.gpg
+    ```
+
+4. 불필요한 패키지를 제거합니다.
 
    ```bash
    sudo apt autoremove
