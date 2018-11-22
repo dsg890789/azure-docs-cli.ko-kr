@@ -4,17 +4,17 @@ description: Azure CLI에 대해 공식적으로 지원되는 확장의 전체 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/08/2018
+ms.date: 11/19/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: ad57a08cab342aeb85982fb232b901f9ea3fc7ab
-ms.sourcegitcommit: ab8cffd1cc9f057316be87c9cb202fe215a34890
+ms.openlocfilehash: 39271b393e8fbc08bb33fd1843b78745437d0385
+ms.sourcegitcommit: f92d5b3ccd409be126f1e7c06b9f1adc98dad78b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51296789"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159357"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI에 대해 사용 가능한 확장
 
@@ -58,4 +58,4 @@ az extension list-available --output table
 | [subscription](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | 구독 관리 미리 보기를 지원합니다. |  |
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | 가상 네트워크 관리 탭(VTAP) | yes |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.0 | 가상 WAN, 허브, VPN 게이트웨이 및 VPN 사이트를 관리합니다. | yes |
-| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.15 | Azure AppService에 대한 추가 명령입니다. | yes |
+| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.16 | Azure AppService에 대한 추가 명령입니다. | yes |

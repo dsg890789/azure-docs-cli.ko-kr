@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 2a07b77873f4b0439e494a96243b0298f7d77b8d
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: cbfeec67468b8529580c7773883ebfaaa0d0185f
+ms.sourcegitcommit: f92d5b3ccd409be126f1e7c06b9f1adc98dad78b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47177694"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159306"
 ---
 # <a name="azure-cli-interactive-mode"></a>Azure CLI 대화형 모드
 
@@ -86,11 +86,11 @@ az>>
 예를 들어 VM을 만든 후 완전히 프로비전되었는지 확인할 수 있습니다.
 
 ```azurecli
-az>> vm create --name myVM --resource-group myRG --image UbuntuLTS --no-wait
+az>> vm create --name myVM --resource-group myRG --image UbuntuLTS --no-wait -o json
 az>> ? [*].provisioningState
 ```
 
-```output
+```json
 [
   "Creating"
 ]
