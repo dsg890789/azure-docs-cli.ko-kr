@@ -4,19 +4,69 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/06/2018
+ms.date: 11/20/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 51b8b8cad6d25f916006b8e68b8f300587f5d45b
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.openlocfilehash: 36b57d52a5851275fd317240e5c2c95171a99e7e
+ms.sourcegitcommit: 22b73d56602c1c4e647ed2c5af3d596a2f6a7ed5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222568"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52267333"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+## <a name="november-20-2018"></a>2018년 11월 20일
+
+Version 2.0.51
+### <a name="core"></a>코어
+* ID에서 구독 이름을 재사용하지 않도록 MSI 로그인 변경
+
+### <a name="acr"></a>ACR
+* 작업 단계에 대해 컨텍스트 토큰 추가
+* acr 작업을 미러링하도록 acr에서 비밀을 설정하는 것에 대한 지원 추가
+* `show-tags` 및 `show-manifests` 명령에 대한 `--top` 및 `--orderby`에 대한 지원 향상
+
+### <a name="appservice"></a>App Service
+* zip 배포 기본 시간 제한을 변경하여 해당 상태에 대한 폴링이 5 분으로 증가하고 시간 제한 속성을 추가하여 이 값을 사용자 지정합니다.
+* 기본값을 `node_version`으로 업데이트 했습니다. 2단계 스왑 중에 슬롯 스왑 동작을 재설정하면 모든 appsettings 및 연결 문자열이 보존됩니다.
+* Linux App Service 계획 만들기에 대한 클라이언트 쪽 SKU 확인 제거
+* Zipdeploy 상태를 가져오기 하려고 할 때의 오류가 수정됨
+
+### <a name="iotcentral"></a>IotCentral
+* IoT Central 애플리케이션을 만들 때 하위 도메인 가용성 확인 추가
+
+### <a name="keyvault"></a>KeyVault
+* 오류가 무시되었을 수 있는 버그 수정
+
+### <a name="network"></a>네트워크
+* 신뢰할 수 있는 루트 인증서를 처리하기 위해 `root-cert` 하위 명령을 `application-gateway`에 추가
+* `--min-capacity` 및 `--custom-error-pages` 옵션을 `application-gateway [create|update]`에 추가:
+* `application-gateway create`에 가용성 영역 지원을 위해 `--zones` 추가 
+* `application-gateway waf-config set`에 추가된 인수: `--file-upload-limit`, `--max-request-body-size`, `--request-body-check`
+
+### <a name="rdbms"></a>Rdbms
+* mariadb vnet 명령 추가
+
+### <a name="rbac"></a>Rbac
+* `ad app update`에서 변경할 수 없는 자격 증명을 업데이트 하려는 시도 관련 문제 해결
+* `ad [app|sp] list`에 대한 가까운 장래의 호환성이 손상되는 변경을 알리는 출력 경고가 추가되었습니다. 
+
+### <a name="storage"></a>Storage
+* 스토리지 복사 명령에 대한 코너 케이스의 처리가 향상됨
+* 대상 계정과 원본 계정이 같을 때 로그인 자격 증명을 사용하지 않는 `storage blob copy start-batch` 문제가 해결되었습니다.
+* `sas_token`이 URL에 통합되지 않은 `storage [blob|file] url`의 버그 수정
+* `[blob|container] list`에 호환성이 손상되는 변경 경고가 추가됨: 기본적으로 처음 5000개의 결과만 출력됩니다.
+
+### <a name="vm"></a>VM
+* 관리되는 OS 및 데이터 디스크에 대한 스토리지 계정 SKU를 별도로 지정하도록 `[vm|vmss] create --storage-sku`에 대한 지원이 추가되었습니다.
+* `sig image-version`에 대한 버전 이름 매개 변수를 `--image-version -e`가 되도록 변경
+* `--image-version-name`에 대한 `sig image-version` 인수가 사용되지 않으며 `--image-version`으로 대체됨
+* `[vm|vmss] create --ephemeral-os-disk`에 로컬 OS 디스크를 사용하는 지원이 추가됨
+* `--no-wait`에 대한 지원이 `snapshot create/update`에 추가됨
+* `snapshot wait` 명령이 추가됨
+* `[vm|vmss] extension set --extension-instance-name` 인스턴스 이름을 사용하는 것에 대한 지원 추가
 
 ## <a name="november-6-2018"></a>2018년 11월 6일
 
