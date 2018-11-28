@@ -4,125 +4,282 @@ description: Azure CLI 명령의 출력에 대해 JMESPath 쿼리를 수행하�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/09/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1736d1677fb6c7fc83a092493e8706c2d5edfccd
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.openlocfilehash: 53aa2d1011eb76c27a503e6b15c20aa05e13b448
+ms.sourcegitcommit: f92d5b3ccd409be126f1e7c06b9f1adc98dad78b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222534"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159391"
 ---
-# <a name="use-jmespath-queries-with-azure-cli"></a><span data-ttu-id="121ee-103">Azure CLI와 함께 JMESPath 쿼리 사용</span><span class="sxs-lookup"><span data-stu-id="121ee-103">Use JMESPath queries with Azure CLI</span></span> 
+# <a name="query-azure-cli-command-output"></a><span data-ttu-id="120a3-103">Azure CLI 명령 출력 쿼리</span><span class="sxs-lookup"><span data-stu-id="120a3-103">Query Azure CLI command output</span></span>
 
-<span data-ttu-id="121ee-104">Azure CLI는 `--query` 인수를 사용하여 명령의 결과에 대해 [JMESPath 쿼리](http://jmespath.org)를 실행합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-104">The Azure CLI uses the `--query` argument to execute a [JMESPath query](http://jmespath.org) on the results of commands.</span></span> <span data-ttu-id="121ee-105">JMESPath는 JSON의 쿼리 언어이며, CLI 출력의 데이터를 선택하고 표시하는 기능을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-105">JMESPath is a query language for JSON, giving you the ability to select and present data from CLI output.</span></span> <span data-ttu-id="121ee-106">다른 표시 형식 전에 이러한 쿼리를 JSON 출력에서 실행합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-106">These queries are executed on the JSON output before any display formatting.</span></span>
+<span data-ttu-id="120a3-104">Azure CLI는 `--query` 인수를 사용하여 명령의 결과에 대해 [JMESPath 쿼리](http://jmespath.org)를 실행합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-104">The Azure CLI uses the `--query` argument to execute a [JMESPath query](http://jmespath.org) on the results of commands.</span></span> <span data-ttu-id="120a3-105">JMESPath는 JSON의 쿼리 언어이며, CLI 출력의 데이터를 선택하고 수정하는 기능을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-105">JMESPath is a query language for JSON, giving you the ability to select and modify data from CLI output.</span></span> <span data-ttu-id="120a3-106">다른 표시 형식 전에 이러한 쿼리를 JSON 출력에서 실행합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-106">Queries are executed on the JSON output before any display formatting.</span></span>
 
-<span data-ttu-id="121ee-107">`--query` 인수는 Azure CLI의 모든 명령에서 지원됩니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-107">The `--query` argument is supported by all commands in the Azure CLI.</span></span> <span data-ttu-id="121ee-108">이 문서의 예제는 일반적인 사용 사례를 다루고 JMESPath 기능을 사용하는 방법을 보여줍니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-108">This article's examples cover common use cases and demonstrate how to use the features of JMESPath.</span></span>
+<span data-ttu-id="120a3-107">`--query` 인수는 Azure CLI의 모든 명령에서 지원됩니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-107">The `--query` argument is supported by all commands in the Azure CLI.</span></span> <span data-ttu-id="120a3-108">이 문서에서는 일련의 간단한 예제를 사용하여 JMESPath의 기능을 사용하는 방법을 설명합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-108">This article covers how to use the features of JMESPath with a series of small, simple examples.</span></span>
 
-## <a name="work-with-dictionary-output"></a><span data-ttu-id="121ee-109">사전 출력으로 작업</span><span class="sxs-lookup"><span data-stu-id="121ee-109">Work with dictionary output</span></span>
+## <a name="dictionary-and-list-cli-results"></a><span data-ttu-id="120a3-109">사전 및 CLI 결과 목록</span><span class="sxs-lookup"><span data-stu-id="120a3-109">Dictionary and list CLI results</span></span>
 
-<span data-ttu-id="121ee-110">JSON 사전을 반환하는 명령을 해당 키 이름만으로 탐색할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-110">Commands that return a JSON dictionary can be explored by their key names alone.</span></span> <span data-ttu-id="121ee-111">키 경로는 `.` 문자를 구분 기호로 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-111">Key paths use the `.` character as a separator.</span></span> <span data-ttu-id="121ee-112">다음 예제에서는 Linux VM에 연결할 수 있도록 허용된 공용 SSH 키 목록을 끌어옵니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-112">The following example pulls a list of the public SSH keys allowed to connect to a Linux VM:</span></span>
+<span data-ttu-id="120a3-110">JSON이 아닌 출력 형식을 사용하는 경우에도 CLI 명령 결과는 먼저 쿼리용 JSON으로 처리됩니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-110">Even when using an output format other than JSON, CLI command results are first treated as JSON for queries.</span></span> <span data-ttu-id="120a3-111">CLI 결과는 JSON 배열 또는 사전입니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-111">CLI results are either a JSON array or dictionary.</span></span> <span data-ttu-id="120a3-112">배열은 인덱싱할 수 있는 개체의 시퀀스이며 사전은 키를 사용하여 액세스되는 정렬되지 않은 개체입니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-112">Arrays are sequences of objects that can be indexed, and dictionaries are unordered objects accessed with keys.</span></span> <span data-ttu-id="120a3-113">둘 이상의 개체를 반환할 _수 있는_ 명령은 배열을 반환하고 _항상_ 단일 개체_만_ 반환하는 명령은 사전을 반환합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-113">Commands that _could_ return more than one object return an array, and commands that _always_ return _only_ a single object return a dictionary.</span></span>
+
+## <a name="get-properties-in-a-dictionary"></a><span data-ttu-id="120a3-114">사전에 속성 가져오기</span><span class="sxs-lookup"><span data-stu-id="120a3-114">Get properties in a dictionary</span></span>
+
+<span data-ttu-id="120a3-115">사전 결과로 작업하면 키만으로 최상위 레벨에서 속성에 액세스할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-115">Working with dictionary results, you can access properties from the top level with just the key.</span></span> <span data-ttu-id="120a3-116">`.`(__subexpression__) 문자를 사용하여 중첩된 사전의 속성을 액세스합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-116">The `.` (__subexpression__) character is used to access properties of nested dictionaries.</span></span> <span data-ttu-id="120a3-117">쿼리를 도입하기 전에 `az vm show` 명령의 수정되지 않은 출력을 살펴보기:</span><span class="sxs-lookup"><span data-stu-id="120a3-117">Before introducing queries, take a look at the unmodified output of the `az vm show` command:</span></span>
 
 ```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys
+az vm show -g QueryDemo -n TestVM -o json
 ```
 
-<span data-ttu-id="121ee-113">여러 값을 정렬된 배열에 배치할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-113">Multiple values can be put into an ordered array.</span></span> <span data-ttu-id="121ee-114">다음 예제에서는 OS 디스크의 이름 및 크기를 제공하는 Azure 이미지를 검색하는 방법을 보여줍니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-114">The following example shows how to retrieve the Azure image offering name and the size of the OS disk:</span></span>
+<span data-ttu-id="120a3-118">명령은 사전을 출력합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-118">The command will output a dictionary.</span></span> <span data-ttu-id="120a3-119">일부 콘텐츠는 생략 되었습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-119">Some content has been omitted.</span></span>
+
+```json
+{
+  "additionalCapabilities": null,
+  "availabilitySet": null,
+  "diagnosticsProfile": {
+    "bootDiagnostics": {
+      "enabled": true,
+      "storageUri": "https://xxxxxx.blob.core.windows.net/"
+    }
+  },
+  ...
+  "osProfile": {
+    "adminPassword": null,
+    "adminUsername": "azureuser",
+    "allowExtensionOperations": true,
+    "computerName": "TestVM",
+    "customData": null,
+    "linuxConfiguration": {
+      "disablePasswordAuthentication": true,
+      "provisionVmAgent": true,
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso",
+            "path": "/home/azureuser/.ssh/authorized_keys"
+          }
+        ]
+      }
+    },
+    "secrets": [],
+    "windowsConfiguration": null
+  },
+  ....
+}
+```
+
+<span data-ttu-id="120a3-120">다음 명령은 쿼리를 추가하여 VM에 연결할 수 있는 SSH 공개 키를 가져옵니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-120">The following command gets the SSH public keys authorized to connect to the VM by adding a query:</span></span>
 
 ```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer, osDisk.diskSizeGb]'
+az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys -o json
 ```
 
 ```json
 [
-  "UbuntuServer",
-  30
+  {
+    "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso",
+    "path": "/home/azureuser/.ssh/authorized_keys"
+  }
 ]
 ```
 
-<span data-ttu-id="121ee-115">출력에 키를 배치하는 경우 대체 사전 구문을 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-115">If you want keys in your output, you can use an alternate dictionary syntax.</span></span>  <span data-ttu-id="121ee-116">사전 출력할 요소 선택 영역은 `{displayKey:keyPath, ...}` 형식을 사용하여 `keyPath` JMESPath 식으로 필터링합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-116">Element selection into a dictionary uses the format `{displayKey:keyPath, ...}` to filter on the `keyPath` JMESPath expression.</span></span> <span data-ttu-id="121ee-117">출력 값에서, 키/값 쌍은 `{displayKey: value}`(으)로 변경됩니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-117">In the output values, the key/value pairs are changed to `{displayKey: value}`.</span></span> <span data-ttu-id="121ee-118">다음 예제에서는 마지막 예제의 쿼리를 사용하고 출력에 키를 할당하여 더 명확하게 합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-118">The next example takes the last example's query, and makes it clearer by assigning keys to the output:</span></span>
+<span data-ttu-id="120a3-121">둘 이상의 속성을 가져오려면 대괄호 `[ ]`(__다중 선택 목록__)에 쉼표로 구분된 목록으로 언어 식을 입력하십시오.</span><span class="sxs-lookup"><span data-stu-id="120a3-121">To get more than one property, put expressions in square brackets  `[ ]` (a __multiselect list__) as a comma-separated list.</span></span> <span data-ttu-id="120a3-122">VM 이름, 관리 사용자 및 SSH 키를 모두 한 번에 가져 오려면 다음 명령을 사용하십시오.</span><span class="sxs-lookup"><span data-stu-id="120a3-122">To get the VM name, admin user, and SSH key all at once use the command:</span></span>
 
 ```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.offer, diskSize:osDisk.diskSizeGb}'
+az vm show -g QueryDemo -n TestVM --query '[name, osProfile.adminUsername, osProfile.linuxConfiguration.ssh.publicKeys[0].keyData]' -o json
+```
+
+```json
+[
+  "TestVM",
+  "azureuser",
+  "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso"
+]
+```
+
+<span data-ttu-id="120a3-123">이러한 값은 쿼리에서 제공된 순서로 결과 배열에 나열됩니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-123">These values are listed in the result array in the order they were given in the query.</span></span> <span data-ttu-id="120a3-124">결과가 배열이므로 결과와 연결된 키가 없습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-124">Since the result is an array, there are no keys associated with the results.</span></span>
+
+## <a name="rename-properties-in-a-query"></a><span data-ttu-id="120a3-125">쿼리에서 속성 이름 바꾸기</span><span class="sxs-lookup"><span data-stu-id="120a3-125">Rename properties in a query</span></span>
+
+<span data-ttu-id="120a3-126">여러 값을 쿼리할 때 배열 대신 사전을 가져오려면 `{ }`(__다중 선택 해시__) 연산자를 사용하십시오.</span><span class="sxs-lookup"><span data-stu-id="120a3-126">To get a dictionary instead of an array when querying for multiple values, use the `{ }` (__multiselect hash__) operator.</span></span>
+<span data-ttu-id="120a3-127">다중 선택 해시 양식은 `{displayName:JMESPathExpression, ...}`입니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-127">The format for a multiselect hash is `{displayName:JMESPathExpression, ...}`.</span></span>
+<span data-ttu-id="120a3-128">`displayName`은 출력에 표시되는 문자열이며 `JMESPathExpression`은 평가할 JMESPath 식입니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-128">`displayName` will be the string shown in output, and `JMESPathExpression` is the JMESPath expression to evaluate.</span></span> <span data-ttu-id="120a3-129">다중 선택 목록을 해시로 변경하여 마지막 섹션에서 예제를 수정하는 방법은 다음과 같습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-129">Modifying the example from the last section by changing the multiselect list to a hash:</span></span>
+
+```azurecli-interactive
+az vm show -g QueryDemo -n TestVM --query '{VMName:name, admin:osProfile.adminUsername, sshKey:osProfile.linuxConfiguration.ssh.publicKeys[0].keyData }' -o json
 ```
 
 ```json
 {
-  "diskSize": 30,
-  "image": "UbuntuServer"
+  "VMName": "TestVM",
+  "admin": "azureuser",
+  "ssh-key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso"
 }
 ```
 
-<span data-ttu-id="121ee-119">`table` 출력 형식으로 정보를 표시할 때 사전 표시는 열 헤더를 설정할 수 있게 합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-119">When displaying information in the `table` output format, dictionary display allows setting your own column headers.</span></span> <span data-ttu-id="121ee-120">출력 형식에 대한 자세한 내용은 [Azure CLI 명령에 대한 출력 형식](/cli/azure/format-output-azure-cli)을 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="121ee-120">For more information on output formats, see [Output formats for Azure CLI commands](/cli/azure/format-output-azure-cli).</span></span>
+## <a name="get-properties-in-an-array"></a><span data-ttu-id="120a3-130">배열에 속성 가져오기</span><span class="sxs-lookup"><span data-stu-id="120a3-130">Get properties in an array</span></span>
+
+<span data-ttu-id="120a3-131">배열 자체에 대한 속성은 없지만 인덱싱할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-131">An array has no properties of its own, but it can be indexed.</span></span> <span data-ttu-id="120a3-132">이 기능은 마지막 예제에서 `publicKeys[0]` 표현식과 함께 표시되며 `publicKeys` 배열의 첫 번째 요소를 가져옵니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-132">This feature is shown in the last example with the expression `publicKeys[0]`, which gets the first element of the `publicKeys` array.</span></span> <span data-ttu-id="120a3-133">CLI 출력이 명령되었는지 보장할 수 없으므로 명령에 대해 확신하거나 어떤 요소를 얻을지 신경 쓰지 않는 한 색인을 사용하지 마십시오.</span><span class="sxs-lookup"><span data-stu-id="120a3-133">There's no guarantee CLI output is ordered, so avoid using indexing unless you're sure of the order or don't care what element you get.</span></span> <span data-ttu-id="120a3-134">배열의 요소 속성에 액세스하려면 _평면화_ 및 _필터링_ 중 하나를 수행합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-134">To access the properties of elements in an array, you do one of two operations: _flattening_ and _filtering_.</span></span> <span data-ttu-id="120a3-135">이 섹션에서는 배열을 평면화하는 방법을 설명합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-135">This section covers how to flatten an array.</span></span>
+
+<span data-ttu-id="120a3-136">배열을 평면화는 `[]` JMESPath 연산자를 사용 하여 이루어집니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-136">Flattening an array is done with the `[]` JMESPath operator.</span></span> <span data-ttu-id="120a3-137">`[]` 연산자 다음의 모든 표현식은 현재 배열의 각 요소에 적용됩니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-137">All expressions after the `[]` operator are applied to each element in the current array.</span></span>
+<span data-ttu-id="120a3-138">쿼리 시작 부분에 `[]`이 나타나면 CLI 명령 결과가 평면화됩니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-138">If `[]` appears at the start of the query, it flattens the CLI command result.</span></span> <span data-ttu-id="120a3-139">`az vm list`의 결과는 이 기능을 사용하여 검사할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-139">The results of `az vm list` can be inspected with this feature.</span></span>
+<span data-ttu-id="120a3-140">리소스 그룹의 각 VM에 대한 이름, OS 및 관리자 이름을 가져오려면:</span><span class="sxs-lookup"><span data-stu-id="120a3-140">To get the name, OS, and administrator name for each VM in a resource group:</span></span>
+
+```azurecli-interactive
+az vm list -g QueryDemo --query '[].{Name:name, OS:storageProfile.osDisk.osType, admin:osProfile.adminUsername}' -o json
+```
+
+```json
+[
+  {
+    "Name": "Test-2",
+    "OS": "Linux",
+    "admin": "sttramer"
+  },
+  {
+    "Name": "TestVM",
+    "OS": "Linux",
+    "admin": "azureuser"
+  },
+  {
+    "Name": "WinTest",
+    "OS": "Windows",
+    "admin": "winadmin"
+  }
+]
+```
+
+<span data-ttu-id="120a3-141">`--output table` 출력 양식과 결합하면 열 이름이 다중 선택 해시의 `displayKey` 값과 일치합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-141">When combined with the `--output table` output format, the column names match up with the `displayKey` value of the multiselect hash:</span></span>
+
+```azurecli-interactive
+az vm list -g QueryDemo --query '[].{Name:name, OS:storageProfile.osDisk.osType, Admin:osProfile.adminUsername}' --output table
+```
+
+```output
+Name     OS       Admin
+-------  -------  ---------
+Test-2   Linux    sttramer
+TestVM   Linux    azureuser
+WinTest  Windows  winadmin
+```
 
 > [!NOTE]
-> <span data-ttu-id="121ee-121">특정 키는 필터링되고 테이블 보기에 인쇄되지 않습니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-121">Certain keys are filtered out and not printed in the table view.</span></span> <span data-ttu-id="121ee-122">이러한 키는 `id`, `type` 및 `etag`입니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-122">These keys are `id`, `type`, and `etag`.</span></span> <span data-ttu-id="121ee-123">이 정보를 표시해야 하는 경우 키 이름을 변경하고 필터링하지 않을 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-123">If you need to see this information, you can change the key name and avoid filtering.</span></span>
+>
+> <span data-ttu-id="120a3-142">특정 키는 필터링되고 테이블 보기에 인쇄되지 않습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-142">Certain keys are filtered out and not printed in the table view.</span></span> <span data-ttu-id="120a3-143">이러한 키는 `id`, `type` 및 `etag`입니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-143">These keys are `id`, `type`, and `etag`.</span></span> <span data-ttu-id="120a3-144">이러한 값을 보려면 multiselect 해시 키 이름을 변경할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-144">To see these values, you can change the key name in a multiselect hash.</span></span>
 >
 > ```azurecli-interactive
 > az vm show -g QueryDemo -n TestVM --query "{objectID:id}" -o table
 > ```
 
-## <a name="work-with-list-output"></a><span data-ttu-id="121ee-124">목록 출력으로 작업</span><span class="sxs-lookup"><span data-stu-id="121ee-124">Work with list output</span></span>
-
-<span data-ttu-id="121ee-125">하나 이상의 값을 반환할 수 있는 CLI 명령은 배열을 반환합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-125">CLI commands that may return  more than one value return an array.</span></span> <span data-ttu-id="121ee-126">배열 요소는 인덱스에 의해 액세스되며 매번 같은 순서로 반환되지 않을 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-126">Array elements are accessed by index and may not be returned in the same order every time.</span></span> <span data-ttu-id="121ee-127">`[]` 연산자를 사용하여 평면화하여 한 번에 모든 배열 요소를 쿼리할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-127">You can query all array elements at once by flattening them with the `[]` operator.</span></span> <span data-ttu-id="121ee-128">연산자는 배열 뒤에 또는 식의 첫 번째 요소로 위치합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-128">The operator is put after the array or as the first element in an expression.</span></span> <span data-ttu-id="121ee-129">배열을 평면화하면 배열의 각 요소에 대해 다음 쿼리를 실행합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-129">Flattening an array runs the query after it against each element of the array.</span></span>
-
-<span data-ttu-id="121ee-130">다음 예제에서는 리소스 그룹의 각 VM에서 실행 중인 이름 및 OS를 인쇄합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-130">The following example prints out the name and OS running on each VM in a resource group.</span></span>
+<span data-ttu-id="120a3-145">명령으로 반환된 최상위 결과뿐만 아니라 모든 배열을 평면화할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-145">Any array can be flattened, not just the top-level result returned by the command.</span></span> <span data-ttu-id="120a3-146">마지막 섹션에서는 `osProfile.linuxConfiguration.ssh.publicKeys[0].keyData` 식이 로그인에 대한 SSH 공개 키를 가져오기 위해 사용되었습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-146">In the last section, the expression `osProfile.linuxConfiguration.ssh.publicKeys[0].keyData` was used to get the SSH public key for sign-in.</span></span> <span data-ttu-id="120a3-147">_모든_ SSH 공개 키를 얻으려면 식을 대신 `osProfile.linuxConfiguration.ssh.publicKeys[].keyData`로 작성하십시오.</span><span class="sxs-lookup"><span data-stu-id="120a3-147">To get _every_ SSH public key, the expression could instead be written as `osProfile.linuxConfiguration.ssh.publicKeys[].keyData`.</span></span>
+<span data-ttu-id="120a3-148">이 쿼리 식은 `osProfile.linuxConfiguration.ssh.publicKeys` 배열을 평면화한 다음 각 요소에서 `keyData` 식을 실행합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-148">This query expression flattens the `osProfile.linuxConfiguration.ssh.publicKeys` array, and then runs the `keyData` expression on each element:</span></span>
 
 ```azurecli-interactive
-az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
+az vm show -g QueryDemo -n TestVM --query '{VMName:name, admin:osProfile.adminUsername, sshKeys:osProfile.linuxConfiguration.ssh.publicKeys[].keyData }' -o json
+```
+
+```json
+{
+  "VMName": "TestVM",
+  "admin": "azureuser",
+  "sshKeys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso\n"
+  ]
+}
+```
+
+## <a name="filter-arrays"></a><span data-ttu-id="120a3-149">배열 필터링</span><span class="sxs-lookup"><span data-stu-id="120a3-149">Filter arrays</span></span>
+
+<span data-ttu-id="120a3-150">배열에서 데이터를 가져오는 데 사용되는 다른 작업은 _필터링_입니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-150">The other operation used to get data from an array is _filtering_.</span></span> <span data-ttu-id="120a3-151">필터링은 `[?...]` JMESPath 연산자를 사용하여 이루어집니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-151">Filtering is done with the `[?...]` JMESPath operator.</span></span>
+<span data-ttu-id="120a3-152">이 연산자는 내용에 맞게 조건자를 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-152">This operator takes a predicate as its contents.</span></span> <span data-ttu-id="120a3-153">조건자는 `true` 또는 `false`로 평가할 수 있는 문입니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-153">A predicate is any statement that can be evaluated to either `true` or `false`.</span></span> <span data-ttu-id="120a3-154">조건자가 `true`로 평가되는 표현식은 출력에 포함됩니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-154">Expressions where the predicate evaluates to `true` are included in the output.</span></span>
+
+<span data-ttu-id="120a3-155">JMESPath는 표준 비교 및 논리 연산자를 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-155">JMESPath offers the standard comparison and logical operators.</span></span> <span data-ttu-id="120a3-156">`<`, `<=`, `>`, `>=`, `==`, `!=`을 포함합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-156">These include `<`, `<=`, `>`, `>=`, `==`, and `!=`.</span></span> <span data-ttu-id="120a3-157">JMESPath은 또한 논리 and(`&&`), or(`||`), not(`!`)을 지원합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-157">JMESPath also supports logical and (`&&`), or (`||`), and not (`!`).</span></span> <span data-ttu-id="120a3-158">괄호 안에 식은 그룹화하여 더 복잡한 조건자 식이 가능합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-158">Expressions can be grouped within parenthesis, allowing for more complex predicate expressions.</span></span> <span data-ttu-id="120a3-159">조건자 및 논리 조작에 대한 전체 세부 정보는 [JMESPath 사양](http://jmespath.org/specification.html)을 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="120a3-159">For the full details on predicates and logical operations, see the [JMESPath specification](http://jmespath.org/specification.html).</span></span>
+
+<span data-ttu-id="120a3-160">마지막 섹션에서는 리소스 그룹의 모든 VM의 전체 목록을 가져오기 위해 배열을 평면화했습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-160">In the last section, we flattened an array to get the complete list of all VMs in a resource group.</span></span> <span data-ttu-id="120a3-161">필터를 사용하여, 이 출력은 Linux VM으로만 제한할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-161">Using filters, this output can be restricted to only Linux VMs:</span></span>
+
+```azurecli-interactive
+az vm list -g QueryDemo --query "[?storageProfile.osDisk.osType=='Linux'].{Name:name,  admin:osProfile.adminUsername}" --output table
+```
+
+```output
+Name    Admin
+------  ---------
+Test-2  sttramer
+TestVM  azureuser
+```
+
+> [!IMPORTANT]
+>
+> <span data-ttu-id="120a3-162">JMESPath에서 문자열은 항상 작은 따옴표(`'`)로 둘러싸입니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-162">In JMESPath, strings are always surrounded by single quotes (`'`).</span></span> <span data-ttu-id="120a3-163">필터 조건자에 있는 문자열의 일부로 큰 따옴표를 사용하는 경우 빈 출력을 얻게 됩니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-163">If you use double quotes as part of a string in a filter predicate, you'll get empty output.</span></span>
+
+<span data-ttu-id="120a3-164">JMESPath에는 또한 필터링에 도움이 될 수 있는 기본 제공 함수도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-164">JMESPath also has built-in functions that can help with filtering.</span></span> <span data-ttu-id="120a3-165">이러한 함수 중 하나는 `contains(string, substring)`로서, 문자열에 부분 문자열에 포함되어 있는지를 확인 합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-165">One such function is `contains(string, substring)`, which checks to see if a string contains a substring.</span></span> <span data-ttu-id="120a3-166">표현식은 함수를 호출하기 전에 평가되므로 첫 번째 인수가 전체 JMESPath 표현식이 될 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-166">Expressions are evaluated before calling the function, so the first argument can be a full JMESPath expression.</span></span> <span data-ttu-id="120a3-167">다음 예제에서는 SSD 스토리지를 사용하여 해당 OS 디스크에 대한 모든 VM을 찾습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-167">The next example finds all VMs using SSD storage for their OS disk:</span></span>
+
+```azurecli-interactive
+az vm list -g QueryDemo --query "[?contains(storageProfile.osDisk.managedDisk.storageAccountType,'SSD')].{Name:name, Storage:storageProfile.osDisk.managedDisk.storageAccountType}" -o json
 ```
 
 ```json
 [
   {
-    "image": "CentOS",
-    "name": "CentBox"
+    "Name": "TestVM",
+    "Storage": "StandardSSD_LRS"
   },
   {
-    "image": "openSUSE-Leap",
-    "name": "SUSEBox"
-  },
-  {
-    "image": "UbuntuServer",
-    "name": "TestVM"
-  },
-  {
-    "image": "UbuntuServer",
-    "name": "Test2"
-  },
-  {
-    "image": "WindowsServer",
-    "name": "WinServ"
+    "Name": "WinTest",
+    "Storage": "StandardSSD_LRS"
   }
 ]
 ```
 
-<span data-ttu-id="121ee-131">키 경로의 일부인 배열도 평면화될 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-131">Arrays that are part of a key path can be flattened as well.</span></span> <span data-ttu-id="121ee-132">다음 쿼리는 VM이 연결된 NIC의 Azure 개체 ID를 가져옵니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-132">The following query gets the Azure object IDs for the NICs a VM is connected to.</span></span>
+<span data-ttu-id="120a3-168">이 쿼리는 약간 깁니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-168">This query is a little long.</span></span> <span data-ttu-id="120a3-169">`storageProfile.osDisk.managedDisk.storageAccountType` 키는 두 번 언급되며 출력에서 키가 다시 입력됩니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-169">The `storageProfile.osDisk.managedDisk.storageAccountType` key is mentioned twice, and rekeyed in the output.</span></span> <span data-ttu-id="120a3-170">이를 줄이는 한 가지 방법은 데이터를 평면화 하고 선택한 후 필터링을 적용하는 것입니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-170">One way to shorten it is to apply the filter after flattening and selecting data.</span></span>
 
 ```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id'
-```
-
-## <a name="filter-array-output-with-predicates"></a><span data-ttu-id="121ee-133">조건자를 사용하여 배열 출력 필터링</span><span class="sxs-lookup"><span data-stu-id="121ee-133">Filter array output with predicates</span></span>
-
-<span data-ttu-id="121ee-134">JMESPath는 [필터링 식](http://jmespath.org/specification.html#filterexpressions)을 제공하여 표시된 데이터를 필터링합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-134">JMESPath offers [filtering expressions](http://jmespath.org/specification.html#filterexpressions) to filter out the data displayed.</span></span> <span data-ttu-id="121ee-135">이러한 식은 [JMESPath 기본 제공 함수](http://jmespath.org/specification.html#built-in-functions)와 함께 결합되어 부분적으로 일치를 수행하거나 표준 형식으로 데이터를 조작할 경우에 특히 강력합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-135">These expressions are powerful, especially when combined with [JMESPath built-in functions](http://jmespath.org/specification.html#built-in-functions) to do partial matches or manipulate data into a standard format.</span></span> <span data-ttu-id="121ee-136">필터 식은 배열 데이터에서만 작동하고 다른 상황에서 사용될 때 `null` 값을 반환합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-136">Filtering expressions only work on array data, and when used in any other situation, return the `null` value.</span></span> <span data-ttu-id="121ee-137">예를 들어 `vm list`와 같은 명령의 출력을 사용하고 필터링하여 특정 형식의 VM을 찾을 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-137">For example, you can take the output of commands like `vm list` and filter on it to look for specific types of VMs.</span></span> <span data-ttu-id="121ee-138">다음 예제에서는 Windows VM만을 캡처하고 해당 이름을 인쇄하도록 VM 형식을 필터링하여 이전 항목으로 확장합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-138">The following example expands on the previous by filtering out the VM type to capture only Windows VMs and print their name.</span></span>
-
-```azurecli-interactive
-az vm list --query '[?osProfile.windowsConfiguration!=null].name'
+az vm list -g QueryDemo --query "[].{Name:name, Storage:storageProfile.osDisk.managedDisk.storageAccountType}[?contains(Storage,'SSD')]" -o json
 ```
 
 ```json
 [
-  "WinServ"
+  {
+    "Name": "TestVM",
+    "Storage": "StandardSSD_LRS"
+  },
+  {
+    "Name": "WinTest",
+    "Storage": "StandardSSD_LRS"
+  }
 ]
 ```
 
-## <a name="experiment-with-queries-interactively"></a><span data-ttu-id="121ee-139">대화형으로 쿼리를 사용하여 실험</span><span class="sxs-lookup"><span data-stu-id="121ee-139">Experiment with queries interactively</span></span>
+<span data-ttu-id="120a3-171">대형 배열의 경우, 데이터를 선택하기 전에 필터를 적용하는 것이 더 빠를 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-171">For large arrays, it may be faster to apply the filter before selecting data.</span></span>
 
-<span data-ttu-id="121ee-140">JMESPath 학습을 시작하기 위해 [JMESPath-터미널](https://github.com/jmespath/jmespath.terminal) Python 패키지는 쿼리를 실험할 수 있는 대화형 환경을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-140">To start learning JMESPath, the [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) Python package offers an interactive environment to experiment with queries.</span></span> <span data-ttu-id="121ee-141">데이터는 입력으로 파이프되며 프로그램 내 쿼리는 데이터 추출을 위해 작성되고 편집됩니다.</span><span class="sxs-lookup"><span data-stu-id="121ee-141">Data is piped as input, and then in-program queries are written and edited to extract the data.</span></span>
+<span data-ttu-id="120a3-172">전체 함수 목록은 [JMESPath 스펙 - 내장 함수](http://jmespath.org/specification.html#built-in-functions)를 참조하십시오.</span><span class="sxs-lookup"><span data-stu-id="120a3-172">See the [JMESPath specification - Built-in Functions](http://jmespath.org/specification.html#built-in-functions) for the full list of functions.</span></span>
+
+## <a name="change-output"></a><span data-ttu-id="120a3-173">출력 변경</span><span class="sxs-lookup"><span data-stu-id="120a3-173">Change output</span></span>
+
+<span data-ttu-id="120a3-174">JMESPath 함수는 쿼리 결과 대해 작동하는, 다른 목적을 가질 수도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-174">JMESPath functions also have another purpose, which is to operate on the results of a query.</span></span> <span data-ttu-id="120a3-175">부울이 아닌 값을 반환하는 모든 함수는 식의 결과를 변경합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-175">Any function that returns a non-boolean value changes the result of an expression.</span></span>
+<span data-ttu-id="120a3-176">예를 들어, `sort_by(array, &sort_expression)`를 사용하여 속성 값으로 데이터를 정렬할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-176">For example, you can sort data by a property value with `sort_by(array, &sort_expression)`.</span></span> <span data-ttu-id="120a3-177">JMESPath는 특수 연산자(`&`)를 사용하여, 함수의 일부로 나중 평가되어야 하는 식에 사용됩니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-177">JMESPath uses a special operator, `&`, for expressions that should be evaluated later as part of a function.</span></span> <span data-ttu-id="120a3-178">다음 예제에서는 OS 디스크 크기에 따라 VM 목록을 정렬하는 방법을 보여 줍니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-178">The next example shows how to sort a VM list by OS disk size:</span></span>
+
+```azurecli-interactive
+az vm list -g QueryDemo --query "sort_by([].{Name:name, Size:storageProfile.osDisk.diskSizeGb}, &Size)" --output table
+```
+
+```output
+Name     Size
+-------  ------
+TestVM   30
+Test-2   32
+WinTest  127
+```
+
+<span data-ttu-id="120a3-179">전체 함수 목록은 [JMESPath 스펙 - 내장 함수](http://jmespath.org/specification.html#built-in-functions)를 참조하십시오.</span><span class="sxs-lookup"><span data-stu-id="120a3-179">See the [JMESPath specification - Built-in Functions](http://jmespath.org/specification.html#built-in-functions) for the full list of functions.</span></span>
+
+## <a name="experiment-with-queries-interactively"></a><span data-ttu-id="120a3-180">대화형으로 쿼리를 사용하여 실험</span><span class="sxs-lookup"><span data-stu-id="120a3-180">Experiment with queries interactively</span></span>
+
+<span data-ttu-id="120a3-181">JMESPath 실험을 시작하기 위해 [JMESPath-터미널](https://github.com/jmespath/jmespath.terminal) Python 패키지는 쿼리 작업을 할 수 있는 대화형 환경을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-181">To start experimenting with JMESPath, the [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) Python package offers an interactive environment to work with queries.</span></span> <span data-ttu-id="120a3-182">데이터는 입력으로 파이프되고 쿼리는 편집기에서 작성 및 실행됩니다.</span><span class="sxs-lookup"><span data-stu-id="120a3-182">Data is piped as input, and then queries are written and run in the editor.</span></span>
 
 ```bash
 pip install jmespath-terminal
