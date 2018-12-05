@@ -4,17 +4,17 @@ description: apt 패키지 관리자를 사용하여 Azure CLI를 설치하는 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/12/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 0d4311e88fec9903c1aab1410cc71328f896dc65
-ms.sourcegitcommit: 728a050f13d3682122be4a8993596cc4185a45ce
+ms.openlocfilehash: c33c3e75991979a72a7b82183dd88b87715907ae
+ms.sourcegitcommit: a8aac038e6ede0b1b352ca6163a04b61ff4eed5b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51680937"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450261"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt를 사용하여 Azure CLI 설치
 
@@ -62,9 +62,15 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
 
 `apt`을 사용해 설치할 때 몇 가지 일반적인 문제가 여기에 표시됩니다. 여기에서 다루지 않는 문제가 발생하는 경우, [github에 문제를 제출합니다](https://github.com/Azure/azure-cli/issues).
 
-### <a name="lsbrelease-does-not-return-the-base-distribution-version"></a>lsb_release는 기본 배포 버전을 반환하지 않습니다.
+### <a name="lsbrelease-does-not-return-the-correct-base-distribution-version"></a>lsb_release가 올바른 기본 배포 버전을 반환하지 않습니다.
 
 Linux Mint 같은 일부 Ubuntu 또는 Debian 파생 배포판은 `lsb_release`로부터 올바른 버전 이름을 반환하지 않을 수 있습니다. 이 값은 설치 과정에서 패키지 설치를 확인하는 데 사용됩니다. 귀하의 배포가 파생된 출처 버전의 이름을 알고 있는 경우는 `AZ_REPO` 값을 수동으로 [1 단계 설치](#install-step-1)에 설정합니다. 그렇지 않은 경우 귀하의 배포에 대해 기본 배포 이름을 확인하고 `AZ_REPO`를 올바른 값으로 설정 하는 방법에 대해 알아봅니다.
+
+### <a name="no-package-for-your-distribution"></a>배포에 필요한 패키지가 없음
+
+Ubuntu 배포본이 릴리스된 후에 Azure CLI 패키지가 제공되기까지는 어느 정도 시간이 걸릴 수 있습니다. Azure CLI는 향후 버전의 종속성에 대해 탄력성을 갖도록 설계되었으며 가능한 한 적게 의존합니다. 기본 배포에 사용할 수 있는 패키지가 없는 경우 이전 배포 패키지를 시도합니다.
+
+이를 위해 [1 단계 설치](#install-step-1)에서 `AZ_REPO`값을 수동으로 설정합니다. Ubuntu 배포의 경우 `bionic` 리포지토리를 사용하고 Debian 배포판의 경우 `stretch`를 사용합니다. Ubuntu Trusty 및 Debian Wheezy 이전에 릴리스된 배포는 지원되지 않습니다.
 
 ### <a name="apt-key-fails-with-no-dirmngr"></a>apt-key가 "dirmngr 없음"과 함께 실패
 
@@ -95,6 +101,8 @@ sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
 ```
 
 프록시가 있는지 알아보려면, 시스템 관리자에게 문의하세요. 프록시에 로그인이 필요하지 않으면 사용자와 암호 정보는 생략합니다.
+
+[!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
 ## <a name="update"></a>주 지역에서
 
