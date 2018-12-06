@@ -5,11 +5,11 @@ manager: carmonm
 ms.date: 09/07/2018
 ms.topic: include
 ms.openlocfilehash: bfe55644e6915115b1ff130b45f7de6537409975
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.sourcegitcommit: 5025f123482964dbf72dc5b4950dbc62be67ea8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388680"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954319"
 ---
 > [!NOTE]
 > CLI를 설치하려면 다음 소프트웨어가 필요합니다.
