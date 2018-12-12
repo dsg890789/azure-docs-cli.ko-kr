@@ -9,14 +9,37 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 36b57d52a5851275fd317240e5c2c95171a99e7e
-ms.sourcegitcommit: 22b73d56602c1c4e647ed2c5af3d596a2f6a7ed5
+ms.openlocfilehash: 7a2ab41dd6696d658d05ab76e44abf97626761aa
+ms.sourcegitcommit: 14aa16beeec59e51890a6cba4906bdc8e19b94d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52267333"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892686"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+## <a name="december-4-2018"></a>2018년 12월 4일
+
+버전 2.0.52
+### <a name="core"></a>코어
+* 다중 테넌트 서비스 주체에 대한 교차 테넌트 리소스 프로 비전에 대한 지원 추가
+* tsv 출력을 사용한 명령에서 파이프된 id의 구문 분석이 잘못되는 버그 수정
+
+### <a name="appservice"></a>App Service
+* [미리 보기] 애플리케이션에 콘텐츠 생성 및 배포를 돕는 `webapp up` 명령 추가
+* 백 엔드 변경으로 인해 컨테이너 기반의 Windows 앱에서 버그 수정
+
+### <a name="network"></a>네트워크
+* WAF 제외를 지원하기 위해 `--exclusion` 인수를 `application-gateway waf-config set`에 추가
+
+### <a name="role"></a>역할
+* 암호 자격 증명을 위해 사용자 지정 식별자에 대해 지원 추가 
+
+### <a name="vm"></a>VM
+* [사용되지 않음]`vm extension [show|wait] --expand` 매개 변수 사용되지 않음
+* 응답 없는 VM을 다시 배포하기 위해 `--force` 매개 변수를 `vm restart`에 추가
+* 암호와 SSH 인증을 사용하여 VM을 생성하기 위해 "all"을 허용하도록 `[vm|vmss] create --authentication-type` 변경
+* 이미지에 OS 디스크 캐싱을 설정하기 위해 `image create --os-disk-caching` 매개 변수 추가
+
 ## <a name="november-20-2018"></a>2018년 11월 20일
 
 Version 2.0.51
