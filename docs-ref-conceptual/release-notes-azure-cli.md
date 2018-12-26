@@ -614,7 +614,7 @@ Version 2.0.43
 
 * 구독 별로 가용성 집합을 리스팅하도록 지원 추가
 * `StandardSSD_LRS`에 대한 지원이 추가됨
-* VM 확장 집합 생성 시 응용 프로그램 보안 그룹에 대한 지원이 추가됨
+* VM 확장 집합 생성 시 애플리케이션 보안 그룹에 대한 지원이 추가됨
 * [호환성이 손상되는 변경] `[vm|vmss] create`, `[vm|vmss] identity assign`, 및 `[vm|vmss] identity remove`를 사전 형식으로 사용자 할당 ID를 출력하도록 변경
 
 ## <a name="july-18-2018"></a>2018년 7월 18일
@@ -2584,7 +2584,7 @@ vm (2.0.11)
 ### <a name="role"></a>역할
 
 * `create-for-rbac`에 대한 SDK 인증 파일 형식 출력이 지원됨
-* 서비스 사용자를 삭제할 때 역할 할당 및 관련 AAD 응용 프로그램이 정리됨(#3610)
+* 서비스 사용자를 삭제할 때 역할 할당 및 관련 AAD 애플리케이션이 정리됨(#3610)
 * `app create` 인수 `--start-date` 및 `--end-date` 설명에 시간 형식이 포함됨
 * `--expanded-view`를 사용할 때 사용 중단 경고가 표시됨
 * `create-for-rbac` 및 `reset-credentials` 명령에 키 자격 증명 모음 통합이 추가됨
