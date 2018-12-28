@@ -2590,7 +2590,7 @@ vm (2.0.11)
 * `create-for-rbac` 및 `reset-credentials` 명령에 키 자격 증명 모음 통합이 추가됨
 
 ### <a name="service-fabric"></a>Service Fabric
-* 업로드 시 응용 프로그램의 대형 파일을 자르는 문제가 해결되었습니다(#3666).
+* 업로드 시 애플리케이션의 대형 파일을 자르는 문제가 해결되었습니다(#3666).
 * Service Fabric 명령에 대한 테스트가 추가됨(#3424)
 * 다양한 Service Fabric 명령이 수정됨(#3234)
 
