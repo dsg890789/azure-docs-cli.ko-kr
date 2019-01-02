@@ -212,7 +212,7 @@ Version 2.0.51
 * 글로벌 구독 매개 변수가 매개 변수에서 나타나는지 확인하도록 변경되었습니다.
 
 ### <a name="iot-central"></a>IoT Central
-* IoT Central 응용 프로그램 생성을 위해 템플릿 및 표시 이름 옵션이 추가되었습니다.
+* IoT Central 애플리케이션 생성을 위해 템플릿 및 표시 이름 옵션이 추가되었습니다.
 * [호환성이 손상되는 변경] F1 SKU에 대한 지원이 제거되었습니다. 대신 S1 SKU를 사용합니다.
 
 ### <a name="monitor"></a>모니터
@@ -228,8 +228,8 @@ Version 2.0.51
 * `monitor diagnostic-settings create`을 위한 `--event-hub` 및 `--event-hub-rule` 인수에 대한 유효성 검사가 개선되었습니다.
 
 ### <a name="network"></a>네트워크
-* NIC에 응용 프로그램 게이트웨이 백 엔드 주소 풀을 추가하도록 지원하기 위해 `--app-gateway-address-pools` 및 `--gateway-name` 인수가 `nic create`에 추가되었습니다.
-* NIC에 응용 프로그램 게이트웨이 백 엔드 주소 풀을 추가하도록 지원하기 위해 `--app-gateway-address-pools` 및 `--gateway-name` 인수가 `nic ip-config create/update`에 추가되었습니다.
+* NIC에 애플리케이션 게이트웨이 백 엔드 주소 풀을 추가하도록 지원하기 위해 `--app-gateway-address-pools` 및 `--gateway-name` 인수가 `nic create`에 추가되었습니다.
+* NIC에 애플리케이션 게이트웨이 백 엔드 주소 풀을 추가하도록 지원하기 위해 `--app-gateway-address-pools` 및 `--gateway-name` 인수가 `nic ip-config create/update`에 추가되었습니다.
 
 ### <a name="servicebus"></a>ServiceBus
 * 현재 Service Bus Standard를 Premium 네스페이스 마이그레이션 상태로 표시하기 위해 읽기 전용 `migration_state`가 MigrationConfigProperties에 추가되었습니다.

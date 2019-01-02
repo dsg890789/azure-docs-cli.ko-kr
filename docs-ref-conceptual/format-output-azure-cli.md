@@ -68,7 +68,7 @@ az vm list --output json
 
 ## <a name="yaml-output-format"></a>YAML 출력 형식
 
-`yaml` 형식은 출력을 일반 텍스트 데이터 serialization 형식인 [YAML](http://yaml.org/)로 인쇄합니다. YAML은 JSON보다 읽기 쉬우며, 해당 형식으로 쉽게 매핑됩니다. 일부 응용 프로그램 및 CLI 명령은 JSON 대신 YAML을 구성 입력으로 사용합니다.
+`yaml` 형식은 출력을 일반 텍스트 데이터 serialization 형식인 [YAML](http://yaml.org/)로 인쇄합니다. YAML은 JSON보다 읽기 쉬우며, 해당 형식으로 쉽게 매핑됩니다. 일부 애플리케이션 및 CLI 명령은 JSON 대신 YAML을 구성 입력으로 사용합니다.
 
 ```azurecli-interactive
 az vm list --out yaml
