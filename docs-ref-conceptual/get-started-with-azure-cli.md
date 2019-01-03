@@ -9,13 +9,13 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: d23548a9cdfe307c2597d992dc014125f80704d0
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.devlang: azurecli
+ms.openlocfilehash: a56ce4acf070c17d8deaec9674593ba930cca70f
+ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47178000"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53593611"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI 시작
 
@@ -43,9 +43,9 @@ CLI를 설치할 준비가 되었으면 [설치 지침](install-azure-cli.md)을
 |---------------|-------------------------|
 | [리소스 그룹](/azure/azure-resource-manager/resource-group-overview) | [az group](/cli/azure/group) |
 | [가상 머신](/azure/virtual-machines) | [az vm](/cli/azure/vm) |
-| [저장소 계정](/azure/storage/common/storage-introduction) | [az 저장소 계정](/cli/azure/storage/account) |
+| [Storage 계정](/azure/storage/common/storage-introduction) | [az 저장소 계정](/cli/azure/storage/account) |
 | [Key Vault](/azure/key-vault/key-vault-whatis) | [az keyvault](/cli/azure/keyvault) |
-| [웹 응용 프로그램](/azure/app-service) | [az webapp](/cli/azure/webapp) |
+| [웹 애플리케이션](/azure/app-service) | [az webapp](/cli/azure/webapp) |
 | [SQL 데이터베이스](/azure/sql-database) | [az sql server](/cli/azure/sql/server) |
 | [CosmosDB](/azure/cosmos-db) | [az cosmosdb](/cli/azure/cosmosdb) |
 
