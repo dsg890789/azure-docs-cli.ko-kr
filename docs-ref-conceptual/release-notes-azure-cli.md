@@ -4,19 +4,88 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/20/2018
+ms.date: 12/18/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: 7a2ab41dd6696d658d05ab76e44abf97626761aa
-ms.sourcegitcommit: 14aa16beeec59e51890a6cba4906bdc8e19b94d0
+ms.devlang: azurecli
+ms.openlocfilehash: 10663ad8e85a15b8fedb5ac12c5d17256d07e523
+ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892686"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53805961"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="december-20-2018"></a>2018년 12월 20일
+
+버전 2.0.54
+### <a name="appservice"></a>App Service
+* `webapp up`의 재배포 실패 문제가 해결됨
+* 웹앱 스냅숏 목록 및 복원에 대한 지원이 추가됨
+* Windows 함수 앱 `--runtime` 플래그에 대한 지원이 추가됨
+
+### <a name="iotcentral"></a>IoTCentral
+* 업데이트 명령 API 호출이 수정됨
+
+### <a name="role"></a>역할
+* [호환성이 손상되는 변경] 기본적으로 처음 100개의 개체만 목록으로 표시하도록 `ad [app|sp] list`를 변경함
+
+### <a name="sql"></a>SQL
+* 관리되는 인스턴스에서의 사용자 지정 데이터 정렬에 대한 지원이 추가됨
+
+### <a name="vm"></a>VM
+* `---os-type` 매개 변수가 `disk create`에 추가됨
+
+## <a name="december-18-2018"></a>2018년 12월 18일
+
+버전 2.0.53
+### <a name="acr"></a>ACR
+* 외부 컨테이너 레지스트리에서 이미지 가져오기에 대한 지원이 추가됨
+* 작업 목록의 표 레이아웃을 좁게 축소함
+* Azure DevOps URL에 대한 지원이 추가됨
+
+### <a name="acs"></a>ACS
+* 가상 노드 미리 보기 추가
+* `aks create`에 대한 AAD 인수에서 "(미리 보기)"를 제거함
+* [사용되지 않음] `az acs` 명령이 사용되지 않습니다. ACS 서비스가 2020년 1월 31일 사용 중지됩니다.
+* 새 AKS 클러스터를 만들 때 네트워크 정책에 대한 지원이 추가됨
+* 노드 풀이 하나뿐일 경우 `aks scale`에 `--nodepool-name` 인수 요구사항 삭제
+
+### <a name="appservice"></a>App Service
+* `webapp config container`에서 `--slot` 매개 변수를 적용할 수 없던 문제 수정
+
+### <a name="botservice"></a>Botservice
+* `bot show`를 호출할 때 `.bot` 파일 구문 분석에 대한 지원이 추가됨
+* AppInsights 프로비전 버그를 수정함
+* 파일 경로를 처리할 때 공백 버그를 수정함
+* Kudu 네트워크 호출이 감소함
+* 일반 명령 UX 향상
+
+### <a name="consumption"></a>Consumption
+* 알림을 표시하도록 예산 API 버그가 수정됨
+
+### <a name="cosmosdb"></a>CosmosDB
+* 다중 마스터에서 단일 마스터로의 계정 업데이트에 대한 지원이 추가됨
+
+### <a name="maps"></a>지도
+* S1 SKU에 대한 지원이 `maps account [create|update]`에 추가됨
+
+### <a name="network"></a>네트워크
+* `--format` 및 `--log-version`에 대한 지원이 `watcher flow-log configure`에 추가됨
+* ""을(를) 사용하여 해결과 등록을 지워도 VNet이 작동하지 않을 경우 `dns zone update`을(를) 통해 문제를 해결함
+
+### <a name="resource"></a>리소스
+* `policy assignment [create|list|delete|show|update]`에서 관리 그룹에 대한 범위 매개 변수 처리가 수정됨 
+* 새 명령 `resource wait`이 추가됨
+
+### <a name="storage"></a>Storage
+*  스토리지 서비스를 위한 로그 스키마 버전 업데이트 기능이 `storage logging update`에 추가됨
+
+### <a name="vm"></a>VM
+* 지정된 vm에 할당된 관리 서비스가 없는 경우 `vm identity remove`에서 크래시가 해결됨
+
 ## <a name="december-4-2018"></a>2018년 12월 4일
 
 버전 2.0.52
@@ -290,7 +359,7 @@ Version 2.0.51
 * 최신 API 프로필에 keyvault 저장소 명령을 제한하도록 변경
 
 ### <a name="network"></a>네트워크
-* `network dns zone create` 수정: 사용자가 기본 위치를 구성한 경우에도 명령은 성공합니다. #6052 참조
+* `network dns zone create` 수정됨: 사용자가 기본 위치를 구성한 경우에도 명령은 성공합니다. #6052 참조
 * `network vnet peering create`에 `--remote-vnet-id`이 사용되지 않도록 함
 * 이름 또는 ID를 허용하는 `network vnet peering create`에 `--remote-vnet` 추가
 * 서브넷에서 `--subnet-prefixes`를 사용하는 여러 주소 접두사에 대한 지원이 `network vnet create`에 추가되었습니다.
@@ -385,11 +454,11 @@ Version 2.0.51
 * `network watcher run-configuration-diagnostic` 명령 추가
 * `network watcher test-connectivity` 명령 수정 및 `--method`, `--valid-status-codes` 및 `--headers` 속성 추가
 * `network express-route create/update`: `--allow-global-reach` 플래그 추가
-* `network vnet subnet create/update`: `--delegation` 지원 추가
+* `network vnet subnet create/update`: `--delegation`에 대한 지원 추가
 * `network vnet subnet list-available-delegations` 명령이 추가됨
-* `network traffic-manager profile create/update`: 모니터 구성을 위한 `--interval`, `--timeout` 및 `--max-failures` 지원 추가. `--path`, `--port`, `--protocol`로 인해 `--monitor-path`, `--monitor-port` 및 `--monitor-protocol` 옵션이 사용되지 않음
-* `network lb frontend-ip create/update`: 사설 IP 할당 방법을 설정하기 위한 논리 수정. 사설 IP 주소가 제공된 경우 할당이 정적이 됨. 사설 IP 주소가 제공되지 않은 경우 사설 IP 주소에 대해 빈 문자열이 제공되고 할당이 동적이 됨.
-* `dns record-set * create/update`: `--target-resource` 지원 추가
+* `network traffic-manager profile create/update`: 모니터 구성을 위해 `--interval`, `--timeout`, `--max-failures`에 대한 지원이 추가됨 `--path`, `--port`, `--protocol`을(를) 위해 `--monitor-path`, `--monitor-port`, `--monitor-protocol` 옵션은 사용되지 않음
+* `network lb frontend-ip create/update`: 사설 IP 할당 방법을 설정하는 논리가 수정됨. 사설 IP 주소가 제공되는 경우 정적 할당이 설정됨. 사설 IP 주소가 제공되지 않는 경우나 사설 IP 주소에 빈 문자열이 주어질 경우 동적 할당이 설정됨.
+* `dns record-set * create/update`: `--target-resource`에 대한 지원 추가
 * 인터페이스 엔드포인트 개체를 쿼리하기 위한 `network interface-endpoint` 명령 추가
 * 네트워크 프로필의 부분 관리를 위한 `network profile show/list/delete` 추가
 * ExpressRoute 간 피어링 연결을 관리하기 위한 `network express-route peering connection` 명령 추가
@@ -997,14 +1066,14 @@ Version 2.0.35
     * `currentServiceObjectiveId` 및 `requestedServiceObjectiveId` 속성 제거
     * `maxSizeBytes` 속성을 문자열 대신 정수값으로 변경
 * [호환성이 손상되는 변경] `db` 및 `dw`를 읽기 전용 속성으로 변경
-    * `requestedServiceObjectiveName`  업데이트하려면, `--service-objective` 매개 변수를 사용하거나 `sku.name` 속성 설정
-    * `edition` 업데이트하려면, `--edition` 매개 변수를 사용하거나 `sku.tier` 속성 설정
-    * `elasticPoolName` 업데이트하려면, `--elastic-pool` 매개 변수를 사용하거나 `elasticPoolId` 속성 설정
+    * `requestedServiceObjectiveName`.  업데이트하려면, `--service-objective` 매개 변수를 사용하거나 `sku.name` 속성 설정
+    * `edition`. 업데이트하려면, `--edition` 매개 변수를 사용하거나 `sku.tier` 속성 설정
+    * `elasticPoolName`. 업데이트하려면, `--elastic-pool` 매개 변수를 사용하거나 `elasticPoolId` 속성 설정
 * [호환성이 손상되는 변경] 다음 `elastic-pool` 속성을 읽기 전용으로 변경
-    * `edition` 업데이트하려면 `--edition` 매개 변수를 사용 
-    * `dtu` 업데이트하려면 `--capacity` 매개 변수를 사용 
-    *  `databaseDtuMin` 업데이트하려면 `--db-min-capacity` 매개 변수를 사용 
-    *  `databaseDtuMax` 업데이트하려면 `--db-max-capacity` 매개 변수를 사용 
+    * `edition`. 업데이트하려면 `--edition` 매개 변수를 사용 
+    * `dtu`. 업데이트하려면 `--capacity` 매개 변수를 사용 
+    *  `databaseDtuMin`. 업데이트하려면 `--db-min-capacity` 매개 변수를 사용 
+    *  `databaseDtuMax`. 업데이트하려면 `--db-max-capacity` 매개 변수를 사용 
 * `db`,`dw`,`elastic-pool` 명령에 `--family`, `--capacity` 매개 변수 추가합니다.
 * `elastic-pool` 명령에 `db`, `dw` 테이블 포맷터를 추가합니다.
 
@@ -1336,7 +1405,7 @@ Version 2.0.35
 ### <a name="monitor"></a>모니터
 
 * `--top`, `--orderby`, `--namespace`에 대한 지원이 `metrics list` [#5785](https://github.com/Azure/azure-cli/issues/5785)에 추가됨
-* [#4529](https://github.com/Azure/azure-cli/issues/5785) 수정됨: `metrics list` 공백으로 구분된 메트릭 목록을 수락하여 검색
+* [#4529](https://github.com/Azure/azure-cli/issues/5785) 수정됨: `metrics list` 검색을 위해 공백으로 구분된 메트릭 목록을 허용함
 * `--namespace`에 대한 지원이 `metrics list-definitions` [#5785](https://github.com/Azure/azure-cli/issues/5785)에 추가됨
 
 ### <a name="network"></a>네트워크
@@ -1366,7 +1435,7 @@ Version 2.0.35
 ### <a name="storage"></a>Storage
 
 * 크기가 195GB에서 200GB 사이인 파일을 업로드할 때 발생하는 문제 수정됨
-* [#4049](https://github.com/Azure/azure-cli/issues/4049) 수정됨: 조건 매개 변수를 무시하고 blob 업로드 추가 관련 문제
+* [#4049](https://github.com/Azure/azure-cli/issues/4049) 수정됨: 조건 매개 변수를 무시하는 BLOB 업로드 추가에 따른 문제
 
 ### <a name="vm"></a>VM
 
@@ -1413,9 +1482,9 @@ Version 2.0.35
 
 ### <a name="interactive"></a>대화형
 
-* [#5625](https://github.com/Azure/azure-cli/issues/5625) 해결: 여러 세션 간에 기록 유지
-* [#3016](https://github.com/Azure/azure-cli/issues/3016) 해결: 범위에 있는 동안 기록되지 않는 기록
-* [#5688](https://github.com/Azure/azure-cli/issues/5688) 해결: 명령 테이블 로드에 예외가 발생하는 경우 완료가 표시되지 않음
+* [#5625](https://github.com/Azure/azure-cli/issues/5625) 수정됨: 여러 세션 간에 기록 유지
+* [#3016](https://github.com/Azure/azure-cli/issues/3016) 수정됨: 범위에 속하지만 남겨지지 않는 기록
+* [#5688](https://github.com/Azure/azure-cli/issues/5688) 수정됨: 명령 테이블 로딩에 예외가 발생하는 경우 완료가 표시되지 않음
 * 장기 실행 작업의 진행률 표시기 해결
 
 ### <a name="monitor"></a>모니터
@@ -1453,7 +1522,7 @@ Version 2.0.35
 ### <a name="storage"></a>Storage
 
 * [#4971](https://github.com/Azure/azure-cli/issues/4971) 수정됨: `storage blob copy`가 이제 다른 Azure 클라우드도 지원
-* [#5286](https://github.com/Azure/azure-cli/issues/5286) 해결: `storage blob [delete-batch|download-batch|upload-batch]` 명령 일괄 처리하여 더 이상 사전 조건 실패 시 오류를 throw하지 않습니다.
+* [#5286](https://github.com/Azure/azure-cli/issues/5286) 수정됨: 배치 명령`storage blob [delete-batch|download-batch|upload-batch]`이 더 이상 사전 조건 실패 시 오류를 일으키지 않음
 
 ### <a name="vm"></a>VM
 
@@ -1468,14 +1537,14 @@ Version 2.0.35
 
 ### <a name="core"></a>코어
 
-* [#5184](https://github.com/Azure/azure-cli/issues/5184): Homebrew 설치 문제 해결
+* [#5184](https://github.com/Azure/azure-cli/issues/5184) 수정됨: Homebrew 설치 문제
 * 사용자 지정 키를 사용하는 확장 원격 분석에 대한 지원 추가
 * `--debug`에 대한 HTTP 로깅 추가
 
 ### <a name="acs"></a>ACS
 
 * 기본적으로 `aks install-connector`에 `virtual-kubelet-for-aks` Helm 차트를 사용하도록 변경
-* 문제: ACI 컨테이너 그룹을 만들기 위해 서비스 주체에 대한 사용 권한 부족 문제 해결
+* 문제 해결됨: 서비스 주체에 ACI 컨테이너 그룹 문제를 만들 권한이 불충분함
 * `aks install-connector`에 `--aci-container-group`, `--location` 및 `--image-tag` 매개 변수 추가
 * `aks get-versions`에서 사용 중단 공지 제거
 
@@ -1499,7 +1568,7 @@ Version 2.0.35
 
 ### <a name="network"></a>네트워크
 
-* [#5559](https://github.com/Azure/azure-cli/issues/5559): `network vnet-gateway vpn-client generate`에서 누락된 클라이언트 해결
+* [#5559](https://github.com/Azure/azure-cli/issues/5559) 수정됨: `network vnet-gateway vpn-client generate`에 클라이언트 누락됨
 
 ### <a name="resource"></a>리소스
 
@@ -2091,7 +2160,7 @@ Version 2.0.35
 
 * 가용성 영역에 대한 지원을 `network lb` 및 `network public-ip` 하위 명령에 추가
 * IPv6 Microsoft 피어링에 대한 지원을 `express-route`에 추가
-* `asg` 응용 프로그램 보안 그룹 명령 추가
+* `asg` 애플리케이션 보안 그룹 명령 추가
 * `--application-security-groups` 인수를 `nic [create|ip-config create|ip-config update]`에 추가
 * `--source-asgs` 및 `--destination-asgs` 인수를 `nsg rule [create|update]`에 추가
 * `--ddos-protection` 및 `--vm-protection` 인수를 `vnet [create|update]`에 추가
@@ -2187,8 +2256,8 @@ Version 2.0.35
 
 ### <a name="vm"></a>VM
 
-* 수정됨: `--scope`가 제공되지 않으면 액세스 권한을 할당하지 않음
-* 수정됨: 포털과 마찬가지로 동일한 확장 명명을 사용함
+* 수정됨: `--scope`이(가) 제공되지 않을 경우 액세스 권한을 할당하지 않음
+* 수정됨: 포털과 동일한 확장명을 사용함
 * `[vm|vmss] create` 출력에서 `subscription`이 제거됨
 * 수정됨: `[vm|vmss] create` 저장소 SKU가 이미지를 포함한 데이터 디스크에 적용되지 않음
 * 수정됨: `vm format-secret --secrets`가 줄 바꿈으로 구분된 ID를 허용하지 않음
@@ -2230,11 +2299,11 @@ Version 2.0.35
 * `az webapp config container set --docker-custom-image-name`에 대해 새로운 `-i` 별칭이 추가됨
 * `az webapp log show`가 공개됨
 * `az webapp delete`에서 앱 서비스 계획, 통계 또는 DNS 등록을 유지하는 새 인수가 공개됨
-* 슬롯 설정을 올바르게 검색하도록 수정됨
+* 수정됨: 슬롯 설정을 올바르게 검색함
 
 ### <a name="iot"></a>IoT
 
-* #3934: 정책을 만들 때 기존 정책을 더 이상 지우지 않도록 수정됨
+* #3934 수정됨: 정책을 새로 만들어도 더 이상 기존 정책이 지워지지 않음
 
 ### <a name="network"></a>네트워크
 
@@ -2313,7 +2382,7 @@ Version 2.0.35
 
 ### <a name="container"></a>컨테이너
 
-* `create`: 환경 변수에서 등호가 허용되지 않는 문제가 해결되었습니다.
+* `create`: 환경 변수에서 등호가 허용되지 않던 문제가 해결됨
 
 
 ### <a name="data-lake-store"></a>Data Lake Store
@@ -2326,14 +2395,14 @@ Version 2.0.35
 
 ### <a name="network"></a>네트워크
 
-* `lb`: 생략했을 때 특정 자식 리소스 이름이 올바르게 확인되지 않는 문제가 해결되었습니다.
-* `application-gateway {subresource} delete`: `--no-wait`를 적용할 수 없는 문제가 해결되었습니다.
-* `application-gateway http-settings update`: `--connection-draining-timeout`를 해제할 수 없는 문제가 해결되었습니다.
+* `lb`: 생략했을 때 특정 자식 리소스 이름이 올바르게 확인되지 않던 문제가 해결됨
+* `application-gateway {subresource} delete`: `--no-wait`를 적용할 수 없던 문제가 해결됨
+* `application-gateway http-settings update`: `--connection-draining-timeout`를 해제할 수 없던 문제가 해결됨
 * `az network vpn-connection ipsec-policy add`에서 예기치 않은 `sa_data_size_kilobyes` 키워드 인수 오류가 발생하는 문제가 해결되었습니다.
 
 ### <a name="profile"></a>프로필
 
-* `account list`: 서버에서 최신 구독을 동기화하는 `--refresh`가 추가됨
+* `account list`: 서버에서 최신 구독을 동기화하기 위해 `--refresh`가 추가됨
 
 ### <a name="storage"></a>Storage
 
@@ -2341,7 +2410,7 @@ Version 2.0.35
 
 ### <a name="vm"></a>VM
 
-* `availability-set`: 변환 시 오류 도메인 수가 공개됨
+* `availability-set`: 변환 시 장애 도메인 수가 공개됨
 * `list-skus` 명령이 공개됨
 * 역할 할당을 만들지 않고 ID를 할당하도록 지원합니다.
 * 데이터 디스크 연결 시 저장소 SKU를 적용합니다.
@@ -2543,7 +2612,7 @@ vm (2.0.11)
 * `application-gateway rule create` 및 `application-gateway rule update`에 추가된 인수: `--redirect-config`
 * `--accelerated-networking`에 대한 지원이 `nic create` 및 `nic update`에 추가됨
 * `nic create`에서 `--internal-dns-name-suffix` 인수가 제거됨
-* `--dns-servers`에 대한 지원이 `nic update` 및 `nic create`에 추가됨: --dns-servers에 대한 지원 추가
+* `--dns-servers`에 대한 지원이 `nic update` 및 `nic create`에 추가됨: --DNS 서버에 대한 지원 추가
 * `local-gateway create`에서 `--local-address-prefixes`를 무시하는 버그가 수정되었습니다.
 * `--dns-servers`에 대한 지원이 `vnet update`에 추가됨
 * `express-route peering create`를 사용하여 경로를 필터링하지 않고 피어링을 만드는 버그가 수정되었습니다.
@@ -2679,11 +2748,11 @@ vm (2.0.6)
 * ‘az —version’에 Python 위치 추가([#2986](https://github.com/Azure/azure-cli/issues/2986))
 * login: 구독이 없을 때 로그인 지원([#2929](https://github.com/Azure/azure-cli/issues/2929))
 * core: 서비스 주체를 사용하여 두 번 로그인할 때 오류 수정([#2800](https://github.com/Azure/azure-cli/issues/2800))
-* core: env var을 통해 accessTokens.json의 파일 경로를 구성 가능하도록 허용([#2605](https://github.com/Azure/azure-cli/issues/2605))
-* core: 구성된 기본값이 선택적 인수에 적용하도록 허용([#2703](https://github.com/Azure/azure-cli/issues/2703))
-* core: 향상된 성능
+* core: accessTokens.json의 파일 경로가 env var을 통해 구성 가능하도록 허용([#2605](https://github.com/Azure/azure-cli/issues/2605))
+* core: 구성된 기본값이 선택 인수에 적용되도록 허용([#2703](https://github.com/Azure/azure-cli/issues/2703))
+* core: 성능 향상
 * core: 사용자 지정 CA 인증서 - REQUESTS_CA_BUNDLE 환경 변수 설정 지원
-* core: 클라우드 구성 - '관리' 엔드포인트를 설정하지 않은 경우 '리소스 관리자' 엔드포인트 사용
+* core: 클라우드 구성 - '관리' 엔드포인트가 설정되지 않은 경우 '리소스 관리자' 엔드포인트 사용
 
 ### <a name="acs"></a>ACS
 
@@ -2735,7 +2804,7 @@ vm (2.0.6)
 ### <a name="keyvault"></a>KeyVault
 
 * BC:`az keyvault certificate download` 문자열 또는 이진 파일의 -e를 PEM 또는 DER로 변경하여 옵션을 보다 잘 나타냅니다.
-* BC: `keyvault certificate create` 앞에 있는 --expires 및 --not-before 매개 변수는 서비스에서 지원되지 않으므로 제거합니다.
+* BC: --expires 및 --not-before 매개 변수는 서비스에서 지원되지 않으므로 `keyvault certificate create`에서 삭제
 * `keyvault certificate create`에 --validity 매개 변수를 추가하여 --policy의 값을 선택적으로 재정의합니다.
 * 'expires' 및 'not_before'가 노출되지만 'validity_in_months'는 노출되지 않는 `keyvault certificate get-default-policy`의 문제를 수정합니다.
 * pem 및 pfx 가져오기에 대한 KeyVault 수정([#2754](https://github.com/Azure/azure-cli/issues/2754))
@@ -2816,7 +2885,7 @@ vm (2.0.6)
 
 * avail-set: UD&FD 도메인 수를 옵션으로 지정
 
-  note: 독립 클라우드의 VM 명령. 다음을 비롯한 관리되는 디스크 관련 기능을 피하세요.
+  참고: 소버린 클라우드의 VM 명령 다음을 비롯한 관리 디스크 관련 기능을 피하십시오.
   1. az disk/snapshot/image
   2. az vm/vmss disk
   3. "az vm/vmss create" 내에 "—use-unmanaged-disk"를 사용하여 관리되는 디스크를 피합니다. 다른 명령은 작동합니다.
@@ -2892,7 +2961,7 @@ vm (2.0.2)
 
 ### <a name="docuemntdb"></a>DocuemntDB
 
-* DocumentDB: 연결 문자열 나열에 대한 지원 추가([#2580](https://github.com/Azure/azure-cli/pull/2580))
+* DocumentDB: 문자열 목록에 대한 지원 추가([#2580](https://github.com/Azure/azure-cli/pull/2580))
 
 ### <a name="vm"></a>VM
 

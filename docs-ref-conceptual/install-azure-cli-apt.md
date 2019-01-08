@@ -8,13 +8,13 @@ ms.date: 11/27/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: c33c3e75991979a72a7b82183dd88b87715907ae
-ms.sourcegitcommit: a8aac038e6ede0b1b352ca6163a04b61ff4eed5b
+ms.devlang: azurecli
+ms.openlocfilehash: 1973c933cbffa494cbe9c0749346450251feefcb
+ms.sourcegitcommit: 9bd90875a324908ec7195fc4c4f63ebf124760f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450261"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53982589"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt를 사용하여 Azure CLI 설치
 
@@ -25,16 +25,21 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
 
 ## <a name="install"></a>설치
 
-1. <div id="install-step-1"/>원본 목록을 수정합니다.
+1. 필수 구성 요소 패키지 설치:
 
     ```bash
-    sudo apt-get install apt-transport-https lsb-release software-properties-common -y
+    sudo apt-get install apt-transport-https lsb-release software-properties-common dirmngr -y
+    ```
+
+2. <div id="set-release"/>원본 목록을 수정합니다.
+
+    ```bash
     AZ_REPO=$(lsb_release -cs)
     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
         sudo tee /etc/apt/sources.list.d/azure-cli.list
     ```
 
-2. <div id="signingKey"/>Microsoft 서명 키 가져오기:
+3. <div id="signingKey"/>Microsoft 서명 키 가져오기:
 
    ```bash
    sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
@@ -42,7 +47,7 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
         --recv-keys BC528686B50D79E339D3721CEB3E94ADBE1229CF
    ```
 
-3. CLI 설치:
+4. CLI 설치:
 
    ```bash
    sudo apt-get update
@@ -64,7 +69,7 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
 
 ### <a name="lsbrelease-does-not-return-the-correct-base-distribution-version"></a>lsb_release가 올바른 기본 배포 버전을 반환하지 않습니다.
 
-Linux Mint 같은 일부 Ubuntu 또는 Debian 파생 배포판은 `lsb_release`로부터 올바른 버전 이름을 반환하지 않을 수 있습니다. 이 값은 설치 과정에서 패키지 설치를 확인하는 데 사용됩니다. 귀하의 배포가 파생된 출처 버전의 이름을 알고 있는 경우는 `AZ_REPO` 값을 수동으로 [1 단계 설치](#install-step-1)에 설정합니다. 그렇지 않은 경우 귀하의 배포에 대해 기본 배포 이름을 확인하고 `AZ_REPO`를 올바른 값으로 설정 하는 방법에 대해 알아봅니다.
+Linux Mint 같은 일부 Ubuntu 또는 Debian 파생 배포판은 `lsb_release`로부터 올바른 버전 이름을 반환하지 않을 수 있습니다. 이 값은 설치 과정에서 패키지 설치를 확인하는 데 사용됩니다. 귀하의 배포가 파생된 출처 버전의 이름을 알고 있는 경우 [설치 2 단계](#set-release)에서 `AZ_REPO`값을 수동으로 설정하면 됩니다. 그렇지 않은 경우 귀하의 배포에 대해 기본 배포 이름을 확인하고 `AZ_REPO`를 올바른 값으로 설정 하는 방법에 대해 알아봅니다.
 
 ### <a name="no-package-for-your-distribution"></a>배포에 필요한 패키지가 없음
 
@@ -87,6 +92,8 @@ gpg: keyserver receive failed: No dirmngr
 ```bash
 sudo apt-get install dirmngr
 ```
+
+Linux(WSL)용 Windows 하위 시스템일 경우 이 오류는 Windows 10 1809 이전 버전에서도 발생합니다. 이 문제를 해결하려면 Windows 버전을 업데이트하십시오.
 
 ### <a name="apt-key-hangs"></a>apt-key 중지
 

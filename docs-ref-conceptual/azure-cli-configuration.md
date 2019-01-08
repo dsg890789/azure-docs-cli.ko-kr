@@ -9,13 +9,13 @@ ms.date: 06/11/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: f4f1e89e5541d741ef4e02f309a49eece033af5d
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.devlang: azurecli
+ms.openlocfilehash: d23f576a1f7447ffab0606b4554a81ae5c536e85
+ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47177983"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53593781"
 ---
 # <a name="azure-cli-configuration"></a>Azure CLI 구성
 
@@ -62,8 +62,8 @@ CLI 구성 파일에는 CLI 동작 관리에 사용되는 다른 설정이 포�
 
 부울은 대/소문자를 구분하며 다음 값으로 표현됩니다.
 
-* __True__: 1, 예, true, on
-* __False__: 0, 아니요, false, off
+* __참__: 1, yes, true, on
+* __거짓__: 0, no, false, off
 
 다음은 확인 프롬프트를 비활성화하고 `/var/log/azure` 디렉토리에 로깅을 설정하는 CLI 구성 파일의 예입니다.
 
