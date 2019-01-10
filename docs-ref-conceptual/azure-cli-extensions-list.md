@@ -4,17 +4,17 @@ description: Azure CLI에 대해 공식적으로 지원되는 확장의 전체 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/28/2018
+ms.date: 01/06/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: ce51501343ed8300cbd685130405d928052d444d
-ms.sourcegitcommit: 9bd90875a324908ec7195fc4c4f63ebf124760f9
+ms.openlocfilehash: 276bd619408760416910c099dee2aa8377011d0d
+ms.sourcegitcommit: 2c18e8fc2da012bf8ceb2aa77e0671f2413c43c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53982572"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54071882"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI에 대해 사용 가능한 확장
 
@@ -56,7 +56,7 @@ az extension list-available --output table
 | [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.1.6 | SAP HanaOnAzure 인스턴스와 함께 사용하기 위한 추가 명령 |  |
 | [signalr](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | signalr 관리 미리 보기를 지원합니다. | 예 |
 | [sqlvm-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/sqlvm-preview) | 0.1.0 | SQL 가상 머신, 그룹, 가용성 그룹 수신기를 관리하는 도구입니다. | 예 |
-| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.2.0 | 예정된 저장소 기능에 대한 미리 보기를 제공합니다. | 예 |
+| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.2.1 | 예정된 저장소 기능에 대한 미리 보기를 제공합니다. | 예 |
 | [subscription](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | 구독 관리 미리 보기를 지원합니다. |  |
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | 가상 네트워크 관리 탭(VTAP) | 예 |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.0 | 가상 WAN, 허브, VPN 게이트웨이 및 VPN 사이트를 관리합니다. | 예 |
