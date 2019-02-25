@@ -4,11 +4,11 @@ ms.author: sttramer
 manager: carmonm
 ms.date: 09/07/2018
 ms.topic: include
-ms.openlocfilehash: c0543b11c83a84479197f0b40b330dabeea2af8e
-ms.sourcegitcommit: 5025f123482964dbf72dc5b4950dbc62be67ea8f
+ms.openlocfilehash: f8f0dc5b1633354b5adc8c9157021c3f2b6b09c7
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52954340"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56158846"
 ---
 Azure CLI를 제거하려는 경우 유감스럽게 생각합니다. 제거하기 전에 `az feedback` 명령을 사용하여 향상 또는 수정할 사항을 알려주세요. 우리 목표는 Azure CLI를 버그가 없고 사용자에게 친숙하게 만드는 것입니다. 버그가 발생한 경우 [GitHub 문제를 제출](https://github.com/Azure/azure-cli/issues)해주시면 감사하겠습니다.

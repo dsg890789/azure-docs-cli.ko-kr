@@ -5,23 +5,23 @@ keywords: Azure CLI,Azure CLI 설치
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/16/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: a4ffdc9e3788c19dae963de35a7183ddc7950886
-ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
+ms.openlocfilehash: cacaa77845708f318b3743024d7f87e658368069
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53805893"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56421901"
 ---
 # <a name="install-the-azure-cli"></a>Azure CLI 설치
 
 Azure CLI는 Azure 리소스를 관리하기 위한 훌륭한 경험을 제공하는 명령줄 도구입니다. CLI는 스크립팅을 쉽게 하고, 데이터를 쿼리하고, 장기 실행 작업을 지원하기 위해 디자인되었습니다. 지금 시도해 CLI가 무엇을 제공하는지 확인!
 
-CLI의 현재 버전은 __2.0.54__입니다. 최신 릴리스에 대한 자세한 내용은 [릴리스 정보](release-notes-azure-cli.md)를 참조하세요.
+[!INCLUDE [current-version](includes/current-version.md)]
 
 * [Windows에 설치](install-azure-cli-windows.md)
 * [macOS에 설치](install-azure-cli-macos.md)

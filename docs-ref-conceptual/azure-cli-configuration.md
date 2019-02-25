@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: d23f576a1f7447ffab0606b4554a81ae5c536e85
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593781"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56158491"
 ---
 # <a name="azure-cli-configuration"></a>Azure CLI 구성
 
@@ -35,7 +35,7 @@ CLI에서 사용되는 구성 값은 다음 우선 순위에서 평가되며 목
 
 다음 표는 사용할 수 있는 구성 키의 목록을 보여 줍니다.
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | group | 모든 명령에 사용할 기본 리소스 그룹입니다. |
 | location | 모든 명령에 사용할 기본 위치입니다. |
@@ -84,7 +84,7 @@ log_dir=/var/log/azure
 
 기본값을 제공하면, 명령에 더 이상 인수가 필요하지 않습니다. 대신 기본값이 사용됩니다.
 
-| 섹션 | 이름      | type | 설명|
+| 섹션 | Name      | Type | 설명|
 |---------|-----------|------|------------|
 | __core__ | output | string | 기본 출력 형식입니다. `json`, `jsonc`, `tsv` 또는 `table` 중 하나일 수 있습니다. |
 | | disable\_confirm\_prompt | 부울 | 확인 메시지를 표시하거나 표시하지 않습니다. |

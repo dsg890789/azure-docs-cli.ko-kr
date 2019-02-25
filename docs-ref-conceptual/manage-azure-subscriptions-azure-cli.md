@@ -6,15 +6,15 @@ ms.author: sttramer
 manager: carmonm
 ms.date: 09/09/2018
 ms.topic: conceptual
-ms.produdct: azure
+ms.product: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 27f094b68812cb68a6a33a6977d4fd58e4178731
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: 4c196b8376b0044e315cfee2b3958f2f4b476df7
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593662"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56158670"
 ---
 # <a name="use-multiple-azure-subscriptions"></a>여러 Azure 구독 사용
 
@@ -28,7 +28,7 @@ Azure 내에서 테넌트, 사용자 및 구독 간의 차이에 대해 약간�
 테넌트, 사용자 및 구독 간의 차이점에 대한 자세한 내용은 [Azure 클라우드 용어 사전](/azure/azure-glossary-cloud-terminology)을 참조하세요.  새 구독을 Azure Active Directory 테넌트에 추가하는 방법을 알아보려면 [Azure 구독을 Azure Active Directory에 추가하는 방법](/azure/active-directory/active-directory-how-subscriptions-associated-directory)을 참조하세요.
 특정 테넌트에 로그인하는 방법을 알아보려면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)을 참조합니다.
 
-## <a name="change-the-active-subscription"></a>활성 구독 변경 
+## <a name="change-the-active-subscription"></a>활성 구독 변경
 
 구독을 위해 리소스에 액세스하려면, 활성 구독을 전환하거나 `--subscription` 인수를 사용합니다. 모든 명령에 대한 구독을 전환하는 작업은 [az 계정 집합](/cli/azure/account#az-account-set)을 사용하여 수행합니다.
 

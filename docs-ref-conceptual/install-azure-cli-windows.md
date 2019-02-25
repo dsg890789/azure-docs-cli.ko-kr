@@ -9,17 +9,19 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ff4ed838351167410c75c046dc8f615faa0930f5
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: ffd9c279302377de6eca1b64c45749196bd99096
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593220"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56421878"
 ---
 # <a name="install-azure-cli-on-windows"></a>Windows에 Azure CLI 설치
 
 MSI를 통해 Azure CLI를 Windows에 설치하면 Windows 명령 프롬프트(CMD) 또는 PowerShell을 통해 CLI에 대한 액세스 권한을 제공 합니다.
 WSL(Linux용 Windows 하위 시스템)을 설치하는 경우 Linux 배포에 패키지를 사용할 수 있습니다. 지원되는 패키지 관리자 목록 또는 WSL에서 수동으로 설치하는 방법은 [주 설치 페이지](install-azure-cli.md)를 참조하세요.
+
+[!INCLUDE [current-version](includes/current-version.md)]
 
 ## <a name="install-or-update"></a>설치 또는 업데이트
 

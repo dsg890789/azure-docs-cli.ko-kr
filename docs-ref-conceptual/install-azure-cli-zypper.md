@@ -9,18 +9,20 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 4cdbeaffb00e87b590080c1d341ec9e7ee198410
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: 647b4b9518a174ad95a1eda8b17f38027182b25a
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593526"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56421918"
 ---
 # <a name="install-azure-cli-with-zypper"></a>zypper를 사용하여 Azure CLI 설치
 
 openSUSE 또는 SLES 등의 `zypper`를 사용하는 Linux 배포의 경우, Azure CLI에서 사용할 수 있는 패키지가 있습니다. 이 패키지는 openSUSE 42.2 및 SLES 12 SP 2와 함께 테스트되었습니다.
 
-[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
+[!INCLUDE [current-version](includes/current-version.md)]
+
+[!INCLUDE [rpm-warning](includes/rpm-warning.md)]
 
 ## <a name="install"></a>설치
 
@@ -60,7 +62,6 @@ openSUSE 또는 SLES 등의 `zypper`를 사용하는 Linux 배포의 경우, Azu
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
-
 ## <a name="update"></a>주 지역에서
 
 `zypper update` 명령을 사용하여 패키지를 업데이트할 수 있습니다.
@@ -92,7 +93,8 @@ sudo zypper update azure-cli
    MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
    sudo rpm -e --allmatches gpg-pubkey-$MSFT_KEY
    ```
-   ## <a name="next-steps"></a>다음 단계
+
+## <a name="next-steps"></a>다음 단계
 
 Azure CLI를 설치한 후 해당 기능 및 일반 명령을 잠시 둘러보세요.
 

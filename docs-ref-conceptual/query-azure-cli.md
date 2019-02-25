@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 1605b072a68d9aa781290fd862f1d67a847f571e
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: eed121ce7ce8f8c1eba5079eb438190d3e4d13db
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593305"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56158828"
 ---
 # <a name="query-azure-cli-command-output"></a>Azure CLI 명령 출력 쿼리
 
@@ -197,7 +197,8 @@ az vm show -g QueryDemo -n TestVM --query '{VMName:name, admin:osProfile.adminUs
 배열에서 데이터를 가져오는 데 사용되는 다른 작업은 _필터링_입니다. 필터링은 `[?...]` JMESPath 연산자를 사용하여 이루어집니다.
 이 연산자는 내용에 맞게 조건자를 사용합니다. 조건자는 `true` 또는 `false`로 평가할 수 있는 문입니다. 조건자가 `true`로 평가되는 표현식은 출력에 포함됩니다.
 
-JMESPath는 표준 비교 및 논리 연산자를 제공합니다. `<`, `<=`, `>`, `>=`, `==`, `!=`을 포함합니다. JMESPath은 또한 논리 and(`&&`), or(`||`), not(`!`)을 지원합니다. 괄호 안에 식은 그룹화하여 더 복잡한 조건자 식이 가능합니다. 조건자 및 논리 조작에 대한 전체 세부 정보는 [JMESPath 사양](http://jmespath.org/specification.html)을 참조하세요.
+JMESPath는 표준 비교 및 논리 연산자를 제공합니다. `<`, `<=`, `>`, `>=`, `==`, `!=`을 포함합니다.
+JMESPath은 또한 논리 and(`&&`), or(`||`), not(`!`)을 지원합니다. 괄호 안에 식은 그룹화하여 더 복잡한 조건자 식이 가능합니다. 조건자 및 논리 조작에 대한 전체 세부 정보는 [JMESPath 사양](http://jmespath.org/specification.html)을 참조하세요.
 
 마지막 섹션에서는 리소스 그룹의 모든 VM의 전체 목록을 가져오기 위해 배열을 평면화했습니다. 필터를 사용하여, 이 출력은 Linux VM으로만 제한할 수 있습니다.
 
