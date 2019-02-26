@@ -9,13 +9,8 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 285567b00d8c303af3e78a01dc80946a08e4e8f8
-ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53805910"
 ---
+
 # <a name="azure-command-line-interface-cli"></a>Azure CLI(명령줄 인터페이스)
 
 Azure CLI(명령줄 인터페이스)는 Azure 리소스를 관리하기 위한 Microsoft의 플랫폼 간 명령줄 환경입니다.
@@ -34,7 +29,7 @@ az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS
 
 ## <a name="run-or-install"></a>실행 또는 설치
 
-CLI를 로컬로 설치하거나 Azure Cloud Shell을 사용하여 브라우저에서 실행하거나 Docker 컨테이너에서 실행할 수 있습니다.
+CLI를 로컬로 설치하거나 Azure Cloud Shell을 사용하여 브라우저에서 실행하거나 Docker 컨테이너에서 실행할 수 있습니다. CLI의 현재 버전을 가져오려면 `az --version`을 실행합니다.
 
 * Azure Cloud Shell을 사용하여 브라우저에서 실행하려면 [Azure Cloud Shell에서 Bash 빠른 시작](/azure/cloud-shell/quickstart) 또는 [Azure Cloud Shell에서 PowerShell 빠른 시작](/azure/cloud-shell/quickstart-powershell)을 참조하십시오.
 * CLI를 설치하는 방법은 [Azure CLI 설치](install-azure-cli.md)를 참조하세요.
