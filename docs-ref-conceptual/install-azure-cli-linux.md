@@ -9,16 +9,18 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: b57ddd04d41b09eb145349179e3be48d3fdd5907
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: 229b109b307453c87abf260a66084c94ced33d81
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593679"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56422003"
 ---
 # <a name="install-azure-cli-on-linux-manually"></a>Linux에 Azure CLI 수동 설치
 
 배포를 위한 Azure CLI용 패키지가 없다면 스크립트를 실행하여 수동으로 CLI를 설치하십시오.
+
+[!INCLUDE [current-version](includes/current-version.md)]
 
 > [!NOTE]
 > 패키지 관리자를 사용하여 CLI를 설치하는 것이 좋습니다. 패키지 관리자가 항상 최신 업데이트를 갖추도록 확인하고 CLI 구성 요소의 안정성을 보장합니다. 수동으로 설치하기 전에 배포에 필요한 패키지가 있는지 확인합니다.
@@ -27,9 +29,13 @@ ms.locfileid: "53593679"
 
 CLI에는 다음과 같은 소프트웨어가 필요합니다.
 
-* [Python 2.7 또는 Python 3.x](https://www.python.org/downloads/)
+* [Python 3.6.x 또는 3.7.x](https://www.python.org/downloads/) 
 * [libffi](https://sourceware.org/libffi/)
 * [OpenSSL 1.0.2](https://www.openssl.org/source/)
+
+> [!IMPORTANT]
+>
+> CLI는 2020년 1월 1일에 종료되는 Python 2.7.x와도 호환됩니다. 이러한 이유로 CLI를 실행하려면 Python 3을 설치하는 것이 좋습니다.
 
 ## <a name="install-or-update"></a>설치 또는 업데이트
 
@@ -49,7 +55,7 @@ curl -L https://aka.ms/InstallAzureCli | bash
 
 ## <a name="troubleshooting"></a>문제 해결
 
-수동 설치 중에 몇 가지 공통 문제가 발견됐습니다. 여기에서 다루지 않는 문제가 발생하는 경우, [github에 문제를 제출합니다](https://github.com/Azure/azure-cli/issues).
+수동 설치 중에 몇 가지 공통 문제가 발견됐습니다. 여기서 다루지 않은 문제가 발생하면 [GitHub에서 문제를 제출](https://github.com/Azure/azure-cli/issues)하세요.
 
 ### <a name="curl-object-moved-error"></a>"개체 이동됨" curl 오류
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: a56ce4acf070c17d8deaec9674593ba930cca70f
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: b018f41824946dca36d0b806de0dd32a335a15b5
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593611"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56422020"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI 시작
 
@@ -26,6 +26,8 @@ Azure CLI 시작! CLI는 특히 자동화 기능을 통해 Azure 서비스를 �
 Azure CLI를 시작하는 가장 쉬운 방법은 브라우저를 통해 Azure Cloud Shell 환경에서 실행하는 것입니다. Cloud Shell에 대해 자세히 알아보려면 [Azure Cloud Shell의 Bash에 대한 빠른 시작](/azure/cloud-shell/quickstart)을 참조하세요.
 
 CLI를 설치할 준비가 되었으면 [설치 지침](install-azure-cli.md)을 참조하세요.
+
+CLI가 처음으로 설치되면 `az --version`을 실행하여 CLI가 설치되어 있고 올바른 버전인지 확인합니다.
 
 ## <a name="sign-in"></a>로그인
 
@@ -72,8 +74,8 @@ CLI에는 Bash 셸에서 명령에 대한 전체 탭 완성 기능이 포함됩�
 일부 인수는 모든 명령에 사용할 수 있습니다.
 
 * `--help`은(는) 명령 및 해당 인수에 대한 CLI 참조 정보를 출력하고 사용 가능한 하위 그룹 및 명령을 나열합니다.
-* `--output`은(는) 출력 형식을 변경합니다. 사용 가능한 출력 형식은 `json`, `jsonc`(색상으로 표시된 JSON), `tsv`(탭으로 구분된 값) 및 `table`(휴먼 판독 가능한 ASCII 테이블)입니다. 기본적인 CLI 출력은 `json`입니다. 사용 가능한 출력 형식에 대해 자세히 알아보려면 [Azure CLI의 출력 형식](format-output-azure-cli.md)을 참조하십시오.
-* `--query`은(는) [JMESPath 쿼리 언어](http://jmespath.org/)를 사용하여 Azure 서비스에서 반환되는 출력을 필터링합니다. 쿼리에 대해 자세히 알아보려면 [Azure CLI를 사용한 쿼리 명령 결과](query-azure-cli.md) 및 [JMESPath 자습서](http://jmespath.org/tutorial.html)를 참조하십시오.
+* `--output`은(는) 출력 형식을 변경합니다. 사용 가능한 출력 형식은 `json`, `jsonc`(색이 지정된 JSON), `tsv`(탭으로 구분된 값), `table`(사람이 읽을 수 있는 ASCII 테이블) 및 `yaml`입니다. 기본적인 CLI 출력은 `json`입니다. 사용 가능한 출력 형식에 대해 자세히 알아보려면 [Azure CLI의 출력 형식](format-output-azure-cli.md)을 참조하십시오.
+* `--query`은(는) [JMESPath 쿼리 언어](http://jmespath.org/)를 사용하여 Azure 서비스에서 반환되는 출력을 필터링합니다. 쿼리에 대한 자세한 내용은 [Azure CLI를 사용한 쿼리 명령 결과](query-azure-cli.md) 및 [JMESPath 자습서](http://jmespath.org/tutorial.html)를 참조하세요.
 * `--verbose`은(는) 작업 중 Azure에서 생성되는 리소스에 대한 정보 및 기타 유용한 정보를 출력합니다.
 * `--debug`은(는) 디버깅 목적으로 사용되는 CLI 작업에 대한 자세한 정보를 출력합니다. 버그가 발견된 경우, 버그 보고서를 제출할 때 `--debug` 플래그를 사용해서 생성된 출력을 제공하십시오.
 
@@ -99,7 +101,7 @@ Azure CLI를 시작하려면 가상 머신 설정 및 Azure 리소스 쿼리를 
 다른 인기 있는 서비스에 대한 빠른 시작도 있습니다.
 
 * [Azure CLI를 사용하여 저장소 계정 만들기](/azure/storage/common/storage-quickstart-create-storage-account-cli)
-* [CLI를 사용하여 Azure Blob 저장소에 대한 개체 전송](/azure/storage/blobs/storage-quickstart-blobs-cli)
+* [CLI를 사용하여 Azure Blob Storage에 대한 개체 전송](/azure/storage/blobs/storage-quickstart-blobs-cli)
 * [Azure CLI를 사용하여 단일 Azure SQL 데이터베이스 만들기](/azure/sql-database/sql-database-get-started-cli)
 * [Azure CLI를 사용하여 Azure Database for MySQL 서버 만들기](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 * [Azure CLI를 사용하여 PostgreSQL용 Azure Database 만들기](/azure/postgresql/quickstart-create-server-database-azure-cli)
@@ -108,7 +110,7 @@ Azure CLI를 시작하려면 가상 머신 설정 및 Azure 리소스 쿼리를 
 
 ## <a name="give-feedback"></a>피드백 제공
 
-CLI 기능 개선 및 버그 해결을 위해 피드백을 보내주시기 바랍니다. [Github에서 문제를 제출](https://github.com/azure/azure-cli/issues)하거나 CLI의 기본 제공 기능을 사용하여 [az feedback](/cli/azure/reference-index#az-feedback) 명령으로 일반적인 피드백을 제출할 수 있습니다.
+CLI 기능 개선 및 버그 해결을 위해 피드백을 보내주시기 바랍니다. [GitHub에서 문제를 제출](https://github.com/azure/azure-cli/issues)하거나 CLI의 기본 제공 기능을 사용하여 [az feedback](/cli/azure/reference-index#az-feedback) 명령을 통해 일반적인 피드백을 남길 수 있습니다.
 
 ```azurecli-interactive
 az feedback

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: e62523ba310f071020f0d66042e39e6f1867c56b
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: 14f51e068c4d2b332b0de93406822e148d734701
+ms.sourcegitcommit: 032f35d553754fbac78b218259a8d6a697ac220e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593849"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56458691"
 ---
-# <a name="select-clouds-with-the-azure-cli"></a>Azure CLI를 사용하여 클라우드를 선택합니다. 
+# <a name="select-clouds-with-the-azure-cli"></a>Azure CLI를 사용하여 클라우드를 선택합니다.
 
 서로 다른 영역에서 작업하거나 [Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/)을 사용할 경우 하나 이상의 클라우드를 사용해야 할 수도 있습니다. Microsoft는 제품 사용에 적용될 수 있는 지역 법을 준수하기 위해 클라우드를 제공합니다. 이 문서에서는 클라우드에 대한 정보를 얻고 현재 클라우드를 변경하고 새 클라우드를 등록 또는 등록 취소하는 방법을 설명합니다.
 
@@ -88,7 +88,7 @@ az cloud set --name AzureChinaCloud
 
 Azure Stack에 대한 사용자 고유의 엔드포인트가 있는 경우 새 클라우드를 등록합니다. 클라우드를 만들려면 [az cloud register](/cli/azure/cloud#az-cloud-register) 명령을 사용합니다. 이 명령에는 이름 및 서비스 엔드포인트 집합이 필요합니다. Azure Stack과 함께 사용할 클라우드를 등록하는 방법에 대해 알아보려면 [Azure Stack에서 Azure CLI와 함께 API 버전 프로필 사용](/azure/azure-stack/user/azure-stack-version-profiles-azurecli2#connect-to-azure-stack)을 참조하세요.
 
-중국, 미국 정부 또는 독일 지역의 경우 클라우드를 등록할 필요가 없습니다. 이들 클라우드는 Microsoft에서 관리하며 기본적으로 사용할 수 있습니다.  사용 가능한 모든 엔드포인트 설정에 대한 자세한 내용은 [에 대한 설명서를 참조하세요`az cloud register`](/cli/azure/cloud#az-cloud-register).
+중국, US Government 또는 독일 지역에 대한 정보는 등록할 필요가 없습니다. 이들 클라우드는 Microsoft에서 관리하며 기본적으로 사용할 수 있습니다.  사용 가능한 모든 엔드포인트 설정에 대한 자세한 내용은 [에 대한 설명서를 참조하세요`az cloud register`](/cli/azure/cloud#az-cloud-register).
 
 클라우드를 등록하더라도 자동으로 해당 클라우드로 전환되지 않습니다. `az cloud set` 명령을 사용하여 새로 만든 클라우드를 선택합니다.
 

@@ -1,130 +1,173 @@
 ---
 title: Azure CLI에서 Azure 서비스 주체 사용
-description: Azure CLI에서 서비스 주체를 만들고 사용하는 방법을 알아봅니다.
+description: Azure CLI를 사용하여 서비스 주체를 만들고 사용하는 방법을 알아봅니다.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/07/2018
+ms.date: 02/15/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 6cce8fb47dd2b57180487441055333343fff8330
-ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
+ms.openlocfilehash: 7ead12b35cefd7cba9e06f7905c9267c569d98dd
+ms.sourcegitcommit: 014d89aa21f90561eb69792ad01947e481ea640a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53805876"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741720"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Azure CLI를 사용하여 Azure 서비스 주체 만들기
 
-액세스가 제한된 개별 로그인을 만들려면 서비스 주체를 통해 수행할 수 있습니다. 서비스 주체는 계정과 연결할 수 있는 별도의 ID입니다. 서비스 주체는 자동화해야 하는 애플리케이션 및 작업을 사용할 때 유용합니다. 이 문서에서는 서비스 주체를 만들기 위한 단계를 안내합니다.
+Azure 서비스를 사용하도록 자동화된 도구에는 항상 제한된 권한이 있어야 합니다. Azure는 애플리케이션에서 모든 권한이 있는 사용자로 로그인하도록 하는 대신 서비스 주체를 제공합니다.
 
-## <a name="create-the-service-principal"></a>서비스 주체 만들기
+Azure 서비스 주체는 애플리케이션, 호스팅된 서비스 및 자동화된 도구에서 사용하여 Azure 리소스에 액세스하기 위해 만든 ID입니다. 이 액세스는 서비스 주체에 할당된 역할로 제한되므로 액세스할 수 있는 리소스와 해당 수준을 제어할 수 있습니다. 보안상의 이유로 사용자 ID를 통해 로그인할 수 있게 하는 대신, 항상 자동화된 도구에서 서비스 주체를 사용하는 것이 좋습니다.
 
-[az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 서비스 주체를 만듭니다. 서비스 주체 이름은 기존 애플리케이션 또는 사용자 이름에 연결되지 않습니다. 원하는 인증 유형을 선택하여 서비스 주체를 만들 수 있습니다.
+이 문서에서는 Azure CLI를 사용하여 서비스 주체를 만들고, 정보를 가져오고, 다시 설정하는 단계를 보여 줍니다.
 
-* `--password`은(는) 암호 기반 인증에 사용됩니다. 인증 형식을 나타내는 인수가 포함되지 않은 경우 기본적으로 암호가 사용되며 사용자를 위해 암호가 생성됩니다. 암호 기반 인증을 사용하려고 할 때 이 명령을 사용하도록 권장되며, 사용자를 위해 암호가 생성됩니다.  
+## <a name="create-a-service-principal"></a>서비스 주체 만들기
+
+[az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 서비스 주체를 만듭니다. 서비스 주체를 만드는 경우 사용하는 로그인 인증 유형을 선택합니다. 
+
+> [!NOTE]
+>
+> 계정에 서비스 주체를 만들 수 있는 권한이 없는 경우 `az ad sp create-for-rbac`에서 "권한이 부족하여 작업을 완료할 수 없습니다."라는 오류 메시지를 반환합니다. 서비스 주체를 만들려면 Azure Active Directory 관리자에게 문의하십시오.
+
+서비스 주체에 사용할 수 있는 인증 유형에는 암호 기반 인증 및 인증서 기반 인증의 두 가지 유형이 있습니다.
+
+### <a name="password-based-authentication"></a>암호 기반 인증
+
+인증 매개 변수가 없으면 임의로 만든 암호를 통한 암호 기반 인증이 사용됩니다. 암호 기반 인증을 원하는 경우 이 메서드를 사용하는 것이 좋습니다.
 
   ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName 
+  az ad sp create-for-rbac --name ServicePrincipalName
   ```
-  사용자를 위해 자동으로 생성되는 암호(보안상의 이유로 권장되지 않음) 대신 직접 암호를 설정하려고 할 때 이 명령을 사용하면 됩니다. [Azure Active Directory 암호 규칙 및 제한 사항](/azure/active-directory/active-directory-passwords-policy)에 따라 강력한 암호를 만들어야 합니다. 암호 설정 옵션에는 취약한 암호가 설정되거나 암호가 재사용될 가능성이 존재합니다. 이 옵션은 Azure CLI의 추후 버전에서는 사용되지 않을 계획입니다. 
+
+사용자가 제공한 암호의 경우 `--password` 인수를 사용합니다. 암호를 만드는 경우 [Azure Active Directory 암호 규칙 및 제한](/azure/active-directory/active-directory-passwords-policy)을 따라야 합니다. 취약한 암호를 사용하거나 암호를 다시 사용하지 마세요.
 
   ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --password <Choose a strong password>
   ```
 
-* `--cert`은(는) 기존 인증서에 대한 인증서 기반 인증(PEM 또는 DER 공용 문자열) 또는 파일 로드를 위한 `@{file}`에 사용됩니다.
+  > [!IMPORTANT]
+  >
+  > 보안상의 이유로 서비스 주체를 만들기 위한 `--password` 인수는 이후 릴리스에서 더 이상 사용되지 않습니다. 암호 기반 인증을 사용하려면 `--password`를 사용하지 않고 CLI에서 보안 암호를 생성하도록 합니다.
 
-  ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --cert {CertStringOrFile}
-  ```
+암호 인증을 사용하는 서비스 주체의 출력에는 `password` 키가 포함되어 있습니다. 이 값은 검색할 수 없으므로 __복사해야 합니다__. 암호를 잊어버린 경우 [서비스 주체 자격 증명을 다시 설정](#reset-credentials)하세요.
 
-  인증서가 Azure Key Vault에 저장되는 것을 나타내기 위해서는 `--keyvault` 인수를 추가할 수 있습니다. 이 경우 `--cert` 값은 Key Vault에 있는 인증서 이름을 나타냅니다.
+`appId` 및 `tenant` 키는 `az ad sp create-for-rbac` 출력에 표시되며 서비스 주체 인증에 사용됩니다.
+해당 값은 기록하지만 언제든지 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list)를 사용하여 검색할 수 있습니다.
 
-  ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --cert CertName --keyvault VaultName
-  ```
+### <a name="certificate-based-authentication"></a>인증서 기반 인증
 
-* `--create-cert`은(는) 인증을 위해 _자체 서명된_ 인증서를 만듭니다. `--cert` 인수가 제공되지 않으면 임의의 인증서 이름이 생성됩니다.
+인증서 기반 인증의 경우 `--cert` 인수를 사용합니다. 이 인수를 사용하려면 기존 인증서를 보유하고 있어야 합니다. 이 서비스 주체를 사용하는 모든 도구에서 인증서의 개인 키에 액세스할 수 있는지 확인합니다. 인증서는 PEM, CER 또는 DER과 같은 ASCII 형식이어야 합니다. 인증서를 문자열로 전달하거나 `@path` 형식을 사용하여 파일에서 인증서를 로드합니다.
 
-  ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --create-cert
-  ```
-
-  `--keyvault` 인수를 추가하면 Azure Key Vault에 인증서를 저장할 수 있습니다. `--keyvault`을 사용하는 경우 `--cert` 인수 또한 필요합니다.
-
-  ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --create-cert --cert CertName --keyvault VaultName
-  ```
-
-인증 유형을 나타내는 인수가 포함되지 않은 경우, 기본적으로 `--password`이(가) 사용됩니다.
-
-`create-for-rbac` 명령의 JSON 출력 형식은 다음과 같습니다.
-
-```json
-{
-  "appId": "APP_ID",
-  "displayName": "ServicePrincipalName",
-  "name": "http://ServicePrincipalName",
-  "password": ...,
-  "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-}
+```azurecli-interactive
+az ad sp create-for-rbac --name ServicePrincipalName --cert "-----BEGIN CERTIFICATE-----
+...
+-----END CERTIFICATE-----"
 ```
 
-`appId`, `tenant` 및 `password` 값은 인증에 사용됩니다. `displayName`은(는) 기존 서비스 주체를 검색할 때 사용됩니다.
+```azurecli-interactive
+az ad sp create-for-rbac --name ServicePrincipalName --cert @/path/to/cert.pem
+```
 
-> [!NOTE]
-> 계정에 서비스 주체를 만들기 위한 권한이 없는 경우, "권한이 부족하여 작업을 완료할 수 없습니다."가 포함된 오류 메시지가 표시됩니다. 서비스 주체를 만들려면 Azure Active Directory 관리자에게 문의하십시오.
+Azure Key Vault에서 인증서를 사용하려면 `--keyvault` 인수를 추가할 수 있습니다. 이 경우 `--cert` 값은 인증서의 이름입니다.
+
+```azurecli-interactive
+az ad sp create-for-rbac --name ServicePrincipalName --cert CertName --keyvault VaultName
+```
+
+인증을 위해 _자체 서명된_ 인증서를 만들려면 `--create-cert` 인수를 사용합니다.
+
+```azurecli-interactive
+az ad sp create-for-rbac --name ServicePrincipalName --create-cert
+```
+
+`--keyvault` 인수를 추가하면 Azure Key Vault에 인증서를 저장할 수 있습니다. `--keyvault`를 사용하는 경우 `--cert` 인수가 __필요합니다__.
+
+```azurecli-interactive
+az ad sp create-for-rbac --name ServicePrincipalName --create-cert --cert CertName --keyvault VaultName
+```
+
+인증서를 Key Vault에 저장하지 않으면 출력에 `fileWithCertAndPrivateKey` 키가 포함됩니다. 이 키의 값은 생성된 인증서가 저장되는 위치를 알려줍니다.
+인증서를 안전한 위치에 복사하거나 이 서비스 주체를 사용하여 로그인할 수 없는지 __확인해야 합니다__.
+
+Key Vault에 저장된 인증서의 경우 [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show)를 사용하여 인증서의 개인 키를 검색합니다. Key Vault에서 인증서의 비밀 이름은 인증서 이름과 동일합니다. 인증서의 개인 키에 액세스할 수 없는 경우 [서비스 주체 자격 증명](#reset-credentials)을 다시 설정하세요.
+
+`appId` 및 `tenant` 키는 `az ad sp create-for-rbac` 출력에 표시되며 서비스 주체 인증에 사용됩니다.
+해당 값은 기록하지만 언제든지 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list)를 사용하여 검색할 수 있습니다.
+
+## <a name="get-an-existing-service-principal"></a>기존 서비스 주체 가져오기
+
+테넌트의 서비스 주체 목록은 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list)를 사용하여 검색할 수 있습니다. 이 명령은 기본적으로 테넌트에 대한 처음 100개의 서비스 주체를 반환합니다. 테넌트의 서비스 주체를 모두 가져오려면 `--all` 인수를 사용합니다. 이 목록을 가져오는 데 시간이 오래 걸릴 수 있으므로 다음 인수 중 하나를 사용하여 목록을 필터링하는 것이 좋습니다.
+
+* `--display-name`은 제공된 이름과 일치하는 _접두사_가 있는 서비스 주체를 요청합니다. 서비스 주체의 표시 이름은 만드는 중에 `--name` 매개 변수로 설정된 값입니다. 서비스 주체 만드는 중에 `--name`을 설정하지 않은 경우 이름 접두사는 `azure-cli-`입니다.
+* `--spn`은 정확한 서비스 주체 이름 일치 기준으로 필터링합니다. 서비스 주체 이름은 항상 `https://`로 시작합니다.
+  `--name`에 사용한 값이 URI가 아닌 경우 이 값은 `https://`이며 바로 뒤에 표시 이름이 나옵니다.
+* `--show-mine`은 로그인한 사용자가 만든 서비스 주체만 요청합니다.
+* `--filter`는 OData 필터를 사용하며 _서버 쪽_ 필터링을 수행합니다. 이 메서드는 CLI의 `--query` 인수를 사용하는 클라이언트 쪽 필터링보다 먼저 추천됩니다. OData 필터에 대한 자세한 내용은 [필터에 대한 OData 식 구문](/rest/api/searchservice/odata-expression-syntax-for-azure-search)을 참조하세요.
+
+서비스 주체 개체에 대해 반환되는 정보는 자세한 정보입니다. 로그인하는 데 필요한 정보만 가져오려면 `[].{"id":"appId", "tenant":"appOwnerTenantId"}` 쿼리 문자열을 사용합니다. 예를 들어 현재 로그인한 사용자가 만든 모든 서비스 주체에 대한 로그인 정보를 가져오려면 다음과 같습니다.
+
+```azurecli-interactive
+az ad sp list --show-mine --query '[].{"id":"appId", "tenant":"appOwnerTenantId"}'
+```
+
+> [!IMPORTANT]
+>
+> `az ad sp list` 또는 [az ad sp show](/cli/azure/ad/sp#az-ad-sp-show)는 사용자와 테넌트를 가져오지만, 인증 비밀 _또는_ 인증 방법은 가져오지 않습니다.
+> Key Vault에 있는 인증서에 대한 비밀은 [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show)를 사용하여 검색할 수 있지만, 다른 비밀은 기본적으로 저장되지 않습니다.
+> 인증 방법 또는 비밀을 잊어버린 경우 [서비스 주체 자격 증명을 다시 설정](#reset-credentials)하세요.
 
 ## <a name="manage-service-principal-roles"></a>서비스 주체 역할 관리
 
-Azure CLI는 역할 할당 관리를 위해 다음 명령을 제공합니다.
+역할 할당을 관리하기 위해 Azure CLI에는 다음과 같은 명령이 있습니다.
 
 * [az 역할 할당 나열](/cli/azure/role/assignment#az-role-assignment-list)
 * [az 역할 할당 만들기](/cli/azure/role/assignment#az-role-assignment-create)
 * [az 역할 할당 삭제](/cli/azure/role/assignment#az-role-assignment-delete)
 
-서비스 주체의 기본 역할은 **참가자**입니다. 이 역할은 Azure 계정에 대한 모든 읽기 및 쓰기 권한을 포함하며, 애플리케이션에 적합하지 않습니다. **Reader** 역할은 보다 제한적이며, 읽기 전용 액세스를 제공합니다.  RBAC(역할 기반 액세스 제어)와 역할에 대한 자세한 내용은 [RBAC: 기본 제공 역할](/azure/active-directory/role-based-access-built-in-roles)을 참조하세요.
+서비스 주체의 기본 역할은 **참가자**입니다. 이 역할에는 Azure 계정에서 읽고 쓸 수 있는 모든 권한이 있습니다. **Reader**(읽기 권한자) 역할은 읽기 전용 액세스 권한으로 더 제한적입니다.  RBAC(역할 기반 액세스 제어)와 역할에 대한 자세한 내용은 [RBAC: 기본 제공 역할](/azure/active-directory/role-based-access-built-in-roles)을 참조하세요.
 
-이 예제에서는 **Reader** 역할을 추가하고 **Contributor** 역할을 삭제합니다.
+다음 예제에서는 **Reader** 역할을 추가하고 **Contributor**(기여자) 역할을 제거합니다.
 
 ```azurecli-interactive
 az role assignment create --assignee APP_ID --role Reader
 az role assignment delete --assignee APP_ID --role Contributor
 ```
 
-역할을 추가해도 이전에 할당된 권한은 변경되지 _않습니다_. 서비스 주체 권한을 제한할 때는 항상 __Contributor__ 역할을 제거해야 합니다.
+> [!NOTE]
+> 계정에 역할을 할당할 수 있는 권한이 없으면 계정에 "'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 수 있는 권한이 없습니다."라는 오류 메시지가 표시됩니다. 역할을 관리하려면 Azure Active Directory 관리자에게 문의하십시오.
 
-변경 사항은 할당된 역할을 나열하여 확인할 수 있습니다.
+역할을 추가해도 이전에 할당된 권한은 _제한되지 않습니다_. 서비스 주체 권한을 제한할 때는 __Contributor__ 역할을 제거해야 합니다.
+
+변경 내용은 할당된 역할을 나열하여 확인할 수 있습니다.
 
 ```azurecli-interactive
 az role assignment list --assignee APP_ID
 ```
 
-> [!NOTE]
-> 계정에 역할 할당 권한이 없으면 계정에 "'/subscriptions/{guid}' 범위에 대해 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 수 있는 권한이 없습니다." 오류 메시지가 표시됩니다. 역할을 관리하려면 Azure Active Directory 관리자에게 문의하십시오.
+## <a name="sign-in-using-a-service-principal"></a>서비스 주체를 사용하여 로그인
 
-## <a name="sign-in-using-the-service-principal"></a>서비스 주체를 사용하여 로그인
+로그인하여 새 서비스 주체의 자격 증명과 권한을 테스트합니다. 서비스 주체를 사용하여 로그인하려면 `appId`, `tenant` 및 자격 증명이 필요합니다.
 
-Azure CLI 내에서 로그인하여 새로운 서비스 주체의 자격 증명 및 권한을 테스트할 수 있습니다. `appId`, `tenant` 및 자격 증명 값을 사용하여 새로운 서비스 주체로 로그인합니다. 서비스 주체를 생성한 인증 유형을 사용합니다.
-
-암호를 사용하여 로그인하려면 암호를 인수 매개 변수로 제공합니다.
+암호를 사용하는 서비스 주체로 로그인하려면 다음과 같습니다.
 
 ```azurecli-interactive
 az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
 ```
 
-인증서를 사용하여 로그인하려면 로컬 인증서를 PEM 또는 DER 파일로 사용할 수 있어야 합니다.
+인증서를 사용하여 로그인하려면 해당 인증서를 ASCII 형식의 PEM 또는 DER 파일로 로컬로 사용할 수 있어야 합니다.
 
 ```azurecli-interactive
-az login --service-principal --username APP_ID --tenant TENANT_ID --password PATH_TO_CERT
+az login --service-principal --username APP_ID --tenant TENANT_ID --password /path/to/cert
 ```
+
+서비스 주체를 사용하여 로그인하는 방법에 대한 자세한 내용은 [Azure CLI로 로그인](authenticate-azure-cli.md)을 참조하세요.
 
 ## <a name="reset-credentials"></a>자격 증명 다시 설정
 
-서비스 주체의 자격 증명을 잊은 경우에는 [az ad sp credential reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) 명령으로 다시 설정할 수 있습니다. 여기에서도 새로운 서비스 주체를 만들 때와 동일한 제한 사항 및 옵션이 적용됩니다.
+서비스 주체에 대한 자격 증명을 잊어버린 경우 [az ad sp credential reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset)을 사용합니다. reset 명령은 `az ad sp create-for-rbac`와 동일한 인수를 사용합니다.
 
 ```azurecli-interactive
-az ad sp credential reset --name APP_ID 
+az ad sp credential reset --name APP_ID
 ```

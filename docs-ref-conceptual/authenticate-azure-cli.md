@@ -4,17 +4,17 @@ description: Azure CLI를 사용하여 대화형으로 로그인 또는 로컬 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/07/2018
+ms.date: 02/22/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.component: authentication
-ms.openlocfilehash: 05a4ef87fcf23af21ec6dc1d6cd9daa82369d5b9
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.openlocfilehash: c1c2efa58b11c38ac0ed73d43c71ba1b2a44de2e
+ms.sourcegitcommit: 014d89aa21f90561eb69792ad01947e481ea640a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222449"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741737"
 ---
 # <a name="sign-in-with-azure-cli"></a>Azure CLI로 로그인 
 
@@ -49,13 +49,11 @@ az login -u <username> -p <password>
 > read -sp "Azure password: " AZ_PASS && echo && az login -u <username> -p $AZ_PASS
 > ```
 >
-> PowerShell에서 `Read-Host -AsSecureString` cmdlet를 사용하고 문자열 변환을 보호합니다.
+> PowerShell에서 `Get-Credential` cmdlet을 사용합니다.
 >
 > ```powershell
-> $securePass =  Read-Host "Azure password: " -AsSecureString;
-> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
-> az login -u <username> -p $AzPass;
-> $AzPass = ""
+> $AzCred = Get-Credential -UserName <username>
+> az login -u $AzCred.UserName -p $AzCred.GetNetworkCredential().Password
 > ```
 
 ## <a name="sign-in-with-a-service-principal"></a>서비스 주체를 사용하여 로그인
@@ -68,6 +66,10 @@ az login -u <username> -p <password>
 * PEM 형식에서 서비스 주체를 만드는 데 사용되는 서비스 주체 암호, 또는 X509 인증서
 * `.onmicrosoft.com` 도메인 또는 Azure 개체 ID로서 서비스 주체를 사용하여 연결하는 테넌트
 
+> [!IMPORTANT]
+>
+> 서비스 주체에서 Key Vault에 저장된 인증서를 사용하는 경우 Azure에 로그인하지 않고 해당 인증서의 개인 키를 사용할 수 있어야 합니다. 오프라인으로 사용할 개인 키를 검색하려면 [az keyvault secret show](/cli/azure/keyvault/secret)를 사용하세요.
+
 ```azurecli-interactive
 az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant>
 ```
@@ -79,13 +81,11 @@ az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant
 > read -sp "Azure password: " AZ_PASS && echo && az login --service-principal -u <app-url> -p $AZ_PASS --tenant <tenant>
 > ```
 >
-> PowerShell에서 `Read-Host -AsSecureString` cmdlet를 사용하고 문자열 변환을 보호합니다.
+> PowerShell에서 `Get-Credential` cmdlet을 사용합니다.
 >
 > ```powershell
-> $securePass =  Read-Host "Azure password: " -AsSecureString;
-> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
-> az login --service-principal -u <app-url> -p $AzPass --tenant <tenant>;
-> $AzPass = ""
+> $AzCred = Get-Credential -UserName <app-url>
+> az login -u $AzCred.UserName -p $AzCred.GetNetworkCredential().Password --tenant <tenant>
 > ```
 
 ## <a name="sign-in-with-a-different-tenant"></a>다른 테넌트로 로그인

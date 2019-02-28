@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: d83dcdda7d7485bc32f0da59163afe7ea906faa6
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: 0b90e6375beccafee88b2a1d1b7896275dc14407
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593475"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56421952"
 ---
 # <a name="output-formats-for-azure-cli-commands"></a>Azure CLI 명령의 출력 형식
 
@@ -30,7 +30,7 @@ Azure CLI는 기본 출력 형식으로 JSON을 사용하지만 다른 형식도
 
 ## <a name="json-output-format"></a>JSON 출력 형식
 
-다음 예제에서는 구독의 가상 머신 목록을 기본 json 형식으로 표시합니다.
+다음 예제에서는 구독에 있는 가상 머신의 목록을 기본 JSON 형식으로 표시합니다.
 
 ```azurecli-interactive
 az vm list --output json
@@ -189,10 +189,12 @@ Your current configuration is as follows:
 Do you wish to change your settings? (y/N): y
 
 What default output format would you like?
- [1] json - JSON formatted output that most closely matches API responses
- [2] jsonc - Colored JSON formatted output that most closely matches API responses
- [3] table - Human-readable output format
- [4] tsv - Tab- and Newline-delimited, great for GREP, AWK, etc.
+ [1] json - JSON formatted output that most closely matches API responses.
+ [2] jsonc - Colored JSON formatted output that most closely matches API responses.
+ [3] table - Human-readable output format.
+ [4] tsv - Tab- and Newline-delimited. Great for GREP, AWK, etc.
+ [5] yaml - YAML formatted output. An alternative to JSON. Great for configuration files.
+ [6] none - No output, except for errors and warnings.
 Please enter a choice [1]:
 ```
 

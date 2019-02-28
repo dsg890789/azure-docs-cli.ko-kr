@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 1973c933cbffa494cbe9c0749346450251feefcb
-ms.sourcegitcommit: 9bd90875a324908ec7195fc4c4f63ebf124760f9
+ms.openlocfilehash: 45e1e7468e5817d0138c9b87da83c5a5228e4965
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53982589"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56421935"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt를 사용하여 Azure CLI 설치
 
@@ -22,6 +22,12 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
 
 * Ubuntu trusty, xenial, artful 및 bionic
 * Debian wheezy, jessie 및 stretch
+
+[!INCLUDE [current-version](includes/current-version.md)]
+
+> [!NOTE]
+>
+> Azure CLI용 `.deb` 패키지는 자체 Python 인터프리터를 설치하고 시스템 Python을 사용하지 않습니다. 이에 따라 로컬 Python 버전에 대한 명시적 요구 사항이 없습니다.
 
 ## <a name="install"></a>설치
 
