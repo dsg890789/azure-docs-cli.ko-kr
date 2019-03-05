@@ -4,17 +4,17 @@ description: Azure CLI에 대해 공식적으로 지원되는 확장의 전체 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/21/2019
+ms.date: 02/27/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 2c5b948e3d90391fdf8f6867a99f6ef7d3863a12
-ms.sourcegitcommit: 1bdf2f501eaa77b853566750ea6d1a8f8e0d6d4c
+ms.openlocfilehash: a7eec3fc523b4c24b16802d831566fd272ae63fc
+ms.sourcegitcommit: 943598f8bf05ee058593ca0d72aec507aa26c242
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663251"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56963445"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI에 대해 사용 가능한 확장
 
@@ -29,14 +29,15 @@ az extension list-available --output table
 | Name | 버전 | 요약 | 미리 보기 |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | SAP용 Azure 고급 모니터링 확장 관리 |  |
-| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.2.2 | 예정된 AKS 기능에 대한 미리 보기 제공 | 예 |
+| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.2.3 | 예정된 AKS 기능에 대한 미리 보기 제공 | 예 |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | 명령 별칭 지원 | 예 |
+| [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.4.0 | 예정된 앱 구성에 대한 미리 보기를 제공합니다. | 예 |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 3.0.1 | Azure Batch 서비스와 함께 사용하기 위한 추가 명령 |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.6.1 | Azure IoT Hub, IoT Edge 및 IoT 디바이스 프로비전 서비스에 대한 데이터 플레인 명령 계층 제공 |  |
-| [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.2.0 | Azure DevOps를 관리하는 도구입니다. | 예 |
+| [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.3.0 | Azure DevOps를 관리하는 도구입니다. | 예 |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.1 | Azure Firewall 리소스를 관리합니다. | 예 |
 | [botservice](https://github.com/Azure/azure-cli-extensions) | 0.4.3 | 네이티브 botservice cli 명령 모듈 문제에 대한 버그가 수정되었습니다. | 예 |
-| [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.5 | Azure Database 워크플로를 간소화하는 추가 명령입니다. | 예 |
+| [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.6 | Azure Database 워크플로를 간소화하는 추가 명령입니다. | 예 |
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.6 | Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. | 예 |
 | [dms-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/dms-preview) | 0.6.0 | Database Migration Service의 새로운 시나리오에 대한 지원. | 예 |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | DNS 영역을 위한 Azure CLI Extension |  |
@@ -55,7 +56,7 @@ az extension list-available --output table
 | [privatedns](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | 사설 DNS 영역을 관리하는 명령입니다. | 예 |
 | [rdbms-vnet](https://github.com/Azure/azure-cli-extensions) | 10.0.0 | Azure MySQL 및 Azure PostgreSQL 리소스 내 가상 네트워크 규칙에 대한 지원 |  |
 | [resource-graph](https://github.com/Azure/azure-cli-extensions/tree/master/src/resource-graph) | 0.1.8 | Resource Graph로 Azure 리소스 쿼리에 대한 지원 | 예 |
-| [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.3.3 | SAP HanaOnAzure 인스턴스와 함께 사용하기 위한 추가 명령 |  |
+| [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.3.4 | SAP HanaOnAzure 인스턴스와 함께 사용하기 위한 추가 명령 |  |
 | [signalr](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | signalr 관리 미리 보기를 지원합니다. | 예 |
 | [sqlvm-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/sqlvm-preview) | 0.1.0 | SQL 가상 머신, 그룹, 가용성 그룹 수신기를 관리하는 도구입니다. | 예 |
 | [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.2.2 | 예정된 저장소 기능에 대한 미리 보기를 제공합니다. | 예 |
