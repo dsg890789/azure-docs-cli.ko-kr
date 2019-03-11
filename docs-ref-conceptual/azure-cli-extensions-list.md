@@ -4,17 +4,17 @@ description: Azure CLI에 대해 공식적으로 지원되는 확장의 전체 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/27/2019
+ms.date: 03/05/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: a7eec3fc523b4c24b16802d831566fd272ae63fc
-ms.sourcegitcommit: 943598f8bf05ee058593ca0d72aec507aa26c242
+ms.openlocfilehash: 07a067fb24d263760cdeaa0109ffc5fa949f75df
+ms.sourcegitcommit: d3be678e60132083b2a2257ac7a97eb0e1e23798
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56963445"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57430259"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI에 대해 사용 가능한 확장
 
@@ -31,13 +31,14 @@ az extension list-available --output table
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | SAP용 Azure 고급 모니터링 확장 관리 |  |
 | [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.2.3 | 예정된 AKS 기능에 대한 미리 보기 제공 | 예 |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | 명령 별칭 지원 | 예 |
+| [anf-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/anf-preview) | 0.1.0 | 예정된 ANF(Azure NetApp Files) 기능에 대한 미리보기를 제공합니다. | 예 |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.4.0 | 예정된 앱 구성에 대한 미리 보기를 제공합니다. | 예 |
-| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 3.0.1 | Azure Batch 서비스와 함께 사용하기 위한 추가 명령 |  |
+| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 3.0.2 | Azure Batch 서비스와 함께 사용하기 위한 추가 명령 |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.6.1 | Azure IoT Hub, IoT Edge 및 IoT 디바이스 프로비전 서비스에 대한 데이터 플레인 명령 계층 제공 |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.3.0 | Azure DevOps를 관리하는 도구입니다. | 예 |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.1 | Azure Firewall 리소스를 관리합니다. | 예 |
 | [botservice](https://github.com/Azure/azure-cli-extensions) | 0.4.3 | 네이티브 botservice cli 명령 모듈 문제에 대한 버그가 수정되었습니다. | 예 |
-| [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.6 | Azure Database 워크플로를 간소화하는 추가 명령입니다. | 예 |
+| [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.7 | Azure Database 워크플로를 간소화하는 추가 명령입니다. | 예 |
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.6 | Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. | 예 |
 | [dms-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/dms-preview) | 0.6.0 | Database Migration Service의 새로운 시나리오에 대한 지원. | 예 |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | DNS 영역을 위한 Azure CLI Extension |  |
