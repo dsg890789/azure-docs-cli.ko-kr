@@ -4,17 +4,17 @@ description: Azure CLI에 대해 공식적으로 지원되는 확장의 전체 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/05/2019
+ms.date: 03/08/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 07a067fb24d263760cdeaa0109ffc5fa949f75df
-ms.sourcegitcommit: d3be678e60132083b2a2257ac7a97eb0e1e23798
+ms.openlocfilehash: 40522581225f5bbade2bc52a8f2f7b6ba239a5b4
+ms.sourcegitcommit: 67d60b0c40dcff63ded696184529827f14940cc1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57430259"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57754813"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI에 대해 사용 가능한 확장
 
@@ -33,6 +33,7 @@ az extension list-available --output table
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | 명령 별칭 지원 | 예 |
 | [anf-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/anf-preview) | 0.1.0 | 예정된 ANF(Azure NetApp Files) 기능에 대한 미리보기를 제공합니다. | 예 |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.4.0 | 예정된 앱 구성에 대한 미리 보기를 제공합니다. | 예 |
+| [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.0 | Azure Application Insights 메트릭, 이벤트 및 로그 쿼리를 지원합니다. | 예 |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 3.0.2 | Azure Batch 서비스와 함께 사용하기 위한 추가 명령 |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.6.1 | Azure IoT Hub, IoT Edge 및 IoT 디바이스 프로비전 서비스에 대한 데이터 플레인 명령 계층 제공 |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.3.0 | Azure DevOps를 관리하는 도구입니다. | 예 |
