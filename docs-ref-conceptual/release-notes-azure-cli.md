@@ -9,14 +9,77 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 9f35084eeecab491e5be63eb856b0bb64a6157d0
-ms.sourcegitcommit: 9fb008f2802ca6a58f33e01263bf55a80d01f031
+ms.openlocfilehash: 4337f2203841d6247e4b487d245138424c63e448
+ms.sourcegitcommit: 71c0ccd475524cf4d6db45bba8139fef3262d764
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56891214"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175136"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+## <a name="march-12-2019"></a>2019년 3월 12일
+
+2.0.60 버전
+
+### <a name="core"></a>코어
+
+* 구독이 발견되지 않는 문제를 `cloud set`에서 수정
+
+### <a name="acr"></a>ACR
+
+* 이미지 가져오기에서 중복 소스 수정
+
+### <a name="acs"></a>ACS
+
+* `kubectl`이 지원하지 않는 경우 `--listen-address` 인수를 `aks browse`로 무시하도록 변경
+
+### <a name="appservice"></a>AppService
+
+* Kudu 게시 url 및 해당 자격 증명을 가져오도록 `[webapp|functionapp] deployment list-publishing-credentials` 추가
+* `webapp auth update`에 대한 잘못된 인쇄 문 삭제
+* Linux App Service 계획에서 런타임에 올바른 이미지를 설정하도록 `functionapp` 수정
+* `webapp up`에 대한 미리보기 태그 제거 및 명령 개선 사항 추가
+
+### <a name="botservice"></a>Botservice
+
+* v4 웹앱 봇에 대한 ARM 템플릿의 애플리케이션 설정에 `SCM_DO_BUILD_DURING_DEPLOYMENT`를 추가
+* v4 웹앱 봇에 대한 ARM 템플릿의 애플리케이션 설정에 `Microsoft-BotFramework-AppId` 및 `Microsoft-BotFramework-AppPassword` 추가
+* `bot create`의 끝에 `bot publish` 명령 출력에서 작은 따옴표 제거
+* `bot publish`를 비동기로 변경
+
+### <a name="container"></a>컨테이너
+
+* `--no-wait` 인수를 `container [start|restart]`에 추가
+
+### <a name="eventhub"></a>EventHub
+
+* 캡처에서 빈 보관을 지원하기 위해 `--skip-empty-archives` 플래그를 `eventhub create|update`에 추가
+
+### <a name="find"></a>찾기
+
+* 주요 기능 업데이트
+
+### <a name="hdinsight"></a>HDInsight
+
+* ADLS Gen2 MSI를 지원하기 위해 `hdinsight create`에 `--storage-account-managed-identity` 매개 변수가 추가됨
+
+### <a name="network"></a>네트워크
+
+* 다른 구독의 게이트웨이 간 VPN 연결을 업데이트하지 못하는 `vpn-connection update` 문제가 해결됨
+
+### <a name="rdbms"></a>Rdbms
+
+* 서버 생성 시 제공되지 않은 경우 리소스 그룹에서 기본 위치를 얻고 재방문 주기에 대한 유효성 검사를 추가하는 사소한 수정
+
+### <a name="role"></a>역할
+
+* 정의를 올바르게 확인하기 위해 ID를 사용하도록 `role definition update` 수정
+* `ad app credential reset`을 앱의 서비스 사용자가 항상 존재한다는 가정을 제거하도록 변경
+
+### <a name="service-fabric"></a>Service Fabric
+
+* `sf cluster list`가 반복 가능하지 않은 문제 해결
+
 ## <a name="february-26-2019"></a>2019년 2월 26일
 
 버전 2.0.59
@@ -59,7 +122,7 @@ ms.locfileid: "56891214"
 * `--express-route-gateway-bypass` 인수를 `vpn-connection [create|update]`에 추가
 * `express-route` 확장의 명령 그룹 추가됨
 * `express-route gateway` 및 `express-route port` 명령 그룹 추가됨
-* `--legacy-mode` 인수를 `express-route peering [create|update]`에 추가 
+* `express-route peering [create|update]`에 추가된 인수: `--legacy-mode` 
 * `--allow-classic-operations` 및 `--express-route-port` 인수를 `express-route [create|update]`에 추가됨
 * `--gateway-default-site` 인수를 `vnet-gateway [create|update]`에 추가
 * `ipsec-policy` 명령이 `vnet-gateway`에 추가됨
@@ -107,7 +170,7 @@ ms.locfileid: "56891214"
 * json을 통해 웹앱 구성을 업데이트할 수 있도록 지원합니다.
 * `appservice-plan-update`에 대한 도움말이 향상되었습니다.
 * App Insights에서 함수 앱을 만들 수 있도록 지원합니다.
-* 웹앱 SSH 관련 문제 해결
+* 웹앱 SSH 관련 문제가 해결되었습니다.
 
 ### <a name="botservice"></a>Botservice
 * `bot publish`에 대한 UX가 향상되었습니다.
@@ -122,7 +185,7 @@ ms.locfileid: "56891214"
 * v4 SDK 봇에서 8.9.4 대신 10.14.1을 사용하도록 ARM 템플릿의 `"WEBSITE_NODE_DEFAULT_VERSION"`이 업데이트되었습니다.
 
 ### <a name="key-vault"></a>Key Vault
-* `--id`를 사용할 때 일부 사용자가 `unexpected_keyword` 오류를 받은 `keyvault secret backup` 관련 문제 해결
+* `--id`를 사용할 때 일부 사용자가 `unexpected_keyword` 오류를 받은 `keyvault secret backup` 관련 문제가 해결되었습니다.
 
 ### <a name="monitor"></a>모니터
 * `monitor metrics alert [create|update]`에서 `*` 차원 값을 허용하도록 변경되었습니다.
@@ -187,7 +250,7 @@ ms.locfileid: "56891214"
 ### <a name="appservice"></a>App Service
 * App Insights에서 `functionapp create`를 지원할 수 있습니다.
 * App Service 계획 만들기(탄력성 프리미엄 포함)에 대한 지원이 Function Apps에 추가되었습니다.
-* 탄력적 프리미엄 요금제와 관련된 앱 설정 문제 해결
+* 탄력적 프리미엄 요금제와 관련된 앱 설정 문제가 해결되었습니다.
 
 ### <a name="container"></a>컨테이너
 * `container start` 명령이 추가됨
@@ -221,8 +284,8 @@ ms.locfileid: "56891214"
 * `login`에서 관리 서비스 ID에 대한 테넌트 수준 계정을 사용하도록 설정합니다.
 
 ### <a name="network"></a>네트워크
-* `--bandwidth` 인수가 무시되었던 `express-route update`: 관련 문제 해결
-* 집합 이해력으로 인해 스택 추적이 발생했던 `ddos-protection update` 관련 문제 해결
+* `--bandwidth` 인수가 무시되었던 `express-route update`: 관련 문제가 수정되었습니다.
+* 집합 이해력으로 인해 스택 추적이 발생했던 `ddos-protection update` 관련 문제가 수정되었습니다.
 
 ### <a name="resource"></a>리소스
 * URI 매개 변수 파일에 대한 지원이 `group deployment create`에 추가되었습니다.
@@ -255,7 +318,7 @@ ms.locfileid: "56891214"
 * 새 ACI 지역에 대한 지원이 추가되었습니다.
 
 ### <a name="appservice"></a>App Service
-* ASE RG 및 App RG가 다른 ASE에서 호스팅되는 앱에 대한 인증서 업로드 관련 문제 해결
+* ASE RG 및 App RG가 다른 ASE에서 호스팅되는 앱에 대한 인증서 업로드 관련 문제가 수정되었습니다.
 * `webapp up`에서 SKU P1V1을 Linux에 대한 기본값으로 사용하도록 변경되었습니다.
 * 배포가 실패하면 `[webapp|functionapp] deployment source config-zip`에서 올바른 오류 메시지를 표시하도록 수정했습니다. 
 * `webapp ssh` 명령이 추가됨
@@ -280,7 +343,7 @@ ms.locfileid: "56891214"
 * `--custom-headers` 및 `--status-code-ranges` 인수를 `traffic-manager profile [create|update]`에 추가
 * 새 라우팅 유형으로 Subnet 및 Multivalue가 추가되었습니다.
 * `--custom-headers` 및 `--subnets` 인수를 `traffic-manager endpoint [create|update]`에 추가  
-* `--vnets ""`를 `ddos-protection update`에 제공함으로써 오류가 발생하는 문제 해결
+* `--vnets ""`를 `ddos-protection update`에 제공함으로써 오류가 발생하는 문제가 해결되었습니다.
 
 ### <a name="role"></a>역할
 * [사용되지 않음] `--password` 인수가 `create-for-rbac`에 대해 사용되지 않습니다. 대신 CLI에서 생성된 보안 암호를 사용합니다.
@@ -306,7 +369,7 @@ ms.locfileid: "56891214"
 
 버전 2.0.54
 ### <a name="appservice"></a>App Service
-* `webapp up`의 재배포가 실패하는 문제 해결
+* `webapp up`의 재배포 실패 문제가 해결됨
 * 웹앱 스냅숏 목록 및 복원에 대한 지원이 추가됨
 * Windows 함수 앱 `--runtime` 플래그에 대한 지원이 추가됨
 
@@ -338,7 +401,7 @@ ms.locfileid: "56891214"
 * 노드 풀이 하나뿐일 경우 `aks scale`에 `--nodepool-name` 인수 요구사항 삭제
 
 ### <a name="appservice"></a>App Service
-* `webapp config container`에서 `--slot` 매개 변수를 적용할 수 없던 문제 해
+* `webapp config container`에서 `--slot` 매개 변수를 적용할 수 없던 문제 수정
 
 ### <a name="botservice"></a>Botservice
 * `bot show`를 호출할 때 `.bot` 파일 구문 분석에 대한 지원이 추가됨
@@ -358,7 +421,7 @@ ms.locfileid: "56891214"
 
 ### <a name="network"></a>네트워크
 * `--format` 및 `--log-version`에 대한 지원이 `watcher flow-log configure`에 추가됨
-* ""을(를) 사용하여 해결과 등록을 지워도 VNet이 작동하지 않을 경우 `dns zone update`을(를) 통해 문제 해결
+* ""을(를) 사용하여 해결과 등록을 지워도 VNet이 작동하지 않을 경우 `dns zone update`을(를) 통해 문제를 해결함
 
 ### <a name="resource"></a>리소스
 * `policy assignment [create|list|delete|show|update]`에서 관리 그룹에 대한 범위 매개 변수 처리가 수정됨 
@@ -431,7 +494,7 @@ Version 2.0.51
 
 ### <a name="storage"></a>Storage
 * 스토리지 복사 명령에 대한 코너 케이스의 처리가 향상됨
-* 대상 계정과 원본 계정이 같을 때 로그인 자격 증명을 사용하지 않는 `storage blob copy start-batch` 문제 해결
+* 대상 계정과 원본 계정이 같을 때 로그인 자격 증명을 사용하지 않는 `storage blob copy start-batch` 문제가 해결되었습니다.
 * `sas_token`이 URL에 통합되지 않은 `storage [blob|file] url`의 버그 수정
 * `[blob|container] list`에 호환성이 손상되는 변경 경고가 추가됨: 기본적으로 처음 5000개의 결과만 출력됩니다.
 
@@ -508,8 +571,8 @@ Version 2.0.51
 
 ### <a name="network"></a>네트워크
 * `network private-endpoint`를 위해 `network interface-endpoint` 명령 이름 사용되지 않음
-* `express-route peering connection create`의 `--peer-circuit` 인수가 ID를 허용하지 않는 문제 해결
-* `--ip-tags`가 `public-ip create`와 함께 제대로 작동하지 않는 문제 해결 
+* `express-route peering connection create`의 `--peer-circuit` 인수가 ID를 허용하지 않는 문제가 해결됨
+* `--ip-tags`가 `public-ip create`와 함께 제대로 작동하지 않는 문제가 해결됨 
 
 ### <a name="profile"></a>프로필
 * cert auto-rolls로 서비스 주체 로그인을 위해 `--use-cert-sn-issuer`가 `az login`에 추가됨
@@ -540,11 +603,11 @@ Version 2.0.51
 버전 2.0.49
 
 ### <a name="core"></a>코어
-* `--subscription`이 `--ids`의 구독보다 우선적으로 적용되는 `--ids` 관련 문제 해결
+* `--subscription`이 `--ids`의 구독보다 우선적으로 적용되는 `--ids` 관련 문제가 해결되었습니다.
 * `--ids`를 사용하여 매개 변수가 무시되는 경우 명시적 경고가 추가되었습니다.
 
 ### <a name="acr"></a>ACR
-* Python2에서 ACR Build 인코딩 문제 해결
+* Python2에서 ACR Build 인코딩 문제가 해결되었습니다.
 
 ### <a name="cdn"></a>CDN
 * [주요 변경 내용] "IgnoreQueryString"를 더 이상 기본값으로 설정하지 않도록 `cdn endpoint create`의 기본 쿼리 문자열 캐싱 동작이 변경되었습니다. 이제 서비스에 의해 설정됩니다.
@@ -556,7 +619,7 @@ Version 2.0.51
 * MSI ID를 컨테이너 그룹에 추가하기 위해 `--assign-identity`가 추가되었습니다.
 * 시스템 할당 MSI ID에 대한 역할 할당을 만들기 위해 `--scope`가 추가되었습니다.
 * 장기 실행 프로세스 없이 이미지를 사용하여 컨테이너 그룹을 만들 때 경고가 추가되었습니다.
-* `list` 및 `show` 명령에 대한 테이블 출력 문제 해결
+* `list` 및 `show` 명령에 대한 테이블 출력 문제가 해결되었습니다.
 
 ### <a name="cosmosdb"></a>CosmosDB
 * `cosmosdb create`에 `--enable-multiple-write-locations` 지원이 추가됨
@@ -604,7 +667,7 @@ Version 2.0.51
 버전 2.0.48
 
 ### <a name="vm"></a>VM
-* Homebrew 설치가 실패하게 된 SDK 문제 해결
+* Homebrew 설치가 실패하게 된 SDK 문제가 해결되었습니다.
 
 ## <a name="october-9-2018"></a>2018년 10월 9일
 
@@ -648,7 +711,7 @@ Version 2.0.51
 * 이름 또는 ID를 허용하는 `network vnet peering create`에 `--remote-vnet` 추가
 * 서브넷에서 `--subnet-prefixes`를 사용하는 여러 주소 접두사에 대한 지원이 `network vnet create`에 추가되었습니다.
 * 서브넷에서 `--address-prefixes`를 사용하는 여러 주소 접두사에 대한 지원이 `network vnet subnet [create|update]`에 추가되었습니다.
-* `WAF_v2` 또는 `Standard_v2` SKU로 게이트웨이를 만들지 못하던 `network application-gateway create` 문제 해결
+* `WAF_v2` 또는 `Standard_v2` SKU로 게이트웨이를 만들지 못하던 `network application-gateway create` 문제가 해결되었습니다.
 * `--service-endpoint-policy` 편의 인수가 `network vnet subnet update`에 추가되었습니다.
 
 ### <a name="role"></a>역할
@@ -1021,7 +1084,7 @@ Version 2.0.43
 * `group deployment delete`에 `--no-wait` 지원이 추가됨
 * `deployment delete`에 `--no-wait` 지원이 추가됨
 * `deployment wait` 명령이 추가됨
-* 구독 수준 `az deployment` 명령이 프로필 2017-03-09-profile에 잘못 표시되는 문제 해결
+* 구독 수준 `az deployment` 명령이 프로필 2017-03-09-profile에 잘못 표시되는 문제가 해결됨
 
 ### <a name="sql"></a>SQL
 
@@ -1098,7 +1161,7 @@ Version 2.0.43
 
 ### <a name="network"></a>네트워크
 
-* 레코드 형식이 대/소문자를 구분하는 문제 해결([#6602](https://github.com/Azure/azure-cli/issues/6602))
+* 레코드 형식이 대/소문자를 구분하는 문제 수정([#6602](https://github.com/Azure/azure-cli/issues/6602))
 
 ### <a name="rdbms"></a>Rdbms
 
@@ -1399,7 +1462,7 @@ Version 2.0.35
 ### <a name="acs"></a>ACS
 
 * `az aks`가 미리 보기 서비스라는 경고가 추가됨
-* `--aci-resource-group`이 지정되지 않은 경우 `aks install-connector`의 권한 문제 해결
+* `--aci-resource-group`이 지정되지 않은 경우 `aks install-connector`의 권한 문제가 해결됨
 
 ### <a name="ams"></a>AMS
 
@@ -1718,7 +1781,7 @@ Version 2.0.35
 
 ### <a name="storage"></a>Storage
 
-* 크기가 195GB에서 200GB 사이인 파일을 업로드할 때 발생하는 문제 해
+* 크기가 195GB에서 200GB 사이인 파일을 업로드할 때 발생하는 문제 수정됨
 * [#4049](https://github.com/Azure/azure-cli/issues/4049) 수정됨: 조건 매개 변수를 무시하는 BLOB 업로드 추가에 따른 문제
 
 ### <a name="vm"></a>VM
@@ -1928,8 +1991,8 @@ Version 2.0.35
 
 ### <a name="iot"></a>IoT
 
-* 성공 시 `iot dps access policy [create|update]`가 '찾을 수 없음' 오류를 반환하는 문제 해
-* 성공 시 `iot dps linked-hub [create|update]`가 '찾을 수 없음' 오류를 반환하는 문제 해
+* 성공 시 `iot dps access policy [create|update]`가 '찾을 수 없음' 오류를 반환하는 문제가 수정됨
+* 성공 시 `iot dps linked-hub [create|update]`가 '찾을 수 없음' 오류를 반환하는 문제가 수정됨
 * `iot dps access policy [create|update]` 및 `iot dps linked-hub [create|update]`에 대한 `--no-wait` 지원 추가
 * 파티션 수를 지정할 수 있도록 `iot hub create` 변경
 
@@ -2071,7 +2134,7 @@ Version 2.0.35
 * `backup item list`의 `--container-name` 옵션이 선택할 수 있도록 변경됨
 * `backup restore restore-disks`에 저장소 계정 옵션 추가됨
 * `backup protection enable-for-vm`의 위치 확인이 대/소문자 구분하지 않도록 수정됨
-* 잘못된 컨테이너 이름 때문에 명령이 실패한 문제 해결
+* 잘못된 컨테이너 이름 때문에 명령이 실패한 문제 해결됨
 * 기본값으로 ‘상태’ 포함하도록 `backup item list` 변경됨
 
 ### <a name="batch"></a>Batch
@@ -2098,9 +2161,9 @@ Version 2.0.35
 
 ### <a name="interactive"></a>대화형
 
-* 대화형 모드가 Python 2.x와 작동하지 않는 문제 해결
+* 대화형 모드가 Python 2.x와 작동하지 않는 문제 해결됨
 * 시작할 때 오류 수정됨
-* 대화형 모드에서 실행되지 않는 일부 명령 문제 해결
+* 대화형 모드에서 실행되지 않는 일부 명령 문제 해결됨
 
 ### <a name="iot"></a>IoT
 
@@ -2115,7 +2178,7 @@ Version 2.0.35
 
 ### <a name="network"></a>네트워크
 
-* `vnet-gateway update`을 사용해 활성-대기 모드를 변경하려고 할 때의 문제 해결
+* `vnet-gateway update`을 사용해 활성-대기 모드를 변경하려고 할 때의 문제 해결됨
 * HTTP2에 대한 지원이 `application-gateway [create|update]`에 추가됨
 
 ### <a name="profile"></a>프로필
@@ -2129,7 +2192,7 @@ Version 2.0.35
 ### <a name="service-fabric"></a>Service Fabric
 
 * 클러스터를 만들 때 유효성 검사 응답에 자세한 오류 추가됨
-* 여러 명령을 사용하여 누락된 클라이언트 문제 해결
+* 여러 명령을 사용하여 누락된 클라이언트 문제 수정됨
 
 ### <a name="vm"></a>VM
 
@@ -2139,7 +2202,7 @@ Version 2.0.35
 * [미리 보기] OS 디스크 교체에 대한 지원 추가됨
 * 다른 구독에서 VM 이미지를 사용하기 위한 지원 추가됨
 * `--plan-name`, `--plan-product`, `--plan-promotion-code`, `--plan-publisher` 인수를 `[vm|vmss] create`에 추가
-* `[vm|vmss] create`을 사용하여 오류 문제 해결
+* `[vm|vmss] create`을 사용하여 오류 문제 해결됨
 * `vm image list --all`에 의해 발생하는 과도한 리소스 사용 문제 해결됨
 
 ## <a name="december-19-2017"></a>2017년 12월 19일
@@ -2174,7 +2237,7 @@ Version 2.0.35
 
 ### <a name="core"></a>코어
 * `AZURE_US_GOV_CLOUD` AAD 권한 엔드포인트가 login.microsoftonline.com에서 login.microsoftonline.us로 수정됨
-* 원격 분석이 지속적으로 다시 전송되는 문제 해결
+* 원격 분석이 지속적으로 다시 전송되는 문제가 해결됨
 
 ### <a name="acs"></a>ACS
 
@@ -2351,7 +2414,7 @@ Version 2.0.35
 
 ### <a name="appservice"></a>App Service
 
-* 다운로드한 `webapp` 로그가 유효하지 않은 문제 해결
+* 다운로드한 `webapp` 로그가 유효하지 않은 문제가 해결
 
 ### <a name="component"></a>구성 요소
 
@@ -2396,7 +2459,7 @@ Version 2.0.35
 
 ### <a name="keyvault"></a>Keyvault
 
-* Azure Stack에서 ADFS를 사용 시 Key Vault 인증 문제 해결 [(#4448)](https://github.com/Azure/azure-cli/issues/4448)
+* Azure Stack에서 ADFS를 사용 시 Key Vault 인증 문제가 수정되었습니다. [(#4448)](https://github.com/Azure/azure-cli/issues/4448)
 
 ### <a name="network"></a>네트워크
 
@@ -2496,7 +2559,7 @@ Version 2.0.35
 ### <a name="core"></a>코어
 
 * 원격 분석에서 고유한 상관 관계 ID를 설정하는 명령 모듈 설정됨
-* 원격 분석이 진단 모드로 설정된 경우 JSON 덤프 문제 해결
+* 원격 분석이 진단 모드로 설정된 경우 JSON 덤프 문제 수정됨
 
 ### <a name="acs"></a>ACS
 
@@ -2517,7 +2580,7 @@ Version 2.0.35
 
 ### <a name="keyvault"></a>Keyvault
 
-* 사용 권한이 `keyvault set-policy`에서 대/소문자를 구분하는 문제 해결
+* 사용 권한이 `keyvault set-policy`에서 대/소문자를 구분하는 문제 수정됨
 
 ### <a name="network"></a>네트워크
 
@@ -2560,7 +2623,7 @@ Version 2.0.35
 
 ### <a name="storage"></a>Storage
 
-* 저장소 계정을 NetworkACLs 기능을 지원하지 않는 지역에 만들지 못하는 문제 해결
+* 저장소 계정을 NetworkACLs 기능을 지원하지 않는 지역에 만들지 못하는 문제 수정됨
 * 콘텐츠 형식 및 콘텐츠 인코딩을 모두 지정하지 않은 경우 Blob 및 파일을 업로드하는 동안 콘텐츠 형식 및 콘텐츠 인코딩을 결정함
 
 ## <a name="august-28-2017"></a>2017년 8월 28일
@@ -2619,12 +2682,12 @@ Version 2.0.35
 
 ### <a name="vm"></a>VM
 
-* `--instance-id *`를 사용할 때 `vmss get-instance-view`에 대해 잘못된 추가 정보가 표시되는 문제 해결
+* `--instance-id *`를 사용할 때 `vmss get-instance-view`에 대해 잘못된 추가 정보가 표시되는 문제가 해결되었습니다.
 * `--lb-sku`에 대한 지원이 `vmss create`에 추가됨
 * `[vm|vmss] create`에 대한 관리자 이름 블랙리스트에서 사람의 이름이 제거됨
-* 이미지에서 계획 정보를 추출할 수 없는 경우 `[vm|vmss] create`에서 오류가 발생하는 문제 해결
+* 이미지에서 계획 정보를 추출할 수 없는 경우 `[vm|vmss] create`에서 오류를 throw하는 문제가 해결되었습니다.
 * 내부 LB가 있는 VMMS 확장 집합을 만들 때 발생하는 크래시가 해결되었습니다.
-* `--no-wait` 인수가 `vm availability-set create`와 함께 작동하지 않는 문제 해결
+* `--no-wait` 인수가 `vm availability-set create`와 함께 작동하지 않는 문제가 해결되었습니다.
 
 
 ## <a name="august-15-2017"></a>2017년 8월 15일
@@ -2666,7 +2729,7 @@ Version 2.0.35
 
 ### <a name="container"></a>컨테이너
 
-* `create`: 환경 변수에서 등호가 허용되지 않던 문제 해결
+* `create`: 환경 변수에서 등호가 허용되지 않던 문제가 해결됨
 
 
 ### <a name="data-lake-store"></a>Data Lake Store
@@ -2679,9 +2742,9 @@ Version 2.0.35
 
 ### <a name="network"></a>네트워크
 
-* `lb`: 생략했을 때 특정 자식 리소스 이름이 올바르게 확인되지 않던 문제 해결
-* `application-gateway {subresource} delete`: `--no-wait`를 적용할 수 없던 문제 해결
-* `application-gateway http-settings update`: `--connection-draining-timeout`를 해제할 수 없던 문제 해결
+* `lb`: 생략했을 때 특정 자식 리소스 이름이 올바르게 확인되지 않던 문제가 해결됨
+* `application-gateway {subresource} delete`: `--no-wait`를 적용할 수 없던 문제가 해결됨
+* `application-gateway http-settings update`: `--connection-draining-timeout`를 해제할 수 없던 문제가 해결됨
 * `az network vpn-connection ipsec-policy add`에서 예기치 않은 `sa_data_size_kilobyes` 키워드 인수 오류가 발생하는 문제가 해결되었습니다.
 
 ### <a name="profile"></a>프로필
@@ -2882,8 +2945,8 @@ vm (2.0.11)
 
 * `list-private-access-services` 명령이 추가됨
 * `vnet subnet create` 및 `vnet subnet update`에 `--private-access-services` 인수가 추가됨
-* `application-gateway redirect-config create`가 실패하는 문제 해결
-* `--no-wait`가 포함된 `application-gateway redirect-config update`가 작동하지 않는 문제 해결
+* `application-gateway redirect-config create`가 실패하는 문제가 해결되었습니다.
+* `--no-wait`가 포함된 `application-gateway redirect-config update`가 작동하지 않는 문제가 해결되었습니다.
 * `application-gateway address-pool create` 및 `application-gateway address-pool update`에 `--servers` 인수를 사용하는 버그가 수정되었습니다.
 * `application-gateway redirect-config` 명령이 추가됨
 * `application-gateway ssl-policy`에 추가된 명령: `list-options`, `predefined list`, `predefined show`
@@ -2927,7 +2990,7 @@ vm (2.0.11)
 
 * `group deployment create`의 누락된 매개 변수에 대한 프롬프트가 향상됨
 * `--parameters KEY=VALUE` 구문 분석이 향상됨
-* `@<file>` 구문을 사용하여 `group deployment create` 매개 변수 파일을 더 이상 인식하지 못하는 문제 해결
+* `@<file>` 구문을 사용하여 `group deployment create` 매개 변수 파일을 더 이상 인식하지 못하는 문제가 해결되었습니다.
 * `resource` 및 `managedapp` 명령에 대해 `--ids` 인수가 지원됩니다.
 * 일부 구문 분석 및 오류 메시지가 수정되었습니다(#3584).
 * `lock` 명령에 대한 `--resource-type` 구문 분석에서 `<resource-namespace>`과 `<resource-type>`을 허용하도록 수정되었습니다.
@@ -2943,7 +3006,7 @@ vm (2.0.11)
 * `create-for-rbac` 및 `reset-credentials` 명령에 키 자격 증명 모음 통합이 추가됨
 
 ### <a name="service-fabric"></a>Service Fabric
-* 업로드 시 애플리케이션의 대형 파일을 자르는 문제 해결(#3666)
+* 업로드 시 애플리케이션의 대형 파일을 자르는 문제가 해결되었습니다(#3666).
 * Service Fabric 명령에 대한 테스트가 추가됨(#3424)
 * 다양한 Service Fabric 명령이 수정됨(#3234)
 
@@ -2960,14 +3023,14 @@ vm (2.0.11)
 * 저장소 메트릭, 로깅 및 CORS 명령이 업데이트됨(#3495)
 * CORS add(#3638)(#3362)의 예외 메시지가 수정됨
 * download batch 명령 dryrun(시험 실행) 모드에서 생성기가 목록으로 변환됨(#3592)
-* Blob download batch dryrun 문제 해결(#3640)(#3592)
+* Blob download batch dryrun 문제가 해결됨(#3640)(#3592)
 
 ### <a name="vm"></a>VM
 
 * NSG 구성이 지원됨
 * DNS 서버가 올바르게 구성되지 않는 버그가 수정되었습니다.
 * 관리되는 서비스 ID가 지원됨
-* 기존 부하 분산 장치가 있는 `cmss create`에 `--backend-pool-name`이 필요했던 문제 해결
+* 기존 부하 분산 장치가 있는 `cmss create`에 `--backend-pool-name`이 필요했던 문제가 수정됨
 * `vm image create` lun을 사용하여 만든 데이터 디스크가 0으로 시작됨
 
 
