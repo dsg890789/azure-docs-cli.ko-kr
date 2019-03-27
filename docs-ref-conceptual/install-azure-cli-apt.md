@@ -4,21 +4,21 @@ description: apt 패키지 관리자를 사용하여 Azure CLI를 설치하는 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/27/2018
+ms.date: 03/19/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 45e1e7468e5817d0138c9b87da83c5a5228e4965
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: fa2e1db439b4836d7506409b3abcce74fb6e6695
+ms.sourcegitcommit: 5864f72b9a6fbf82a4d98bf805b3a16a7da18556
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421935"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58343148"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt를 사용하여 Azure CLI 설치
 
-Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행하는 경우, Azure CLI에 64비트 패키지를 사용할 수 있습니다. 이 패키지는 다음 항목에서 테스트되었습니다.
+Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행하는 경우, Azure CLI에 x86_64 패키지를 사용할 수 있습니다. 이 패키지는 다음 항목에서 테스트되었습니다.
 
 * Ubuntu trusty, xenial, artful 및 bionic
 * Debian wheezy, jessie 및 stretch
@@ -27,17 +27,26 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
 
 > [!NOTE]
 >
-> Azure CLI용 `.deb` 패키지는 자체 Python 인터프리터를 설치하고 시스템 Python을 사용하지 않습니다. 이에 따라 로컬 Python 버전에 대한 명시적 요구 사항이 없습니다.
+> Azure CLI용 패키지는 자체 Python 인터프리터를 설치하고 시스템 Python을 사용하지 않습니다.
 
 ## <a name="install"></a>설치
 
-1. 필수 구성 요소 패키지 설치:
+1. 설치 프로세스에 필요한 패키지를 가져옵니다.
 
     ```bash
-    sudo apt-get install apt-transport-https lsb-release software-properties-common dirmngr -y
+    sudo apt-get update
+    sudo apt-get install curl apt-transport-https lsb-release gpg
     ```
 
-2. <div id="set-release"/>원본 목록을 수정합니다.
+2. Microsoft 서명 키를 다운로드하고 설치합니다.
+
+    ```bash
+    curl -sL https://packages.microsoft.com/keys/microsoft.asc | \
+        gpg --dearmor | \
+        sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
+    ```
+
+3. <div id="set-release"/>Azure CLI 소프트웨어 리포지토리를 추가합니다.
 
     ```bash
     AZ_REPO=$(lsb_release -cs)
@@ -45,25 +54,14 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
         sudo tee /etc/apt/sources.list.d/azure-cli.list
     ```
 
-3. <div id="signingKey"/>Microsoft 서명 키 가져오기:
+4. 리포지토리 정보를 업데이트하고 `azure-cli` 패키지를 설치합니다.
 
-   ```bash
-   sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
-        --keyserver packages.microsoft.com \
-        --recv-keys BC528686B50D79E339D3721CEB3E94ADBE1229CF
-   ```
+    ```bash
+    sudo apt-get update
+    sudo apt-get install azure-cli
+    ```
 
-4. CLI 설치:
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install azure-cli
-   ```
-
-   > [!WARNING]
-   > 서명 키는 2018년 5월 업데이트되었으며 대체 되었습니다. 서명 오류가 발생할 경우 [최신 서명 키](#signingKey)가 있는 지 확인합니다.
-
-그런 다음 `az` 명령을 사용하여 Azure CLI를 실행할 수 있습니다. 로그인하려면, [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.
+`az` 명령을 사용하여 Azure CLI를 실행합니다. 로그인하려면, [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
@@ -75,45 +73,13 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
 
 ### <a name="lsbrelease-does-not-return-the-correct-base-distribution-version"></a>lsb_release가 올바른 기본 배포 버전을 반환하지 않습니다.
 
-Linux Mint 같은 일부 Ubuntu 또는 Debian 파생 배포판은 `lsb_release`로부터 올바른 버전 이름을 반환하지 않을 수 있습니다. 이 값은 설치 과정에서 패키지 설치를 확인하는 데 사용됩니다. 귀하의 배포가 파생된 출처 버전의 이름을 알고 있는 경우 [설치 2 단계](#set-release)에서 `AZ_REPO`값을 수동으로 설정하면 됩니다. 그렇지 않은 경우 귀하의 배포에 대해 기본 배포 이름을 확인하고 `AZ_REPO`를 올바른 값으로 설정 하는 방법에 대해 알아봅니다.
+Linux Mint 같은 일부 Ubuntu 또는 Debian 파생 배포판은 `lsb_release`로부터 올바른 버전 이름을 반환하지 않을 수 있습니다. 이 값은 설치 과정에서 패키지 설치를 확인하는 데 사용됩니다. 배포본이 파생된 Ubuntu 또는 Debian 버전의 코드 이름을 알고 있다면 [리포지토리를 추가](#set-release)할 때 수동으로 `AZ_REPO` 값을 설정할 수 있습니다. 그렇지 않은 경우 귀하의 배포에 대해 기본 배포 코드 이름을 확인하고 `AZ_REPO`를 올바른 값으로 설정 하는 방법에 대해 알아봅니다.
 
 ### <a name="no-package-for-your-distribution"></a>배포에 필요한 패키지가 없음
 
-Ubuntu 배포본이 릴리스된 후에 Azure CLI 패키지가 제공되기까지는 어느 정도 시간이 걸릴 수 있습니다. Azure CLI는 향후 버전의 종속성에 대해 탄력성을 갖도록 설계되었으며 가능한 한 적게 의존합니다. 기본 배포에 사용할 수 있는 패키지가 없는 경우 이전 배포 패키지를 시도합니다.
+배포본이 릴리스된 후에 Azure CLI 패키지가 제공되기까지는 어느 정도 시간이 걸릴 수 있습니다. Azure CLI는 향후 버전의 종속성에 대해 탄력성을 갖도록 설계되었으며 가능한 한 적게 의존합니다. 기본 배포에 사용할 수 있는 패키지가 없는 경우 이전 배포 패키지를 시도합니다.
 
-이를 위해 [1 단계 설치](#install-step-1)에서 `AZ_REPO`값을 수동으로 설정합니다. Ubuntu 배포의 경우 `bionic` 리포지토리를 사용하고 Debian 배포판의 경우 `stretch`를 사용합니다. Ubuntu Trusty 및 Debian Wheezy 이전에 릴리스된 배포는 지원되지 않습니다.
-
-### <a name="apt-key-fails-with-no-dirmngr"></a>apt-key가 "dirmngr 없음"과 함께 실패
-
-`apt-key` 명령을 실행할 때 다음 오류와 유사한 출력이 표시될 수 있습니다.
-
-```output
-gpg: failed to start the dirmngr '/usr/bin/dirmngr': No such file or directory
-gpg: connecting dirmngr at '/tmp/apt-key-gpghome.kt5zo27tp1/S.dirmngr' failed: No such file or directory
-gpg: keyserver receive failed: No dirmngr
-```
-
-이 오류는 `apt-key`에 필요한 구성 요소가 누락되었기 때문에 발생합니다. `dirmngr` 패키지를 설치하면 이 문제를 해결할 수 있습니다.
-
-```bash
-sudo apt-get install dirmngr
-```
-
-Linux(WSL)용 Windows 하위 시스템일 경우 이 오류는 Windows 10 1809 이전 버전에서도 발생합니다. 이 문제를 해결하려면 Windows 버전을 업데이트하십시오.
-
-### <a name="apt-key-hangs"></a>apt-key 중지
-
-포트 11371로 나가는 연결을 차단하는 방화벽 뒤에 있는 경우 `apt-key` 명령이 무기한 중지될 수 있습니다.
-방화벽에 나가는 연결에 대한 HTTP 프록시가 필요할 수도 있습니다.
-
-```bash
-sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
-    --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ \
-    --keyserver packages.microsoft.com \
-    --recv-keys BC528686B50D79E339D3721CEB3E94ADBE1229CF
-```
-
-프록시가 있는지 알아보려면, 시스템 관리자에게 문의하세요. 프록시에 로그인이 필요하지 않으면 사용자와 암호 정보는 생략합니다.
+이를 위해, [리포지토리를 추가](#set-release)할 때 수동으로 `AZ_REPO` 값을 설정합니다. Ubuntu 배포의 경우 `bionic` 리포지토리를 사용하고 Debian 배포판의 경우 `stretch`를 사용합니다. Ubuntu Trusty 및 Debian Wheezy 이전에 릴리스된 배포는 지원되지 않습니다.
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
@@ -125,9 +91,6 @@ sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
    sudo apt-get update && sudo apt-get upgrade
    ```
 
-> [!WARNING]
-> 서명 키는 2018년 5월 업데이트되었으며 대체 되었습니다. 서명 오류가 발생할 경우 [최신 서명 키](#signingKey)가 있는 지 확인합니다.
->
 > [!NOTE]
 > 이 명령은 시스템에 설치되었지만 종속성이 변경되지 않은 모든 패키지를 업그레이드합니다.
 > CLI만 업그레이드하려면 `apt-get install`을 사용하세요.
@@ -155,7 +118,7 @@ sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
 3. 서명 키를 제거합니다.
 
     ```bash
-    sudo rm /etc/apt/trusted.gpg.d/Microsoft.gpg
+    sudo rm /etc/apt/trusted.gpg.d/microsoft.asc.gpg
     ```
 
 4. 불필요한 패키지를 제거합니다.
