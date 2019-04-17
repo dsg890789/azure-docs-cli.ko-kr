@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 7a6b89953d60fe98910f8141a606ac1fcba318ae
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: a325b799c7384037ae336093aa5274c7cbf53cbc
+ms.sourcegitcommit: cf47338210116437d7dc0f6037d2dabd5c5e6a4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158462"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59429016"
 ---
 # <a name="azure-cli-interactive-mode"></a>Azure CLI 대화형 모드
 
@@ -39,7 +39,7 @@ ms.locfileid: "56158462"
 
 ![기본값](./media/interactive-azure-cli/defaults.png)
 
-`F3` 키는 일부 키 제스처를 표시하거나 숨깁니다.
+`F3` 일부 키 제스처를 표시하거나 숨깁니다.
 
 ![제스처](./media/interactive-azure-cli/gestures.png)
 
@@ -82,18 +82,21 @@ az>>
 
 ## <a name="query"></a>쿼리
 
-실행한 마지막 명령의 결과에 대해 JMESPath 쿼리를 실행할 수 있습니다.
-예를 들어 VM을 만든 후 완전히 프로비전되었는지 확인할 수 있습니다.
+`??` 다음에 JMESPath 쿼리를 사용하여 실행한 마지막 명령의 결과에 대해 JMESPath 쿼리를 실행할 수 있습니다.
+예를 들어 그룹을 만든 후 새 그룹의 ID를 검색할 수 있습니다.
+
+```azurecli
+az>> group create -n myRG -l westEurope
+az>> "?? id"
+```
+
+또한 이 구문을 사용하여 이전 명령의 결과를 다음 명령에 대한 인수로 사용할 수도 있습니다.*
+예를 들어 모든 그룹을 나열한 후 해당 위치가 서유럽인 첫 번째 그룹에 대해 형식 `virtualMachine`의 모든 리소스를 나열합니다. 
 
 ```azurecli
 az>> vm create --name myVM --resource-group myRG --image UbuntuLTS --no-wait -o json
-az>> ? [*].provisioningState
-```
-
-```json
-[
-  "Creating"
-]
+az>> group list -o json
+az>> resource list -g "?? [?location=='westeurope'].name | [0]" --query "[?type=='Microsoft.Compute/virtualMachines'].name
 ```
 
 명령의 결과를 쿼리하는 방법에 대한 자세한 내용은 [Azure CLI를 사용한 쿼리 명령 결과](query-azure-cli.md)를 참조하세요.

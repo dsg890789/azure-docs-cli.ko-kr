@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 2a4515f5301daca68f6e1a161fb2327f6caa0cf5
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: 346014c1890cd7aa5b4225df15078e55db908a33
+ms.sourcegitcommit: 754c550b417f26e27f2e31cd0a04826aa8ff4f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158558"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59289086"
 ---
 # <a name="run-azure-cli-in-a-docker-container"></a>Docker 컨테이너에서 Azure CLI 실행
 
@@ -22,17 +22,20 @@ Docker를 사용하여 Azure CLI가 사전 설치된 독립 실행형 Linux 컨�
 
 ## <a name="run-in-a-docker-container"></a>Docker 컨테이너에서 실행
 
+> [!NOTE]
+> Azure CLI는 [Microsoft Container Registry](https://azure.microsoft.com/services/container-registry)로 마이그레이션되었습니다. Docker 허브의 기존 태그는 계속 지원되지만 새 릴리스는 mcr.microsoft.com/azure-cli로만 제공됩니다.
+
 `docker run`을 사용하여 CLI를 설치합니다.
 
    ```bash
-   docker run -it microsoft/azure-cli
+   docker run -it mcr.microsoft.com/azure-cli
    ```
 
 > [!NOTE]
 > 사용자 환경에서 SSH 키를 선택하려는 경우 `-v ${HOME}/.ssh:/root/.ssh`를 사용하여 SSH 키를 환경에 탑재합니다.
 >
 > ```bash
-> docker run -it -v ${HOME}/.ssh:/root/.ssh microsoft/azure-cli
+> docker run -it -v ${HOME}/.ssh:/root/.ssh mcr.microsoft.com/azure-cli
 > ```
 
 CLI는 `/usr/local/bin`에 있는 `az` 명령으로 이미지에 설치됩니다. 로그인하려면, [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.
@@ -48,7 +51,7 @@ Docker를 사용하여 업데이트하려면 새 이미지를 풀링하고 모�
 `docker pull`을 사용하여 로컬 이미지를 업데이트합니다.
 
 ```bash
-docker pull microsoft/azure-cli
+docker pull mcr.microsoft.com/azure-cli
 ```
 
 ## <a name="uninstall-docker-image"></a>Docker 이미지 제거
@@ -58,7 +61,7 @@ docker pull microsoft/azure-cli
 CLI 이미지를 실행하는 모든 컨테이너를 중지한 후 이미지를 제거합니다.
 
 ```bash
-docker rmi microsoft/azure-cli
+docker rmi mcr.microsoft.com/azure-cli
 ```
 
 ## <a name="next-steps"></a>다음 단계
