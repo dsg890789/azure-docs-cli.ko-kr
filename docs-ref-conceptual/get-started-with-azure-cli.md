@@ -11,10 +11,10 @@ ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: 003576ba22cdc4fc64977b653d0fb6859cd38446
-ms.sourcegitcommit: cf47338210116437d7dc0f6037d2dabd5c5e6a4b
+ms.sourcegitcommit: 334a1da92a73e42e715e33470057f4194f10b2ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59429033"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI 시작
@@ -47,7 +47,7 @@ CLI가 처음으로 설치되면 `az --version`을 실행하여 CLI가 설치되
 |---------------|-------------------------|
 | [리소스 그룹](/azure/azure-resource-manager/resource-group-overview) | [az group](/cli/azure/group) |
 | [가상 머신](/azure/virtual-machines) | [az vm](/cli/azure/vm) |
-| [Storage 계정](/azure/storage/common/storage-introduction) | [az storage account](/cli/azure/storage/account) |
+| [Storage 계정](/azure/storage/common/storage-introduction) | [az 저장소 계정](/cli/azure/storage/account) |
 | [Key Vault](/azure/key-vault/key-vault-whatis) | [az keyvault](/cli/azure/keyvault) |
 | [웹 애플리케이션](/azure/app-service) | [az webapp](/cli/azure/webapp) |
 | [SQL 데이터베이스](/azure/sql-database) | [az sql server](/cli/azure/sql/server) |
@@ -76,10 +76,10 @@ CLI에는 Bash 셸에서 명령에 대한 전체 탭 완성 기능이 포함됩�
 일부 인수는 모든 명령에 사용할 수 있습니다.
 
 * `--help`은(는) 명령 및 해당 인수에 대한 CLI 참조 정보를 출력하고 사용 가능한 하위 그룹 및 명령을 나열합니다.
-* `--output` 출력 형식을 변경합니다. 사용 가능한 출력 형식은 `json`, `jsonc`(색이 지정된 JSON), `tsv`(탭으로 구분된 값), `table`(사람이 읽을 수 있는 ASCII 테이블) 및 `yaml`입니다. 기본적인 CLI 출력은 `json`입니다. 사용 가능한 출력 형식에 대해 자세히 알아보려면 [Azure CLI의 출력 형식](format-output-azure-cli.md)을 참조하십시오.
-* `--query` [JMESPath 쿼리 언어](http://jmespath.org/)를 사용하여 Azure 서비스에서 반환되는 출력을 필터링합니다. 쿼리에 대한 자세한 내용은 [Azure CLI를 사용한 쿼리 명령 결과](query-azure-cli.md) 및 [JMESPath 자습서](http://jmespath.org/tutorial.html)를 참조하세요.
-* `--verbose` 작업 중 Azure에서 생성되는 리소스에 대한 정보 및 기타 유용한 정보를 출력합니다.
-* `--debug` 디버깅 목적으로 사용되는 CLI 작업에 대한 훨씬 더 자세한 정보를 출력합니다. 버그가 발견된 경우, 버그 보고서를 제출할 때 `--debug` 플래그를 사용해서 생성된 출력을 제공하십시오.
+* `--output`은(는) 출력 형식을 변경합니다. 사용 가능한 출력 형식은 `json`, `jsonc`(색이 지정된 JSON), `tsv`(탭으로 구분된 값), `table`(사람이 읽을 수 있는 ASCII 테이블) 및 `yaml`입니다. 기본적인 CLI 출력은 `json`입니다. 사용 가능한 출력 형식에 대해 자세히 알아보려면 [Azure CLI의 출력 형식](format-output-azure-cli.md)을 참조하십시오.
+* `--query`은(는) [JMESPath 쿼리 언어](http://jmespath.org/)를 사용하여 Azure 서비스에서 반환되는 출력을 필터링합니다. 쿼리에 대한 자세한 내용은 [Azure CLI를 사용한 쿼리 명령 결과](query-azure-cli.md) 및 [JMESPath 자습서](http://jmespath.org/tutorial.html)를 참조하세요.
+* `--verbose`은(는) 작업 중 Azure에서 생성되는 리소스에 대한 정보 및 기타 유용한 정보를 출력합니다.
+* `--debug`은(는) 디버깅 목적으로 사용되는 CLI 작업에 대한 자세한 정보를 출력합니다. 버그가 발견된 경우, 버그 보고서를 제출할 때 `--debug` 플래그를 사용해서 생성된 출력을 제공하십시오.
 
 ## <a name="interactive-mode"></a>대화형 모드
 
@@ -103,12 +103,12 @@ Azure CLI를 시작하려면 가상 머신 설정 및 Azure 리소스 쿼리를 
 다른 인기 있는 서비스에 대한 빠른 시작도 있습니다.
 
 * [Azure CLI를 사용하여 저장소 계정 만들기](/azure/storage/common/storage-quickstart-create-storage-account-cli)
-* [CLI를 사용하여 Azure Blob Storage로/에서 개체 전송](/azure/storage/blobs/storage-quickstart-blobs-cli)
-* [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](/azure/sql-database/sql-database-get-started-cli)
+* [CLI를 사용하여 Azure Blob Storage에 대한 개체 전송](/azure/storage/blobs/storage-quickstart-blobs-cli)
+* [Azure CLI를 사용하여 단일 Azure SQL 데이터베이스 만들기](/azure/sql-database/sql-database-get-started-cli)
 * [Azure CLI를 사용하여 Azure Database for MySQL 서버 만들기](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
-* [Azure CLI를 사용하여 PostgreSQL용  Azure Database 만들기](/azure/postgresql/quickstart-create-server-database-azure-cli)
+* [Azure CLI를 사용하여 PostgreSQL용 Azure Database 만들기](/azure/postgresql/quickstart-create-server-database-azure-cli)
 * [Azure에서 Python 웹앱 만들기](/azure/app-service/app-service-web-get-started-python)
-* [Azure Web Apps for Containers에 대한 사용자 지정 Docker Hub 실행 ](/azure/app-service/containers/quickstart-custom-docker-image)
+* [Azure Web Apps for Containers에서 사용자 지정 Docker Hub 이미지 실행](/azure/app-service/containers/quickstart-custom-docker-image)
 
 ## <a name="give-feedback"></a>피드백 제공
 
