@@ -4,23 +4,23 @@ description: apt 패키지 관리자를 사용하여 Azure CLI를 설치하는 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/19/2019
+ms.date: 05/08/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: fa2e1db439b4836d7506409b3abcce74fb6e6695
-ms.sourcegitcommit: 5864f72b9a6fbf82a4d98bf805b3a16a7da18556
+ms.openlocfilehash: af82eea3fd549cbca85699a3030a19bc82574b73
+ms.sourcegitcommit: c65c69bd08fd6b7632ba60dc7c8e9f2b57a9d0b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58343148"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476271"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt를 사용하여 Azure CLI 설치
 
-Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행하는 경우, Azure CLI에 x86_64 패키지를 사용할 수 있습니다. 이 패키지는 다음 항목에서 테스트되었습니다.
+Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행하는 경우, Azure CLI에 x86_64 패키지를 사용할 수 있습니다. 이 패키지는 다음에 대해서 테스트되었으며 지원됩니다.
 
-* Ubuntu trusty, xenial, artful 및 bionic
+* Ubuntu trusty, xenial, artful, bionic, disco
 * Debian wheezy, jessie 및 stretch
 
 [!INCLUDE [current-version](includes/current-version.md)]
@@ -31,11 +31,29 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
 
 ## <a name="install"></a>설치
 
+`apt`를 지원하는 배포판을 사용하여 Azure CLI를 설치하는 두 가지 방법을 제공합니다. 설치 명령을 실행하는 올인원 스크립트 및 단계별 절차로 직접 실행할 수 있는 지침.
+
+### <a name="install-with-one-command"></a>하나의 명령을 사용하여 설치
+
+한 번에 모든 설치 명령을 실행하는 스크립트를 제공하고 유지 관리합니다. `curl`을 사용하고 `bash`로 직접 파이프하여 실행하거나 스크립트를 파일로 다운로드하여 실행 전에 검사합니다.
+
+> [!IMPORTANT]
+> 이 스크립트는 Ubuntu 16.04+ 및 Debian 8+에서만 검증되었습니다. 다른 배포에는 작동하지 않을 수 있습니다.
+> Linux Mint와 같은 파생된 배포판을 사용하는 경우 수동 설치 지침에 따라 필요한 문제 해결을 수행하세요.
+
+```bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+
+### <a name="manual-install-instructions"></a>수동 설치 지침
+
+슈퍼 사용자로 스크립트를 실행하지 않으려면 다음 수동 단계에 따라 Azure CLI를 설치하세요.
+
 1. 설치 프로세스에 필요한 패키지를 가져옵니다.
 
     ```bash
     sudo apt-get update
-    sudo apt-get install curl apt-transport-https lsb-release gpg
+    sudo apt-get install curl apt-transport-https lsb-release gnupg
     ```
 
 2. Microsoft 서명 키를 다운로드하고 설치합니다.
@@ -79,7 +97,7 @@ Linux Mint 같은 일부 Ubuntu 또는 Debian 파생 배포판은 `lsb_release`�
 
 배포본이 릴리스된 후에 Azure CLI 패키지가 제공되기까지는 어느 정도 시간이 걸릴 수 있습니다. Azure CLI는 향후 버전의 종속성에 대해 탄력성을 갖도록 설계되었으며 가능한 한 적게 의존합니다. 기본 배포에 사용할 수 있는 패키지가 없는 경우 이전 배포 패키지를 시도합니다.
 
-이를 위해, [리포지토리를 추가](#set-release)할 때 수동으로 `AZ_REPO` 값을 설정합니다. Ubuntu 배포의 경우 `bionic` 리포지토리를 사용하고 Debian 배포판의 경우 `stretch`를 사용합니다. Ubuntu Trusty 및 Debian Wheezy 이전에 릴리스된 배포는 지원되지 않습니다.
+이를 위해, [리포지토리를 추가](#set-release)할 때 수동으로 `AZ_REPO` 값을 설정합니다. Ubuntu 배포의 경우 `disco` 리포지토리를 사용하고 Debian 배포판의 경우 `stretch`를 사용합니다. Ubuntu Trusty 및 Debian Wheezy 이전에 릴리스된 배포는 지원되지 않습니다.
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 

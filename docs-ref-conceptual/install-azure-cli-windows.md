@@ -4,17 +4,17 @@ description: Windows에 Azure CLI를 설치하는 방법
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/09/2018
+ms.date: 05/01/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ffd9c279302377de6eca1b64c45749196bd99096
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: c5c499800e49dcdc536337e7655ec1ee280d48f2
+ms.sourcegitcommit: 65bf8561a6e047e4eab52186e066a2e8c21f1d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421878"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65240555"
 ---
 # <a name="install-azure-cli-on-windows"></a>Windows에 Azure CLI 설치
 
@@ -25,7 +25,7 @@ WSL(Linux용 Windows 하위 시스템)을 설치하는 경우 Linux 배포에 �
 
 ## <a name="install-or-update"></a>설치 또는 업데이트
 
-MSI 배포판은 Windows에서 `az` 명령을 설치, 업데이트 및 제거하는 데 사용됩니다.
+MSI 배포 파일은 Windows에서 Azure CLI를 설치하거나 업데이트하는 데 사용됩니다. MSI 설치 프로그램을 사용하기 전에 현재 버전을 제거 할 필요는 없습니다.
 
 > [!div class="nextstepaction"]
 > [MSI 설치 관리자 다운로드](https://aka.ms/installazurecliwindows)
@@ -42,10 +42,14 @@ MSI 배포판은 Windows에서 `az` 명령을 설치, 업데이트 및 제거하
 
 [!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-MSI를 다시 실행 하 고 "제거" 옵션을 선택하여 제거할 수 있습니다.
+Windows의 "앱 및 기능" 목록에서 Azure CLI를 제거 할 수 있습니다. 제거하려면:
 
-> [!div class="nextstepaction"]
-> [MSI 설치 관리자 다운로드](https://aka.ms/installazurecliwindows)
+| 플랫폼 | 지침 |
+|---|---|
+| 윈도우 10 | 시작 > 설정 > 앱 |
+| Windows 8<br/>Windows 7 | 시작>제어판 > 프로그램 > 프로그램 제거 |
+
+이 화면에서 __Azure CLI__를 프로그램 검색 창에 입력하세요. 제거할 프로그램은 __Azure용 Microsoft CLI 2.0__으로 나열됩니다. 이 애플리케이션을 선택한 다음 `Uninstall` 단추를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
