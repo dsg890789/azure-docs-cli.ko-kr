@@ -129,7 +129,7 @@ Version 2.0.63
 * 급행 경로 포트 상의 링크 상태를 업데이트할 때 알 수 없는 속성 예외 `express-route port update`가 발생하는 문제 수정
 
 ### <a name="privatedns"></a>PrivateDNS
-* 사설 DNS 영역에 대한 `network private-dns` 추가
+* 프라이빗 DNS 영역에 대한 `network private-dns` 추가
 
 ### <a name="resource"></a>리소스
 * `deployment create` 및 `group deployment create`에서 빈 매개 변수 세트를 포함하는 매개 변수 파일이 작동하지 않을 수 있는 문제 해결
@@ -1004,7 +1004,7 @@ Version 2.0.51
 * `network vnet subnet create/update`: `--delegation`에 대한 지원 추가
 * `network vnet subnet list-available-delegations` 명령이 추가됨
 * `network traffic-manager profile create/update`: 모니터 구성을 위해 `--interval`, `--timeout`, `--max-failures`에 대한 지원이 추가됨 `--path`, `--port`, `--protocol`을(를) 위해 `--monitor-path`, `--monitor-port`, `--monitor-protocol` 옵션은 사용되지 않음
-* `network lb frontend-ip create/update`: 사설 IP 할당 방법을 설정하는 논리가 수정됨. 사설 IP 주소가 제공되는 경우 정적 할당이 설정됨. 사설 IP 주소가 제공되지 않는 경우나 사설 IP 주소에 빈 문자열이 주어질 경우 동적 할당이 설정됨.
+* `network lb frontend-ip create/update`: 프라이빗 IP 할당 방법을 설정하는 논리가 수정됨. 개인 IP 주소가 제공되는 경우 정적 할당이 설정됨. 개인 IP 주소가 제공되지 않는 경우나 개인 IP 주소에 빈 문자열이 주어질 경우 동적 할당이 설정됨.
 * `dns record-set * create/update`: `--target-resource`에 대한 지원 추가
 * 인터페이스 엔드포인트 개체를 쿼리하기 위한 `network interface-endpoint` 명령 추가
 * 네트워크 프로필의 부분 관리를 위한 `network profile show/list/delete` 추가
@@ -1032,7 +1032,7 @@ Version 2.0.51
 * 변경할 수 없는 스토리지 관리를 위한 `storage container immutability-policy/legal-hold` 추가
 
 ### <a name="vm"></a>VM
-* 공개 키 파일이 누락된 경우 `vm create --generate-ssh-keys`가 개인 키 파일을 덮어쓰는 문제 해결(#4725, #6780)
+* 공개 키 파일이 누락된 경우 `vm create --generate-ssh-keys`가 프라이빗 키 파일을 덮어쓰는 문제 해결(#4725, #6780)
 * `az sig`를 통한 공유 이미지 갤러리에 대한 지원 추가
 
 ## <a name="august-28-2018"></a>2018년 8월 28일
@@ -1329,7 +1329,7 @@ Version 2.0.43
 * [호환성이 손상되는 변경]Kubernetes 역할 기반 액세스 제어를 기본값으로 활성화합니다.
 * `--disable-rbac` 인수를 추가 그리고 `--enable-rbac`가 기본값이므로 이제 사용되지 않음
 * `aks browse` 명령 옵션이 업데이트됨. `--listen-port` 지원이 추가됨
-* `aks install-connector` 명령에 대한 기본 helm 차트 패키지 업데이트  virtual-kubelet-for-aks-latest.tgz 사용
+* `aks install-connector` 명령에 대한 기본 helm 차트 패키지 업데이트 virtual-kubelet-for-aks-latest.tgz 사용
 * 기존 클러스터 업데이트에 `aks enable-addons`과 `aks disable-addons` 명령 추가
 
 ### <a name="appservice"></a>AppService
@@ -1462,7 +1462,7 @@ Version 2.0.38
 
 ### <a name="storage"></a>Storage
 
-* `storage blob download`에 대한 출력 테이블을 가독성을 높이도록 변경 
+* `storage blob download`에 대한 출력 테이블을 가독성을 높이도록 변경
 
 ### <a name="vm"></a>VM
 
@@ -1500,7 +1500,7 @@ Version 2.0.35
 
 ### <a name="interactive"></a>대화형
 
-* 대화형 모드의 종속성에 제한 추가 
+* 대화형 모드의 종속성에 제한 추가
 
 ## <a name="june-5-2018"></a>2018년 6월 5일
 
@@ -1595,7 +1595,7 @@ Version 2.0.35
 ### <a name="interactive"></a>대화형
 
 * 완료 시 파서를 음소거하도록 로깅을 변경함
-* 잘못된 도움말 캐시의 처리가 향상됨 
+* 잘못된 도움말 캐시의 처리가 향상됨
 
 ### <a name="keyvault"></a>KeyVault
 
@@ -1603,13 +1603,13 @@ Version 2.0.35
 
 ### <a name="network"></a>네트워크
 
-* `network watcher show-topology`이 vnet 및/또는 서브넷 이름[#6326](https://github.com/Azure/azure-cli/issues/6326)으로 작동하지 않는 문제 해결 
+* `network watcher show-topology`이 vnet 및/또는 서브넷 이름[#6326](https://github.com/Azure/azure-cli/issues/6326)으로 작동하지 않는 문제 해결
 * `network watcher` 명령 결과 실제로 [#6264](https://github.com/Azure/azure-cli/issues/6264)인 영역에 대해 Network Watcher가 사용 가능하지 않다는 문제 해결
 
 ### <a name="sql"></a>SQL
 
 * [호환성이 손상되는 변경] `db` 및 `dw` 명령으로 리턴되는 응답 개체 변경 :
-    * `serviceLevelObjective` 속성을 `currentServiceObjectiveName`로 이름을 바꿈 
+    * `serviceLevelObjective` 속성을 `currentServiceObjectiveName`로 이름을 바꿈
     * `currentServiceObjectiveId` 및 `requestedServiceObjectiveId` 속성 제거
     * `maxSizeBytes` 속성을 문자열 대신 정수값으로 변경
 * [호환성이 손상되는 변경] `db` 및 `dw`를 읽기 전용 속성으로 변경
@@ -1617,10 +1617,10 @@ Version 2.0.35
     * `edition`. 업데이트하려면, `--edition` 매개 변수를 사용하거나 `sku.tier` 속성 설정
     * `elasticPoolName`. 업데이트하려면, `--elastic-pool` 매개 변수를 사용하거나 `elasticPoolId` 속성 설정
 * [호환성이 손상되는 변경] 다음 `elastic-pool` 속성을 읽기 전용으로 변경
-    * `edition`. 업데이트하려면 `--edition` 매개 변수를 사용 
-    * `dtu`. 업데이트하려면 `--capacity` 매개 변수를 사용 
-    *  `databaseDtuMin`. 업데이트하려면 `--db-min-capacity` 매개 변수를 사용 
-    *  `databaseDtuMax`. 업데이트하려면 `--db-max-capacity` 매개 변수를 사용 
+    * `edition`. 업데이트하려면 `--edition` 매개 변수를 사용
+    * `dtu`. 업데이트하려면 `--capacity` 매개 변수를 사용
+    *  `databaseDtuMin`. 업데이트하려면 `--db-min-capacity` 매개 변수를 사용
+    *  `databaseDtuMax`. 업데이트하려면 `--db-max-capacity` 매개 변수를 사용
 * `db`,`dw`,`elastic-pool` 명령에 `--family`, `--capacity` 매개 변수 추가합니다.
 * `elastic-pool` 명령에 `db`, `dw` 테이블 포맷터를 추가합니다.
 
@@ -1632,8 +1632,8 @@ Version 2.0.35
 ### <a name="vm"></a>VM
 
 * [호환성이 손상되는 변경] `vm create`에서 `--write-accelerator`제거됨. 동일한 지원을 `vm update` 또는 `vm disk attach`를 통해 액세스할 수 있음
-* `[vm|vmss] extension`에서 일치하는 확장 이미지 수정 
-* 부팅 로그를 캡처하기 위해 `vm create`에 `--boot-diagnostics-storage` 추가 
+* `[vm|vmss] extension`에서 일치하는 확장 이미지 수정
+* 부팅 로그를 캡처하기 위해 `vm create`에 `--boot-diagnostics-storage` 추가
 * `[vm|vmss] update`에 `--license-type` 추가
 
 ## <a name="may-7-2018"></a>2018년 5월 7일
@@ -1957,7 +1957,7 @@ Version 2.0.35
 
 ### <a name="network"></a>네트워크
 
-* 사설 DNS 영역에 대한 지원 추가됨
+* 프라이빗 DNS 영역에 대한 지원 추가됨
 
 ### <a name="profile"></a>프로필
 

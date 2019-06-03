@@ -57,7 +57,7 @@ az extension list-available --output table
 | [메시](https://github.com/Azure/azure-cli-extensions) | 0.10.4 | Microsoft Azure Service Fabric Mesh - 공개 미리 보기에 대한 지원 | 예 |
 | [mixed-reality](https://github.com/Azure/azure-cli-extensions) | 0.0.1 | Mixed Reality Azure CLI 확장. |  |
 | [netappfiles-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/netappfiles-preview) | 0.2.0 | 예정된 ANF(Azure NetApp Files) 기능에 대한 미리보기를 제공합니다. | 예 |
-| [privatedns](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | 사설 DNS 영역을 관리하는 명령입니다. | 예 |
+| [privatedns](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | 프라이빗 DNS 영역을 관리하는 명령입니다. | 예 |
 | [rdbms-vnet](https://github.com/Azure/azure-cli-extensions) | 10.0.0 | Azure MySQL 및 Azure PostgreSQL 리소스 내 가상 네트워크 규칙에 대한 지원 |  |
 | [resource-graph](https://github.com/Azure/azure-cli-extensions/tree/master/src/resource-graph) | 0.1.8 | Resource Graph로 Azure 리소스 쿼리에 대한 지원 | 예 |
 | [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.3.4 | SAP HanaOnAzure 인스턴스와 함께 사용하기 위한 추가 명령 |  |

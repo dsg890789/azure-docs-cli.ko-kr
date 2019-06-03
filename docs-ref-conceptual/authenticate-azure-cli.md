@@ -68,7 +68,7 @@ az login -u <username> -p <password>
 
 > [!IMPORTANT]
 >
-> 서비스 주체에서 Key Vault에 저장된 인증서를 사용하는 경우 Azure에 로그인하지 않고 해당 인증서의 개인 키를 사용할 수 있어야 합니다. 오프라인으로 사용할 개인 키를 검색하려면 [az keyvault secret show](/cli/azure/keyvault/secret)를 사용하세요.
+> 서비스 주체에서 Key Vault에 저장된 인증서를 사용하는 경우 Azure에 로그인하지 않고 해당 인증서의 프라이빗 키를 사용할 수 있어야 합니다. 오프라인으로 사용할 프라이빗 키를 검색하려면 [az keyvault secret show](/cli/azure/keyvault/secret)를 사용하세요.
 
 ```azurecli-interactive
 az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant>
