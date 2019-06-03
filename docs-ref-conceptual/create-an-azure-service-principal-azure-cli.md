@@ -58,7 +58,7 @@ Azure 서비스 주체는 애플리케이션, 호스팅된 서비스 및 자동�
 
 ### <a name="certificate-based-authentication"></a>인증서 기반 인증
 
-인증서 기반 인증의 경우 `--cert` 인수를 사용합니다. 이 인수를 사용하려면 기존 인증서를 보유하고 있어야 합니다. 이 서비스 주체를 사용하는 모든 도구에서 인증서의 개인 키에 액세스할 수 있는지 확인합니다. 인증서는 PEM, CER 또는 DER과 같은 ASCII 형식이어야 합니다. 인증서를 문자열로 전달하거나 `@path` 형식을 사용하여 파일에서 인증서를 로드합니다.
+인증서 기반 인증의 경우 `--cert` 인수를 사용합니다. 이 인수를 사용하려면 기존 인증서를 보유하고 있어야 합니다. 이 서비스 주체를 사용하는 모든 도구에서 인증서의 프라이빗 키에 액세스할 수 있는지 확인합니다. 인증서는 PEM, CER 또는 DER과 같은 ASCII 형식이어야 합니다. 인증서를 문자열로 전달하거나 `@path` 형식을 사용하여 파일에서 인증서를 로드합니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name ServicePrincipalName --cert "-----BEGIN CERTIFICATE-----
@@ -91,7 +91,7 @@ az ad sp create-for-rbac --name ServicePrincipalName --create-cert --cert CertNa
 인증서를 Key Vault에 저장하지 않으면 출력에 `fileWithCertAndPrivateKey` 키가 포함됩니다. 이 키의 값은 생성된 인증서가 저장되는 위치를 알려줍니다.
 인증서를 안전한 위치에 복사하거나 이 서비스 주체를 사용하여 로그인할 수 없는지 __확인해야 합니다__.
 
-Key Vault에 저장된 인증서의 경우 [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show)를 사용하여 인증서의 개인 키를 검색합니다. Key Vault에서 인증서의 비밀 이름은 인증서 이름과 동일합니다. 인증서의 개인 키에 액세스할 수 없는 경우 [서비스 주체 자격 증명](#reset-credentials)을 다시 설정하세요.
+Key Vault에 저장된 인증서의 경우 [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show)를 사용하여 인증서의 프라이빗 키를 검색합니다. Key Vault에서 인증서의 비밀 이름은 인증서 이름과 동일합니다. 인증서의 프라이빗 키에 액세스할 수 없는 경우 [서비스 주체 자격 증명](#reset-credentials)을 다시 설정하세요.
 
 `appId` 및 `tenant` 키는 `az ad sp create-for-rbac` 출력에 표시되며 서비스 주체 인증에 사용됩니다.
 해당 값은 기록하지만 언제든지 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list)를 사용하여 검색할 수 있습니다.
