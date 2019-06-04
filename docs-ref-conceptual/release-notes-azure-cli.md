@@ -144,7 +144,7 @@ Version 2.0.63
 ### <a name="storage"></a>Storage
 * [호환성이 손상되는 변경] `storage blob delete`의 결과 제거
 * SAS를 포함하는 BLOB에 대해 전체 URI를 만드는 `--full-uri`을 `storage blob generate-sas`에 추가
-* 스냅숏에서 파일을 복사하는 `--file-snapshot`을 `storage file copy start`에 추가
+* 스냅샷에서 파일을 복사하는 `--file-snapshot`을 `storage file copy start`에 추가
 * NoPendingCopyOperation에 대해 예외 대신 오류만 표시하도록 `storage blob copy cancel` 변경
 
 ## <a name="march-26-2019"></a>2019년 3월 26일
@@ -209,7 +209,7 @@ Version 2.0.63
 * 목록이 제공되지 않는 경우 `--identifier-uris`에서 기본적으로 빈 목록을 지정하도록 `ad app create`가 변경되었습니다.
 
 ### <a name="storage"></a>저장소
-* 공유 스냅숏에서 다운로드할 수 있도록 `--snapshot`이 `storage file download-batch`에 추가되었습니다.
+* 공유 스냅샷에서 다운로드할 수 있도록 `--snapshot`이 `storage file download-batch`에 추가되었습니다.
 * 자세한 정보를 줄이고 현재 Blob을 표시하도록 `storage blob [download-batch|upload-batch]` 진행 표시줄이 변경되었습니다.
 * 암호화 매개 변수를 업데이트하는 `storage account update` 관련 문제가 해결되었습니다.
 * oauth(`--auth-mode=login`)를 사용하면 `storage blob show`가 실패하는 문제가 해결되었습니다.
@@ -570,7 +570,7 @@ Version 2.0.63
 버전 2.0.54
 ### <a name="appservice"></a>App Service
 * `webapp up`의 재배포 실패 문제가 해결됨
-* 웹앱 스냅숏 목록 및 복원에 대한 지원이 추가됨
+* 웹앱 스냅샷 목록 및 복원에 대한 지원이 추가됨
 * Windows 함수 앱 `--runtime` 플래그에 대한 지원이 추가됨
 
 ### <a name="iotcentral"></a>IoTCentral
@@ -2681,7 +2681,7 @@ Version 2.0.35
 
 ### <a name="storage"></a>Storage
 
-* 파일 공유 스냅숏에 대한 지원 추가됨
+* 파일 공유 스냅샷에 대한 지원 추가됨
 
 ### <a name="vm"></a>VM
 
