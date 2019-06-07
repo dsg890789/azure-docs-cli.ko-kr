@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: eed121ce7ce8f8c1eba5079eb438190d3e4d13db
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: 5e187025e97b1d882bc575fd51970a8250f6210e
+ms.sourcegitcommit: bf69c95abf3ed3d589b202c7ff04d8782e2a81ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158828"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65993042"
 ---
 # <a name="query-azure-cli-command-output"></a>Azure CLI 명령 출력 쿼리
 
@@ -102,6 +102,41 @@ az vm show -g QueryDemo -n TestVM --query '[name, osProfile.adminUsername, osPro
 ```
 
 이러한 값은 쿼리에서 제공된 순서로 결과 배열에 나열됩니다. 결과가 배열이므로 결과와 연결된 키가 없습니다.
+
+## <a name="get-a-single-value"></a>단일 값 가져오기
+
+일반적으로 Azure 리소스 ID, 리소스 이름, 사용자 이름 또는 암호와 같은 CLI 명령에서는 _하나_의 값만 가져와야 합니다. 이 경우 값을 로컬 환경 변수에 저장하려는 경우도 많습니다. 단일 속성을 가져오려면 먼저 쿼리에서 하나의 속성만 가져오도록 합니다. 관리 사용자 이름만 가져오도록 마지막 예제를 다음과 같이 수정합니다.
+
+```azurecli-interactive
+az vm show -g QueryDemo -n TestVM --query 'osProfile.adminUsername' -o json
+```
+
+```JSON
+"azureuser"
+```
+
+여기서는 유효한 단일 값처럼 보이지만 `"` 문자가 출력의 일부로 반환됩니다. 이 문자는 개체가 JSON 문자열임을 나타냅니다. 이 값을 명령의 출력으로 환경 변수에 직접 할당하면 셸에서 따옴표가 해석되지 __않을__ 수도 있습니다.
+
+```bash
+USER=$(az vm show -g QueryDemo -n TestVM --query 'osProfile.adminUsername' -o json)
+echo $USER
+```
+
+```output
+"azureuser"
+```
+
+이는 거의 확실히 원하는 작업이 아닙니다. 이 경우 반환된 값을 형식 정보와 함께 포함하지 않는 출력 형식을 사용할 수 있습니다. 이 용도를 위해 CLI에서 제공하는 최상의 출력 옵션은 `tsv`(탭으로 구분된 값)입니다. 특히 사전이나 목록이 아닌 단일 값만 검색하는 경우 `tsv` 출력은 따옴표가 출력되지 않도록 보장합니다.
+
+```azurecli-interactive
+az vm show -g QueryDemo -n TestVM --query 'osProfile.adminUsername' -o tsv
+```
+
+```output
+azureuser
+```
+
+`tsv` 출력 형식에 대한 자세한 내용은 [출력 형식 - TSV 출력 형식](format-output-azure-cli.md#tsv-output-format)을 참조하세요.
 
 ## <a name="rename-properties-in-a-query"></a>쿼리에서 속성 이름 바꾸기
 

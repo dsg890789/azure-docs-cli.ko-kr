@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 61be6c31e7251c8b374bf09072a9ecba9b914342
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: 2f8ec8e82a61f11ee58fe8e509d6e5febc7d226f
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56422054"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516217"
 ---
 # <a name="install-azure-cli-on-macos"></a>macOS에 Azure CLI 설치
 
@@ -59,6 +59,20 @@ brew link --overwrite python3
 ### <a name="cli-version-1x-is-installed"></a>CLI 버전 1.x가 설치되었습니다
 
 낮은 버전이 설치된 경우 부실한 homebrew 캐시로 인한 것일 수 있습니다. [업데이트](#Update) 지침을 따르세요.
+
+### <a name="proxy-blocks-connection"></a>프록시 연결 차단
+
+프록시를 사용하도록 올바르게 구성하지 않으면 Homebrew에서 리소스를 가져올 수 없습니다. [Homebrew 프록시 구성 지침](https://docs.brew.sh/Manpage#using-homebrew-behind-a-proxy)을 따르세요.
+
+> [!IMPORTANT]
+> 프록시를 지원하는 경우 CLI를 사용하여 `HTTP_PROXY` 및 `HTTPS_PROXY`를 Azure 서비스에 연결하도록 설정해야 합니다.
+> 기본 인증을 사용하지 않는 경우 `.bashrc` 파일에서 이러한 변수를 내보내는 것이 좋습니다.
+> 항상 회사의 보안 정책과 시스템 관리자의 요구 사항을 따르세요.
+
+Homebrew에서 bottle 리소스를 가져오려면 프록시에서 다음 주소에 대한 HTTPS 연결을 허용해야 합니다.
+
+* `https://formulae.brew.sh`
+* `https://homebrew.bintray.com`
 
 ## <a name="update"></a>주 지역에서
 

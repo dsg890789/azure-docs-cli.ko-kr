@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: e0b2406ee8b235fc96fb9f2990ad1646d8cb8494
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: bc3ae41ea04ae8d7f62242b2bfe415c8a3bfea33
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421874"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516291"
 ---
 # <a name="install-azure-cli-with-yum"></a>yum을 사용하여 Azure CLI 설치
 
@@ -53,6 +53,24 @@ RHEL, Fedora, CentOS 등의 `yum`를 사용하는 Linux 배포의 경우, Azure 
 ## <a name="troubleshooting"></a>문제 해결
 
 `yum`을 사용해 설치할 때 몇 가지 일반적인 문제가 여기에 표시됩니다. 여기에서 다루지 않는 문제가 발생하는 경우, [github에 문제를 제출합니다](https://github.com/Azure/azure-cli/issues).
+
+### <a name="proxy-blocks-connection"></a>프록시 연결 차단
+
+[!INCLUDE[configure-proxy](includes/configure-proxy.md)]
+
+이 프록시를 항상 사용하도록 명시적으로 `yum`을 구성할 수도 있습니다. `/etc/yum.conf`의 `[main]` 섹션 아래에 다음 줄이 표시되는지 확인합니다.
+
+```yum.conf
+[main]
+# ...
+proxy=http://[proxy]:[port] # If your proxy requires https, change http->https
+proxy_username=[username] # Only required for basic auth
+proxy_password=[password] # Only required for basic auth
+```
+
+Microsoft 서명 키를 가져오고 리포지토리에서 패키지를 가져오려면 프록시에서 다음 주소에 대한 HTTPS 연결을 허용해야 합니다.
+
+* `https://packages.microsoft.com`
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 

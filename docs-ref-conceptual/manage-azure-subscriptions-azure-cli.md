@@ -9,16 +9,18 @@ ms.topic: conceptual
 ms.product: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 4c196b8376b0044e315cfee2b3958f2f4b476df7
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: 37ef0c1d7cca90c99aa6f832c6dc6dc29a1806a3
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158670"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516201"
 ---
 # <a name="use-multiple-azure-subscriptions"></a>여러 Azure 구독 사용
 
 대부분의 Azure 사용자는 단일 구독만 가집니다. 그러나, 사용자가 여러 조직에 속해 있거나 또는 여러 그룹에 걸친 특정 리소스에 액세스하기 위해 조직이 분할된 경우 Azure 내에서 여러 구독을 가질 수 있습니다. CLI는 전역적으로 그리고 명령 당 구독을 선택하는 것을 지원합니다.
+
+구독, 청구 및 비용 관리에 대한 자세한 내용은 [청구 및 비용 관리 설명서](/azure/billing/)를 참조하세요.
 
 ## <a name="tenants-users-and-subscriptions"></a>테넌트, 사용자 및 구독
 
@@ -39,7 +41,7 @@ Azure 내에서 테넌트, 사용자 및 구독 간의 차이에 대해 약간�
     ```azurecli-interactive
     az account list --output table
     ```
-2. 전환하려고 하는 구독 ID 또는 이름으로 `az account set`을 사용합니다. 
+2. 전환하려고 하는 구독 ID 또는 이름으로 `az account set`을 사용합니다.
 
     ```azurecli-interactive
     az account set --subscription "My Demos"

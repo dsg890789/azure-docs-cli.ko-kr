@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 229b109b307453c87abf260a66084c94ced33d81
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: 13edb9954678aca627529714aeee02062c720219
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56422003"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516314"
 ---
 # <a name="install-azure-cli-on-linux-manually"></a>Linux에 Azure CLI 수동 설치
 
@@ -80,6 +80,17 @@ hash -r
 ```bash
 <install path>/bin
 ```
+
+### <a name="proxy-blocks-connection"></a>프록시 연결 차단
+
+[!INCLUDE[configure-proxy](includes/configure-proxy.md)]
+
+설치 스크립트를 가져오려면 프록시에서 다음 주소에 대한 HTTPS 연결을 허용해야 합니다.
+
+* `https://aka.ms/`
+* `https://azurecliprod.blob.core.windows.net/`
+* `https://pypi.python.org`
+* 배포의 패키지 관리자(있는 경우)에서 사용하는 코어 패키지에 대한 엔드포인트
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 

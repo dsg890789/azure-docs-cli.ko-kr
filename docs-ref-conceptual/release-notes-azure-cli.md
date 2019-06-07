@@ -4,26 +4,86 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/06/2019
+ms.date: 05/21/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ce11abccc23ee1f150916ef2f91dc895d4664d31
-ms.sourcegitcommit: 65bf8561a6e047e4eab52186e066a2e8c21f1d40
+ms.openlocfilehash: 5b4bcde8c4a66ccc378abc00468cbdb423f07fa4
+ms.sourcegitcommit: 3fe3502ec5af89939155285bb5e741b08af604cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65240512"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197790"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="may-21-2019"></a>2019년 5월 21일
+
+버전 2.0.65
+
+### <a name="core"></a>코어
+* 인증 오류에 대한 더 나은 피드백이 추가됨
+* CLI가 코어 버전과 호환되지 않는 확장을 로드하는 문제가 해결됨
+* `clouds.config`가 손상된 경우 시작과 관련된 문제가 해결됨
+
+### <a name="acr"></a>ACR
+* Tasks에 관리 ID가 지원됨
+
+### <a name="acs"></a>ACS
+* 고객 AAD 클라이언트에서 사용되는 `openshift create` 명령의 문제가 해결됨
+
+### <a name="appservice"></a>AppService
+* [사용 되지 않음] `functionapp devops-build` 명령이 사용되지 않음 - 다음 릴리스에서 제거됨
+* `functionapp devops-pipeline`에서 Azure DevOps의 빌드 로그를 자세한 정보 표시 모드로 가져오도록 변경됨
+* [호환성이 손상되는 변경] `functionapp devops-pipeline` 명령에서 `--use_local_settings` 플래그가 제거됨 - 작동하지 않음
+* `--logs`를 사용하지 않으면 `webapp up`에서 JSON 출력을 반환하도록 변경됨
+* `webapp up`에 대한 로컬 구성에 기본 리소스를 작성할 수 있도록 지원됨
+* `webapp up`에서 `--location` 인수를 사용하지 않고 앱을 다시 배포할 수 있도록 지원됨
+* Linux SKU ASP 평가판을 만들 때 작동하지 않는 SKU 값을 Free로 사용하는 문제가 해결됨
+
+### <a name="botservice"></a>BotService
+* 명령에 대한 `--lang` 매개 변수에서 모든 대/소문자 구분을 허용하도록 변경됨
+* 명령 모듈에 대한 설명이 업데이트됨
+
+### <a name="consumption"></a>Consumption
+* `consumption usage list --billing-period-name`을 실행할 때 누락된 필수 매개 변수가 추가됨
+
+### <a name="iot"></a>IoT
+* 모든 키를 나열하도록 지원됨
+
+### <a name="network"></a>네트워크
+* [호환성이 손상되는 변경]: Removed `network interface-endpoints` command group - use `network private-endpoints` 
+* NAT 게이트웨이에 연결하기 위해 `network vnet subnet [create|update]`에 `--nat-gateway` 인수가 추가됨
+* 레코드 이름이 레코드 유형과 일치하지 않는 `dns zone import` 문제가 해결됨
+
+### <a name="rdbms"></a>RDBMS
+* 지역 복제에 postgres 및 mysql이 지원됨
+
+### <a name="rbac"></a>RBAC
+* `role assignment`에 관리 그룹 범위가 지원됨
+
+### <a name="storage"></a>Storage
+* `storage blob sync`: 스토리지 Blob에 대한 sync 명령이 추가됨
+
+### <a name="compute"></a>컴퓨팅
+* VM의 컴퓨터 이름을 설정하기 위해 `--computer-name`이 `vm create`에 추가됨
+* `[vm|vmss] create`에 대한 `--ssh-key-value` 이름이 `--ssh-key-values`로 변경됨 - 이제 여러 개의 ssh 공개 키 값 또는 경로를 허용할 수 있음
+  * __참고__: 호환성이 손상되는 변경이 **아님** - `--ssh-key-value`가 `--ssh-key-values`와만 일치하므로 올바르게 구문 분석됨
+* `ppg create`의 `--type` 인수가 선택적 항목으로 변경됨
 
 ## <a name="may-6-2019"></a>2019년 5월 6일
 
 Version 2.0.64
 
+### <a name="acs"></a>ACS
+* [호환성이 손상되는 변경] `openshift` 명령에서 `--fqdn` 플래그가 제거됨
+* Azure Red Hat Openshift GA API 버전을 사용하도록 변경됨
+* `customer-admin-group-id` 플래그가 `openshift create`에 추가되었습니다.
+* [GA] `aks create` 옵션인 `--network-policy`에서 `(PREVIEW)`가 제거됨
+
 ### <a name="appservice"></a>App Service
-* `functionapp devops-build` 명령 사용되지 않음
+* [사용 되지 않음] `functionapp devops-build` 명령이 사용되지 않음
   * `functionapp devops-pipeline`으로 이름이 변경됨
 * `webapp up` 실패를 야기하는 cloudshell의 올바른 사용자 이름을 가져오는 문제가 수정됨
 * 지원되는 appserviceplans를 반영하도록 업데이트된 `appservice plan --sku` 설명서가 업데이트됨
@@ -34,8 +94,61 @@ Version 2.0.64
 * Windows에서 `powershell` 런타임에 대한 지원이 `functionapp create`에 추가됨
 * `create-remote-connection` 명령이 추가됨
 
+### <a name="batch"></a>Batch
+* `--application-package-references` 옵션에 대한 유효성 검사기의 버그가 수정됨
+
+### <a name="botservice"></a>Botservice
+* [호환성이 손상되는 변경] `bot create -v v4 -k webapp`에서 기본적으로 빈 Web App 봇을 만들도록 변경됨(즉, 봇이 App Service에 배포되지 않음)
+* `-v v4`에서 이전 동작을 사용하도록 `--echo` 플래그가 `bot create`에 추가됨
+* [호환성이 손상되는 변경] `--version`의 기본값이 `v4`로 변경됨
+  * __참고:__ `bot prepare-publish`는 이전의 기본값을 계속 사용함
+* [호환성이 손상되는 변경] `--lang`에서 `Csharp`이 더 이상 기본값으로 설정되지 않도록 변경됨 명령에 `--lang`이 필요하지만 제공되지 않으면 이제 명령에서 오류가 발생함
+* [호환성이 손상되는 변경] `bot create`에서 `--appid` 및 `--password` 인수가 필수 항목이 되도록 변경되었으며 이제 `ad app create`를 통해 만들어질 수 있음
+* `--appid` 및 `--password` 유효성 검사가 추가됨
+* [호환성이 손상되는 변경] `bot create -v v4`에서 Storage 계정 또는 Application Insights를 만들거나 사용하지 않도록 변경됨
+* [호환성이 손상되는 변경] `bot create -v v3`에서 Application Insights를 사용할 수 있는 지역을 요구하도록 변경됨
+* [호환성이 손상되는 변경] `bot update`에서 이제 봇의 특정 속성에만 영향을 주도록 변경됨
+* [호환성이 손상되는 변경] `--lang` 플래그에서 `Node` 대신 `Javascript`를 허용하도록 변경됨
+* [호환성이 손상되는 변경] `Node`가 허용되는 `--lang` 값으로 제거됨
+* [호환성이 손상되는 변경] `bot create -v v4 -k webapp`에서 `SCM_DO_BUILD_DURING_DEPLOYMENT`가 더 이상 true로 설정되지 않도록 변경됨. Kudu를 통한 모든 배포가 해당 기본 동작에 따라 작동함
+* `.bot` 파일이 없는 봇에 대한 `bot download`에서 해당 봇에 대한 애플리케이션 설정 값을 사용하여 언어별 구성 파일을 만들도록 변경됨
+* `bot prepare-deploy`에 `Typescript` 지원이 추가됨
+* `--code-dir`에 `package.json`이 포함되어 있지 않은 경우 `Javascript` 및 `Typescript` 봇에 대한 경고 메시지가 `bot prepare-deploy`에 추가됨
+* 성공하면 `bot prepare-deploy`에서 `true`를 반환하도록 변경됨
+* `bot prepare-deploy`에 자세한 정보 로깅이 추가됨
+* `az bot create -v v3`에 더 많은 사용 가능한 Application Insights 지역이 추가됨
+
+### <a name="configure"></a>구성
+* 폴더 기반 인수 기본값 구성이 지원됨
+
+### <a name="eventhubs"></a>Event Hubs
+* `namespace network-rule` 명령이 추가됨
+* 네트워크 규칙에 대한 `--default-action` 인수가 `namespace [create|update]`에 추가됨
+
+### <a name="network"></a>네트워크
+* [호환성이 손상되는 변경] `vnet [create|update]`에 대한 `--cache` 인수가 `--defer`로 바뀜 
+
+### <a name="policy-insights"></a>Policy Insights
+* `--expand PolicyEvaluationDetails`에서 리소스에 대한 정책 평가 세부 정보를 쿼리하도록 지원됨
+
 ### <a name="role"></a>역할
 * [사용 되지 않음] `create-for-rbac` hide '- password' 인수 변경 - 2019년 5월에 지원이 제거됩니다.
+
+### <a name="service-bus"></a>Service Bus
+* `namespace network-rule` 명령이 추가됨
+* 네트워크 규칙에 대한 `--default-action` 인수가 `namespace [create|update]`에 추가됨
+* `topic [create|update]`의 `--max-size`에서 프리미엄 SKU를 통해 10, 20, 40 및 80GB 값을 지원할 수 있도록 수정됨
+
+### <a name="sql"></a>SQL
+* `sql virtual-cluster [list|show|delete]` 명령이 추가됨
+
+### <a name="vm"></a>VM
+* VMSS VM 인스턴스의 보호 정책 업데이트를 사용하도록 설정하기 위해 `--protect-from-scale-in` 및 `--protect-from-scale-set-actions`가 `vmss update`에 추가됨
+* VMSS VM 인스턴스의 일반 업데이트를 사용하도록 설정하기 위해 `--instance-id`가 `vmss update`에 추가됨
+* `vmss wait`에 `--instance-id` 추가
+* 근접 배치 그룹 관리를 위해 새 `ppg` 명령 그룹이 추가됨
+* PPG 관리를 위해 `--ppg`가 `[vm|vmss] create` 및 `vm availability-set create`에 추가됨
+* `--hyper-v-generation` 매개 변수가 `image create`에 추가됨
 
 ## <a name="april-23-2019"></a>2019년 4월 23일
 
@@ -570,7 +683,7 @@ Version 2.0.63
 버전 2.0.54
 ### <a name="appservice"></a>App Service
 * `webapp up`의 재배포 실패 문제가 해결됨
-* 웹앱 스냅샷 목록 및 복원에 대한 지원이 추가됨
+* 웹앱 스냅숏 목록 및 복원에 대한 지원이 추가됨
 * Windows 함수 앱 `--runtime` 플래그에 대한 지원이 추가됨
 
 ### <a name="iotcentral"></a>IoTCentral
@@ -2298,7 +2411,7 @@ Version 2.0.35
 * 저장소 V1 계정을 저장소 V2로 마이그레이션할 때의 문제 해결
 * 모든 upload/download 명령에 대한 진행률 보고 추가
 * `storage account check-name`에서 "-n" 인수 옵션을 방해하는 버그 수정
-* `blob [list|show]`에 대한 테이블 출력에 'snapshot' 열 추가
+* `blob [list|show]`에 대한 테이블 출력에 '스냅샷' 열 추가
 * Ints로 구문 분석되어야 하는 여러 매개 변수의 버그 수정
 
 ### <a name="vm"></a>VM
