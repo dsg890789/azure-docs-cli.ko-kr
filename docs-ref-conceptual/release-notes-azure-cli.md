@@ -4,19 +4,52 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/21/2019
+ms.date: 06/05/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 5b4bcde8c4a66ccc378abc00468cbdb423f07fa4
-ms.sourcegitcommit: 3fe3502ec5af89939155285bb5e741b08af604cd
+ms.openlocfilehash: b79d76480c3e6619427d6a7e3960f53b691889cc
+ms.sourcegitcommit: 6aca5a788b9731e6cbeeb497c83a9197ebb7d36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197790"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750240"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="june-4-2019"></a>2019년 6월 4일
+
+버전 2.0.66
+
+### <a name="core"></a>코어
+* `--output yaml`을 `--query`와 함께 사용하는 경우 명령이 실패하는 버그가 수정됨
+
+### <a name="acr"></a>ACR
+* 빌드 팩을 사용하여 빠른 빌드 작업을 만드는 'acr pack' 명령 그룹이 추가됨
+
+### <a name="acs"></a>ACS
+* AKS kube-dashboard 추가 기능에 대한 사용/사용 안 함 설정이 허용됨
+* 구독이 Azure Red Hat OpenShift를 사용하기 위한 허용 목록에 없는 경우 친숙한 메시지가 출력됨
+
+### <a name="batch"></a>Batch
+* 계정에 로그인되지 않는 \[[#9165](https://github.com/Azure/azure-cli/issues/9165)\]\[[#8978](https://github.com/Azure/azure-cli/issues/8978)\] 오류에 대한 처리가 향상됨
+
+### <a name="iot"></a>IoT
+* 수동 장애 조치 지원이 추가됨
+
+### <a name="network"></a>네트워크
+* 사용자 지정 WAF 규칙을 지원하는 `network application-gateway waf-policy` 명령이 추가됨
+* `--waf-policy` 및 `--max-capacity` 인수를 `network application-gateway [create|update]`에 추가 
+
+### <a name="resource"></a>리소스
+* 사용 가능한 TTY가 없을 때 `deployment create`에서 나타나는 오류 메시지가 향상됨
+
+### <a name="role"></a>역할
+* 도움말 텍스트가 업데이트됨
+
+### <a name="compute"></a>컴퓨팅
+* 0에서 시작하지 않거나 숫자를 건너뛰는 데이터 디스크 LUN이 있는 관리형 이미지의 VM에 대한 `vm create` 지원이 추가됨
 
 ## <a name="may-21-2019"></a>2019년 5월 21일
 
@@ -332,7 +365,7 @@ Version 2.0.63
 
 ## <a name="march-12-2019"></a>2019년 3월 12일
 
-2.0.60 버전
+2\.0.60 버전
 
 ### <a name="core"></a>코어
 
