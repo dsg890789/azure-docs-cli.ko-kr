@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 5e187025e97b1d882bc575fd51970a8250f6210e
-ms.sourcegitcommit: bf69c95abf3ed3d589b202c7ff04d8782e2a81ac
+ms.openlocfilehash: e878c467f71423cc8c9caa1f8cfe270d0019c48b
+ms.sourcegitcommit: 399f0a2997675fbb280243e4234cf63c3bbca819
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65993042"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67194862"
 ---
 # <a name="query-azure-cli-command-output"></a>Azure CLI 명령 출력 쿼리
 
@@ -126,7 +126,7 @@ echo $USER
 "azureuser"
 ```
 
-이는 거의 확실히 원하는 작업이 아닙니다. 이 경우 반환된 값을 형식 정보와 함께 포함하지 않는 출력 형식을 사용할 수 있습니다. 이 용도를 위해 CLI에서 제공하는 최상의 출력 옵션은 `tsv`(탭으로 구분된 값)입니다. 특히 사전이나 목록이 아닌 단일 값만 검색하는 경우 `tsv` 출력은 따옴표가 출력되지 않도록 보장합니다.
+이는 거의 확실히 원하는 작업이 아닙니다. 이 경우 반환된 값을 형식 정보와 함께 포함하지 않는 출력 형식을 사용할 수 있습니다. 이 용도를 위해 CLI에서 제공하는 최상의 출력 옵션은 `tsv`(탭으로 구분된 값)입니다. 특히 단일 값(사전이나 목록이 아닌)인 값만 검색할 때 `tsv` 출력이 인용되지 않도록 보장됩니다.
 
 ```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'osProfile.adminUsername' -o tsv

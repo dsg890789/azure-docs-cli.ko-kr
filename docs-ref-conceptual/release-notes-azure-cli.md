@@ -4,19 +4,104 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/05/2019
+ms.date: 06/18/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: b79d76480c3e6619427d6a7e3960f53b691889cc
-ms.sourcegitcommit: 6aca5a788b9731e6cbeeb497c83a9197ebb7d36e
+ms.openlocfilehash: 8431946b169b550bfd3f5120cf26e2feeb5c9f2c
+ms.sourcegitcommit: 399f0a2997675fbb280243e4234cf63c3bbca819
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750240"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67194854"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="june-18-2019"></a>2019년 6월 18일
+
+2\.0.67 버전
+
+### <a name="core"></a>코어
+
+이 릴리스에서는 명령 그룹, 명령 또는 인수가 미리 보기 상태에 있을 때 고객에게 보다 명확하게 알릴 수 있는 새로운 [미리 보기] 태그가 도입되었습니다. 이것은 이전에 도움말 텍스트에서 호출되었거나 명령 모듈 버전 번호에 의해 암시적으로 전달되었습니다.
+CLI는 앞으로 개별 패키지의 버전 번호를 제거합니다. 명령이 미리 보기 상태이면 해당 인수도 모두 같습니다. 명령 그룹이 미리 보기로 레이블링된 경우 모든 명령과 인수도 미리 보기로 간주됩니다.
+
+이 변경으로 인해 여러 명령 그룹이 "갑자기" 이 릴리스의 미리 보기 상태에 있는 것처럼 보일 수 있습니다. 실제로는 대부분의 패키지가 미리 보기 상태였지만 이 릴리스에서는 GA로 간주됩니다.
+
+### <a name="acr"></a>ACR
+* 'acr check-health' 명령이 추가됨
+* AAD 토큰 및 외부 명령 검색의 오류 처리 개선
+
+### <a name="acs"></a>ACS
+* 사용되지 않는 ACS 명령이 도움말 보기에서 숨겨짐
+
+### <a name="ams"></a>AMS
+* [호환성이 손상되는 변경] archive-window-length 및 key-frame-interval-duration에 대한 ISO 8601 시간 문자열을 반환하도록 변경됨
+
+### <a name="appservice"></a>AppService
+* `webapp deleted list` 및 `webapp deleted restore`에 대한 위치 기반 라우팅을 추가
+* Azure Cloud Shell에서 웹앱의 업로깅된 대상 URL("...에서 앱을 시작할 수 있습니다")을 클릭할 수 없는 이슈가 수정됨
+* AlwaysOn 오류로 일부 SKU가 포함된 앱을 만들지 못하는 이슈가 해결됨
+* 추가 사전 유효성 검사를 `[appservice|webapp] create`에 추가
+* 올바른 actionHostName을 사용하도록 `[webapp|functionapp] traffic-routing` 수정
+* `functionapp` 명령에 대한 슬롯 지원이 추가됨
+
+### <a name="batch"></a>Batch
+* 공유 키 인증에 대한 과도한 오류 보고로 인해 AAD 인증 회귀가 수정됨
+
+### <a name="batchai"></a>BatchAI
+* BatchAI 명령은 이제 사용되지 않고 숨겨집니다
+
+### <a name="botservice"></a>BotService
+* v3 SDK를 지원하는 명령에 대한 "지원 중단"/ "유지 관리 모드" 경고 메시지 추가
+
+### <a name="cosmosdb"></a>CosmosDB
+* [사용 되지 않음] `cosmosdb list-keys` 명령이 사용되지 않음
+* `cosmosdb keys list` 명령이 추가됨 - `cosmosdb list-keys` 명령을 대체
+* `cosmsodb create/update`: "isZoneRedundant"속성을 설정할 수 있도록 --location에 대한 새로운 형식이 추가되었습니다. 이전 형식은 사용되지 않음
+
+### <a name="eventgrid"></a>EventGrid
+* 도메인 CRUD 작업에 `eventgrid domain` 명령이 추가됨
+* 도메인 토픽 CRUD 작업에 `eventgrid domain topic` 명령이 추가됨
+* OData 구문을 사용하여 결과를 필터링하기 위해 `eventgrid [topic|event-subscription] list`에 `--odata-query` 인수가 추가됨
+* `event-subscription create/update`: `--endpoint-type` 매개 변수의 새 값으로 servicebusqueue 추가
+* [호환성이 손상되는 변경] `eventgrid event-subscription [create|update]`를 사용하여 `--included-event-types All`에 대한 지원 제거
+
+### <a name="hdinsight"></a>HDInsight
+* `hdinsight create` 명령에서 `--ssh-public-key` 매개 변수에 대한 지원 추가
+
+### <a name="iot"></a>IoT
+* 권한 부여 정책 키를 다시 생성하기 위한 지원 추가
+* DigitalTwin Repository Provisioning Service에 대한 SDK 및 지원 추가
+
+### <a name="network"></a>네트워크
+* Nat 게이트웨이에 대한 영역 지원 추가
+* 명령 `network list-service-tags` 추가됨
+* 사용자가 와일드카드 A 레코드를 가져올 수 없는 `dns zone import` 이슈가 해결됨
+* 특정 영역에서 흐름 로깅을 활성화할 수 없는 `watcher flow-log configure` 이슈가 해결됨
+
+### <a name="resource"></a>리소스
+* REST 호출 마킹을 위한 `az rest` 명령 추가
+* 리소스 그룹 또는 구독 수준 `--scope`에 `policy assignment list`를 사용할 때의 오류 수정
+
+### <a name="servicebus"></a>ServiceBus
+* `servicebus topic create --max-size` [#9319](https://github.com/azure/azure-cli/issues/9319) 이슈가 해결됨
+
+### <a name="sql"></a>SQL
+* `sql [server|mi] create`에 대해 `--location`을 선택 사항으로 변경했습니다 - 지정되지 않은 경우 리소스 그룹 위치를 사용합니다.
+* `sql db list-editions --available`에 대해 “’NoneType’ 객체 반복 불가” 오류를 수정했습니다.
+
+### <a name="sqlvm"></a>SQLVm
+* [호환성이 손상되는 변경] `--license-type` 매개 변수가 필수 매개 변수가 되도록 `sql vm create` 변경
+* sql vm을 만들거나 업데이트하는 경우 SQL 이미지 SKU 설정을 허용하도록 변경
+
+### <a name="storage"></a>Storage
+* `storage container generate-sas`에 대한 계정 키 누락 이슈가 해결됨
+* Linux에서 `storage blob sync` 이슈 해결
+
+### <a name="vm"></a>VM
+* [미리 보기] VM 이미지 작성을 위해 `vm image template` 명령이 추가됨
 
 ## <a name="june-4-2019"></a>2019년 6월 4일
 
