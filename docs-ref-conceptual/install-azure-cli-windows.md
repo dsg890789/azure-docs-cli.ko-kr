@@ -63,14 +63,14 @@ MSI를 가져오려면 프록시에서 다음 주소에 대한 HTTPS 연결을 �
 
 [!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-Windows의 "앱 및 기능" 목록에서 Azure CLI를 제거 할 수 있습니다. 제거하려면:
+Windows의 "앱 및 기능" 목록에서 Azure CLI를 제거 할 수 있습니다. 제거 방법은 다음과 같습니다.
 
 | 플랫폼 | 지침 |
 |---|---|
 | 윈도우 10 | 시작 > 설정 > 앱 |
 | Windows 8<br/>Windows 7 | 시작>제어판 > 프로그램 > 프로그램 제거 |
 
-이 화면에서 __Azure CLI__를 프로그램 검색 창에 입력하세요. 제거할 프로그램은 __Azure용 Microsoft CLI 2.0__으로 나열됩니다. 이 애플리케이션을 선택한 다음 `Uninstall` 단추를 클릭합니다.
+이 화면에서 __Azure CLI__ 를 프로그램 검색 창에 입력하세요. 제거할 프로그램은 __Azure용 Microsoft CLI 2.0__ 으로 나열됩니다. 이 애플리케이션을 선택한 다음 `Uninstall` 단추를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
