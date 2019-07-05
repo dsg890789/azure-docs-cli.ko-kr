@@ -4,19 +4,96 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/18/2019
+ms.date: 07/02/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 8431946b169b550bfd3f5120cf26e2feeb5c9f2c
-ms.sourcegitcommit: 399f0a2997675fbb280243e4234cf63c3bbca819
+ms.openlocfilehash: 26757193628cff65603a04e440f9e2aa7bf5a248
+ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67194854"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67527308"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="july-2-2019"></a>2019년 7월 2일
+
+Version 2.0.68
+
+### <a name="core"></a>코어
+
+* 명령 모듈은 이제 단일 Python 배포 패키지로 통합됩니다. 따라서 PyPI의 많은 `azure-cli-` 패키지를 직접 사용하지 않습니다.
+  이를 통해 설치 크기를 줄이고 `pip`를 통해 직접 설치한 사용자에게만 영향을 주게 됩니다.
+
+### <a name="acr"></a>ACR
+
+* 작업에 타이머 트리거에 대한 지원 추가
+
+### <a name="appservice"></a>App Service
+
+* 기본값으로 애플리케이션 인사이트를 사용하도록 `functionapp create` 변경
+* [호환성이 손상되는 변경] 사용되지 않는 `functionapp devops-build` 제거
+  *  대신 새 명령 `az functionapp devops-pipeline` 사용
+* `functionapp deployment config-zip`에 Linux 사용 함수 앱 계획 지원 추가
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* TTL을 사용하지 않도록 설정하는 지원 추가
+
+### <a name="dls"></a>DLS
+
+* 업데이트된 ADLS 버전(0.0.45)
+
+### <a name="feedback"></a>사용자 의견
+
+* 실패한 확장 명령을 보고할 때, `az feedback`은 이제 브라우저에서 인덱스 확장의 프로젝트/리포지토리 URL을 열려고 시도합니다.
+
+### <a name="hdinsight"></a>HDInsight
+
+* [호환성이 손상되는 변경] `oms` 명령 그룹 이름을 `monitor`로 변경
+* [호환성이 손상되는 변경] 필수 매개 변수로 `--http-password/-p` 변경 
+* `--cluster-admin-account` 및 `cluster-users-group-dns` 매개 변수 완성자에 대한 완성자 추가 
+* `—esp`가 있을 때 `cluster-users-group-dns` 매개 변수가 필수가 되도록 변경
+* 모든 기존 인수 자동-완성자에 대한 시간 제한 추가
+* 리소스 이름을 리소스 ID로 변환하기 위한 시간 제한 추가
+* 자동 완성자를 모든 리소스 그룹에서 리소스를 선택하도록 변경했습니다. `-g`로 지정한 리소스 그룹과 다를 수 있습니다.
+* `hdinsight application create` 명령에서 `--sub-domain-suffix` 및 `--disable_gateway_auth` 매개 변수에 대한 지원이 추가됨
+
+### <a name="managed-services"></a>관리 서비스
+
+* 미리 보기 관리 서비스 명령 모듈 소개
+
+### <a name="profile"></a>프로필
+* 로그 아웃 명령에 대한 `--subscription` 인수 표시하지 않음
+
+### <a name="rbac"></a>RBAC
+
+* [호환성이 손상되는 변경] `create-for-rbac`에 대한 `--password` 인수가 제거됨
+* AAD 그래프 서버 복제 대기 시간으로 인한 일시적인 실패를 피하기 위해 `create` 명령에 `--assignee-principal-type` 매개 변수가 추가됨
+* 소유 개체를 나열할 때 `ad signed-in-user`에서의 충돌 수정
+* `ad sp`가 서비스 주체로부터 올바른 애플리케이션을 찾지 못하는 문제가 해결됨
+
+### <a name="rdbms"></a>RDBMS
+
+* MariaDB에 대한 복제 지원 추가
+
+### <a name="sql"></a>SQL
+
+* `sql db create --sample-name`에 허용되는 값이 문서화됨
+
+### <a name="storage"></a>Storage
+
+* `--as-user`를 사용하여 `storage blob generate-sas`에 사용자 위임 SAS 토큰 지원을 추가함 
+* `--as-user`를 사용하여 `storage container generate-sas`에 사용자 위임 SAS 토큰 지원을 추가함 
+
+### <a name="vm"></a>VM
+
+* `vmss create`가 `--no-wait`와 실행될 때 오류 메시지를 반환하는 버그가 수정됨
+* `vmss create --single-placement-group`에 대한 클라이언트 측 유효성 검사 제거 `--single-placement-group`이 `true`로 설정되고 `--instance-count`이 100보다 크거나 가용성 영역이 지정되면 실패하지 않지만, 이 유효성 검사는 컴퓨팅 서비스에 남겨 둡니다.
+* `[vm|vmss] extension image list`가 `--latest`와 함께 사용하면 실패하는 버그 수정
+
 
 ## <a name="june-18-2019"></a>2019년 6월 18일
 

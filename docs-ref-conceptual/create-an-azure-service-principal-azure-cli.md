@@ -8,12 +8,12 @@ ms.date: 02/15/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 7ead12b35cefd7cba9e06f7905c9267c569d98dd
-ms.sourcegitcommit: 014d89aa21f90561eb69792ad01947e481ea640a
+ms.openlocfilehash: 6d88400b8d7070cf2f9dba2f3e124edfe2e3163d
+ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741720"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67527331"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Azure CLI를 사용하여 Azure 서비스 주체 만들기
 
@@ -35,21 +35,14 @@ Azure 서비스 주체는 애플리케이션, 호스팅된 서비스 및 자동�
 
 ### <a name="password-based-authentication"></a>암호 기반 인증
 
-인증 매개 변수가 없으면 임의로 만든 암호를 통한 암호 기반 인증이 사용됩니다. 암호 기반 인증을 원하는 경우 이 메서드를 사용하는 것이 좋습니다.
+인증 매개 변수가 없으면 임의로 만든 암호를 통한 암호 기반 인증이 사용됩니다.
 
   ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName
   ```
 
-사용자가 제공한 암호의 경우 `--password` 인수를 사용합니다. 암호를 만드는 경우 [Azure Active Directory 암호 규칙 및 제한](/azure/active-directory/active-directory-passwords-policy)을 따라야 합니다. 취약한 암호를 사용하거나 암호를 다시 사용하지 마세요.
-
-  ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --password <Choose a strong password>
-  ```
-
-  > [!IMPORTANT]
-  >
-  > 보안상의 이유로 서비스 주체를 만들기 위한 `--password` 인수는 이후 릴리스에서 더 이상 사용되지 않습니다. 암호 기반 인증을 사용하려면 `--password`를 사용하지 않고 CLI에서 보안 암호를 생성하도록 합니다.
+> [!IMPORTANT]
+> Azure CLI 2.0.68부터 약한 암호를 실수로 사용하는 것을 방지하기 위해 사용자 정의 암호로 서비스 주체를 만드는 `--password` 매개 변수가 __더 이상 지원되지 않습니다__.
 
 암호 인증을 사용하는 서비스 주체의 출력에는 `password` 키가 포함되어 있습니다. 이 값은 검색할 수 없으므로 __복사해야 합니다__. 암호를 잊어버린 경우 [서비스 주체 자격 증명을 다시 설정](#reset-credentials)하세요.
 
