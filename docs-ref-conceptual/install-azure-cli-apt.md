@@ -112,7 +112,7 @@ Acquire {
 }
 ```
 
-프록시에서 기본 인증을 사용하지 않는 경우 프록시 URI의 `[username]:[password]@` 부분을 __제거__합니다. 프록시 구성에 대한 자세한 내용은 다음과 같은 공식 Ubuntu 문서를 참조하세요.
+프록시에서 기본 인증을 사용하지 않는 경우 프록시 URI의 `[username]:[password]@` 부분을 __제거__ 합니다. 프록시 구성에 대한 자세한 내용은 다음과 같은 공식 Ubuntu 문서를 참조하세요.
 
 * [apt.conf manpage](http://manpages.ubuntu.com/manpages/bionic/en/man5/apt.conf.5.html)
 * [Ubuntu wiki - apt-get howto](https://help.ubuntu.com/community/AptGet/Howto#Setting_up_apt-get_to_use_a_http-proxy)
