@@ -67,7 +67,7 @@ curl https://azurecliprod.blob.core.windows.net/install | bash
 
 ### <a name="az-command-not-found"></a>`az` 명령을 찾을 수 없음
 
-설치 후 명령을 실행할 수 없는 경우 `bash` 또는 `zsh`를 이용해 셸의 명령 해시 캐시를 지웁니다. 실행
+설치 후 명령을 실행할 수 없는 경우 `bash` 또는 `zsh`를 이용해 셸의 명령 해시 캐시를 지웁니다. 다음을 실행 합니다.
 
 ```bash
 hash -r
@@ -75,7 +75,7 @@ hash -r
 
 한 다음 문제가 해결되었는지 확인합니다.
 
-설치 후 셸을 다시 시작하지 않아도 이 문제가 발생할 수 있습니다. `az` 명령의 위치가 `$PATH`여야 합니다. `az` 명령의 위치는
+설치 후 셸을 다시 시작하지 않아도 이 문제가 발생할 수 있습니다. `az` 명령의 위치가 `$PATH`여야 합니다. `az` 명령의 위치는는 다음과 같습니다.
 
 ```bash
 <install path>/bin
