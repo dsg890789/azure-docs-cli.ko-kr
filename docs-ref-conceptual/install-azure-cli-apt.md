@@ -31,7 +31,7 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
 
 ## <a name="install"></a>설치
 
-`apt`를 지원하는 배포판을 사용하여 Azure CLI를 설치하는 두 가지 방법을 제공합니다. 설치 명령을 실행하는 올인원 스크립트 및 단계별 절차로 직접 실행할 수 있는 지침.
+`apt`를 지원하는 배포판을 사용하여 Azure CLI를 설치하는 두 가지 방법은 설치 명령을 실행하는 올인원 스크립트 및 단계별 절차로 직접 실행할 수 있는 지침입니다.
 
 ### <a name="install-with-one-command"></a>하나의 명령을 사용하여 설치
 
@@ -123,7 +123,7 @@ Microsoft 서명 키를 가져오고 리포지토리에서 패키지를 가져�
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
-## <a name="update"></a>주 지역에서
+## <a name="update"></a>
 
 `apt-get upgrade`를 사용하여 CLI 패키지를 업데이트합니다.
 
