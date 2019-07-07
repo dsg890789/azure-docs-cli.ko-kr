@@ -75,7 +75,7 @@ Microsoft 서명 키를 가져오고 리포지토리에서 패키지를 가져�
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
-## <a name="update"></a>주 지역에서
+## <a name="update"></a>
 
 `zypper update` 명령을 사용하여 패키지를 업데이트할 수 있습니다.
 
