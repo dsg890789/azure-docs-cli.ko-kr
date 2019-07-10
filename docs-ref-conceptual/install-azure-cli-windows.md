@@ -63,7 +63,7 @@ MSI를 가져오려면 프록시에서 다음 주소에 대한 HTTPS 연결을 �
 
 [!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-Windows의 "앱 및 기능" 목록에서 Azure CLI를 제거 할 수 있습니다. 제거 방법은 다음과 같습니다.
+Windows의 "앱 및 기능" 목록에서 Azure CLI를 제거할 수 있습니다. 제거 방법은 다음과 같습니다.
 
 | 플랫폼 | 지침 |
 |---|---|
