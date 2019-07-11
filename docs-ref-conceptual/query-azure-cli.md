@@ -24,7 +24,7 @@ Azure CLI는 `--query` 인수를 사용하여 명령의 결과에 대해 [JMESPa
 
 ## <a name="dictionary-and-list-cli-results"></a>사전 및 CLI 결과 목록
 
-JSON이 아닌 출력 형식을 사용하는 경우에도 CLI 명령 결과는 먼저 쿼리용 JSON으로 처리됩니다. CLI 결과는 JSON 배열 또는 사전입니다. 배열은 인덱싱할 수 있는 개체의 시퀀스이며 사전은 키를 사용하여 액세스되는 정렬되지 않은 개체입니다. 둘 이상의 개체를 반환할 _수 있는_ 명령은 배열을 반환하고 _항상_ 단일 개체 _만_ 반환하는 명령은 사전을 반환합니다.
+JSON이 아닌 출력 형식을 사용하는 경우에도 CLI 명령 결과는 먼저 쿼리용 JSON으로 처리됩니다. CLI 결과는 JSON 배열 또는 사전입니다. 배열은 인덱싱할 수 있는 개체의 시퀀스이며 사전은 키를 사용하여 액세스되는 정렬되지 않은 개체입니다. 둘 이상의 개체를 반환할 _수 있는_ 명령은 배열을 반환하고 _항상_ 단일 개체_만_ 반환하는 명령은 사전을 반환합니다.
 
 ## <a name="get-properties-in-a-dictionary"></a>사전에 속성 가져오기
 
@@ -105,7 +105,7 @@ az vm show -g QueryDemo -n TestVM --query '[name, osProfile.adminUsername, osPro
 
 ## <a name="get-a-single-value"></a>단일 값 가져오기
 
-일반적으로 Azure 리소스 ID, 리소스 이름, 사용자 이름 또는 암호와 같은 CLI 명령에서는 _하나_ 의 값만 가져와야 합니다. 이 경우 값을 로컬 환경 변수에 저장하려는 경우도 많습니다. 단일 속성을 가져오려면 먼저 쿼리에서 하나의 속성만 가져오도록 합니다. 관리 사용자 이름만 가져오도록 마지막 예제를 다음과 같이 수정합니다.
+일반적으로 Azure 리소스 ID, 리소스 이름, 사용자 이름 또는 암호와 같은 CLI 명령에서는 _하나_의 값만 가져와야 합니다. 이 경우 값을 로컬 환경 변수에 저장하려는 경우도 많습니다. 단일 속성을 가져오려면 먼저 쿼리에서 하나의 속성만 가져오도록 합니다. 관리 사용자 이름만 가져오도록 마지막 예제를 다음과 같이 수정합니다.
 
 ```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'osProfile.adminUsername' -o json
