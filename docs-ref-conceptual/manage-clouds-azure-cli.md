@@ -24,7 +24,7 @@ ms.locfileid: "56458691"
 
 [az cloud list](/cli/azure/cloud#az-cloud-list) 명령을 사용하여 사용 가능한 클라우드를 나열할 수 있습니다. 이 명령으로 현재 활성 클라우드, 현재 프로필, 지역별 접미사 및 호스트 이름에 대한 정보를 알 수 있습니다.
 
-활성 클라우드와 모든 사용 가능한 클라우드 목록을 가져오려면:
+다음과 같이 활성 클라우드와 모든 사용 가능한 클라우드 목록을 가져옵니다.
 
 ```azurecli-interactive
 az cloud list --output table

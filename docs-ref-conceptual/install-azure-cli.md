@@ -19,7 +19,7 @@ ms.locfileid: "56421901"
 ---
 # <a name="install-the-azure-cli"></a>Azure CLI 설치
 
-Azure CLI는 Azure 리소스를 관리하기 위한 훌륭한 경험을 제공하는 명령줄 도구입니다. CLI는 스크립팅을 쉽게 하고, 데이터를 쿼리하고, 장기 실행 작업을 지원하기 위해 디자인되었습니다. 지금 시도해 CLI가 무엇을 제공하는지 확인!
+Azure CLI는 Azure 리소스를 관리하기 위한 훌륭한 경험을 제공하는 명령줄 도구입니다. CLI는 스크립팅을 쉽게 하고, 데이터를 쿼리하고, 장기 실행 작업을 지원하기 위해 디자인되었습니다. CLI에서 제공하는 기능을 지금 확인하세요.
 
 [!INCLUDE [current-version](includes/current-version.md)]
 

@@ -757,7 +757,7 @@ Version 2.0.63
 
 ### <a name="appservice"></a>App Service
 * App Insights에서 `functionapp create`를 지원할 수 있습니다.
-* App Service 계획 만들기(탄력성 프리미엄 포함)에 대한 지원이 Function Apps에 추가되었습니다.
+* App Service 계획 만들기(탄력성 프리미엄 포함)에 대한 지원이 함수 앱에 추가되었습니다.
 * 탄력적 프리미엄 요금제와 관련된 앱 설정 문제가 해결되었습니다.
 
 ### <a name="container"></a>컨테이너

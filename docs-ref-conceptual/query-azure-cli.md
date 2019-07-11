@@ -271,7 +271,7 @@ az vm list -g QueryDemo --query "[?contains(storageProfile.osDisk.managedDisk.st
 ]
 ```
 
-이 쿼리는 약간 깁니다. `storageProfile.osDisk.managedDisk.storageAccountType` 키는 두 번 언급되며 출력에서 키가 다시 입력됩니다. 이를 줄이는 한 가지 방법은 데이터를 평면화 하고 선택한 후 필터링을 적용하는 것입니다.
+이 쿼리는 약간 깁니다. `storageProfile.osDisk.managedDisk.storageAccountType` 키는 두 번 언급되며 출력에서 키가 다시 입력됩니다. 이를 줄이는 한 가지 방법은 데이터를 평면화하고 선택한 후 필터링을 적용하는 것입니다.
 
 ```azurecli-interactive
 az vm list -g QueryDemo --query "[].{Name:name, Storage:storageProfile.osDisk.managedDisk.storageAccountType}[?contains(Storage,'SSD')]" -o json

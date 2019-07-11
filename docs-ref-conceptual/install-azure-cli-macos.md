@@ -74,7 +74,7 @@ Homebrew에서 bottle 리소스를 가져오려면 프록시에서 다음 주소
 * `https://formulae.brew.sh`
 * `https://homebrew.bintray.com`
 
-## <a name="update"></a>주 지역에서
+## <a name="update"></a>업데이트
 
 CLI는 버그 픽스, 향상된 기능, 새로운 기능 및 미리 보기 기능이 정기적으로 업데이트됩니다. 약 2주마다 새 릴리스가 제공됩니다. 로컬 리포지토리 정보를 업데이트한 후 `azure-cli` 패키지를 업그레이드해야 합니다.
 
