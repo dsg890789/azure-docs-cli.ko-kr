@@ -4,19 +4,63 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/02/2019
+ms.date: 07/16/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 26757193628cff65603a04e440f9e2aa7bf5a248
-ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
+ms.openlocfilehash: 8cb0e2f43a3f40fdf15a00ebc7bdb931bf8f41f0
+ms.sourcegitcommit: 49e1dea60942fce02d9c3ce249ac633a83f303e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67527308"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68246915"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="july-16-2019"></a>2019년 7월 16일
+
+Version 2.0.69
+
+### <a name="appservice"></a>App Service
+
+* ResourceGroupName 또는 애플리케이션 이름이 유효하지 않은 경우 올바른 오류 메시지를 반환하도록 `webapp identity` 명령이 변경됨
+* ResourceGroup이 제공되지 않은 경우 numberOfSites에 대한 올바른 값을 반환하도록 `webapp list` 수정
+* `appservice plan create` 및 `webapp create`의 부작용 수정
+
+### <a name="core"></a>코어
+
+* 적용할 수 없음에도 불구하고 `--subscription`이 나타나는 문제가 수정됨
+
+### <a name="batch"></a>Batch
+
+* [호환성이 손상되는 변경] `batch pool node-agent-skus list`를 `batch pool supported-images list`로 대체
+* `batch pool create network`의 `--json-file` 옵션을 사용할 때 트래픽의 소스 포트를 기반으로 풀에 대한 네트워크 액세스를 차단하는 보안 규칙에 대한 지원이 추가됨
+* `batch task create`의 `--json-file` 옵션을 사용할 때 컨테이너 작업 디렉터리 또는 일괄 처리 작업 디렉터리에서 작업을 실행하도록 지원이 추가됨
+* `batch pool create`의 `--application-package-references` 옵션에서 기본값으로만 작동하는 오류가 수정됨
+
+### <a name="eventhubs"></a>Event Hubs
+
+* `authorizationrule` 명령의 `--rights` 매개 변수에 대한 유효성 검사를 추가
+
+### <a name="rdbms"></a>RDBMS
+
+* 복제본 명령을 만들기 위해 복제본 SKU를 지정하는 선택적 매개 변수가 추가됨
+* MySQL 복제본 생성 시 CI 테스트 실패 문제 수정
+
+### <a name="relay"></a>릴레이
+
+* 클라이언트 인증이 비활성화[#8775](https://github.com/azure/azure-cli/issues/8775)된 경우의 하이브리드 연결 문제 해결
+* `--requires-transport-security` 매개 변수가 `relay wcfrelay create`에 추가됨
+
+### <a name="servicebus"></a>Servicebus
+
+* `authorizationrule` 명령의 `--rights` 매개 변수에 대한 유효성 검사를 추가
+
+### <a name="storage"></a>Storage
+
+* 스토리지 계정 업데이트를 위해 파일 AADDS 사용 설정
+* 문제 `storage blob service-properties update --set` 해결
 
 ## <a name="july-2-2019"></a>2019년 7월 2일
 

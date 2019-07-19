@@ -4,17 +4,17 @@ description: Azure CLI에 대해 공식적으로 지원되는 확장의 전체 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/30/2019
+ms.date: 07/13/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 63d50a46a81482e260307cdc44adfea6aa4499f1
-ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
+ms.openlocfilehash: 301ecfab1d82feeb3e03d01a79ab6143825ece88
+ms.sourcegitcommit: 49e1dea60942fce02d9c3ce249ac633a83f303e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67527344"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68246939"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI에 대해 사용 가능한 확장
 
@@ -26,7 +26,7 @@ ms.locfileid: "67527344"
 az extension list-available --output table
 ```
 
-| 이름 | 버전 | 요약 | 미리 보기 |
+| Name | 버전 | 요약 | 미리 보기 |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | SAP용 Azure 고급 모니터링 확장 관리 |  |
 | [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.5 | 예정된 AKS 기능에 대한 미리 보기 제공 | 예 |
@@ -35,7 +35,7 @@ az extension list-available --output table
 | [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.1 | Application Insights 구성 요소 관리와 그러한 구성 요소에서 메트릭, 이벤트, 로그의 쿼리를 지원합니다. | 예 |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 3.0.4 | Azure Batch 서비스와 함께 사용하기 위한 추가 명령 |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.7.1 | Azure IoT Hub, IoT Edge 및 IoT 디바이스 프로비전 서비스에 대한 데이터 플레인 명령 계층 제공 |  |
-| [azure-cli-ml](https://docs.microsoft.com/en-us/azure/machine-learning/service/) | 1.0.45.1 | Microsoft Azure 명령줄 도구 AzureML 명령 모듈 |  |
+| [azure-cli-ml](https://docs.microsoft.com/en-us/azure/machine-learning/service/) | 1.0.48 | Microsoft Azure 명령줄 도구 AzureML 명령 모듈 |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.11.0 | Azure DevOps를 관리하는 도구입니다. |  |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.3 | Azure Firewall 리소스를 관리합니다. | 예 |
 | [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.13 | Azure Database 워크플로를 간소화하는 추가 명령입니다. | 예 |
@@ -59,10 +59,10 @@ az extension list-available --output table
 | [netappfiles-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/netappfiles-preview) | 0.3.2 | 예정된 ANF(Azure NetApp Files) 기능에 대한 미리보기를 제공합니다. | 예 |
 | [privatedns](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | 프라이빗 DNS 영역을 관리하는 명령입니다. | 예 |
 | [resource-graph](https://github.com/Azure/azure-cli-extensions/tree/master/src/resource-graph) | 0.1.11 | Resource Graph로 Azure 리소스 쿼리에 대한 지원 | 예 |
-| [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.4.1 | SAP HanaOnAzure 인스턴스와 함께 사용하기 위한 추가 명령 |  |
-| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.2.7 | 예정된 저장소 기능에 대한 미리 보기를 제공합니다. | 예 |
+| [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.5.1 | SAP HanaOnAzure 인스턴스와 함께 사용하기 위한 추가 명령 |  |
+| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.2.8 | 예정된 저장소 기능에 대한 미리 보기를 제공합니다. | 예 |
 | [subscription](https://github.com/Azure/azure-cli-extensions) | 0.1.3 | 구독 관리 미리 보기를 지원합니다. |  |
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | 가상 네트워크 관리 탭(VTAP) | 예 |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.0 | 가상 WAN, 허브, VPN 게이트웨이 및 VPN 사이트를 관리합니다. | 예 |
-| [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.1.1 | VM을 수정하기 위한 자동 복구 명령입니다. |  |
-| [webapp](https://github.com/Azure/azure-cli-extensions/tree/master/src/webapp) | 0.2.19 | Azure AppService에 대한 추가 명령입니다. | 예 |
+| [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.1.2 | VM을 수정하기 위한 자동 복구 명령입니다. |  |
+| [webapp](https://github.com/Azure/azure-cli-extensions/tree/master/src/webapp) | 0.2.20 | Azure AppService에 대한 추가 명령입니다. | 예 |
