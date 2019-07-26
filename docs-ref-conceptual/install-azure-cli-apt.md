@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: f22ada48502602cb4d9b502cb887412a6ddcf5cf
-ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
+ms.openlocfilehash: af20c31f6b387768e93158f1116b3f486f4aedfc
+ms.sourcegitcommit: 52f0a62892c68b5728090f1bfceef7a612104529
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66516334"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68415157"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt를 사용하여 Azure CLI 설치
 
@@ -31,7 +31,7 @@ Ubuntu 또는 Debian과 같이 `apt`와 함께 제공되는 배포판을 실행�
 
 ## <a name="install"></a>설치
 
-`apt`를 지원하는 배포판을 사용하여 Azure CLI를 설치하는 두 가지 방법은 설치 명령을 실행하는 올인원 스크립트 및 단계별 절차로 직접 실행할 수 있는 지침입니다.
+`apt`를 지원하는 배포판을 사용하여 Azure CLI를 설치하는 두 가지 방법을 제공합니다. 설치 명령을 실행하는 올인원 스크립트 및 단계별 절차로 직접 실행할 수 있는 지침.
 
 ### <a name="install-with-one-command"></a>하나의 명령을 사용하여 설치
 
@@ -47,13 +47,13 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 ### <a name="manual-install-instructions"></a>수동 설치 지침
 
-슈퍼 사용자로 스크립트를 실행하지 않으려면 다음 수동 단계에 따라 Azure CLI를 설치하세요.
+슈퍼 사용자로 스크립트를 실행하지 않으려는 경우 또는 범용 스크립트가 실패할 경우 다음 단계에 따라 Azure CLI를 설치하세요.
 
 1. 설치 프로세스에 필요한 패키지를 가져옵니다.
 
     ```bash
     sudo apt-get update
-    sudo apt-get install curl apt-transport-https lsb-release gnupg
+    sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
     ```
 
 2. Microsoft 서명 키를 다운로드하고 설치합니다.
@@ -112,7 +112,7 @@ Acquire {
 }
 ```
 
-프록시에서 기본 인증을 사용하지 않는 경우 프록시 URI의 `[username]:[password]@` 부분을 __제거__ 합니다. 프록시 구성에 대한 자세한 내용은 다음과 같은 공식 Ubuntu 문서를 참조하세요.
+프록시에서 기본 인증을 사용하지 않는 경우 프록시 URI의 `[username]:[password]@` 부분을 __제거__합니다. 프록시 구성에 대한 자세한 내용은 다음과 같은 공식 Ubuntu 문서를 참조하세요.
 
 * [apt.conf manpage](http://manpages.ubuntu.com/manpages/bionic/en/man5/apt.conf.5.html)
 * [Ubuntu wiki - apt-get howto](https://help.ubuntu.com/community/AptGet/Howto#Setting_up_apt-get_to_use_a_http-proxy)
@@ -123,7 +123,7 @@ Microsoft 서명 키를 가져오고 리포지토리에서 패키지를 가져�
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
-## <a name="update">업데이트</a>
+## <a name="update"></a>주 지역에서
 
 `apt-get upgrade`를 사용하여 CLI 패키지를 업데이트합니다.
 
