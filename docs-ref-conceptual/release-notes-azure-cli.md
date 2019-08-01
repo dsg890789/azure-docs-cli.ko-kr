@@ -4,19 +4,64 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/16/2019
+ms.date: 07/30/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 8cb0e2f43a3f40fdf15a00ebc7bdb931bf8f41f0
-ms.sourcegitcommit: 49e1dea60942fce02d9c3ce249ac633a83f303e7
+ms.openlocfilehash: 673014c3fd86e20148fe5ffa9fa5160e490da0cb
+ms.sourcegitcommit: d29d86d33916d5551b4aeb984b06d7a85c4f6b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68246915"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658931"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="july-30-2019"></a>2019년 7월 30일
+
+버전 2.0.70
+
+### <a name="acr"></a>ACR
+
+* #9952 문제(`acr pack build` 명령의 회귀)가 해결됨
+* `acr pack build`의 기본 작성기 이미지 이름이 제거됨
+
+### <a name="appservice"></a>App Service
+
+* 리소스를 찾을 수 없는 경우 메시지를 표시 하도록 `webapp config ssl`을 변경
+* `functionapp create`에서 `Standard_RAGRS` 스토리지 계정 유형을 허용하지 않는 문제가 해결됨
+* 이전 버전의 python을 사용하여 실행할 경우 `webapp up`이(가) 실패하는 문제가 해결됨
+
+### <a name="network"></a>네트워크
+
+* `network nic ip-config add`에서 잘못된 매개 변수 `--ids` 제거됨(#9861 수정)
+* #9604 수정. 사용자가 신뢰할 수 있는 루트 인증서를 연결할 수 있도록 `network application-gateway http-settings [create|update]`에 `--root-certs` 매개 변수를 추가했습니다.
+* `network dns record-set ns create`(#9965)에 대해 인수 `--subscription`을 수정
+
+### <a name="rbac"></a>RBAC
+
+* `user update` 명령이 추가됨
+* [사용 되지 않음] 사용자 관련 명령 중 `--upn-or-object-id`가 사용되지 않음
+    * 대체 인수 `--id` 사용
+* 사용자 관련 명령에 `--id` 인수가 추가됨
+
+### <a name="sql"></a>SQL
+
+* 관리형 인스턴스 키 및 TDE 보호기에 대한 관리 명령이 추가됨
+
+### <a name="storage"></a>Storage
+
+* `storage remove` 명령이 추가됨
+* `storage blob update` 문제가 해결됨
+
+### <a name="vm"></a>VM
+
+* 새로운 API 버전을 사용하여 영역 세부 정보를 출력하도록 `list-skus`를 변경
+* `vmss create`에 대한 `--single-placement-group`의 기본값을 `false`로 변경
+* `[snapshot|disk] create`에 대한 ZRS 스토리지 SKU를 선택하는 기능이 추가됨
+* 전용 호스트를 지원하는 새로운 명령 그룹 `vm host`가 추가됨
+* VM 전용 호스트를 설정하기 위해 `vm create`에 매개 변수 `--host` 및 `--host-group` 추가됨
 
 ## <a name="july-16-2019"></a>2019년 7월 16일
 
@@ -3432,7 +3477,7 @@ vm (2.0.11)
 
 ### <a name="data-lake-analytics"></a>Data Lake Analytics
 
-* `dla account compute-policy` 제목 아래에 계산 정책을 관리하는 명령이 추가됨
+* `dla account compute-policy` 제목 아래에 컴퓨팅 정책을 관리하는 명령이 추가됨
 * `dla job pipeline show`가 추가됨
 * `dla job recurrence list`가 추가됨
 
