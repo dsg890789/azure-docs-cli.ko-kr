@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 40810b25bf776025c82b48ba7aa424369483ceeb
-ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
+ms.openlocfilehash: 6c972ba69344f9e8bcd14a96a90e9dadb6cd8132
+ms.sourcegitcommit: 61965f5d95d0dae3752ad6a0e5a93db27a623c28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66516266"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68830965"
 ---
 # <a name="install-azure-cli-on-windows"></a>Windows에 Azure CLI 설치
 
@@ -31,6 +31,13 @@ MSI 배포 파일은 Windows에서 Azure CLI를 설치하거나 업데이트하�
 > [MSI 설치 관리자 다운로드](https://aka.ms/installazurecliwindows)
 
 설치 관리자가 컴퓨터를 변경해도 되는지 물어보면 "예" 상자를 클릭합니다.
+
+PowerShell을 사용하여 Azure CLI를 설치할 수도 있습니다. 관리자 권한으로 PowerShell을 시작하고 다음 명령을 실행합니다.
+
+   ```PowerShell
+   Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
+   ```
+최신 버전의 Windows용 Azure CLI를 다운로드하여 설치합니다. 버전이 이미 설치되어 있으면 기존 버전이 업데이트됩니다. 설치가 완료되면 PowerShell을 다시 열어서 Azure CLI를 사용합니다.
 
 이제 Windows 명령 프롬프트 또는 PowerShell에서 `az` 명령으로 Azure CLI를 실행할 수 있습니다. PowerShell은 Windows 명령 프롬프트에서 사용할 수 없는 일부 탭 완성 기능을 제공합니다. 로그인하려면, [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.
 
