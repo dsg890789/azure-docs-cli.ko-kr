@@ -4,19 +4,98 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/30/2019
+ms.date: 08/13/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 673014c3fd86e20148fe5ffa9fa5160e490da0cb
-ms.sourcegitcommit: d29d86d33916d5551b4aeb984b06d7a85c4f6b06
+ms.openlocfilehash: d315046287a552e89112fa415e1219f9a97d4944
+ms.sourcegitcommit: b00555c528697c0a6419cf23380e48c8705026db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658931"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68974272"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="august-13-2019"></a>2019년 8월 13일
+
+버전 2.0.71
+
+### <a name="appservice"></a>AppService
+
+* 슬롯에 대해 `webapp webjob continuous` 명령이 실패하는 문제가 해결됨
+
+### <a name="botservice"></a>BotService
+
+* [호환성이 손상되는 변경] v3 SDK 봇 만들기에 대한 지원이 제거됨
+
+### <a name="cognitiveservices"></a>CognitiveServices
+
+* `cognitiveservices account network-rule` 명령이 추가됨
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* 여러 쓰기 위치 업데이트 시의 경고가 제거됨
+* CosmosDB SQL, MongoDB, Cassandra, Gremlin 및 Table 리소스 및 리소스 처리량에 대한 CRUD 명령이 추가됨
+
+### <a name="hdinsight"></a>HDInsight
+
+이 릴리스에는 호환성이 손상되는 변경이 많이 포함되어 있습니다.
+
+* [호환성이 손상되는 변경] `hdinsight create`에 대한 매개 변수의 이름이 변경됨
+  * 이름이 `--storage-default-container`에서 `--storage-container`로 변경됨
+  * 이름이 `--storage-default-filesystem`에서 `--storage-filesystem`로 변경됨
+* [호환성이 손상되는 변경] `application create`의 `--name` 인수에서 클러스터 이름 대신 애플리케이션 이름을 나타내도록 변경됨
+* 이전 `--name` 기능을 대체하기 위해 `--cluster-name` 인수가 `application create`에 추가됨
+* [호환성이 손상되는 변경] `application create`에 대한 매개 변수의 이름이 변경됨
+  * 이름이 `--application-type`에서 `--type`로 변경됨
+  * 이름이 `--marketplace-identifier`에서 `--marketplace-id`로 변경됨
+  * 이름이 `--https-endpoint-access-mode`에서 `--access-mode`로 변경됨
+  * 이름이 `--https-endpoint-destination-port`에서 `--destination-port`로 변경됨
+* [호환성이 손상되는 변경] `application create`에 대한 매개 변수가 제거됨
+  * `--https-endpoint-location`
+  * `--https-endpoint-public-port`
+  * `--ssh-endpoint-destination-port`
+  * `--ssh-endpoint-location`
+  * `--ssh-endpoint-public-port`
+* [호환성이 손상되는 변경] `hdinsight resize`에 대한 이름이 `--target-instance-count`에서 `--workernode-count`로 변경됨
+* [호환성이 손상되는 변경] `hdinsight script-action` 그룹의 모든 명령에서 `--name` 매개 변수를 스크립트 작업 이름으로 사용하도록 변경됨.
+* 이전 `--name` 기능을 대체하기 위해 `--cluster-name` 인수가 모든 `hdinsight script-action` 명령에 추가됨
+* [호환성이 손상되는 변경] 모든 `hdinsight script-action` 명령에 대한 이름이 `--script-execution-id`에서 `--execution-id`로 변경됨
+* [호환성이 손상되는 변경] `hdinsight script-action show`에서 `hdinsight script-action show-execution-details`로 이름이 변경됨
+* [호환성이 손상되는 변경] `hdinsight script-action execute --roles`의 매개 변수에서 쉼표로 구분하는 대신 공백으로 구분하도록 변경됨
+* [호환성이 손상되는 변경] `hdinsight script-action list`의 `--persisted` 매개 변수가 제거됨
+* `hdinsight create --cluster-configurations` 매개 변수에서 로컬 JSON 파일 또는 JSON 문자열에 대한 경로를 허용하도록 변경됨
+* 명령 `hdinsight script-action list-execution-history` 추가됨
+* `hdinsight monitor enable --workspace`에서 Log Analytics 작업 영역 ID 또는 작업 영역 이름을 허용하도록 변경됨
+* 작업 영역 ID가 매개 변수로 제공되는 경우 필요한 `hdinsight monitor enable --primary-key` 인수가 추가됨
+* 도움말 메시지에 대한 추가 예제 및 업데이트된 설명이 추가됨
+
+### <a name="interactive"></a>대화형
+
+* 로드 오류가 수정됨
+
+### <a name="kubernetes"></a>kubernetes
+
+* 대시보드 컨테이너 포트에서 `https`를 사용하는 경우 `https`를 사용하도록 변경됨
+
+### <a name="network"></a>네트워크
+
+* `--yes` 인수가 `network dns record-set cname delete`에 추가됨
+
+### <a name="profile"></a>프로필
+
+* 리소스 액세스 토큰을 가져오기 위해 `--resource-type` 인수가 `account get-access-token`에 추가됨
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* sf 클러스터를 만드는 데 지원되는 모든 os 버전이 추가됨
+* 기본 인증서 유효성 검사 버그가 수정됨
+
+### <a name="storage"></a>스토리지
+
+* 명령 `storage copy` 추가됨
 
 ## <a name="july-30-2019"></a>2019년 7월 30일
 
@@ -50,7 +129,7 @@ ms.locfileid: "68658931"
 
 * 관리형 인스턴스 키 및 TDE 보호기에 대한 관리 명령이 추가됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * `storage remove` 명령이 추가됨
 * `storage blob update` 문제가 해결됨
@@ -102,7 +181,7 @@ Version 2.0.69
 
 * `authorizationrule` 명령의 `--rights` 매개 변수에 대한 유효성 검사를 추가
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * 스토리지 계정 업데이트를 위해 파일 AADDS 사용 설정
 * 문제 `storage blob service-properties update --set` 해결
@@ -172,7 +251,7 @@ Version 2.0.68
 
 * `sql db create --sample-name`에 허용되는 값이 문서화됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * `--as-user`를 사용하여 `storage blob generate-sas`에 사용자 위임 SAS 토큰 지원을 추가함 
 * `--as-user`를 사용하여 `storage container generate-sas`에 사용자 위임 SAS 토큰 지원을 추가함 
@@ -262,7 +341,7 @@ CLI는 앞으로 개별 패키지의 버전 번호를 제거합니다. 명령이
 * [호환성이 손상되는 변경] `--license-type` 매개 변수가 필수 매개 변수가 되도록 `sql vm create` 변경
 * sql vm을 만들거나 업데이트하는 경우 SQL 이미지 SKU 설정을 허용하도록 변경
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 * `storage container generate-sas`에 대한 계정 키 누락 이슈가 해결됨
 * Linux에서 `storage blob sync` 이슈 해결
 
@@ -347,7 +426,7 @@ CLI는 앞으로 개별 패키지의 버전 번호를 제거합니다. 명령이
 ### <a name="rbac"></a>RBAC
 * `role assignment`에 관리 그룹 범위가 지원됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 * `storage blob sync`: 스토리지 Blob에 대한 sync 명령이 추가됨
 
 ### <a name="compute"></a>컴퓨팅
@@ -477,7 +556,7 @@ Version 2.0.63
 * `sql server [create|update]`에 `--no-wait` 지원이 추가됨
 * 명령 `sql server wait` 추가됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 * `storage blob generate-sas`의 이중 인코딩 SAS 토큰으로 인한 문제 해결
 
 ### <a name="vm"></a>VM
@@ -538,7 +617,7 @@ Version 2.0.63
 ### <a name="sql"></a>SQL
 * 속성 proxyOverride 및 publicDataEndpointEnabled로 `sql mi [create|update]` 업데이트
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 * [호환성이 손상되는 변경] `storage blob delete`의 결과 제거
 * SAS를 포함하는 BLOB에 대해 전체 URI를 만드는 `--full-uri`을 `storage blob generate-sas`에 추가
 * 스냅샷에서 파일을 복사하는 `--file-snapshot`을 `storage file copy start`에 추가
@@ -605,7 +684,7 @@ Version 2.0.63
 * 현재 계정에 구독이 없는 경우 역할 할당 삭제를 건너뛰도록 `ad sp delete`가 변경되었습니다.
 * 목록이 제공되지 않는 경우 `--identifier-uris`에서 기본적으로 빈 목록을 지정하도록 `ad app create`가 변경되었습니다.
 
-### <a name="storage"></a>저장소
+### <a name="storage"></a>스토리지
 * 공유 스냅샷에서 다운로드할 수 있도록 `--snapshot`이 `storage file download-batch`에 추가되었습니다.
 * 자세한 정보를 줄이고 현재 Blob을 표시하도록 `storage blob [download-batch|upload-batch]` 진행 표시줄이 변경되었습니다.
 * 암호화 매개 변수를 업데이트하는 `storage account update` 관련 문제가 해결되었습니다.
@@ -891,7 +970,7 @@ Version 2.0.63
 ### <a name="sql-virtual-machine"></a>SQL Virtual Machine
 * 미리 보기 릴리스
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 * 수정 프로그램을 통해 동일한 개체에서 변경된 속성만 업데이트하도록 변경되었습니다.
 * 반환될 때 2진수 데이터가 Base 64로 인코딩되는 #8021 문제가 해결되었습니다.
 
@@ -948,7 +1027,7 @@ Version 2.0.63
 ### <a name="security"></a>보안
 * 최초 릴리스
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 * [호환성이 손상되는 변경] `storage [blob|file|container|share] list`의 기본 결과 수가 5,000개가 되도록 변경되었습니다. 모든 결과를 반환하는 원래 동작에는 `--num-results *`를 사용합니다.
 * `--marker` 매개 변수가 `storage [blob|file|container|share] list`에 추가됨
 * 다음 페이지에 대한 로그 표식이 `storage [blob|file|container|share] list`의 STDERR에 추가되었습니다. 
@@ -1024,7 +1103,7 @@ Version 2.0.63
 * `policy assignment [create|list|delete|show|update]`에서 관리 그룹에 대한 범위 매개 변수 처리가 수정됨 
 * 새 명령 `resource wait`이 추가됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 *  스토리지 서비스를 위한 로그 스키마 버전 업데이트 기능이 `storage logging update`에 추가됨
 
 ### <a name="vm"></a>VM
@@ -1089,7 +1168,7 @@ Version 2.0.51
 * `ad app update`에서 변경할 수 없는 자격 증명을 업데이트 하려는 시도 관련 문제 해결
 * `ad [app|sp] list`에 대한 가까운 장래의 호환성이 손상되는 변경을 알리는 출력 경고가 추가되었습니다. 
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 * 스토리지 복사 명령에 대한 코너 케이스의 처리가 향상됨
 * 대상 계정과 원본 계정이 같을 때 로그인 자격 증명을 사용하지 않는 `storage blob copy start-batch` 문제가 해결되었습니다.
 * `sas_token`이 URL에 통합되지 않은 `storage [blob|file] url`의 버그 수정
@@ -1185,7 +1264,7 @@ Version 2.0.51
 * displayName과 서비스 주체 이름 간의 혼동을 방지하기 위해 `ad sp create-for-rbac`을 변경함
 * AAD 앱에 권한을 부여하는 지원이 추가됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 * `Configure Azure Storage connection strings <https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string>`에 설명된 대로 SAS 및 엔드포인트(계정 이름 또는 키 없이)로만 스토리지 서비스에 연결하는 지원이 추가됨
 
 ### <a name="vm"></a>VM
@@ -1250,7 +1329,7 @@ Version 2.0.51
 ### <a name="sql"></a>SQL
 * 수동 장애 조치 정책을 사용하기 위해 `sql failover-group create` 및 `sql failover-group update`가 수정되었습니다.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 * 모든 항목이 올바른 "서비스" 키를 표시하도록 `az storage cors list` 출력 서식 지정이 수정되었습니다.
 * 불변성 정책 차단 컨테이너를 삭제하기 위해 `--bypass-immutability-policy` 매개 변수가 추가되었습니다.
 
@@ -1300,7 +1379,7 @@ Version 2.0.51
 * 첫 번째 실행 배너에 확장 설치 명령 추가
 
 ### <a name="keyvault"></a>KeyVault
-* 최신 API 프로필에 keyvault 저장소 명령을 제한하도록 변경
+* 최신 API 프로필에 keyvault 스토리지 명령을 제한하도록 변경
 
 ### <a name="network"></a>네트워크
 * `network dns zone create` 수정됨: 사용자가 기본 위치를 구성한 경우에도 명령은 성공합니다. #6052 참조
@@ -1358,7 +1437,7 @@ Version 2.0.51
 * 옵션이 지정되지 않은 경우 현재 로그인된 계정을 표시하도록 `batch account` 동작 변경
 
 ### <a name="batch-ai"></a>Batch AI 
-* `batchai cluster create` 명령에서 자동 저장소 계정 만들기 오류 해결
+* `batchai cluster create` 명령에서 자동 스토리지 계정 만들기 오류 해결
 
 ### <a name="cognitive-services"></a>Cognitive Services
 * `--sku`, `--kind`, `--location` 인수에 대한 완료자 추가
@@ -1424,7 +1503,7 @@ Version 2.0.51
 ### <a name="signalr"></a>SignalR
 * 첫번째 릴리스
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 * blob 및 큐 권한 부여에 대한 사용자 로그자인 격 증명 사용을 위해 `--auth-mode login` 매개 변수 추가
 * 변경할 수 없는 스토리지 관리를 위한 `storage container immutability-policy/legal-hold` 추가
 
@@ -1486,7 +1565,7 @@ Version 2.0.45
 
 * 누락된 리소스 발생 시 코드 3을 사용하여 종료하도록 `provider operation show` 변경
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * 누락된 리소스 발생 시 코드 3을 사용하여 종료하도록 `storage share policy show` 변경
 
@@ -1523,12 +1602,12 @@ Version 2.0.44
 
 ### <a name="appservice"></a>AppService
 
-* 외부 리소스 그룹에 저장소 계정을 사용하여 함수 앱을 만들지 못하도록 하는 버그가 수정됨
+* 외부 리소스 그룹에 스토리지 계정을 사용하여 함수 앱을 만들지 못하도록 하는 버그가 수정됨
 * Zip 배포 충돌을 해결
 
 ### <a name="batchai"></a>BatchAI
 
-* 자동 저장소 계정 만들기가 "리소스 *그룹*"을 지정하도록 로거 출력 변경        
+* 자동 스토리지 계정 만들기가 &quot;리소스 *그룹*&quot;을 지정하도록 로거 출력 변경        
 
 ### <a name="container"></a>컨테이너
 
@@ -1546,7 +1625,7 @@ Version 2.0.44
 ### <a name="keyvault"></a>KeyVault
 
 
-* 저장소 계정 및 sas 정의를 관리하는 것에 대한 명령이 추가됨
+* 스토리지 계정 및 sas 정의를 관리하는 것에 대한 명령이 추가됨
 * 네트워크 규칙에 대한 명령이 추가됨                                                           
 * 비밀, 키 및 인증서 작업에 `--id` 매개 변수를 추가
 * KV mgmt 다중 api 버전에 대한 지원 추가
@@ -1560,7 +1639,7 @@ Version 2.0.44
 
 * `sql failover-group` 명령이 추가됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * [호환성이 손상되는 변경] `--location` 매개 변수를 요구하도록 `storage account show-usage`를 변경하여 지역에 따라 나열됨
 * `--resource-group` 매개 변수가 `storage account` 명령에 대해 선택 사항이 되도록 변경
@@ -1618,7 +1697,7 @@ Version 2.0.43
   *  `queue` 내 `--enable-batched-operations` 및 `--enable-dead-lettering-on-message-expiration`
   *  `subscriptions` 내 `--dead-letter-on-filter-exceptions`
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * 단일 연결을 사용하는 대용량 파일 다운로드에 대한 지원 추가
 * 리소스 누락으로 종료 코드 3으로 실패할 때 누락되었던 `show` 명령 변환
@@ -1689,7 +1768,7 @@ Version 2.0.43
 * `az configure --defaults sql-server=<name>`를 실행하여 기본 SQL Server 구성 허용
 * `sql server`, `sql server firewall-rule`, `sql list-usages`, `sql show-usage` 명령에 테이블 포맷터를 구현함
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * 페이지 Blob에 대해 채워질 `storage blob show` 출력에 `pageRanges` 속성을 추가
 
@@ -1857,7 +1936,7 @@ Version 2.0.38
 
 * 구독에 사용할 수 없는 위치에 대해 `az sql db list-editions` 실행 시 발생하는 혼란스러운 오류 수정
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * `storage blob download`에 대한 출력 테이블을 가독성을 높이도록 변경
 
@@ -1952,7 +2031,7 @@ Version 2.0.35
   * `sql midb restore`
   * `sql midb delete`
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * 파일 확장명에서 유추할 수 있도록 json 및 javascript를 추가 mimetypes으로 추가함
 
@@ -2021,7 +2100,7 @@ Version 2.0.35
 * `db`,`dw`,`elastic-pool` 명령에 `--family`, `--capacity` 매개 변수 추가합니다.
 * `elastic-pool` 명령에 `db`, `dw` 테이블 포맷터를 추가합니다.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * `--account-name` 인수에 완료자 추가
 * `storage entity query`의 문제가 해결됨
@@ -2139,7 +2218,7 @@ Version 2.0.35
 
 * [호환성이 손상되는 변경] 사용되지 않는 `ad sp reset-credentials`가 제거됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * 소스 sas 및 계정 키가 지정되지 않은 경우 Blob 복사본의 소스에 대상 sas-token이 적용되도록 허용
 * Blob 업로드 및 다운로드에 대한 --socket-timeout이 노출
@@ -2204,7 +2283,7 @@ Version 2.0.35
 * 구성 파일에 파일 시스템 탑재를 간소화합니다. 이제 Azure File Share 및 Azure Blob Container에 대한 자격 증명을 생략 할 수 있습니다 - CLI는 명령줄 매개 변수를 통해 제공되거나 환경 변수를 통해 지정된 스토리지 계정 키를 사용하여 누락된 자격 증명을 채우거나 Azure Storage에서 키를 쿼리합니다.(스토리지 계정이 현재 구독에 속한 경우)
 * 이제 작업 파일 스트림 명령은 작업이 완료될 때 자동 완료합니다.(성공, 실패, 종료 또는 삭제)
 * `show` 작업에 대한 `table` 출력이 향상되었습니다.
-* 클러스터 생성을 위해 `--use-auto-storage` 옵션이 추가되었습니다. 이 옵션을 사용하면 보다 쉽게 저장소 계정을 관리하고 Azure File Share 및 Azure Blob Containers를 클러스터에 탑재할 수 있습니다.
+* 클러스터 생성을 위해 `--use-auto-storage` 옵션이 추가되었습니다. 이 옵션을 사용하면 보다 쉽게 스토리지 계정을 관리하고 Azure File Share 및 Azure Blob Containers를 클러스터에 탑재할 수 있습니다.
 * `--generate-ssh-keys` 옵션을 `cluster create` 및 `file-server create`에 추가
 * 명령줄을 통해 노드 설정 작업을 제공하는 기능 추가
 * [호환성이 손상되는 변경] `job stream-file` 및 `job list-files` 명령을 `job file`로 이동함
@@ -2256,7 +2335,7 @@ Version 2.0.35
 ### <a name="rdbms"></a>RDBMS
 
 * `georestore` 명령이 추가됨
-* `create` 명령에서 저장소 크기 제한이 제거됨
+* `create` 명령에서 스토리지 크기 제한이 제거됨
 
 ### <a name="resource"></a>리소스
 
@@ -2267,7 +2346,7 @@ Version 2.0.35
 
 * `sql elastic-pool op list` 및 `sql elastic-pool op cancel`가 추가됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * 잘못된 형식의 연결 문자열에 대한 오류 메시지가 향상됨
 
@@ -2376,7 +2455,7 @@ Version 2.0.35
 * [호환성이 손상되는 변경] `az role assignment [list|show]` 출력에서 '속성' 제거됨
 * `dataActions` 및 `notDataActions` 권한에 대한 지원이 `role definition`에 추가됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * 크기가 195GB에서 200GB 사이인 파일을 업로드할 때 발생하는 문제 수정됨
 * [#4049](https://github.com/Azure/azure-cli/issues/4049) 수정됨: 조건 매개 변수를 무시하는 BLOB 업로드 추가에 따른 문제
@@ -2463,7 +2542,7 @@ Version 2.0.35
 
 * 최초 릴리스
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * [#4971](https://github.com/Azure/azure-cli/issues/4971) 수정됨: `storage blob copy`가 이제 다른 Azure 클라우드도 지원
 * [#5286](https://github.com/Azure/azure-cli/issues/5286) 수정됨: 배치 명령`storage blob [delete-batch|download-batch|upload-batch]`이 더 이상 사전 조건 실패 시 오류를 일으키지 않음
@@ -2526,7 +2605,7 @@ Version 2.0.35
 
 * 생성 및 업데이트 시 데이터베이스 및 탄력적 풀에 대한 영역 중복 지원 추가
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * `storage blob [upload-batch|download-batch]`에 대상-경로/접두사를 지정하도록 설정
 
@@ -2625,7 +2704,7 @@ Version 2.0.35
 * `sql db rename`가 추가됨
 * 모든 SQL 명령에 대한 `--ids` 인수 지원 추가
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * 일시 삭제를 지원하는 `storage blob service-properties delete-policy` 및 `storage blob undelete` 명령 추가
 
@@ -2690,9 +2769,9 @@ Version 2.0.35
 
 * 템플릿 'type' 필드에 대문자 값이 포함되었을 때 경고가 잘못 표시되는 `deployment [create|validate]` 버그 수정
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
-* 저장소 V1 계정을 저장소 V2로 마이그레이션할 때의 문제 해결
+* 스토리지 V1 계정을 스토리지 V2로 마이그레이션할 때의 문제 해결
 * 모든 upload/download 명령에 대한 진행률 보고 추가
 * `storage account check-name`에서 "-n" 인수 옵션을 방해하는 버그 수정
 * `blob [list|show]`에 대한 테이블 출력에 '스냅샷' 열 추가
@@ -2729,7 +2808,7 @@ Version 2.0.35
 ### <a name="backup"></a>Backup
 
 * `backup item list`의 `--container-name` 옵션이 선택할 수 있도록 변경됨
-* `backup restore restore-disks`에 저장소 계정 옵션 추가됨
+* `backup restore restore-disks`에 스토리지 계정 옵션 추가됨
 * `backup protection enable-for-vm`의 위치 확인이 대/소문자 구분하지 않도록 수정됨
 * 잘못된 컨테이너 이름 때문에 명령이 실패한 문제 해결됨
 * 기본값으로 ‘상태’ 포함하도록 `backup item list` 변경됨
@@ -2817,7 +2896,7 @@ Version 2.0.35
 * `--disable-bgp-route-propagation` 인수를 `route-table [create|update]`에 추가
 * `--ip-tags` 인수를 `public-ip [create|update]`에 추가
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * storage V2에 대한 지원 추가됨
 
@@ -2917,7 +2996,7 @@ Version 2.0.35
 ### <a name="batchai"></a>Batchai
 
 * `file-server create` 명령에서 VM 크기를 제공할 때 `--vm-size`에 대한 짧은 옵션 `-s` 추가
-* 저장소 계정 이름 및 키 인수를 `cluster create` 매개 변수에 추가됨
+* 스토리지 계정 이름 및 키 인수를 `cluster create` 매개 변수에 추가됨
 * `job list-files` 및 `job stream-file` 설명서 수정됨
 * `job create` 명령에서 클러스터 이름을 제공할 때 `--cluster-name`에 대한 짧은 옵션 `-r` 추가
 
@@ -2972,7 +3051,7 @@ Version 2.0.35
 
 * `--ignore-missing-vnet-service-endpoint` 매개 변수가 `sql server vnet-rule [create|update]`에 추가됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * 기본값으로 SKU `Standard_RAGRS`를 사용하기 위해 `storage account create` 변경
 * 비 ASCII 문자를 포함하는 파일/Blob 이름을 처리하는 경우 버그 수정됨
@@ -3076,7 +3155,7 @@ Version 2.0.35
 * 삭제된 데이터베이스를 찾아 복구하는 기능을 허용하는 `db list-deleted` 명령 및 `db restore --deleted-time` 매개 변수가 추가됨
 * 진행 중인 작업을 데이터베이스에 나열하고 취소하는 기능을 허용하는 `db op list` 및 `db op cancel` 추가됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * 파일 공유 스냅샷에 대한 지원 추가됨
 
@@ -3110,7 +3189,7 @@ Version 2.0.35
 * `--ddos-protection` 및 `--vm-protection` 인수를 `vnet [create|update]`에 추가
 * `network [vnet-gateway|vpn-client|show-url]` 명령이 추가됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * SDK를 업데이트한 후 `storage account network-rule` 명령이 실패하는 경우 문제 해결
 
@@ -3203,7 +3282,7 @@ Version 2.0.35
 * 수정됨: `--scope`이(가) 제공되지 않을 경우 액세스 권한을 할당하지 않음
 * 수정됨: 포털과 동일한 확장명을 사용함
 * `[vm|vmss] create` 출력에서 `subscription`이 제거됨
-* 수정됨: `[vm|vmss] create` 저장소 SKU가 이미지를 포함한 데이터 디스크에 적용되지 않음
+* 수정됨: `[vm|vmss] create` 스토리지 SKU가 이미지를 포함한 데이터 디스크에 적용되지 않음
 * 수정됨: `vm format-secret --secrets`가 줄 바꿈으로 구분된 ID를 허용하지 않음
 
 ## <a name="august-31-2017"></a>2017년 8월 31일
@@ -3218,9 +3297,9 @@ Version 2.0.35
 
 * Service Fabric CLI(sfctl)에서 모든 명령이 사용되지 않음
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
-* 저장소 계정을 NetworkACLs 기능을 지원하지 않는 지역에 만들지 못하는 문제 수정됨
+* 스토리지 계정을 NetworkACLs 기능을 지원하지 않는 지역에 만들지 못하는 문제 수정됨
 * 콘텐츠 형식 및 콘텐츠 인코딩을 모두 지정하지 않은 경우 Blob 및 파일을 업로드하는 동안 콘텐츠 형식 및 콘텐츠 인코딩을 결정함
 
 ## <a name="august-28-2017"></a>2017년 8월 28일
@@ -3268,7 +3347,7 @@ Version 2.0.35
 * 매개 변수를 전달한 후에도 사용자에게 암호를 묻는 메시지가 수정됨
 * 빈 `registry_cred`에 대한 지원이 추가됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * 설정 Blob 계층이 사용됨
 * 서비스 터널링을 지원하는 `--bypass` 및 `--default-action` 인수가 `storage account [create|update]`에 추가됨
@@ -3348,17 +3427,17 @@ Version 2.0.35
 
 * `account list`: 서버에서 최신 구독을 동기화하기 위해 `--refresh`가 추가됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
-* 시스템에 할당된 ID를 통한 저장소 계정 업데이트가 사용됨
+* 시스템에 할당된 ID를 통한 스토리지 계정 업데이트가 사용됨
 
 ### <a name="vm"></a>VM
 
 * `availability-set`: 변환 시 장애 도메인 수가 공개됨
 * `list-skus` 명령이 공개됨
 * 역할 할당을 만들지 않고 ID를 할당하도록 지원합니다.
-* 데이터 디스크 연결 시 저장소 SKU를 적용합니다.
-* 관리 디스크를 사용할 때 기본 OS 디스크 이름 및 저장소 SKU가 제거됩니다.
+* 데이터 디스크 연결 시 스토리지 SKU를 적용합니다.
+* 관리 디스크를 사용할 때 기본 OS 디스크 이름 및 스토리지 SKU가 제거됩니다.
 
 
 ## <a name="july-28-2017"></a>2017년 7월 28일
@@ -3613,11 +3692,11 @@ vm (2.0.11)
 * `sql server create` 및 `sql server update` 명령 출력에서 암호 값이 제거됨
 * `sql db list-editions` 및 `sql elastic-pool list-editions` 명령이 추가됨
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * `storage blob list`, `storage container list` 및 `storage share list` 명령에서 `--marker` 옵션이 제거됨(#3745)
-* HTTPS 전용 저장소 계정 만들기 사용
-* 저장소 메트릭, 로깅 및 CORS 명령이 업데이트됨(#3495)
+* HTTPS 전용 스토리지 계정 만들기 사용
+* 스토리지 메트릭, 로깅 및 CORS 명령이 업데이트됨(#3495)
 * CORS add(#3638)(#3362)의 예외 메시지가 수정됨
 * download batch 명령 dryrun(시험 실행) 모드에서 생성기가 목록으로 변환됨(#3592)
 * Blob download batch dryrun 문제가 해결됨(#3640)(#3592)
@@ -3818,7 +3897,7 @@ vm (2.0.6)
 * az sql server list-usages 및 az sql db list-usages 명령이 추가됨
 * SQL - 리소스 공급자에 직접 연결하는 기능([#2832](https://github.com/Azure/azure-cli/issues/2832))
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * `storage account create`의 리소스 그룹 위치에 대한 기본 위치
 * 증분 blob 복사에 대한 지원 추가
@@ -3925,7 +4004,7 @@ vm (2.0.2)
 - 컨테이너 서비스(acs)
 - Compute(Resource Manager, VM, 가상 머신 확장 집합, Managed Disks 포함)
 - 네트워킹
-- Storage
+- 스토리지
 
 이러한 명령 모듈은 프로덕션 환경에서 사용할 수 있으며 표준 Microsoft SLA에서 지원됩니다. Microsoft 지원 부서 또는 [github 문제 목록](https://github.com/azure/azure-cli/issues/)에서 직접 문제를 열 수 있습니다. [azure-cli 태그를 사용하여 StackOverflow](http://stackoverflow.com/questions/tagged/azure-cli)에 대한 질문을 하거나 [azfeedback@microsoft.com](mailto:azfeedback@microsoft.com)에 있는 제품 팀에 문의할 수 있습니다. `az feedback` 명령을 사용하여 명령줄에서 피드백을 제공할 수 있습니다.
 
