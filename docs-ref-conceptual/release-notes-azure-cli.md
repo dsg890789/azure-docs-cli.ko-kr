@@ -1046,7 +1046,7 @@ Version 2.0.63
 버전 2.0.54
 ### <a name="appservice"></a>App Service
 * `webapp up`의 재배포 실패 문제가 해결됨
-* 웹앱 스냅숏 목록 및 복원에 대한 지원이 추가됨
+* 웹앱 스냅샷 목록 및 복원에 대한 지원이 추가됨
 * Windows 함수 앱 `--runtime` 플래그에 대한 지원이 추가됨
 
 ### <a name="iotcentral"></a>IoTCentral
