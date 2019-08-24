@@ -95,8 +95,8 @@ log_dir=/var/log/azure
 | | 계정 | string | `az storage` 명령에 사용할 기본 계정 이름입니다. |
 | | key | string | `az storage` 명령에 사용할 기본 계정 키입니다. |
 | | sas\_token | string | `az storage` 명령에 사용할 기본 SAS 토큰입니다. |
-| __batchai__ | storage\_account | string | `az batchai` 명령에 사용할 기본 저장소 계정입니다. |
-| | storage\_key | string | `az batchai` 명령에 사용할 기본 저장소 키입니다. |
+| __batchai__ | storage\_account | string | `az batchai` 명령에 사용할 기본 스토리지 계정입니다. |
+| | storage\_key | string | `az batchai` 명령에 사용할 기본 스토리지 키입니다. |
 | __batch__ | 계정 | string | `az batch` 명령에 사용할 기본 Azure Batch 계정 이름입니다. |
 | | access\_key | string | `az batch` 명령에 사용할 기본 액세스 키입니다. `aad` 권한 부여와 함께 사용됩니다. |
 | | endpoint | string | `az batch` 명령에 대해 연결할 기본 엔드포인트입니다. |

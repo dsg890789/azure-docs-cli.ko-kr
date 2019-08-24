@@ -47,7 +47,7 @@ CLI가 처음으로 설치되면 `az --version`을 실행하여 CLI가 설치되
 |---------------|-------------------------|
 | [리소스 그룹](/azure/azure-resource-manager/resource-group-overview) | [az group](/cli/azure/group) |
 | [가상 머신](/azure/virtual-machines) | [az vm](/cli/azure/vm) |
-| [Storage 계정](/azure/storage/common/storage-introduction) | [az 저장소 계정](/cli/azure/storage/account) |
+| [스토리지 계정](/azure/storage/common/storage-introduction) | [az 스토리지 계정](/cli/azure/storage/account) |
 | [Key Vault](/azure/key-vault/key-vault-whatis) | [az keyvault](/cli/azure/keyvault) |
 | [웹 애플리케이션](/azure/app-service) | [az webapp](/cli/azure/webapp) |
 | [SQL 데이터베이스](/azure/sql-database) | [az sql server](/cli/azure/sql/server) |
@@ -102,7 +102,7 @@ Azure CLI를 시작하려면 가상 머신 설정 및 Azure 리소스 쿼리를 
 
 다른 인기 있는 서비스에 대한 빠른 시작도 있습니다.
 
-* [Azure CLI를 사용하여 저장소 계정 만들기](/azure/storage/common/storage-quickstart-create-storage-account-cli)
+* [Azure CLI를 사용하여 스토리지 계정 만들기](/azure/storage/common/storage-quickstart-create-storage-account-cli)
 * [CLI를 사용하여 Azure Blob Storage에 대한 개체 전송](/azure/storage/blobs/storage-quickstart-blobs-cli)
 * [Azure CLI를 사용하여 단일 Azure SQL 데이터베이스 만들기](/azure/sql-database/sql-database-get-started-cli)
 * [Azure CLI를 사용하여 Azure Database for MySQL 서버 만들기](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
