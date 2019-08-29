@@ -4,19 +4,71 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 08/13/2019
+ms.date: 08/27/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: d315046287a552e89112fa415e1219f9a97d4944
-ms.sourcegitcommit: b00555c528697c0a6419cf23380e48c8705026db
+ms.openlocfilehash: 156ff2e6d011104ebbb1608ff33bad8ebb6396ed
+ms.sourcegitcommit: df2be5609a6cbeecb9f8ef0928a9fabfb207e7f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68974272"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047282"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="august-27-2019"></a>2019년 8월 27일
+
+버전 2.0.72
+
+### <a name="acr"></a>ACR
+
+* [호환성이 손상되는 변경] `classic` SKU 지원이 제거됨
+
+### <a name="api-management"></a>API Management
+
+* [미리 보기] `apim` 명령 그룹이 추가됨
+
+### <a name="appservice"></a>AppService
+
+* 슬롯 지정 시의 `webapp webjob continuous start` 명령 관련 문제가 해결됨
+* `env` 폴더를 검색하고 배포에 사용된 파일에서 제거하도록 `webapp up`이 변경됨
+
+### <a name="keyvault"></a>Keyvault
+
+* `--expires` 인수를 무시한 `keyvault secret set`의 버그가 수정됨
+
+### <a name="network"></a>네트워크
+
+* `--private-ip-address-version` 인수에 IPv6 주소 지원이 추가됨
+* 프라이빗 엔드포인트를 관리하기 위한 새 `network private-endpoint [create|update|list-types]` 명령이 추가됨
+* `network private-link-service` 명령 그룹이 추가됨
+* `--private-endpoint-network-policies` 및 `--private-link-service-network-policies` 인수를 `network vnet subnet update`에 추가
+
+### <a name="rbac"></a>RBAC
+
+* 홈페이지가 업데이트되지 않는 `ad app update --homepage` 명령 관련 문제가 해결됨
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* 대/소문자가 혼합된 Key Vault 이름 지원이 추가됨
+* Key Vault에서 인증서를 사용할 때 발생하는 문제가 해결됨
+* PFX 인증서 파일의 사용 관련 문제가 해결됨
+* Key Vault 리소스 그룹이 지정되지 않은 `sf cluster certificate add` 관련 문제가 해결됨
+* `sf cluster set`가 작동하지 않는 문제가 해결됨
+
+### <a name="signalr"></a>SignalR
+
+* 새 명령이 추가됨:
+  * `signalr cors`: SignalR CORS 관리
+  * `signalr restart`: SignalR Service 다시 시작
+  * `signalr update`: SignalR Service 업데이트
+* `--service-mode` 인수를 `signalr create`에 추가
+
+### <a name="storage"></a>스토리지
+
+* `storage account revoke-delegation-keys` 명령이 추가됨
 
 ## <a name="august-13-2019"></a>2019년 8월 13일
 
