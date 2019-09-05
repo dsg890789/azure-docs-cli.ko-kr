@@ -4,17 +4,17 @@ description: Azure CLI에 대해 공식적으로 지원되는 확장의 전체 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 08/25/2019
+ms.date: 08/30/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 36a2fe84aa1f5f4e903451a48aa9f59998bafffa
-ms.sourcegitcommit: df2be5609a6cbeecb9f8ef0928a9fabfb207e7f9
+ms.openlocfilehash: 60291b02a642e26bbd3e3bb2a4453dd6d6bfab6e
+ms.sourcegitcommit: ef447bd23fda6346657932cd69d136c1d83e9d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047315"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238579"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI에 대해 사용 가능한 확장
 
@@ -29,7 +29,7 @@ az extension list-available --output table
 | Name | 버전 | 요약 | 미리 보기 |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | SAP용 Azure 고급 모니터링 확장 관리 |  |
-| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.10 | 예정된 AKS 기능에 대한 미리 보기 제공 | 예 |
+| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.12 | 예정된 AKS 기능에 대한 미리 보기 제공 | 예 |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | 명령 별칭 지원 | 예 |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.5.0 | 예정된 앱 구성에 대한 미리 보기를 제공합니다. | 예 |
 | [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.1 | Application Insights 구성 요소 관리와 그러한 구성 요소에서 메트릭, 이벤트, 로그의 쿼리를 지원합니다. | 예 |
@@ -48,6 +48,7 @@ az extension list-available --output table
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.1 | ExpressRoute 간 연결을 사용하여 고객의 ExpressRoute 회로를 관리 합니다. |  |
 | [find](https://github.com/Azure/azure-cli-extensions/tree/master/src/find) | 0.3.0 | CLI 정보에 대한 지능형 쿼리. | 예 |
 | [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 1.0.0 | 네트워킹 Front Doors를 관리합니다. |  |
+| [의료](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure 명령줄 도구 의료 확장 | 예 |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | 지역 간 관리 vm 이미지 복사 기능에 대한 지원 |  |
 | [대화형](https://github.com/Azure/azure-cli) | 0.4.3 | Microsoft Azure 명령줄 대화형 셸 | 예 |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Azure Key Vault 미리보기 명령어 | 예 |
@@ -64,5 +65,5 @@ az extension list-available --output table
 | [subscription](https://github.com/Azure/azure-cli-extensions) | 0.1.3 | 구독 관리 미리 보기를 지원합니다. |  |
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | 가상 네트워크 관리 탭(VTAP) | 예 |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.0 | 가상 WAN, 허브, VPN 게이트웨이 및 VPN 사이트를 관리합니다. | 예 |
-| [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.1.2 | VM을 수정하기 위한 자동 복구 명령입니다. |  |
+| [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.2.0 | VM을 수정하기 위한 자동 복구 명령입니다. |  |
 | [webapp](https://github.com/Azure/azure-cli-extensions/tree/master/src/webapp) | 0.2.24 | Azure AppService에 대한 추가 명령입니다. | 예 |
