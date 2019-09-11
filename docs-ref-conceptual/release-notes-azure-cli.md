@@ -4,19 +4,66 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 08/27/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 156ff2e6d011104ebbb1608ff33bad8ebb6396ed
-ms.sourcegitcommit: df2be5609a6cbeecb9f8ef0928a9fabfb207e7f9
+ms.openlocfilehash: 03594fc6e7e24fd1b7d2f9c846161a40e8ea7678
+ms.sourcegitcommit: f9bfb4b063151434b3a9bff936a73b251666e775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047282"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878233"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="september-5-2019"></a>2019년 9월 5일
+
+### <a name="acr"></a>ACR
+
+* 보존 정책을 구성하는 `acr config retention` 명령 그룹이 추가됨
+
+### <a name="aks"></a>AKS
+
+* 다음 명령을 통해 ACR 통합 지원이 추가됨
+  * AKS 클러스터에 ACR을 연결하는 `--attach-acr` 매개 변수가 `aks [create|update]`에 추가됨
+  * AKS 클러스터에서 ACR을 분리하는 `--detach-acr` 매개 변수가 `aks update`에 추가됨
+
+### <a name="arm"></a>ARM
+
+* 2019-05-10 API 버전을 사용하도록 업데이트됨
+
+### <a name="batch"></a>Batch
+
+* `batch pool create`에 대한 `--json-file`에 새 JSON 구성 설정이 추가됨
+  * 파일 시스템을 탑재하기 위한 `MountConfigurations`가 추가됨(자세한 내용은 https://docs.microsoft.com/en-us/rest/api/batchservice/pool/add#request-body 참조)
+  * `NetworkConfiguration`에 풀의 공용 IP에 대한 선택적 속성 `publicIPs`가 추가됨(자세한 내용은 https://docs.microsoft.com/en-us/rest/api/batchservice/pool/add#request-body 참조)
+* 공유 이미지 갤러리에 대한 지원이 `--image`에 추가됨
+* [호환성이 손상되는 변경] `batch pool create`의 기본값 `--start-task-wait-for-success`가 `true`로 변경됨
+* [호환성이 손상되는 변경] `AutoUserSpecification`의 `Scope` 기본값이 항상 풀이 되도록 변경됨(Windows 노드에서는 `Task`, Linux 노드에서는 `Pool`이었음)
+  * 이 인수는 `--json-file`을 사용하여 JSON 구성에서만 설정 가능
+
+### <a name="hdinsight"></a>HDInsight
+
+* GA 릴리스
+* [호환성이 손상되는 변경] `az hdinsight resize`의 `--workernode-count/-c` 매개 변수가 필수 항목으로 변경됨
+
+### <a name="key-vault"></a>Key Vault
+
+* 네트워크 규칙에서 서브넷을 삭제할 수 없는 이슈 해결
+* 중복 서브넷 및 IP 주소를 네트워크 규칙에 추가할 수 있는 이슈 해결
+
+### <a name="network"></a>네트워크
+
+* 트래픽 분석 간격 값을 설정하는 `--interval` 매개 변수가 `network watcher flow-log`에 추가됨
+* 게이트웨이 ID를 관리하는 `network application-gateway identity`가 추가됨
+* Key Vault ID 설정 지원이 `network application-gateway ssl-cert`에 추가됨
+* `network express-route peering peer-connection [show|list]`가 추가됨
+
+### <a name="policy"></a>정책
+
+* 2019-01-01 API 버전을 사용하도록 업데이트됨
 
 ## <a name="august-27-2019"></a>2019년 8월 27일
 
