@@ -1,5 +1,5 @@
 - name: Azure CLI
-  href: index.md
+  href: index.yml
 - name: 설치
   items:
     - name: 설치
