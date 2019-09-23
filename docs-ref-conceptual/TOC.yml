@@ -10,16 +10,16 @@
     - name: Windows
       href: install-azure-cli-windows.md
       displayName: 'install, powershell, cmd, command prompt'
-    - name: apt를 통한 Linux
+    - name: Apt를 사용하는 Linux
       href: install-azure-cli-apt.md
       displayName: 'ubuntu, debian, mint, linux, install, wsl'
-    - name: yum을 통한 Linux
+    - name: yum을 사용하는 Linux
       href: install-azure-cli-yum.md
       displayName: 'rhel, redhat, red hat, fedora, linux, install, wsl'
-    - name: zypper를 통한 Linux
+    - name: zypper를 사용하는 Linux
       href: install-azure-cli-zypper.md
       displayName: 'opensuse, suse, sles, leap, tumbleweed, linux, install, wsl'
-    - name: Linux
+    - name: Linux 설치 스크립트
       href: install-azure-cli-linux.md
       displayName: 'install, script, unix, bsd, linux, lfs, wsl, slackware'
     - name: Docker에서 실행
