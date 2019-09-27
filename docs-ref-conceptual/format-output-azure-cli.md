@@ -4,17 +4,17 @@ description: Azure CLI 명령 출력을 테이블, 목록 또는 json 형식으�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/07/2018
+ms.date: 09/23/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 0b90e6375beccafee88b2a1d1b7896275dc14407
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: 125055eec956e56c95af9a1c24ee4254e77556e6
+ms.sourcegitcommit: 5b9b4446c08b94256ced7f63c145b493ba8b50df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421952"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71217442"
 ---
 # <a name="output-formats-for-azure-cli-commands"></a>Azure CLI 명령의 출력 형식
 
@@ -154,21 +154,37 @@ None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsof
 None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm212    None    None    westus    demovm212            None    Succeeded    DEMORG1    None            Microsoft.Compute/virtualMachines    4bdac85d-c2f7-410f-9907-ca7921d930b4
 None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm213    None    None    westus    demovm213            None    Succeeded    DEMORG1    None            Microsoft.Compute/virtualMachines    2131c664-221a-4b7f-9653-f6d542fbfa34
 None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo001VM    None    None    westus    KBDemo001VM            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    14e74761-c17e-4530-a7be-9e4ff06ea74b
-None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo02None    None    westus    KBDemo020            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    36baa9-9b80-48a8-b4a9-854c7a858ece
+None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo020   None    None    westus    KBDemo020            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    36baa9-9b80-48a8-b4a9-854c7a858ece
 ```
 
-다음 예제는 `tsv` 출력이 bash에서 다른 명령에 파이프되는 방법을 보여줍니다. `grep`은 이름에 "RGD"라는 텍스트가 포함된 항목을 선택하고, `cut` 명령은 8번째 필드를 선택하여 출력에 VM 이름을 표시합니다.
+TSV 출력 형식의 제한 중 하나는 출력 순서에 대한 보장이 없다는 것입니다. CLI는 순서를 유지하기 위해 응답 JSON의 키를 알파벳 순서로 정렬한 다음, TSV 출력을 위해 키 값을 인쇄합니다. 하지만 Azure 서비스 응답 형식이 변경될 수 있으므로 순서가 항상 동일하다는 보장은 없습니다.
+
+일관적인 순서를 적용하려면 `--query` 매개 변수와 [다중 선택 목록](query-azure-cli.md#get-multiple-values) 형식을 사용해야 합니다. CLI 명령에서 단일 JSON 사전을 반환하는 경우 일반 형식 `[key1, key2, ..., keyN]`을 사용하여 키 순서를 적용합니다.  배열을 반환하는 CLI 명령의 경우 일반 형식 `[].[key1, key2, ..., keyN]`을 사용하여 열 값의 순서를 지정합니다.
+
+예를 들어 위에 표시되는 정보를 ID, 위치, 리소스 그룹 및 VM 이름순으로 지정하려면 다음을 수행합니다.
+
+```azurecli-interactive
+az vm list --out tsv --query '[].[id, location, resourceGroup, name]'
+```
+
+```output
+/subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010    westus    DEMORG1    DemoVM010
+/subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm212    westus    DEMORG1    demovm212
+/subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm213    westus    DEMORG1    demovm213
+/subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo001VM     westus  RGDEMO001       KBDemo001VM
+/subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo020       westus  RGDEMO001       KBDemo020
+```
+
+다음 예제는 `tsv` 출력이 bash에서 다른 명령에 파이프되는 방법을 보여줍니다. 쿼리는 출력을 필터링하고 순서를 적용하는 데 사용되고, `grep`은 이름에 "RGD"라는 텍스트가 포함된 항목을 선택하고, `cut` 명령은 네 번째 필드를 선택하여 출력에 VM 이름을 표시합니다.
 
 ```bash
-az vm list --out tsv | grep RGD | cut -f8
+az vm list --out tsv --query '[].[id, location, resourceGroup, name]' | grep RGD | cut -f4
 ```
 
 ```output
 KBDemo001VM
 KBDemo020
 ```
-
-값은 탭으로 구분된 필드를 처리할 용도로 인쇄된 JSON 개체에 표시되는 것과 동일한 순서입니다. 이 순서는 명령에서 일관되게 실행되도록 보장됩니다.
 
 ## <a name="set-the-default-output-format"></a>기본 출력 형식을 설정합니다.
 

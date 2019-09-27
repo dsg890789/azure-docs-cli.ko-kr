@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: af20c31f6b387768e93158f1116b3f486f4aedfc
-ms.sourcegitcommit: 52f0a62892c68b5728090f1bfceef7a612104529
+ms.openlocfilehash: 923629d53983f7dbbd34bf7e79f28380a05937c2
+ms.sourcegitcommit: 5a29ce9c0a3d7b831f22b1a13b1ae2e239e5549f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68415157"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71144088"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt를 사용하여 Azure CLI 설치
 
@@ -59,8 +59,8 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 2. Microsoft 서명 키를 다운로드하고 설치합니다.
 
     ```bash
-    curl -sL https://packages.microsoft.com/keys/microsoft.asc | \
-        gpg --dearmor | \
+    curl -sL https://packages.microsoft.com/keys/microsoft.asc | 
+        gpg --dearmor | 
         sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
     ```
 
@@ -68,7 +68,7 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
     ```bash
     AZ_REPO=$(lsb_release -cs)
-    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | 
         sudo tee /etc/apt/sources.list.d/azure-cli.list
     ```
 
@@ -155,7 +155,7 @@ Microsoft 서명 키를 가져오고 리포지토리에서 패키지를 가져�
    sudo rm /etc/apt/sources.list.d/azure-cli.list
    ```
 
-3. 서명 키를 제거합니다.
+3. Microsoft의 다른 패키지를 사용하지 않는 경우 다음과 같이 서명 키를 제거합니다.
 
     ```bash
     sudo rm /etc/apt/trusted.gpg.d/microsoft.asc.gpg

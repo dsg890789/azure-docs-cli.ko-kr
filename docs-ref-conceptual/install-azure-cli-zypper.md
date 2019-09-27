@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: f8a3bec4fffb731c6521fa7b8a2a90798ef191e6
-ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
+ms.openlocfilehash: 84946fc0562e396ef296cbe8dede5e6a65cd6614
+ms.sourcegitcommit: 5a29ce9c0a3d7b831f22b1a13b1ae2e239e5549f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66516259"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143985"
 ---
 # <a name="install-azure-cli-with-zypper"></a>zypper를 사용하여 Azure CLI 설치
 
@@ -100,7 +100,7 @@ sudo zypper update azure-cli
    sudo zypper removerepo azure-cli
    ```
 
-3. 리포지토리 정보를 제거한 경우 Microsoft GPG 서명 키도 제거합니다.
+3. 다른 Microsoft 패키지를 사용하지 않는 경우 Microsoft 서명 키를 제거합니다.
 
    ```bash
    MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
