@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 2f572d3b59f01b22a70b7bde8a128c155dbd1a49
-ms.sourcegitcommit: 5a29ce9c0a3d7b831f22b1a13b1ae2e239e5549f
+ms.openlocfilehash: 790c63a60a5d23863b48227dcc99462bbf950d80
+ms.sourcegitcommit: b42ce26476b135bb2047c8d9d787580c858f8b6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71144056"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72163843"
 ---
 # <a name="install-azure-cli-on-macos"></a>macOS에 Azure CLI 설치
 
@@ -59,7 +59,7 @@ brew link --overwrite python3
 
 ### <a name="cli-version-1x-is-installed"></a>CLI 버전 1.x가 설치되었습니다
 
-낮은 버전이 설치된 경우 부실한 homebrew 캐시로 인한 것일 수 있습니다. [업데이트](#Update) 지침을 따르세요.
+낮은 버전이 설치된 경우 부실한 homebrew 캐시로 인한 것일 수 있습니다. [업데이트](#update) 지침을 따르세요.
 
 ### <a name="proxy-blocks-connection"></a>프록시 연결 차단
 

@@ -4,17 +4,17 @@ description: Azure CLI에 대해 공식적으로 지원되는 확장의 전체 �
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/01/2019
+ms.date: 10/06/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1c8fdb6355ee7411f7fbcef21caa0c0d2c734c2c
-ms.sourcegitcommit: 62a7c105818d6e7f0b1829de20bc935ccac5a740
+ms.openlocfilehash: 921d3d48e4be466335d2e8dc85cdc57853fc2eb9
+ms.sourcegitcommit: b42ce26476b135bb2047c8d9d787580c858f8b6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720856"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72163866"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI에 대해 사용 가능한 확장
 
@@ -36,7 +36,7 @@ az extension list-available --output table
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 5.0.0 | Azure Batch 서비스와 함께 사용하기 위한 추가 명령 |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.2 | Azure IoT Hub, IoT Edge 및 IoT 디바이스 프로비전 서비스에 대한 데이터 플레인 명령 계층 제공 |  |
 | [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.0.65 | Microsoft Azure 명령줄 도구 AzureML 명령 모듈 |  |
-| [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.12.0 | Azure DevOps를 관리하는 도구입니다. |  |
+| [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.13.0 | Azure DevOps를 관리하는 도구입니다. |  |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.3 | Azure Firewall 리소스를 관리합니다. | 예 |
 | [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.13 | Azure Database 워크플로를 간소화하는 추가 명령입니다. | 예 |
 | [dev-spaces](https://github.com/Azure/azure-cli-extensions) | 1.0.3 | Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. |  |

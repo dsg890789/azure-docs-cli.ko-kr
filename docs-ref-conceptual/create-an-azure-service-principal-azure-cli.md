@@ -8,12 +8,12 @@ ms.date: 02/15/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 6d88400b8d7070cf2f9dba2f3e124edfe2e3163d
-ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
+ms.openlocfilehash: 45374a29c45d8e9fa2d39aebf2d9bab556ef3b50
+ms.sourcegitcommit: b42ce26476b135bb2047c8d9d787580c858f8b6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67527331"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72163829"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Azure CLI를 사용하여 Azure 서비스 주체 만들기
 
@@ -99,10 +99,10 @@ Key Vault에 저장된 인증서의 경우 [az keyvault secret show](/cli/azure/
 * `--show-mine`은 로그인한 사용자가 만든 서비스 주체만 요청합니다.
 * `--filter`는 OData 필터를 사용하며 _서버 쪽_ 필터링을 수행합니다. 이 메서드는 CLI의 `--query` 인수를 사용하는 클라이언트 쪽 필터링보다 먼저 추천됩니다. OData 필터에 대한 자세한 내용은 [필터에 대한 OData 식 구문](/rest/api/searchservice/odata-expression-syntax-for-azure-search)을 참조하세요.
 
-서비스 주체 개체에 대해 반환되는 정보는 자세한 정보입니다. 로그인하는 데 필요한 정보만 가져오려면 `[].{"id":"appId", "tenant":"appOwnerTenantId"}` 쿼리 문자열을 사용합니다. 예를 들어 현재 로그인한 사용자가 만든 모든 서비스 주체에 대한 로그인 정보를 가져오려면 다음과 같습니다.
+서비스 주체 개체에 대해 반환되는 정보는 자세한 정보입니다. 로그인하는 데 필요한 정보만 가져오려면 `[].{id:appId, tenant:appOwnerTenantId}` 쿼리 문자열을 사용합니다. 예를 들어 현재 로그인한 사용자가 만든 모든 서비스 주체에 대한 로그인 정보를 가져오려면 다음과 같습니다.
 
 ```azurecli-interactive
-az ad sp list --show-mine --query '[].{"id":"appId", "tenant":"appOwnerTenantId"}'
+az ad sp list --show-mine --query "[].{id:appId, tenant:appOwnerTenantId}"
 ```
 
 > [!IMPORTANT]
