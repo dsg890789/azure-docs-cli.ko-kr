@@ -4,19 +4,78 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/05/2019
+ms.date: 10/15/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 1f829ba3d9ecdb158e96512bde5bcf1565cc205c
-ms.sourcegitcommit: 5b9b4446c08b94256ced7f63c145b493ba8b50df
+ms.openlocfilehash: 32137c5e6ef403461114b0e09970f93c9248c100
+ms.sourcegitcommit: 69f52b032167a01509fdf15431e3e4e89a7e20ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71217420"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72324027"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="october-15-2019"></a>2019년 10월 15일
+
+버전 2.0.75
+
+### <a name="aks"></a>AKS
+
+* Kubernetes 버전에서 지원되는 경우 `--load-balancer-sku` 기본값이 `standard`로 변경됨
+* Kubernetes 버전에서 지원되는 경우 `--vm-set-type` 기본값이 `virtualmachinescalesets`로 변경됨
+
+### <a name="ams"></a>AMS
+
+* [주요 변경 사항] `job start`의 이름이 `job create`로 변경됨
+* [주요 변경 사항] UTF8 대신 32자 16진수 문자열을 사용하도록 `content-key-policy create`의 `--ask` 매개 변수가 변경됨
+
+### <a name="appservice"></a>AppService
+
+* `webapp config access-restriction show|set|add|remove` 명령이 추가됨
+* `webapp up`에 더 나은 오류 처리 기능이 추가됨
+* `Isolated` SKU에 대한 지원이 `appservice plan update`에 추가됨
+
+### <a name="arm"></a>ARM
+
+* json 템플릿에서 여러 줄과 주석을 지원하기 위해 `--handle-extended-json-format` 매개 변수가 `deployment create`에 추가됨
+
+### <a name="compute"></a>컴퓨팅
+
+* `--enable-agent` 매개 변수가 `vm create`에 추가됨
+* 영역 사용 시 표준 공용 IP SKU를 자동으로 사용하도록 `vm create`이 변경됨
+* VM에 대해 유효한 컴퓨터 이름을 자동으로 만들도록 `vm create`이 변경됨(제공되지 않은 경우)
+* VMSS에서 가상 머신의 사용자 지정 컴퓨터 이름 접두사를 지원하기 위해 `vmss create`에 `--computer-name-prefix` 매개 변수가 추가됨
+* 로그 분석 작업 영역을 자동으로 사용하도록 `vm create`에 `--workspace` 매개 변수가 추가됨
+* 갤러리 API 버전이 2019-07-01로 업데이트됨
+
+### <a name="core"></a>코어
+
+* 일반 업데이트 명령에 `--set` 매개 변수에 대한 구문 검사가 추가됨
+
+### <a name="iot"></a>IoT
+
+* `iot hub show`에서 "리소스를 찾을 수 없음" 오류가 잘못 발생하는 문제가 해결됨
+
+### <a name="monitor"></a>모니터
+
+* CRUD에 대한 지원이 `monitor log-analytics workspace`에 추가됨
+
+### <a name="network"></a>네트워크
+
+* 교차 테넌트 가상 연결에 대한 지원이 `network private-dns link vnet [create|update]`에 추가됨
+* [주요 변경 사항] `--resource-group` 및 `--vnet-name` 매개 변수가 필수 매개 변수가 되도록 `network vnet subnet list`가 변경됨
+
+### <a name="sql"></a>SQL
+
+* 관리형 인스턴스에서 AAD 관리자 설정을 지원하는 명령이 `sql mi ad-admin`에 추가됨
+
+### <a name="storage"></a>스토리지
+
+* 서비스에서 서비스로 복사하는 동안 액세스 계층을 유지하기 위해 `storage copy`에 `--preserve-s2s-access-tier` 매개 변수가 추가됨
+* 스토리지 계정에 대한 대용량 파일 공유를 지원하기 위해 `storage account [create|update]`에 `--enable-large-file-share` 매개 변수가 추가됨
 
 ## <a name="september-24-2019"></a>2019년 9월 24일
 
