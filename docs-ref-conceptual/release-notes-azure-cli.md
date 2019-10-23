@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 32137c5e6ef403461114b0e09970f93c9248c100
-ms.sourcegitcommit: 69f52b032167a01509fdf15431e3e4e89a7e20ef
+ms.openlocfilehash: 0eb1ccccdeff8c3d9b97167ee74f3380d983a552
+ms.sourcegitcommit: e99b39e2f14a38c9bcae1b2b5921c6d8b464ef31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324027"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72549692"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
 
@@ -636,7 +636,7 @@ CLI는 앞으로 개별 패키지의 버전 번호를 제거합니다. 명령이
 * 지역 복제에 postgres 및 mysql이 지원됨
 
 ### <a name="rbac"></a>RBAC
-* `role assignment`에 관리 그룹 범위가 지원됨
+* `role assignment`에 관리 그룹 범위 지원이 추가됨
 
 ### <a name="storage"></a>스토리지
 * `storage blob sync`: 스토리지 Blob에 대한 sync 명령이 추가됨
