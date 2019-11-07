@@ -4,19 +4,129 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/15/2019
+ms.date: 11/04/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 0eb1ccccdeff8c3d9b97167ee74f3380d983a552
-ms.sourcegitcommit: e99b39e2f14a38c9bcae1b2b5921c6d8b464ef31
+ms.openlocfilehash: 3061d4b5519cfafbde92df68ecdee4d88d0bddff
+ms.sourcegitcommit: b854f9b6acfdb814ba1d6ba87aac03e2d547d998
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72549692"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73536780"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="november-4-2019"></a>2019년 11월 4일
+
+버전 2.0.76
+
+### <a name="acr"></a>ACR
+
+* `az acr pack build` 명령에 `--pack-image-tag` 미리 보기 매개 변수를 추가했습니다.
+* 레지스트리를 만들 때 감사 사용 지원됨
+* 리포지토리 범위 RBAC 지원됨
+
+### <a name="aks"></a>AKS
+
+* 노드 풀에 대한 클러스터 자동 크기 조정기를 사용할 수 있도록 `--enable-cluster-autoscaler`, `--min-count` 및 `--max-count`를 `az aks create` 명령에 추가했습니다.
+* 위의 플래그뿐만 아니라 클러스터 자동 크기 조정기를 업데이트할 수 있도록 `--update-cluster-autoscaler` 및 `--disable-cluster-autoscaler`도 `az aks update` 명령에 추가했습니다.
+
+### <a name="appconfig"></a>AppConfig
+
+* App Configuration에 저장된 기능 플래그를 관리하는 appconfig 기능 명령 그룹을 추가했습니다.
+* appconfig kv export to file 명령에 대한 사소한 버그를 수정했습니다. 내보내는 동안 대상 파일 콘텐츠 읽기를 중지합니다.
+
+### <a name="appservice"></a>AppService
+
+* `az appservice plan create`: appservice plan create에서 'persitescaling'을 설정하는 지원을 추가했습니다.
+* webapp config ssl bind 작업이 리소스에서 기존 태그를 제거하는 문제를 수정했습니다.
+* 함수 앱을 배포하는 동안 원격 빌드 작업을 지원하기 위해 `az functionapp deployment source config-zip`에 대해 `--build-remote` 플래그를 추가했습니다.
+* Windows의 경우 함수 앱의 기본 노드 버전을 ~10으로 변경했습니다.
+* `az functionapp create`에 `--runtime-version` 속성 추가됨
+
+### <a name="arm"></a>ARM
+
+* `az deployment/group deployment validate`: 배포 시 json 템플릿에서 여러 줄과 주석을 지원하기 위해 `--handle-extended-json-format` 매개 변수를 추가했습니다.
+* azure-mgmt-resource가 2019-07-01로 향상됨
+
+### <a name="backup"></a>Backup
+
+* AzureFiles 백업 지원이 추가됨
+
+### <a name="compute"></a>컴퓨팅
+
+* `az vm create`: 가속화된 네트워킹 및 기존 NIC를 함께 지정하는 경우 경고를 추가했습니다.
+* `az vm create`: 가상 머신을 할당해야 하는 기존 가상 머신 확장 집합을 지정하는 `--vmss`를 추가했습니다.
+* `az vm/vmss create`: 제한된 네트워크 환경에서 액세스할 수 있도록 이미지 별칭 파일의 로컬 복사본을 추가했습니다.
+* `az vmss create`: 확장 집합에서 가상 머신을 관리하는 방법을 지정하는 `--orchestration-mode`를 추가했습니다.
+* `az vm/vmss update`: Ultra SSD 설정 업데이트를 허용하는 `--ultra-ssd-enabled`를 추가했습니다.
+* [호환성이 손상되는 변경] `az vm extension set`: 사용자가 `--ids`를 사용하여 VM에서 확장을 설정할 수 없는 버그를 수정했습니다.
+* Azure Marketplace 이미지 용어를 관리하는 `az vm image terms accept/cancel/show` 명령을 새로 추가했습니다.
+* VMAccessForLinux가 버전 1.5로 업데이트됨
+
+### <a name="cosmosdb"></a>CosmosDB
+
+* [호환성이 손상되는 변경] `az sql container create`: `--partition-key-path`가 필수 매개 변수로 변경됨
+* [호환성이 손상되는 변경] `az gremlin graph create`: `--partition-key-path`가 필수 매개 변수로 변경됨
+* `az sql container create`: `--unique-key-policy` 및 `--conflict-resolution-policy`가 추가됨
+* `az sql container create/update`: `--idx` 기본 스키마가 업데이트됨
+* `gremlin graph create`: `--conflict-resolution-policy`가 추가됨
+* `gremlin graph create/update`: `--idx` 기본 스키마가 업데이트됨
+* 도움말 메시지 내 오류 해결
+* 데이터베이스: 사용 중단 정보가 추가됨
+* 컬렉션: 사용 중단 정보가 추가됨
+
+### <a name="iot"></a>IoT
+
+* 새 라우팅 원본 유형이 추가됨: DigitalTwinChangeEvents
+* `az iot hub create`에서 누락된 기능이 수정됨
+
+### <a name="key-vault"></a>Key Vault
+
+* 인증서 파일이 없을 때 발생하는 예기치 않은 오류가 수정됨
+* `az keyvault recover/purge`가 작동하지 않는 문제 수정됨
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* API 버전 2019-07-01을 사용 하도록 azure-mgmt-netapp을 0.6.0으로 업그레이드했습니다. 이 새로운 API 버전에는 다음이 포함됩니다.
+
+    - 볼륨 만들기 `--protocol-types`에서 이제는 "NFSv4"가 아닌 "NFSv4.1"이 사용됩니다.
+    - 볼륨 내보내기 정책 속성의 이름은 이제 'nfsv4'가 아닌 'nfsv41'입니다.
+    - 볼륨 `--creation-token`의 이름이 `--file-path`로 바뀌었습니다.
+    - 스냅샷 생성 날짜가 이제 'created'라는 이름으로만 지정됩니다.
+
+### <a name="network"></a>네트워크
+
+* `az network private-dns link vnet create/update`: 교차 테넌트 가상 네트워킹 연결을 지원합니다.
+* [호환성이 손상되는 변경] `az network vnet subnet list`: `--resource-group` 및 `--vnet-name`이 이제 필수 항목으로 변경되었습니다.
+* `az network public-ip prefix create`: 생성 시 IP 주소 버전(IPv4, IPv6)을 지정하도록 지원됨
+* azure-mgmt-network를 7.0.0으로 향상시키고 api-version을 2019-09-01로 증가함
+* `az network vrouter`: 새 서비스 가상 라우터 및 가상 라우터 피어링 지원됨
+* `az network express-route gateway connection`: `--internet-security` 지원됨
+
+### <a name="profile"></a>프로필
+
+* `az account get-access-token --resource-type ms-graph`가 작동하지 않는 문제 수정됨
+* `az login`에서 경고 제거됨
+
+### <a name="rbac"></a>RBAC
+
+* `az ad app update --id {} --display-name {}`이 작동하지 않는 문제 수정됨
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* `az sf cluster create`: service fabric linux 및 windows template.json compute vmss를 표준에서 관리 디스크로 수정하여 문제 수정됨
+
+### <a name="sql"></a>SQL
+
+* 새 SQL Database 제품에 대한 CRUD 작업을 지원하기 위해 `--compute-model`, `--auto-pause-delay` 및 `--min-capacity` 매개 변수를 추가했습니다. 서버리스 컴퓨팅 모델.
+
+### <a name="storage"></a>스토리지
+
+* `az storage account create/update`: --enable-files-adds 매개 변수 및 Azure Active Directory 속성 인수 그룹이 추가되어 Azure Files Active Directory 도메인 서비스 인증을 지원합니다.
+* 스토리지 계정의 Kerberos 키 나열 또는 다시 생성을 지원하도록 `az storage account keys list/renew`를 확장했습니다.
 
 ## <a name="october-15-2019"></a>2019년 10월 15일
 
