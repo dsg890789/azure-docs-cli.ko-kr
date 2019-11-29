@@ -4,19 +4,130 @@ description: Azure CLI 최신 업데이트 알아보기
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 3061d4b5519cfafbde92df68ecdee4d88d0bddff
-ms.sourcegitcommit: b854f9b6acfdb814ba1d6ba87aac03e2d547d998
+ms.openlocfilehash: 75a3a3ee800edc20bd1c8ed7ab1ff542f5935c6c
+ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73536780"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74543459"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="november-26-2019"></a>2019년 11월 26일
+
+버전 2.0.77
+
+### <a name="acr"></a>ACR
+
+* acr task create/update의 `--branch` 매개 변수가 더 이상 사용되지 않음
+
+### <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
+
+* `--workspace-resource-id` 플래그가 추가되어 모니터링으로 Azure Red Hat Openshift 클러스터 생성 가능
+* 모니터링으로 Azure Red Hat OpenShift 클러스터를 만드는 `monitor_profile`이 추가됨
+
+### <a name="aks"></a>AKS
+
+* "az aks rotate-certs"를 사용한 지원 클러스터 인증서 순환 작업이 추가됨
+
+### <a name="appconfig"></a>AppConfig
+
+* ":"을 `as az appconfig kv import` 구분 기호로 사용하는 지원이 추가됨
+* Null 레이블을 포함하여 여러 레이블이 있는 키 값을 나열하는 문제가 해결되었습니다. 
+* 관리 평면 sdk, azure-mgmt-appconfiguration이 버전 0.3.0으로 업데이트되었습니다. 
+
+### <a name="appservice"></a>AppService
+
+* #11100 문제가 해결됨: 서비스 계획을 만들 때 az webapp up의 AttributeError
+* az webapp up: 지원되는 언어를 위해 사이트를 만들거나 배포하도록 적용하면 기본값이 사용되지 않습니다.
+* App Service Environment에 대한 지원 추가t: az appservice ase show | list | list-addresses | list-plans | create | update | delete
+
+### <a name="backup"></a>Backup
+
+* az backup policy list-associated-items 관련 문제가 해결되었습니다. 선택적 BackupManagementType 매개 변수가 추가되었습니다.
+
+### <a name="compute"></a>컴퓨팅
+
+* 컴퓨팅, 디스크, 스냅샷의 API 버전이 2019-07-01로 업그레이드되었습니다.
+* vmss create: --orchestration-mode 개선
+* sig image-definition create: --os-state가 추가되어 이 이미지로 생성된 가상 머신이 'Generalized'인지 아니면 'Specialized'인지 지정 가능
+* sig image-definition create: --hyper-v-generation이 추가되어 하이퍼바이저 세대 지정 가능
+* sig image-version create: 지원 --os-snapshot 및 --data-snapshots 추가됨
+* image create: --data-disk-caching이 추가되어 데이터 디스크의 캐싱 설정을 지정할 수 있음
+* Python Compute SDK를 10.0.0으로 업그레이드
+* vm/vmss create: 'Priority' 열거형 속성에 'Spot' 추가
+* [주요 변경 사항] Swagger 및 Powershell cmdlet과 일치하도록 VM 및 VMSS에 대한 '--max-billing' 매개 변수의 이름이 '--max-price'로 변경됨
+* vm monitor log show: 연결된 로그 분석 작업 영역을 통한 로그 쿼리에 대한 지원이 추가되었습니다.
+
+### <a name="iot"></a>IOT
+
+* #2531 수정됨: 허브 업데이트에 대한 편의 인수가 추가되었습니다.
+* #8323 수정됨: 스토리지 사용자 지정 엔드포인트를 만드는 누락된 매개 변수가 추가되었습니다.
+* 재발 버그 수정: 기본 스토리지 엔드포인트를 재정의하는 변경 사항을 되돌렸습니다.
+
+### <a name="key-vault"></a>Key Vault
+
+* #11121 수정됨: `az keyvault certificate list`를 사용하는 경우 `--include-pending`을 전달할 때 이제 `true` 또는 `false` 값이 필요하지 않음
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* azure-mgmt-netapp이 0.7.0으로 업그레이드되고, 여기에는 향후 복제 작업과 연결된 몇 가지 추가 볼륨 속성이 포함됨
+
+### <a name="network"></a>네트워크
+
+* application-gateway waf-config: 사용되지 않음
+* application-gateway waf-policy: 관리형 규칙 집합과 제외 규칙을 관리하는 하위 그룹 managed-rules가 추가됨
+* application-gateway waf-policy: waf-policy의 글로벌 구성을 관리하는 하위 그룹 policy-setting이 추가됨
+* [주요 변경 사항] application-gateway waf-policy: 하위 그룹 규칙의 이름이 custom-rule로 변경됨
+* application-gateway http-listener: 생성 시 --firewall-policy가 추가됨
+* application-gateway url-path-map 규칙: 생성 시 --firewall-policy가 추가됨
+
+### <a name="packaging"></a>패키징
+
+* az wrapper가 Python으로 다시 작성됨
+* Python 3.8에 대한 지원이 추가됨
+* RPM 패키지의 경우 Python 3으로 변경됨
+
+### <a name="profile"></a>프로필
+
+* Microsoft 계정으로 `az login -u {} -p {}` 실행 시 오류가 수정됨
+* 자체 서명된 루트 인증서로 프록시 뒤에서 `az login` 실행 시 `SSLError`가 수정됨
+* #10578 수정됨: Windows 또는 WSL에서 동시에 둘 이상의 인스턴스가 시작되면 `az login`이 중단됨
+* #11059 수정됨: 테넌트에 구독이 있는 경우`az login --allow-no-subscriptions`가 실패함
+* #11238 수정됨: 구독 이름을 바꾼 후 MSI로 로그인하면 동일한 구독이 두 번 나타남
+
+### <a name="rbac"></a>RBAC
+
+* #10996 수정됨: `--password`가 지정되지 않은 경우 `az ad user update`의 `--force-change-password-next-login`에 대한 오류가 수정됨
+
+### <a name="redis"></a>Redis
+
+* #2902 수정됨: 기본 SKU 캐시를 업데이트하는 동안 메모리 구성을 설정하지 마십시오
+
+### <a name="reservations"></a>예약
+
+* SDK 버전을 0.6.0으로 업그레이드
+* Get-Gatalogs를 호출한 후 billingplan 세부 정보가 추가됨
+* 예약 가격을 계산하는 새 명령 `az reservations reservation-order calculate`가 추가됨
+* 새 예약을 구입하는 `az reservations reservation-order purchase`가 추가됨
+
+### <a name="rest"></a>REST
+* `az rest`가 GA로 변경됨
+
+### <a name="sql"></a>SQL
+
+* azure-mgmt-sql이 버전 0.15.0으로 업그레이드됨
+
+### <a name="storage"></a>스토리지
+
+* storage account create: Blob service에서 파일 시스템 의미 체계를 지원하는 --enable-hierarchical-namespace가 추가됨
+* 오류 메시지에서 관련되지 않은 예외가 제거됨
+* 잘못된 오류 메시지 "이 작업을 수행하는 데 필요한 권한이 없습니다." 관련 문제가 해결됨 네트워크 규칙 또는 AuthenticationFailed로 차단된 경우
 
 ## <a name="november-4-2019"></a>2019년 11월 4일
 
@@ -25,8 +136,8 @@ ms.locfileid: "73536780"
 ### <a name="acr"></a>ACR
 
 * `az acr pack build` 명령에 `--pack-image-tag` 미리 보기 매개 변수를 추가했습니다.
-* 레지스트리를 만들 때 감사 사용 지원됨
-* 리포지토리 범위 RBAC 지원됨
+* 레지스트리 생성에 대한 감사를 가능하게 하는 지원 추가
+* 리포지토리 범위 RBAC에 대한 지원 추가
 
 ### <a name="aks"></a>AKS
 
@@ -101,10 +212,10 @@ ms.locfileid: "73536780"
 
 * `az network private-dns link vnet create/update`: 교차 테넌트 가상 네트워킹 연결을 지원합니다.
 * [호환성이 손상되는 변경] `az network vnet subnet list`: `--resource-group` 및 `--vnet-name`이 이제 필수 항목으로 변경되었습니다.
-* `az network public-ip prefix create`: 생성 시 IP 주소 버전(IPv4, IPv6)을 지정하도록 지원됨
+* `az network public-ip prefix create`: 생성 시 IP 주소 버전(IPv4, IPv6)을 지정하는 지원이 추가됨
 * azure-mgmt-network를 7.0.0으로 향상시키고 api-version을 2019-09-01로 증가함
-* `az network vrouter`: 새 서비스 가상 라우터 및 가상 라우터 피어링 지원됨
-* `az network express-route gateway connection`: `--internet-security` 지원됨
+* `az network vrouter`: 새 서비스 가상 라우터 및 가상 라우터 피어링에 대한 지원이 추가됨
+* `az network express-route gateway connection`: `--internet-security`에 대한 지원이 추가됨
 
 ### <a name="profile"></a>프로필
 
@@ -260,8 +371,8 @@ ms.locfileid: "73536780"
 ### <a name="batch"></a>Batch
 
 * `batch pool create`에 대한 `--json-file`에 새 JSON 구성 설정이 추가됨
-  * 파일 시스템을 탑재하기 위한 `MountConfigurations`가 추가됨(자세한 내용은 https://docs.microsoft.com/en-us/rest/api/batchservice/pool/add#request-body 참조)
-  * `NetworkConfiguration`에 풀의 공용 IP에 대한 선택적 속성 `publicIPs`가 추가됨(자세한 내용은 https://docs.microsoft.com/en-us/rest/api/batchservice/pool/add#request-body 참조)
+  * 파일 시스템을 탑재하기 위한 `MountConfigurations`가 추가됨(자세한 내용은 https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body 참조)
+  * `NetworkConfiguration`에 풀의 공용 IP에 대한 선택적 속성 `publicIPs`가 추가됨(자세한 내용은 https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body 참조)
 * 공유 이미지 갤러리에 대한 지원이 `--image`에 추가됨
 * [주요 변경 사항] `batch pool create`의 기본값 `--start-task-wait-for-success`가 `true`로 변경됨
 * [주요 변경 사항] `AutoUserSpecification`의 `Scope` 기본값이 항상 풀이 되도록 변경됨(Windows 노드에서는 `Task`, Linux 노드에서는 `Pool`이었음)

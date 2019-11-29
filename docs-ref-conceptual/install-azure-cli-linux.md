@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 13edb9954678aca627529714aeee02062c720219
-ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
+ms.openlocfilehash: caca30ec186f302e47f2978b9bfe616d4b2a5c02
+ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66516314"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74543632"
 ---
 # <a name="install-azure-cli-on-linux-manually"></a>Linux에 Azure CLI 수동 설치
 
@@ -35,7 +35,7 @@ CLI에는 다음과 같은 소프트웨어가 필요합니다.
 
 > [!IMPORTANT]
 >
-> CLI는 2020년 1월 1일에 종료되는 Python 2.7.x와도 호환됩니다. 이러한 이유로 CLI를 실행하려면 Python 3을 설치하는 것이 좋습니다.
+> CLI는 2020년 1월 1일에 종료되는 Python 2.7.x와도 호환됩니다. 향후 버전의 Azure CLI에서는 Python 2.7에 대한 지원이 중단됩니다. 이러한 이유로 CLI를 실행하려면 Python 3을 설치하는 것이 좋습니다. 
 
 ## <a name="install-or-update"></a>설치 또는 업데이트
 
@@ -75,9 +75,7 @@ hash -r
 
 한 다음 문제가 해결되었는지 확인합니다.
 
-
-설치 후 셸을 다시 시작하지 않아도 이 문제가 발생할 수 있습니다. `az` 명령의 위치가 `$PATH`여야 합니다. `az` 명령의 위치는 다음과 같습니다.	
-
+설치 후 셸을 다시 시작하지 않아도 이 문제가 발생할 수 있습니다. `az` 명령의 위치가 `$PATH`여야 합니다. `az` 명령의 위치는 다음과 같습니다.
 
 ```bash
 <install path>/bin

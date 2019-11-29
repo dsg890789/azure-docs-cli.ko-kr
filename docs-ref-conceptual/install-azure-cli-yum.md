@@ -4,21 +4,21 @@ description: yum을 사용하여 Azure CLI를 설치하는 방법
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/09/2018
+ms.date: 11/26/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 270be4c41bdb3c913e41ef1b2bb0c7c0b393aa20
-ms.sourcegitcommit: 5a29ce9c0a3d7b831f22b1a13b1ae2e239e5549f
+ms.openlocfilehash: a33b5850abc40e91a1ffbeacd49d56169f67d282
+ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71144030"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74543622"
 ---
 # <a name="install-azure-cli-with-yum"></a>yum을 사용하여 Azure CLI 설치
 
-RHEL, Fedora, CentOS 등의 `yum`를 사용하는 Linux 배포의 경우, Azure CLI에서 사용할 수 있는 패키지가 있습니다. 이 패키지는 RHEL 7, Fedora 19 이상, CentOS 7를 사용하여 테스트 되었습니다.
+RHEL, Fedora, CentOS 등의 `yum`를 사용하는 Linux 배포의 경우, Azure CLI에서 사용할 수 있는 패키지가 있습니다. 이 패키지는 RHEL 7.7, RHEL 8, Fedora 24 이상, CentOS 7 및 CentOS 8에서 테스트 되었습니다.
 
 [!INCLUDE [current-version](includes/current-version.md)]
 
@@ -78,6 +78,12 @@ Microsoft 서명 키를 가져오고 리포지토리에서 패키지를 가져�
 * `https://packages.microsoft.com`
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
+
+### <a name="install-on-rhel-76-or-other-systems-without-python-3"></a>Python 3 없이 RHEL 7.6 또는 기타 시스템에 설치
+
+가능하면 `python3` 패키지를 공식적으로 지원하는 버전으로 시스템을 업그레이드하십시오. 그렇지 않으면 먼저 [소스에서 빌드](https://github.com/linux-on-ibm-z/docs/wiki/Building-Python-3.6.x)하거나 일부 [추가 리포지토리](https://developers.redhat.com/blog/2018/08/13/install-python3-rhel/)를 통해 `python3` 패키지를 설치해야 합니다. 그런 다음 [수동 설치 지침](install-azure-cli-linux.md)을 따르면 됩니다.
+
+가장 권장되지 않는 옵션은 Python 2를 계속 사용하면서 [수동 설치 지침](install-azure-cli-linux.md)을 따르는 것입니다. Python 2는 2020 년 1월 1일에 수명이 종료되기 때문입니다. 향후 버전의 Azure CLI에서는 Python 2.7에 대한 지원이 중단됩니다.
 
 ## <a name="update"></a>업데이트
 
