@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 84946fc0562e396ef296cbe8dede5e6a65cd6614
-ms.sourcegitcommit: 5a29ce9c0a3d7b831f22b1a13b1ae2e239e5549f
+ms.openlocfilehash: 7e5897fe545527aa2708432e0ad0cf626584c785
+ms.sourcegitcommit: 0088160bdb1ea520724d3e1efe71a4a66f29753d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71143985"
+ms.lasthandoff: 12/19/2019
+ms.locfileid: "75216884"
 ---
 # <a name="install-azure-cli-with-zypper"></a>zypper를 사용하여 Azure CLI 설치
 
-openSUSE 또는 SLES 등의 `zypper`를 사용하는 Linux 배포의 경우, Azure CLI에서 사용할 수 있는 패키지가 있습니다. 이 패키지는 openSUSE 42.2 이상 및 SLES 12 SP 2 이상에서 테스트되었습니다.
+openSUSE 또는 SLES 등의 `zypper`를 사용하는 Linux 배포의 경우, Azure CLI에서 사용할 수 있는 패키지가 있습니다. 이 패키지는 openSUSE Leap 15.1 및 SLES 15와 함께 테스트되었습니다.
 
 [!INCLUDE [current-version](includes/current-version.md)]
 
@@ -59,6 +59,26 @@ openSUSE 또는 SLES 등의 `zypper`를 사용하는 Linux 배포의 경우, Azu
 ## <a name="troubleshooting"></a>문제 해결
 
 `zypper`을 사용해 설치할 때 몇 가지 일반적인 문제가 여기에 표시됩니다. 여기에서 다루지 않는 문제가 발생하는 경우, [github에 문제를 제출합니다](https://github.com/Azure/azure-cli/issues).
+
+### <a name="install-on-sles-12-or-other-other-systems-without-python-36"></a>Python 3.6 없이 SLES 12 또는 기타 시스템에 설치
+
+SLES 12에서 기본 python3 패키지는 3.4이며 Azure CLI에서 지원하지 않습니다. 먼저 원본에서 더 높은 버전의 python3를 빌드할 수 있습니다. 그런 다음 Azure CLI 패키지를 다운로드하여 종속성 없이 설치할 수 있습니다.
+```bash
+$ sudo zypper install -y gcc gcc-c++ make ncurses patch wget tar zlib-devel zlib
+# Download Python source code
+$ PYTHON_VERSION="3.6.9"
+$ PYTHON_SRC_DIR=$(mktemp -d)
+$ wget -qO- https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz | tar -xz -C "$PYTHON_SRC_DIR"
+# Build Python
+$ $PYTHON_SRC_DIR/*/configure --with-ssl
+$ make
+$ sudo make install
+#Download azure-cli package 
+$ AZ_VERSION=$(zypper --no-refresh info azure-cli |grep Version | awk -F': ' '{print $2}' | awk '{$1=$1;print}')
+$ wget https://packages.microsoft.com/yumrepos/azure-cli/azure-cli-$AZ_VERSION.x86_64.rpm
+#Install without dependency
+$ sudo rpm -ivh --nodeps azure-cli-$AZ_VERSION.x86_64.rpm
+```
 
 ### <a name="proxy-blocks-connection"></a>프록시 연결 차단
 

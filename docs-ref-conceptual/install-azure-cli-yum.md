@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: a33b5850abc40e91a1ffbeacd49d56169f67d282
-ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
+ms.openlocfilehash: f65240524942c2534f61b9cc51101812c8d09351
+ms.sourcegitcommit: 0088160bdb1ea520724d3e1efe71a4a66f29753d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74543622"
+ms.lasthandoff: 12/19/2019
+ms.locfileid: "75216925"
 ---
 # <a name="install-azure-cli-with-yum"></a>yum을 사용하여 Azure CLI 설치
 
@@ -59,11 +59,22 @@ RHEL, Fedora, CentOS 등의 `yum`를 사용하는 Linux 배포의 경우, Azure 
 
 `yum`을 사용해 설치할 때 몇 가지 일반적인 문제가 여기에 표시됩니다. 여기에서 다루지 않는 문제가 발생하는 경우, [github에 문제를 제출합니다](https://github.com/Azure/azure-cli/issues).
 
+### <a name="install-on-rhel-76-or-other-systems-without-python-3"></a>Python 3 없이 RHEL 7.6 또는 기타 시스템에 설치
+
+가능하면 `python3` 패키지를 공식적으로 지원하는 버전으로 시스템을 업그레이드하십시오. 그렇지 않으면 먼저 [소스에서 빌드](https://github.com/linux-on-ibm-z/docs/wiki/Building-Python-3.6.x)하거나 일부 [추가 리포지토리](https://developers.redhat.com/blog/2018/08/13/install-python3-rhel/)를 통해 `python3` 패키지를 설치해야 합니다. 그런 다음 패키지를 다운로드하여 종속성 없이 설치할 수 있습니다.
+```bash
+$ sudo yum install yum-utils
+$ sudo yumdownloader azure-cli
+$ sudo rpm -ivh --nodeps azure-cli-*.rpm
+```
+
+가장 권장되지 않는 옵션은 Python 2를 계속 사용하면서 [수동 설치 지침](install-azure-cli-linux.md)을 따르는 것입니다. Python 2는 2020 년 1월 1일에 수명이 종료되기 때문입니다. 향후 버전의 Azure CLI에서는 Python 2.7에 대한 지원이 중단됩니다.
+
 ### <a name="proxy-blocks-connection"></a>프록시 연결 차단
 
 [!INCLUDE[configure-proxy](includes/configure-proxy.md)]
 
-이 프록시를 항상 사용하도록 명시적으로 `yum`을 구성할 수도 있습니다. `/etc/yum.conf`의 `[main]` 섹션 아래에 다음 줄이 표시되는지 확인합니다.
+이 프록시를 항상 사용하도록 명시적으로 `yum`를 구성할 수도 있습니다. `/etc/yum.conf`의 `[main]` 섹션 아래에 다음 줄이 표시되는지 확인합니다.
 
 ```yum.conf
 [main]
@@ -78,12 +89,6 @@ Microsoft 서명 키를 가져오고 리포지토리에서 패키지를 가져�
 * `https://packages.microsoft.com`
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
-
-### <a name="install-on-rhel-76-or-other-systems-without-python-3"></a>Python 3 없이 RHEL 7.6 또는 기타 시스템에 설치
-
-가능하면 `python3` 패키지를 공식적으로 지원하는 버전으로 시스템을 업그레이드하십시오. 그렇지 않으면 먼저 [소스에서 빌드](https://github.com/linux-on-ibm-z/docs/wiki/Building-Python-3.6.x)하거나 일부 [추가 리포지토리](https://developers.redhat.com/blog/2018/08/13/install-python3-rhel/)를 통해 `python3` 패키지를 설치해야 합니다. 그런 다음 [수동 설치 지침](install-azure-cli-linux.md)을 따르면 됩니다.
-
-가장 권장되지 않는 옵션은 Python 2를 계속 사용하면서 [수동 설치 지침](install-azure-cli-linux.md)을 따르는 것입니다. Python 2는 2020 년 1월 1일에 수명이 종료되기 때문입니다. 향후 버전의 Azure CLI에서는 Python 2.7에 대한 지원이 중단됩니다.
 
 ## <a name="update"></a>업데이트
 

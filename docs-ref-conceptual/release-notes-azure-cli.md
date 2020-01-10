@@ -1,22 +1,202 @@
 ---
 title: Azure CLI 릴리스 정보
 description: Azure CLI 최신 업데이트 알아보기
-author: sptramer
-ms.author: sttramer
-manager: carmonm
-ms.date: 11/26/2019
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
+ms.date: 01/07/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 75a3a3ee800edc20bd1c8ed7ab1ff542f5935c6c
-ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
+ms.openlocfilehash: 9fc54add3bfb2a75d1912c47f0a2571d9d065ec0
+ms.sourcegitcommit: 5646008e7a521dd9a8a627418f57bd92ee180352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74543459"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75694277"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="january-07-2020"></a>2020년 1월 7일
+
+버전 2.0.79
+
+### <a name="acr"></a>ACR
+
+* [주요 변경 사항] 'acr build', 'acr task create/update', 'acr run' 및 'acr pack'에서 '--os' 매개 변수 제거. 대신 '--platform'을 사용하세요.
+
+### <a name="appconfig"></a>AppConfig
+
+* 기능 플래그 가져오기/내보내기에 대한 지원 추가
+* keyvault 참조를 만들려면 새 명령 'az appconfig kv set-keyvault' 추가
+* 기능 플래그를 파일로 내보낼 때 다양한 명명 규칙 지원
+
+### <a name="appservice"></a>AppService
+
+* 이슈 #7154 해결: 작은따옴표 대신 백틱을 사용하도록 명령 <>에 대한 설명서 업데이트
+* 이슈 #11287 해결: webapp up: up을 사용하여 만든 앱은 기본적으로 'SSL 사용'으로 설정되어 있어야 합니다.
+* 이슈 #11592 해결: html 정적 사이트에 대한 az webapp up 플래그 추가
+
+### <a name="arm"></a>ARM
+
+* `az resource tag` 해결: Recovery Services 자격 증명 모음 태그를 업데이트할 수 없습니다.
+
+### <a name="backup"></a>Backup
+
+* IaasVM 워크로드의 일시 삭제 기능을 지원하기 위해 새 명령 'backup protection undelete' 추가
+* backup-properties 명령을 설정하기 위해 새 매개 변수 '--soft-delete-feature-state' 추가
+* IaasVM 워크로드에 대한 디스크 제외 지원 추가
+
+### <a name="compute"></a>컴퓨팅
+
+* Azure Stack 프로필에서 `vm create` 오류 해결.
+* vm monitor metrics tail/list-definitions: vm에 쿼리 메트릭 및 목록 정의 지원
+* az vm의 새로운 다시 적용 명령 작업 추가
+
+### <a name="misc"></a>기타
+
+* 기본적으로 JSON 형식 또는 --output으로 구성된 형식으로 Azure CLI 모듈 및 확장 버전을 표시하기 위해 미리 보기 명령 `az version show` 추가
+
+### <a name="event-hubs"></a>Event Hubs
+
+* [주요 변경 사항] 'az eventhubs eventhub update' 및 'az eventhubs eventhub create' 명령에서 'ReceiveDisabled' 상태 옵션 제거. 이 옵션은 이벤트 허브 항목에 적합하지 않습니다.
+
+### <a name="service-bus"></a>Service Bus
+
+* [주요 변경 사항] 'az servicebus topic create', 'az servicebus topic update', 'az servicebus queue create' 및 'az servicebus queue update' 명령에서 'ReceiveDisabled' 상태 옵션 제거. 이 옵션은 Service Bus 항목 및 큐에 적합하지 않습니다.
+
+### <a name="rbac"></a>RBAC
+
+* #11712 해결: 애플리케이션 또는 서비스 주체가 없을 때 `az ad app/sp show`가 종료 코드 3을 반환하지 않습니다.
+
+### <a name="storage"></a>스토리지
+
+* `az storage account create`: --enable-hierarchical-namespace 매개 변수에 대한 미리 보기 플래그 제거
+* api 버전 2019-06-01을 사용하도록 azure-mgmt-storage 버전이 7.0.0으로 업데이트됨
+* 스토리지 계정 blob-service-properties에 대한 보존 정책 삭제 관리를 지원하도록 새 매개 변수 `--enable-delete-retention` 및 `--delete-retention-days` 추가
+
+## <a name="december-17-2019"></a>2019년 12월 17일
+
+2.0.78
+
+### <a name="acr"></a>ACR
+
+* acr task run에 로컬 컨텍스트 지원 추가
+
+### <a name="acs"></a>ACS
+
+* [주요 변경 사항]az openshift create: `--workspace-resource-id`에서 `--workspace-id`로 이름이 변경됨.
+
+### <a name="ams"></a>AMS
+
+* 리소스를 찾을 수 없을 때 3을 반환하도록 show 명령 업데이트
+
+### <a name="appconfig"></a>AppConfig
+
+* 요청 url에 api-version을 추가할 때 버그 해결. 기존 해결책은 페이지 매김과 함께 작동하지 않습니다.
+* 백 엔드 서비스에서 세계화를 위한 유니코드를 지원함에 따라 영어 이외의 언어를 표시하는 지원 기능이 추가되었습니다.
+
+### <a name="appservice"></a>AppService
+
+* 이슈 #11217 해결: webapp: az webapp config ssl upload가 슬롯 매개 변수를 지원합니다.
+* 이슈 #10965 해결: 오류: 이름을 비워 둘 수 없습니다. ip_address 및 subnet으로 제거 허용
+* Key Vault `az webapp config ssl import`에서 인증서 가져오기에 대한 지원 추가
+
+### <a name="arm"></a>ARM
+
+* 6\.0.0을 사용하도록 azure-mgmt-resource 패키지가 업데이트됨
+* 새 매개 변수 `--aux-subs`를 추가하여 `az group deployment create` 명령에 대한 교차 테넌트 지원
+* 정책 세트 정의에 대한 메타데이터 정보 추가를 지원하기 위해 새 매개 변수 `--metadata` 추가
+
+### <a name="backup"></a>Backup
+
+* SQL 및 SAP Hana 워크로드에 대한 Backup 지원 추가
+
+### <a name="botservice"></a>BotService
+
+* [주요 변경 사항] 미리 보기 명령 'az bot create'에서 '--version' 플래그 제거. v4 SDK 봇만 지원됩니다.
+* 'az bot create'에 대한 이름 가용성 검사 추가
+* 'az bot update'를 통해 봇의 아이콘 URL 업데이트에 대한 지원 추가
+* 'az bot directline update'를 통해 Direct Line 채널을 업데이트하는 기능에 대한 지원 추가
+* 'az bot directline create'에 '--enable-enhanced-auth' 플래그 지원 추가
+* 'az bot authsetting' 명령 그룹은 미리 보기 상태가 아니라 GA입니다.
+* 'az bot'의 'create', 'prepare-deploy', 'show', 'delete', 'update' 명령은 미리 보기 상태가 아니라 GA입니다.
+* '--proj-file-path' 값을 소문자로 변경(예: "Test.csproj"를 "test.csproj"로)하는 'az bot prepare-deploy' 이슈 해결
+
+### <a name="compute"></a>컴퓨팅
+
+* vmss create/update: VMSS를 축소할 때 어떤 가상 머신을 제거할지 결정하는 --scale-in-policy 추가
+* vm/vmss update: --priority 추가
+* vm/vmss update: --max-price 추가
+* disk-encryption-set 명령 그룹(create, show, update, delete, list) 추가
+* disk create: --encryption-type 및 --disk-encryption-set 추가
+* vm/vmss create: --os-disk-encryption-set 및 --data-disk-encryption-sets 추가
+
+### <a name="core"></a>핵심
+
+* Python 3.4에 대한 지원 제거
+* 여러 명령에 HaTS 설문 조사 연결
+
+### <a name="dls"></a>DLS
+
+* ADLS sdk 버전이 업데이트되었습니다(0.0.48).
+
+### <a name="install"></a>설치
+
+* 설치 스크립트 지원(python 3.8)
+
+### <a name="iot"></a>IOT
+
+* [주요 변경 사항] manual-failover에서 --failover-region 매개 변수 제거. 이제 할당된, 지리적으로 연결된 보조 지역으로 장애 조치(failover)됩니다.
+
+### <a name="key-vault"></a>Key Vault
+
+* #8095 해결: `az keyvault storage remove`: 도움말 메시지 개선
+* #8921 해결: `az keyvault key/secret/certificate list/list-deleted/list-versions`: 매개 변수 `--maxresults`의 유효성 검사 버그 해결
+* #10512 해결: `az keyvault set-policy`: `--object-id`, `--spn` 또는 `--upn`이 지정된 경우 오류 메시지 개선
+* #10846 해결: `az keyvault secret show-deleted`: `--id`가 지정된 경우 `--name/-n`이 필요 없습니다.
+* #11084 해결: `az keyvault secret download`: 매개 변수 `--encoding`의 도움말 메시지 개선
+
+### <a name="network"></a>네트워크
+
+* az network application-gateway probe: 생성 및 업데이트 시 백엔드 서버를 검색할 포트를 지정하는 --port 옵션에 대한 지원 추가
+* az network application-gateway url-path-map create/update: `--waf-policy`에 대한 버그 해결
+* az network application-gateway: `--rewrite-rule-set` 지원 추가
+* az network list-service-aliases: 서비스 엔드포인트 정책에 사용할 수 있는 지원 목록 서비스 별칭 추가
+* az network dns zone import: 레코드 이름에 .@ 지원 추가
+
+### <a name="packaging"></a>패키징
+
+* pip 설치를 위한 백 에지 빌드 추가
+* Ubuntu eoan 패키지 추가
+
+### <a name="policy"></a>정책
+
+* 정책 API 버전 2019-09-01에 대한 지원이 추가되었습니다.
+* az policy set-definition: 정책 세트 정의 내에서 `--definition-groups` 매개 변수를 사용한 그룹화 지원 추가
+
+### <a name="redis"></a>Redis
+
+* `az redis create` 명령에 `--replicas-per-master` 미리 보기 매개 변수 추가
+* azure-mgmt-redis가 6.0.0에서 7.0.0rc1로 업데이트됨
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* #10963을 포함한 노드 유형 추가 논리 이슈 해결: 내구성 수준이 Gold인 새 노드 유형을 추가할 때마다 CLI 오류가 발생합니다.
+* 생성 템플릿에서 ServiceFabricNodeVmExt 버전이 1.1로 업데이트됨
+
+### <a name="sql"></a>SQL
+
+* 읽기 확장 관리를 지원하도록 sql db create 및 update 명령에 "--read-scale" 및 "--read-replicas" 매개 변수 추가
+
+### <a name="storage"></a>스토리지
+
+* 스토리지 계정 만들기 및 업데이트 명령의 GA 릴리스 대용량 파일 공유 속성
+* GA 릴리스 사용자 위임 SAS 토큰 지원
+* 스토리지 계정의 blob service 속성을 관리하기 위해 새 명령 `az storage account blob-service-properties show` 및 `az storage account blob-service-properties update --enable-change-feed` 추가
+* [예정된 호환성이 손상되는 변경] `az storage copy`: `*` 문자는 더 이상 URL에서 와일드카드로 지원되지 않지만 `*` 와일드카드 지원과 함께 새 매개 변수 --include-pattern 및 --exclude-pattern이 추가될 예정입니다.
+* 이슈 #11043 해결: `az storage remove` 명령에서 전체 컨테이너/공유를 제거하는 지원 기능 추가
 
 ## <a name="november-26-2019"></a>2019년 11월 26일
 
@@ -250,7 +430,7 @@ ms.locfileid: "74543459"
 
 ### <a name="ams"></a>AMS
 
-* [주요 변경 사항] `job start`의 이름이 `job create`로 변경됨
+* [주요 변경 사항]`job start`의 이름이 `job create`로 변경됨
 * [주요 변경 사항] UTF8 대신 32자 16진수 문자열을 사용하도록 `content-key-policy create`의 `--ask` 매개 변수가 변경됨
 
 ### <a name="appservice"></a>AppService
@@ -272,7 +452,7 @@ ms.locfileid: "74543459"
 * 로그 분석 작업 영역을 자동으로 사용하도록 `vm create`에 `--workspace` 매개 변수가 추가됨
 * 갤러리 API 버전이 2019-07-01로 업데이트됨
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 일반 업데이트 명령에 `--set` 매개 변수에 대한 구문 검사가 추가됨
 
@@ -287,7 +467,7 @@ ms.locfileid: "74543459"
 ### <a name="network"></a>네트워크
 
 * 교차 테넌트 가상 연결에 대한 지원이 `network private-dns link vnet [create|update]`에 추가됨
-* [주요 변경 사항] `--resource-group` 및 `--vnet-name` 매개 변수가 필수 매개 변수가 되도록 `network vnet subnet list`가 변경됨
+* [주요 변경 사항]`--resource-group` 및 `--vnet-name` 매개 변수가 필수 매개 변수가 되도록 `network vnet subnet list`가 변경됨
 
 ### <a name="sql"></a>SQL
 
@@ -321,7 +501,7 @@ ms.locfileid: "74543459"
 
 * 예약된 이벤트 종료 구성 기능을 지원하기 위해 `vmss [create|update]` 명령에 `--terminate-notification-time` 매개 변수가 추가되었습니다.
 * 예약된 이벤트 종료 구성 기능을 지원하기 위해 `vmss update` 명령에 `--enable-terminate-notification` 매개 변수가 추가되었습니다.
-* `[vm|vmss] create` 명령에 `--priority,` `--eviction-policy,` `--max-billing` 매개 변수가 추가되었습니다.
+* `[vm|vmss] create` 명령에 `--priority,` `--eviction-policy,` `--max-billing` 매개 변수 추가
 * 디스크 업로드의 정확한 크기를 지정할 수 있도록 `disk create`가 변경되었습니다.
 * 관리 디스크의 증분 스냅샷에 대한 지원이 `snapshot create`에 추가되었습니다.
 
@@ -329,7 +509,7 @@ ms.locfileid: "74543459"
 
 * 키, 읽기 전용 키 또는 연결 문자열을 표시하도록 `cosmosdb keys list` 명령에 `--type <key-type>` 매개 변수가 추가되었습니다.
 * `cosmosdb keys regenerate` 명령이 추가됨
-* [사용 되지 않음] `cosmosdb list-connection-strings`, `cosmosdb regenerate-key` 및 `cosmosdb list-read-only-keys` 명령이 사용되지 않습니다.
+* [사용 되지 않음]`cosmosdb list-connection-strings`, `cosmosdb regenerate-key` 및 `cosmosdb list-read-only-keys` 명령이 사용되지 않습니다.
 
 ### <a name="eventgrid"></a>EventGrid
 
@@ -374,14 +554,14 @@ ms.locfileid: "74543459"
   * 파일 시스템을 탑재하기 위한 `MountConfigurations`가 추가됨(자세한 내용은 https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body 참조)
   * `NetworkConfiguration`에 풀의 공용 IP에 대한 선택적 속성 `publicIPs`가 추가됨(자세한 내용은 https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body 참조)
 * 공유 이미지 갤러리에 대한 지원이 `--image`에 추가됨
-* [주요 변경 사항] `batch pool create`의 기본값 `--start-task-wait-for-success`가 `true`로 변경됨
-* [주요 변경 사항] `AutoUserSpecification`의 `Scope` 기본값이 항상 풀이 되도록 변경됨(Windows 노드에서는 `Task`, Linux 노드에서는 `Pool`이었음)
+* [주요 변경 사항]`batch pool create`의 기본값 `--start-task-wait-for-success`가 `true`로 변경됨
+* [주요 변경 사항]`AutoUserSpecification`의 `Scope` 기본값이 항상 풀이 되도록 변경됨(Windows 노드에서는 `Task`, Linux 노드에서는 `Pool`이었음)
   * 이 인수는 `--json-file`을 사용하여 JSON 구성에서만 설정 가능
 
 ### <a name="hdinsight"></a>HDInsight
 
 * GA 릴리스
-* [주요 변경 사항] `az hdinsight resize`의 `--workernode-count/-c` 매개 변수가 필수 항목으로 변경됨
+* [주요 변경 사항]`az hdinsight resize`의 `--workernode-count/-c` 매개 변수가 필수 항목으로 변경됨
 
 ### <a name="key-vault"></a>Key Vault
 
@@ -405,7 +585,7 @@ ms.locfileid: "74543459"
 
 ### <a name="acr"></a>ACR
 
-* [주요 변경 사항] `classic` SKU 지원이 제거되었습니다.
+* [주요 변경 사항]`classic` SKU 지원이 제거되었습니다.
 
 ### <a name="api-management"></a>API Management
 
@@ -476,29 +656,29 @@ ms.locfileid: "74543459"
 
 이 릴리스에는 호환성이 손상되는 변경이 많이 포함되어 있습니다.
 
-* [주요 변경 사항] `hdinsight create`에 대한 매개 변수의 이름이 변경됨
-  * 이름이 `--storage-default-container`에서 `--storage-container`로 변경됨
-  * 이름이 `--storage-default-filesystem`에서 `--storage-filesystem`로 변경됨
-* [주요 변경 사항] `application create`의 `--name` 인수에서 클러스터 이름 대신 애플리케이션 이름을 나타내도록 변경됨
+* [주요 변경 사항]`hdinsight create`에 대한 매개 변수의 이름이 변경됨
+  * `--storage-default-container`에서 `--storage-container`로 이름이 변경됨
+  * `--storage-default-filesystem`에서 `--storage-filesystem`로 이름이 변경됨
+* [주요 변경 사항]`application create`의 `--name` 인수에서 클러스터 이름 대신 애플리케이션 이름을 나타내도록 변경됨
 * 이전 `--name` 기능을 대체하기 위해 `--cluster-name` 인수가 `application create`에 추가됨
-* [주요 변경 사항] `application create`에 대한 매개 변수의 이름이 변경됨
-  * 이름이 `--application-type`에서 `--type`로 변경됨
-  * 이름이 `--marketplace-identifier`에서 `--marketplace-id`로 변경됨
-  * 이름이 `--https-endpoint-access-mode`에서 `--access-mode`로 변경됨
+* [주요 변경 사항]`application create`에 대한 매개 변수의 이름이 변경됨
+  * `--application-type`에서 `--type`로 이름이 변경됨
+  * `--marketplace-identifier`에서 `--marketplace-id`로 이름이 변경됨
+  * `--https-endpoint-access-mode`에서 `--access-mode`로 이름이 변경됨
   * 이름이 `--https-endpoint-destination-port`에서 `--destination-port`로 변경됨
-* [주요 변경 사항] `application create`에 대한 매개 변수가 제거됨
+* [주요 변경 사항]`application create`에 대한 매개 변수가 제거됨
   * `--https-endpoint-location`
   * `--https-endpoint-public-port`
   * `--ssh-endpoint-destination-port`
   * `--ssh-endpoint-location`
   * `--ssh-endpoint-public-port`
 * [호환성이 손상되는 변경] `hdinsight resize`에 대한 이름이 `--target-instance-count`에서 `--workernode-count`로 변경됨
-* [주요 변경 사항] `hdinsight script-action` 그룹의 모든 명령에서 `--name` 매개 변수를 스크립트 작업 이름으로 사용하도록 변경됨.
+* [주요 변경 사항]`hdinsight script-action` 그룹의 모든 명령에서 `--name` 매개 변수를 스크립트 작업 이름으로 사용하도록 변경됨.
 * 이전 `--name` 기능을 대체하기 위해 `--cluster-name` 인수가 모든 `hdinsight script-action` 명령에 추가됨
 * [주요 변경 사항] 모든 `hdinsight script-action` 명령에 대한 이름이 `--script-execution-id`에서 `--execution-id`로 변경됨
-* [주요 변경 사항] `hdinsight script-action show`에서 `hdinsight script-action show-execution-details`로 이름이 변경됨
+* [주요 변경 사항]`hdinsight script-action show`에서 `hdinsight script-action show-execution-details`로 이름이 변경됨
 * [호환성이 손상되는 변경] `hdinsight script-action execute --roles`의 매개 변수에서 쉼표로 구분하는 대신 공백으로 구분하도록 변경됨
-* [주요 변경 사항] `hdinsight script-action list`의 `--persisted` 매개 변수가 제거됨
+* [주요 변경 사항]`hdinsight script-action list`의 `--persisted` 매개 변수가 제거됨
 * `hdinsight create --cluster-configurations` 매개 변수에서 로컬 JSON 파일 또는 JSON 문자열에 대한 경로를 허용하도록 변경됨
 * 명령 `hdinsight script-action list-execution-history` 추가됨
 * `hdinsight monitor enable --workspace`에서 Log Analytics 작업 영역 ID 또는 작업 영역 이름을 허용하도록 변경됨
@@ -509,7 +689,7 @@ ms.locfileid: "74543459"
 
 * 로드 오류가 수정됨
 
-### <a name="kubernetes"></a>kubernetes
+### <a name="kubernetes"></a>Kubernetes
 
 * 대시보드 컨테이너 포트에서 `https`를 사용하는 경우 `https`를 사용하도록 변경됨
 
@@ -585,13 +765,13 @@ Version 2.0.69
 * ResourceGroup이 제공되지 않은 경우 numberOfSites에 대한 올바른 값을 반환하도록 `webapp list` 수정
 * `appservice plan create` 및 `webapp create`의 부작용 수정
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 적용할 수 없음에도 불구하고 `--subscription`이 나타나는 문제가 수정됨
 
 ### <a name="batch"></a>Batch
 
-* [주요 변경 사항] `batch pool node-agent-skus list`를 `batch pool supported-images list`로 대체
+* [주요 변경 사항]`batch pool node-agent-skus list`를 `batch pool supported-images list`로 대체
 * `batch pool create network`의 `--json-file` 옵션을 사용할 때 트래픽의 소스 포트를 기반으로 풀에 대한 네트워크 액세스를 차단하는 보안 규칙에 대한 지원이 추가됨
 * `batch task create`의 `--json-file` 옵션을 사용할 때 컨테이너 작업 디렉터리 또는 일괄 처리 작업 디렉터리에서 작업을 실행하도록 지원이 추가됨
 * `batch pool create`의 `--application-package-references` 옵션에서 기본값으로만 작동하는 오류가 수정됨
@@ -623,7 +803,7 @@ Version 2.0.69
 
 Version 2.0.68
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 명령 모듈은 이제 단일 Python 배포 패키지로 통합됩니다. 따라서 PyPI의 많은 `azure-cli-` 패키지를 직접 사용하지 않습니다.
   이를 통해 설치 크기를 줄이고 `pip`를 통해 직접 설치한 사용자에게만 영향을 주게 됩니다.
@@ -653,7 +833,7 @@ Version 2.0.68
 
 ### <a name="hdinsight"></a>HDInsight
 
-* [주요 변경 사항] `oms` 명령 그룹 이름을 `monitor`로 변경
+* [주요 변경 사항]`oms` 명령 그룹 이름을 `monitor`로 변경
 * [주요 변경 사항] 필수 매개 변수로 `--http-password/-p` 변경 
 * `--cluster-admin-account` 및 `cluster-users-group-dns` 매개 변수 완성자에 대한 완성자 추가 
 * `—esp`가 있을 때 `cluster-users-group-dns` 매개 변수가 필수가 되도록 변경
@@ -671,7 +851,7 @@ Version 2.0.68
 
 ### <a name="rbac"></a>RBAC
 
-* [주요 변경 사항] `create-for-rbac`에 대한 `--password` 인수가 제거됨
+* [주요 변경 사항]`create-for-rbac`에 대한 `--password` 인수가 제거됨
 * AAD 그래프 서버 복제 대기 시간으로 인한 일시적인 실패를 피하기 위해 `create` 명령에 `--assignee-principal-type` 매개 변수가 추가됨
 * 소유 개체를 나열할 때 `ad signed-in-user`에서의 충돌 수정
 * `ad sp`가 서비스 주체로부터 올바른 애플리케이션을 찾지 못하는 문제가 해결됨
@@ -700,7 +880,7 @@ Version 2.0.68
 
 2\.0.67 버전
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 이 릴리스에서는 명령 그룹, 명령 또는 인수가 미리 보기 상태에 있을 때 고객에게 보다 명확하게 알릴 수 있는 새로운 [미리 보기] 태그가 도입되었습니다. 이것은 이전에 도움말 텍스트에서 호출되었거나 명령 모듈 버전 번호에 의해 암시적으로 전달되었습니다.
 CLI는 앞으로 개별 패키지의 버전 번호를 제거합니다. 명령이 미리 보기 상태이면 해당 인수도 모두 같습니다. 명령 그룹이 미리 보기로 레이블링된 경우 모든 명령과 인수도 미리 보기로 간주됩니다.
@@ -735,7 +915,7 @@ CLI는 앞으로 개별 패키지의 버전 번호를 제거합니다. 명령이
 * v3 SDK를 지원하는 명령에 대한 "지원 중단"/ "유지 관리 모드" 경고 메시지 추가
 
 ### <a name="cosmosdb"></a>CosmosDB
-* [사용 되지 않음] `cosmosdb list-keys` 명령이 사용되지 않음
+* [사용 되지 않음]`cosmosdb list-keys` 명령이 사용되지 않음
 * `cosmosdb keys list` 명령이 추가됨 - `cosmosdb list-keys` 명령을 대체
 * `cosmsodb create/update`: "isZoneRedundant"속성을 설정할 수 있도록 --location에 대한 새로운 형식이 추가되었습니다. 이전 형식은 사용되지 않음
 
@@ -744,7 +924,7 @@ CLI는 앞으로 개별 패키지의 버전 번호를 제거합니다. 명령이
 * 도메인 토픽 CRUD 작업에 `eventgrid domain topic` 명령이 추가됨
 * OData 구문을 사용하여 결과를 필터링하기 위해 `eventgrid [topic|event-subscription] list`에 `--odata-query` 인수가 추가됨
 * `event-subscription create/update`: `--endpoint-type` 매개 변수의 새 값으로 servicebusqueue 추가
-* [주요 변경 사항] `eventgrid event-subscription [create|update]`를 사용하여 `--included-event-types All`에 대한 지원 제거
+* [주요 변경 사항]`eventgrid event-subscription [create|update]`를 사용하여 `--included-event-types All`에 대한 지원 제거
 
 ### <a name="hdinsight"></a>HDInsight
 * `hdinsight create` 명령에서 `--ssh-public-key` 매개 변수에 대한 지원 추가
@@ -785,7 +965,7 @@ CLI는 앞으로 개별 패키지의 버전 번호를 제거합니다. 명령이
 
 버전 2.0.66
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 * `--output yaml`을 `--query`와 함께 사용하는 경우 명령이 실패하는 버그가 수정됨
 
 ### <a name="acr"></a>ACR
@@ -818,7 +998,7 @@ CLI는 앞으로 개별 패키지의 버전 번호를 제거합니다. 명령이
 
 버전 2.0.65
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 * 인증 오류에 대한 더 나은 피드백이 추가됨
 * CLI가 코어 버전과 호환되지 않는 확장을 로드하는 문제가 해결됨
 * `clouds.config`가 손상된 경우 시작과 관련된 문제가 해결됨
@@ -830,9 +1010,9 @@ CLI는 앞으로 개별 패키지의 버전 번호를 제거합니다. 명령이
 * 고객 AAD 클라이언트에서 사용되는 `openshift create` 명령의 문제가 해결됨
 
 ### <a name="appservice"></a>AppService
-* [사용 되지 않음] `functionapp devops-build` 명령이 사용되지 않음 - 다음 릴리스에서 제거됨
+* [사용 되지 않음]`functionapp devops-build` 명령이 사용되지 않음 - 다음 릴리스에서 제거됨
 * `functionapp devops-pipeline`에서 Azure DevOps의 빌드 로그를 자세한 정보 표시 모드로 가져오도록 변경됨
-* [주요 변경 사항] `functionapp devops-pipeline` 명령에서 `--use_local_settings` 플래그가 제거됨 - 작동하지 않음
+* [주요 변경 사항]`functionapp devops-pipeline` 명령에서 `--use_local_settings` 플래그가 제거됨 - 작동하지 않음
 * `--logs`를 사용하지 않으면 `webapp up`에서 JSON 출력을 반환하도록 변경됨
 * `webapp up`에 대한 로컬 구성에 기본 리소스를 작성할 수 있도록 지원됨
 * `webapp up`에서 `--location` 인수를 사용하지 않고 앱을 다시 배포할 수 있도록 지원됨
@@ -873,13 +1053,13 @@ CLI는 앞으로 개별 패키지의 버전 번호를 제거합니다. 명령이
 Version 2.0.64
 
 ### <a name="acs"></a>ACS
-* [주요 변경 사항] `openshift` 명령에서 `--fqdn` 플래그가 제거됨
+* [주요 변경 사항]`openshift` 명령에서 `--fqdn` 플래그가 제거됨
 * Azure Red Hat Openshift GA API 버전을 사용하도록 변경됨
 * `customer-admin-group-id` 플래그가 `openshift create`에 추가되었습니다.
 * [GA] `aks create` 옵션인 `--network-policy`에서 `(PREVIEW)`가 제거됨
 
 ### <a name="appservice"></a>App Service
-* [사용 되지 않음] `functionapp devops-build` 명령이 사용되지 않음
+* [사용 되지 않음]`functionapp devops-build` 명령이 사용되지 않음
   * `functionapp devops-pipeline`으로 이름이 변경됨
 * `webapp up` 실패를 야기하는 cloudshell의 올바른 사용자 이름을 가져오는 문제가 수정됨
 * 지원되는 appserviceplans를 반영하도록 업데이트된 `appservice plan --sku` 설명서가 업데이트됨
@@ -894,19 +1074,19 @@ Version 2.0.64
 * `--application-package-references` 옵션에 대한 유효성 검사기의 버그가 수정됨
 
 ### <a name="botservice"></a>Botservice
-* [주요 변경 사항] `bot create -v v4 -k webapp`에서 기본적으로 빈 Web App 봇을 만들도록 변경됨(즉, 봇이 App Service에 배포되지 않음)
+* [주요 변경 사항]`bot create -v v4 -k webapp`에서 기본적으로 빈 Web App 봇을 만들도록 변경됨(즉, 봇이 App Service에 배포되지 않음)
 * `-v v4`에서 이전 동작을 사용하도록 `--echo` 플래그가 `bot create`에 추가됨
-* [주요 변경 사항] `--version`의 기본값이 `v4`로 변경됨
+* [주요 변경 사항]`--version`의 기본값이 `v4`로 변경됨
   * __참고:__ `bot prepare-publish`는 이전의 기본값을 계속 사용함
-* [주요 변경 사항] `--lang`에서 `Csharp`이 더 이상 기본값으로 설정되지 않도록 변경됨 명령에 `--lang`이 필요하지만 제공되지 않으면 이제 명령에서 오류가 발생함
-* [주요 변경 사항] `bot create`에서 `--appid` 및 `--password` 인수가 필수 항목이 되도록 변경되었으며 이제 `ad app create`를 통해 만들어질 수 있음
+* [주요 변경 사항]`--lang`에서 `Csharp`이 더 이상 기본값으로 설정되지 않도록 변경됨 명령에 `--lang`이 필요하지만 제공되지 않으면 이제 명령에서 오류가 발생함
+* [주요 변경 사항]`bot create`에서 `--appid` 및 `--password` 인수가 필수 항목이 되도록 변경되었으며 이제 `ad app create`를 통해 만들어질 수 있음
 * `--appid` 및 `--password` 유효성 검사가 추가됨
-* [주요 변경 사항] `bot create -v v4`에서 Storage 계정 또는 Application Insights를 만들거나 사용하지 않도록 변경됨
-* [주요 변경 사항] `bot create -v v3`에서 Application Insights를 사용할 수 있는 지역을 요구하도록 변경됨
-* [주요 변경 사항] `bot update`에서 이제 봇의 특정 속성에만 영향을 주도록 변경됨
-* [주요 변경 사항] `--lang` 플래그에서 `Node` 대신 `Javascript`를 허용하도록 변경됨
-* [주요 변경 사항] `Node`가 허용되는 `--lang` 값으로 제거됨
-* [주요 변경 사항] `bot create -v v4 -k webapp`에서 `SCM_DO_BUILD_DURING_DEPLOYMENT`가 더 이상 true로 설정되지 않도록 변경됨. Kudu를 통한 모든 배포가 해당 기본 동작에 따라 작동함
+* [주요 변경 사항]`bot create -v v4`에서 Storage 계정 또는 Application Insights를 만들거나 사용하지 않도록 변경됨
+* [주요 변경 사항]`bot create -v v3`에서 Application Insights를 사용할 수 있는 지역을 요구하도록 변경됨
+* [주요 변경 사항]`bot update`에서 이제 봇의 특정 속성에만 영향을 주도록 변경됨
+* [주요 변경 사항]`--lang` 플래그에서 `Node` 대신 `Javascript`를 허용하도록 변경됨
+* [주요 변경 사항]`Node`가 허용되는 `--lang` 값으로 제거됨
+* [주요 변경 사항]`bot create -v v4 -k webapp`에서 `SCM_DO_BUILD_DURING_DEPLOYMENT`가 더 이상 true로 설정되지 않도록 변경됨. Kudu를 통한 모든 배포가 해당 기본 동작에 따라 작동함
 * `.bot` 파일이 없는 봇에 대한 `bot download`에서 해당 봇에 대한 애플리케이션 설정 값을 사용하여 언어별 구성 파일을 만들도록 변경됨
 * `bot prepare-deploy`에 `Typescript` 지원이 추가됨
 * `--code-dir`에 `package.json`이 포함되어 있지 않은 경우 `Javascript` 및 `Typescript` 봇에 대한 경고 메시지가 `bot prepare-deploy`에 추가됨
@@ -922,13 +1102,13 @@ Version 2.0.64
 * 네트워크 규칙에 대한 `--default-action` 인수가 `namespace [create|update]`에 추가됨
 
 ### <a name="network"></a>네트워크
-* [주요 변경 사항] `vnet [create|update]`에 대한 `--cache` 인수가 `--defer`로 바뀜 
+* [주요 변경 사항]`vnet [create|update]`에 대한 `--cache` 인수가 `--defer`로 바뀜 
 
 ### <a name="policy-insights"></a>Policy Insights
 * `--expand PolicyEvaluationDetails`에서 리소스에 대한 정책 평가 세부 정보를 쿼리하도록 지원됨
 
 ### <a name="role"></a>역할
-* [사용 되지 않음] `create-for-rbac` hide '- password' 인수 변경 - 2019년 5월에 지원이 제거됩니다.
+* [사용 되지 않음]`create-for-rbac` hide '- password' 인수 변경 - 2019년 5월에 지원이 제거됩니다.
 
 ### <a name="service-bus"></a>Service Bus
 * `namespace network-rule` 명령이 추가됨
@@ -978,7 +1158,7 @@ Version 2.0.63
 * 자식 영역 생성 중 부모의 `dns zone create`에 자동 이름 서버 위임이 추가됨
 
 ### <a name="resource"></a>리소스
-* [사용 되지 않음] `resource link`의 사용되지 않는 `--link-id`, `--target-id` 및 `--filter-string` 인수
+* [사용 되지 않음]`resource link`의 사용되지 않는 `--link-id`, `--target-id` 및 `--filter-string` 인수
   * 대신 `--link`, `--target` 및 `--filter` 인수를 사용하세요.
 * `resource link [create|update]` 명령이 작동하지 않는 문제가 해결됨
 * 오류가 발생하여 리소스 ID를 사용하는 삭제가 중단되는 문제가 해결됨
@@ -999,7 +1179,7 @@ Version 2.0.63
 
 ## <a name="april-9-2019"></a>2019년 4월 9일
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 * 일부 확장이 버전을 `Unknown`으로 표시하고 업데이트할 수 없었던 문제 해결
 
 ### <a name="acr"></a>ACR
@@ -1015,7 +1195,7 @@ Version 2.0.63
 * `webapp up`에 `--logs` 지원이 추가됨
 * `functionapp devops-build create` 명령 `azure-pipelines.yml` 생성 문제 해결
 * `unctionapp devops-build create` 오류 처리 및 표시기 개선
-* [주요 변경 사항] `devops-build` 명령에 대한 `--local-git` 플래그 제거, Azure DevOps 파이프라인을 만드는 경우 강제 로컬 git 검색 및 처리
+* [주요 변경 사항]`devops-build` 명령에 대한 `--local-git` 플래그 제거, Azure DevOps 파이프라인을 만드는 경우 강제 로컬 git 검색 및 처리
 * Linux 함수 플랜을 만들기 위한 지원 추가
 * `functionapp update --plan`을 사용하여 함수 앱 아래에 계획을 전환하는 기능이 추가됨
 * Azure Functions 프리미엄 플랜 확장 설정에 대한 지원 추가
@@ -1051,7 +1231,7 @@ Version 2.0.63
 * 속성 proxyOverride 및 publicDataEndpointEnabled로 `sql mi [create|update]` 업데이트
 
 ### <a name="storage"></a>스토리지
-* [주요 변경 사항] `storage blob delete`의 결과 제거
+* [주요 변경 사항]`storage blob delete`의 결과 제거
 * SAS를 포함하는 BLOB에 대해 전체 URI를 만드는 `--full-uri`을 `storage blob generate-sas`에 추가
 * 스냅샷에서 파일을 복사하는 `--file-snapshot`을 `storage file copy start`에 추가
 * NoPendingCopyOperation에 대해 예외 대신 오류만 표시하도록 `storage blob copy cancel` 변경
@@ -1059,7 +1239,7 @@ Version 2.0.63
 ## <a name="march-26-2019"></a>2019년 3월 26일
 
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 * 개발 확장이 호환되지 않는 문제가 수정되었습니다.
 * 이제 오류 처리 시 고객에게 문제 페이지를 가리킵니다.
 
@@ -1079,7 +1259,7 @@ Version 2.0.63
 ### <a name="bot-service"></a>BOT Service
 * `webapp`을 통한 봇 배포를 준비하는 `bot prepare-deploy`가 추가되었습니다.
 * 암호가 제공되지 않으면 암호를 표시하도록 `bot create --kind registration`이 변경되었습니다.
-* [주요 변경 사항] `bot create --kind registration`의 `--endpoint`가 기본적으로 필수 문자열 대신 빈 문자열로 지정되도록 변경되었습니다.
+* [주요 변경 사항]`bot create --kind registration`의 `--endpoint`가 기본적으로 필수 문자열 대신 빈 문자열로 지정되도록 변경되었습니다.
 * v4 웹앱 봇에 대한 ARM 템플릿의 애플리케이션 설정에 `SCM_DO_BUILD_DURING_DEPLOYMENT`를 추가
 
 ### <a name="cdn"></a>CDN
@@ -1130,7 +1310,7 @@ Version 2.0.63
 
 2\.0.60 버전
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 구독이 발견되지 않는 문제를 `cloud set`에서 수정
 
@@ -1193,7 +1373,7 @@ Version 2.0.63
 
 버전 2.0.59
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * `--subscription NAME`을 사용하는 일부 인스턴스에서 예외가 발생하는 문제 해결
 
@@ -1211,8 +1391,8 @@ Version 2.0.63
 * `functionapp devops-build` 명령이 추가됨
 
 ### <a name="batch"></a>Batch
-* [주요 변경 사항] `batch pool upgrade os` 명령 제거됨
-* [주요 변경 사항] `Application` 응답에서 `Pacakges` 속성 제거됨
+* [주요 변경 사항]`batch pool upgrade os` 명령 제거됨
+* [주요 변경 사항]`Application` 응답에서 `Pacakges` 속성 제거됨
 * 애플리케이션 패키지를 나열하는 `batch application package list` 명령이 추가됨
 * [주요 변경 사항] 모든 `batch application` 명령에서 `--application-id`가 `--application-name`으로 변경됨 
 * 원시 API 응답을 요청하는 명령에 `--json-file` 인수 추가됨
@@ -1256,14 +1436,14 @@ Version 2.0.63
 
 버전 2.0.58
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 업데이트할 수 있는 패키지가 있는 경우 이제 `az --version`에서 알림을 표시합니다.
 * JSON 출력에서 `--ids`를 더 이상 사용할 수 없었던 회귀가 수정되었습니다.
 
 ### <a name="acr"></a>ACR
-* [주요 변경 사항] `acr build-task` 명령 그룹이 제거되었습니다.
-* [주요 변경 사항] `acr repository delete`에서 `--tag` 및 `--manifest` 옵션이 제거되었습니다.
+* [주요 변경 사항]`acr build-task` 명령 그룹이 제거되었습니다.
+* [주요 변경 사항]`acr repository delete`에서 `--tag` 및 `--manifest` 옵션이 제거되었습니다.
 
 ### <a name="acs"></a>ACS
 * 대/소문자를 구분하지 않는 이름에 대한 지원이 `aks [enable-addons|disable-addons]`에 추가되었습니다.
@@ -1286,7 +1466,7 @@ Version 2.0.63
 * `az bot publish` 중에 `npm install`을 실행할 때 시간 제한에 대한 경고가 추가되었습니다.
 * `az bot create`의 `--name`에서 잘못된 `.` 문자가 제거되었습니다.
 * Azure Storage, App Service 계획, Function/Web App 및 Application Insights를 만들 때 리소스 이름에 대한 임의 지정을 중지하도록 변경되었습니다.
-* [사용 되지 않음] `--proj-file-path`를 위해 `--proj-name` 인수가 사용되지 않음
+* [사용 되지 않음]`--proj-file-path`를 위해 `--proj-name` 인수가 사용되지 않음
 * 가져온 IIS Node.js 배포 파일이 아직 없으면 `az bot publish`에서 이를 제거하도록 변경되었습니다.
 * App Service에서 `node_modules` 폴더를 삭제하지 않도록 `--keep-node-modules` 인수가 `az bot publish`에 추가되었습니다.
 * Azure Function 또는 Web App 봇을 만들 때의 `az bot create`의 출력에 `"publishCommand"` 키-값 쌍이 추가되었습니다.
@@ -1316,12 +1496,12 @@ Version 2.0.63
 * 서버 링크를 관리하기 위한 명령(create, delete, show, list)이 추가되었습니다.
 * 패치 일정을 관리하기 위한 명령(create, update, delete, show)이 추가되었습니다.
 * 가용성 영역 및 최소 TLS 버전에 대한 지원이 'redis create'에 추가되었습니다.
-* [주요 변경 사항] `redis update-settings` 및 `redis list-all` 명령이 제거되었습니다.
-* [주요 변경 사항] `redis create`: '테넌트 설정' 매개 변수가 key[=value] 형식으로 허용되지 않습니다.
-* [사용 되지 않음] `redis import-method` 명령이 사용되지 않는다는 경고 메시지 추가
+* [주요 변경 사항]`redis update-settings` 및 `redis list-all` 명령이 제거되었습니다.
+* [주요 변경 사항]`redis create`: '테넌트 설정' 매개 변수가 key[=value] 형식으로 허용되지 않습니다.
+* [사용 되지 않음]`redis import-method` 명령이 사용되지 않는다는 경고 메시지 추가
 
 ### <a name="role"></a>역할
-* [주요 변경 사항] `vm` 명령에서 `az identity` 명령으로 전환되었습니다.
+* [주요 변경 사항]`vm` 명령에서 `az identity` 명령으로 전환되었습니다.
 
 ### <a name="sql-vm"></a>SQL VM
 * [사용 되지 않음] 오타로 인해 `--boostrap-acc-pwd` 인수가 사용되지 않음
@@ -1330,13 +1510,13 @@ Version 2.0.63
 * `vm list-skus`에서 `--all true` 대신 `--all`을 사용할 수 있도록 변경되었습니다.
 * `vmss run-command [invoke | list | show]`가 추가됨
 * 이전에 실행하면 `vmss encryption enable`이 실패했던 버그가 수정되었습니다.
-* [주요 변경 사항] `az identity` 명령이 `role` 명령으로 전환되었습니다.
+* [주요 변경 사항]`az identity` 명령이 `role` 명령으로 전환되었습니다.
 
 ## <a name="january-31-2019"></a>2019년 1월 31일
 
 버전 2.0.57
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * [8399 문제](https://github.com/Azure/azure-cli/issues/8399)에 대한 핫 픽스입니다.
 
@@ -1353,8 +1533,8 @@ Version 2.0.63
 * `aks update-credentials -reset-service-principal`을 사용하여 서비스 주체를 업데이트할 수 있도록 지원합니다.
 
 ### <a name="ams"></a>AMS
-* [주요 변경 사항] `ams asset get-streaming-locators`에서 `ams asset list-streaming-locators`로 이름이 변경됨
-* [주요 변경 사항] `ams streaming-locator get-content-keys`에서 `ams streaming-locator list-content-keys`로 이름이 변경됨
+* [주요 변경 사항]`ams asset get-streaming-locators`에서 `ams asset list-streaming-locators`로 이름이 변경됨
+* [주요 변경 사항]`ams streaming-locator get-content-keys`에서 `ams streaming-locator list-content-keys`로 이름이 변경됨
 
 ### <a name="appservice"></a>App Service
 * App Insights에서 `functionapp create`를 지원할 수 있습니다.
@@ -1373,8 +1553,8 @@ Version 2.0.63
 * 모든 이벤트 구독 관련 명령에 대한 source-resource-id 매개 변수가 추가되었고, 다른 모든 원본 리소스 관련 매개 변수가 더 이상 사용되지 않는 것으로 표시되었습니다.
 
 ### <a name="hdinsight"></a>HDInsight
-* [주요 변경 사항] `hdinsight [application] create`에서 `--virtual-network` 및 `--subnet-name` 매개 변수가 제거되었습니다.
-* [주요 변경 사항] `hdinsight create --storage-account`에서 Blob 엔드포인트 대신 스토리지 계정의 이름 또는 ID를 허용하도록 변경되었습니다.
+* [주요 변경 사항]`hdinsight [application] create`에서 `--virtual-network` 및 `--subnet-name` 매개 변수가 제거되었습니다.
+* [주요 변경 사항]`hdinsight create --storage-account`에서 Blob 엔드포인트 대신 스토리지 계정의 이름 또는 ID를 허용하도록 변경되었습니다.
 * `hdinsight create`에 `--vnet-name` 및 `--subnet-name` 매개 변수 추가
 * Enterprise Security Package 및 디스크 암호화에 대한 지원이 `hdinsight create`에 추가되었습니다. 
 * `hdinsight rotate-disk-encryption-key` 명령이 추가됨
@@ -1446,7 +1626,7 @@ Version 2.0.63
 * 스크립트 작업 관리 명령이 추가되었습니다.
 * OMS(Operation Management Suite) 관리 명령이 추가되었습니다.
 * 지역별 사용량 나열에 대한 지원이 `hdinsight list-usage`에 추가되었습니다.
-* [주요 변경 사항] `hdinsight create`에서 기본 클러스터 유형이 제거되었습니다.
+* [주요 변경 사항]`hdinsight create`에서 기본 클러스터 유형이 제거되었습니다.
 
 ### <a name="network"></a>네트워크
 * `--custom-headers` 및 `--status-code-ranges` 인수를 `traffic-manager profile [create|update]`에 추가
@@ -1455,13 +1635,13 @@ Version 2.0.63
 * `--vnets ""`를 `ddos-protection update`에 제공함으로써 오류가 발생하는 문제가 해결되었습니다.
 
 ### <a name="role"></a>역할
-* [사용 되지 않음] `create-for-rbac`에 대한 `--password` 인수가 사용되지 않음 대신 CLI에서 생성된 보안 암호를 사용합니다.
+* [사용 되지 않음]`create-for-rbac`에 대한 `--password` 인수가 사용되지 않음 대신 CLI에서 생성된 보안 암호를 사용합니다.
 
 ### <a name="security"></a>보안
-* 최초 릴리스
+* 초기 릴리스
 
 ### <a name="storage"></a>스토리지
-* [주요 변경 사항] `storage [blob|file|container|share] list`의 기본 결과 수가 5,000개가 되도록 변경되었습니다. 모든 결과를 반환하는 원래 동작에는 `--num-results *`를 사용합니다.
+* [주요 변경 사항]`storage [blob|file|container|share] list`의 기본 결과 수가 5,000개가 되도록 변경되었습니다. 모든 결과를 반환하는 원래 동작에는 `--num-results *`를 사용합니다.
 * `--marker` 매개 변수가 `storage [blob|file|container|share] list`에 추가됨
 * 다음 페이지에 대한 로그 표식이 `storage [blob|file|container|share] list`의 STDERR에 추가되었습니다. 
 * 정적 웹 사이트를 지원하는 `storage blob service-properties update` 명령이 추가되었습니다.
@@ -1505,7 +1685,7 @@ Version 2.0.63
 ### <a name="acs"></a>ACS
 * 가상 노드 미리 보기 추가
 * `aks create`에 대한 AAD 인수에서 "(미리 보기)"를 제거함
-* [사용 되지 않음] `az acs` 명령이 사용되지 않음 ACS 서비스가 2020년 1월 31일 사용 중지됩니다.
+* [사용 되지 않음]`az acs` 명령이 사용되지 않음 ACS 서비스가 2020년 1월 31일 사용 중지됩니다.
 * 새 AKS 클러스터를 만들 때 네트워크 정책에 대한 지원이 추가됨
 * 노드 풀이 하나뿐일 경우 `aks scale`에 `--nodepool-name` 인수 요구사항 삭제
 
@@ -1545,7 +1725,7 @@ Version 2.0.63
 ## <a name="december-4-2018"></a>2018년 12월 4일
 
 버전 2.0.52
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 * 다중 테넌트 서비스 주체에 대한 교차 테넌트 리소스 프로 비전에 대한 지원 추가
 * tsv 출력을 사용한 명령에서 파이프된 id의 구문 분석이 잘못되는 버그 수정
 
@@ -1560,7 +1740,7 @@ Version 2.0.63
 * 암호 자격 증명을 위해 사용자 지정 식별자에 대해 지원 추가 
 
 ### <a name="vm"></a>VM
-* [사용 되지 않음] `vm extension [show|wait] --expand` 매개 변수가 사용되지 않음
+* [사용 되지 않음]`vm extension [show|wait] --expand` 매개 변수가 사용되지 않음
 * 응답 없는 VM을 다시 배포하기 위해 `--force` 매개 변수를 `vm restart`에 추가
 * 암호와 SSH 인증을 사용하여 VM을 생성하기 위해 "all"을 허용하도록 `[vm|vmss] create --authentication-type` 변경
 * 이미지에 OS 디스크 캐싱을 설정하기 위해 `image create --os-disk-caching` 매개 변수 추가
@@ -1568,7 +1748,7 @@ Version 2.0.63
 ## <a name="november-20-2018"></a>2018년 11월 20일
 
 Version 2.0.51
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 * ID에서 구독 이름을 재사용하지 않도록 MSI 로그인 변경
 
 ### <a name="acr"></a>ACR
@@ -1620,7 +1800,7 @@ Version 2.0.51
 
 버전 2.0.50
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 * 서비스 주체 sn+issuer auth에 대한 지원이 추가됨
 
 ### <a name="acr"></a>ACR
@@ -1653,12 +1833,12 @@ Version 2.0.51
 * `ams job` 명령 그룹에 `--correlation-data` 및 `--label` 인수가 추가됨
 * `ams asset` 명령 그룹에 `--storage-account` 및 `--container` 인수가 추가됨
 * `ams asset get-sas-url` 명령에서 만료 시간(현재+23h) 및 사용 권한(읽기)의 기본값이 추가됨 
-* [주요 변경 사항] `ams streaming locator` 명령이 `ams streaming-locator`로 대체됨
-* [주요 변경 사항] `ams streaming locator`의 `--content-keys` 인수가 업데이트됨
-* [주요 변경 사항] `ams streaming locator` 명령에서 `--content-policy-name`에서 `--content-key-policy-name`로 이름이 변경됨
-* [주요 변경 사항] `ams streaming policy` 명령이 `ams streaming-policy`로 대체됨
-* [주요 변경 사항] `ams transform` 명령 그룹에서 `--preset-names` 인수가 `--preset`으로 대체됨 이제 한 번에 1개의 출력/사전 설정만 설정할 수 있습니다(더 추가하려면 `ams transform output add`를 실행해야 함). 또한 사용자 정의 JSON에 경로를 전달하여 사용자 정의 StandardEncoderPreset을 설정할 수 있습니다
-* [주요 변경 사항] `ams job start` 명령에서 `--output-asset-names `에서 `--output-assets`로 이름이 변경됨 이제 'assetName = label' 형식으로 공백으로 구분된 자산 목록을 허용합니다. 레이블이 없는 자산은 'assetName='과 같이 보낼 수 있습니다.
+* [주요 변경 사항]`ams streaming locator` 명령이 `ams streaming-locator`로 대체됨
+* [주요 변경 사항]`ams streaming locator`의 `--content-keys` 인수가 업데이트됨
+* [주요 변경 사항]`ams streaming locator` 명령에서 `--content-policy-name`에서 `--content-key-policy-name`로 이름이 변경됨
+* [주요 변경 사항]`ams streaming policy` 명령이 `ams streaming-policy`로 대체됨
+* [주요 변경 사항]`ams transform` 명령 그룹에서 `--preset-names` 인수가 `--preset`으로 대체됨 이제 한 번에 1개의 출력/사전 설정만 설정할 수 있습니다(더 추가하려면 `ams transform output add`를 실행해야 함). 또한 사용자 정의 JSON에 경로를 전달하여 사용자 정의 StandardEncoderPreset을 설정할 수 있습니다
+* [주요 변경 사항]`ams job start` 명령에서 `--output-asset-names `에서 `--output-assets`로 이름이 변경됨 이제 'assetName = label' 형식으로 공백으로 구분된 자산 목록을 허용합니다. 레이블이 없는 자산은 'assetName='과 같이 보낼 수 있습니다.
 
 ### <a name="appservice"></a>AppService
 * 백업 스케쥴이 아직 설정되지 않은 경우 백업 스케쥴 설정을 방해하는 `az webapp config backup update`의 버그가 수정됨
@@ -1711,7 +1891,7 @@ Version 2.0.51
 
 버전 2.0.49
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 * `--subscription`이 `--ids`의 구독보다 우선적으로 적용되는 `--ids` 관련 문제가 해결되었습니다.
 * `--ids`를 사용하여 매개 변수가 무시되는 경우 명시적 경고가 추가되었습니다.
 
@@ -1782,7 +1962,7 @@ Version 2.0.51
 
 버전 2.0.47
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 * "잘못된 요청" 오류의 오류 처리를 향상
 
 ### <a name="acr"></a>ACR
@@ -1806,7 +1986,7 @@ Version 2.0.51
 * 이미 설치되어 있는 확장을 추가하려고 시도할 때의 문제 해결
 
 ### <a name="hdinsight"></a>HDInsight
-* 최초 릴리스
+* 초기 릴리스
 
 ### <a name="iot"></a>IoT
 * 첫 번째 실행 배너에 확장 설치 명령 추가
@@ -1948,7 +2128,7 @@ Version 2.0.51
 
 Version 2.0.45
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 빈 구성 파일을 로드하는 문제 해결
 * Azure Stack에 대해 `2018-03-01-hybrid` 프로필에 대한 지원 추가
@@ -2011,7 +2191,7 @@ Version 2.0.45
 
 Version 2.0.44
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * `table` 출력에 숫자 표시 해결
 * 추가된 YAML 출력 형식
@@ -2066,7 +2246,7 @@ Version 2.0.44
 
 ### <a name="relay"></a>릴레이
 
-* 최초 릴리스
+* 초기 릴리스
 
 ### <a name="sql"></a>Sql
 
@@ -2074,7 +2254,7 @@ Version 2.0.44
 
 ### <a name="storage"></a>스토리지
 
-* [주요 변경 사항] `--location` 매개 변수를 요구하도록 `storage account show-usage`를 변경하여 지역에 따라 나열됨
+* [주요 변경 사항]`--location` 매개 변수를 요구하도록 `storage account show-usage`를 변경하여 지역에 따라 나열됨
 * `--resource-group` 매개 변수가 `storage account` 명령에 대해 선택 사항이 되도록 변경
 * 단일 집계된 메시지에 대한 일괄 처리 명령에서 개별 오류에 대한 '전제 조건 실패’ 경고를 제거
 * `[blob|file] delete-batch` 명령을 변경하여 더 이상 null 배열을 출력하지 않도록 함
@@ -2140,13 +2320,13 @@ Version 2.0.43
 * 구독 별로 가용성 집합을 리스팅하도록 지원 추가
 * `StandardSSD_LRS`에 대한 지원이 추가됨
 * VM 확장 집합 생성 시 애플리케이션 보안 그룹에 대한 지원이 추가됨
-* [주요 변경 사항] `[vm|vmss] create`, `[vm|vmss] identity assign`, 및 `[vm|vmss] identity remove`를 사전 형식으로 사용자 할당 ID를 출력하도록 변경
+* [주요 변경 사항]`[vm|vmss] create`, `[vm|vmss] identity assign`, 및 `[vm|vmss] identity remove`를 사전 형식으로 사용자 할당 ID를 출력하도록 변경
 
 ## <a name="july-18-2018"></a>2018년 7월 18일
 
 버전 2.0.42
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * WSL bash 창에서 브라우저 기반 로그인에 대한 지원 추가
 * 모든 일반 업데이트 명령에 `--force-string` 플래그 추가
@@ -2207,7 +2387,7 @@ Version 2.0.43
 
 ### <a name="vm"></a>VM
 
-* [주요 변경 사항] `vmss create`가 `Standard_DS1_v2`를 기본 인스턴스 크기로 사용하도록 변경
+* [주요 변경 사항]`vmss create`가 `Standard_DS1_v2`를 기본 인스턴스 크기로 사용하도록 변경
 * `vm extension [set|delete]` 및 `vmss extension [set|delete]`에 대한 `--no-wait` 지원 추가
 * `vm extension wait`가 추가됨
 
@@ -2223,7 +2403,7 @@ Version 2.0.43
 
 버전 2.0.40
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 대화형 로그인에 대한 새 권한 부여 코드 흐름을 추가
 
@@ -2296,7 +2476,7 @@ Version 2.0.43
 
 Version 2.0.38
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 대부분의 명령으로 `--subscription`에 대한 전역 지원 추가
 
@@ -2333,12 +2513,12 @@ Version 2.0.38
 * `--ids`에 대한 지원이 `batchai` 명령에 추가됨
 * [주요 변경 사항] 모든 클러스터 및 파일 서버는 작업 영역에서 만들어야 합니다
 * [주요 변경 사항] 실험 아래에 작업을 만들어야 합니다
-* [주요 변경 사항] `cluster create`, `job create` 명령에서 `--nfs-resource-group`제거. 다른 작업 영역/리소스 그룹에 속한 NFS를 탑재하려면 `--nfs` 옵션을 통해 파일 서버의 ARM ID를 제공
-* [주요 변경 사항] `job create` 명령에서 `--cluster-resource-group`제거. 다른 작업 영역/리소스 그룹에 속한 클러스터 상의 작업을 제출하려면 `--cluster` 옵션을 통해 클러스터의 ARM ID를 제공
-* [주요 변경 사항] `location` 특성을 작업, 클러스터 및 파일 서버에서 제거. 이제 이 위치는 작업 영역의 특성입니다.
-* [주요 변경 사항] `job create`, `cluster create`, `file-server create` 명령에서 `--location`제거
+* [주요 변경 사항]`cluster create`, `job create` 명령에서 `--nfs-resource-group`제거. 다른 작업 영역/리소스 그룹에 속한 NFS를 탑재하려면 `--nfs` 옵션을 통해 파일 서버의 ARM ID를 제공
+* [주요 변경 사항]`job create` 명령에서 `--cluster-resource-group`제거. 다른 작업 영역/리소스 그룹에 속한 클러스터 상의 작업을 제출하려면 `--cluster` 옵션을 통해 클러스터의 ARM ID를 제공
+* [주요 변경 사항]`location` 특성을 작업, 클러스터 및 파일 서버에서 제거. 이제 이 위치는 작업 영역의 특성입니다.
+* [주요 변경 사항]`job create`, `cluster create`, `file-server create` 명령에서 `--location`제거
 * [주요 변경 사항] 보다 일관된 인터페이스를 위해 간단한 옵션의 이름을 변경:
-  - [`--config`, `-c`]를 [`--config-file`, `-f`]로 이름 바꿈
+  - [`--config`, `-c`]을 [`--config-file`, `-f`]로 이름 바꿈
   - [`--cluster`, `-r`]을 [`--cluster`, `-c`]로 이름 바꿈
   - [`--cluster`, `-n`]을 [`--cluster`, `-c`]로 이름 바꿈
   - [`--job`, `-n`]을 [`--job`, `-j`]로 이름 바꿈
@@ -2349,16 +2529,16 @@ Version 2.0.38
 
 ### <a name="network"></a>네트워크
 
-* `https`에 대한 지원이 `network lb probe create` [#6571](https://github.com/Azure/azure-cli/issues/6571)에 추가됨
+* `network lb probe create` [#6571](https://github.com/Azure/azure-cli/issues/6571)에 `https` 지원 추가
 * `--endpoint-status`가 대/소문자를 구분하는 문제 해결 [#6502](https://github.com/Azure/azure-cli/issues/6502)
 
 ### <a name="reservations"></a>예약
 
 * [주요 변경 사항] 필수 매개 변수 `ReservedResourceType`을 `reservations catalog show`에 추가
 * `Location` 매개 변수가 `reservations catalog show`에 추가됨
-* [주요 변경 사항] `ReservationProperties`에서 `kind`제거
-* [주요 변경 사항] `Catalog` 내에서 `capabilities`에서 `sku_properties`로 이름이 변경됨
-* [주요 변경 사항] `Catalog`에서 `size`, `tier` 속성 제거
+* [주요 변경 사항]`ReservationProperties`에서 `kind`제거
+* [주요 변경 사항]`Catalog` 내에서 `capabilities`에서 `sku_properties`로 이름이 변경됨
+* [주요 변경 사항]`Catalog`에서 `size`, `tier` 속성 제거
 * `InstanceFlexibility` 매개 변수가 `reservations reservation update`에 추가됨
 
 ### <a name="role"></a>역할
@@ -2383,7 +2563,7 @@ Version 2.0.38
 
 Version 2.0.37
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 개선된 대화형 원격 분석
 
@@ -2415,7 +2595,7 @@ Version 2.0.35
 
 버전 2.0.34
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 상호 테넌트 리소스 참조에 대한 지원이 추가됨
 * 원격 분석 업로드 신뢰성이 향상됨
@@ -2443,7 +2623,7 @@ Version 2.0.35
 
 ### <a name="policy-insights"></a>Policy Insights
 
-* 최초 릴리스
+* 초기 릴리스
 
 ### <a name="arm"></a>ARM
 
@@ -2478,7 +2658,7 @@ Version 2.0.35
 
 버전 2.0.33
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 파일 이름에 `@` 확장을 위한 지원이 추가됨
 
@@ -2517,19 +2697,19 @@ Version 2.0.35
 
 ### <a name="sql"></a>SQL
 
-* [주요 변경 사항] `db` 및 `dw` 명령으로 리턴되는 응답 개체 변경 :
+* [주요 변경 사항]`db` 및 `dw` 명령으로 리턴되는 응답 개체 변경 :
     * `serviceLevelObjective` 속성을 `currentServiceObjectiveName`로 이름을 바꿈
     * `currentServiceObjectiveId` 및 `requestedServiceObjectiveId` 속성 제거
     * `maxSizeBytes` 속성을 문자열 대신 정수값으로 변경
-* [주요 변경 사항] `db` 및 `dw`를 읽기 전용 속성으로 변경
-    * `requestedServiceObjectiveName`.  업데이트하려면, `--service-objective` 매개 변수를 사용하거나 `sku.name` 속성 설정
-    * `edition`. 업데이트하려면, `--edition` 매개 변수를 사용하거나 `sku.tier` 속성 설정
-    * `elasticPoolName`. 업데이트하려면, `--elastic-pool` 매개 변수를 사용하거나 `elasticPoolId` 속성 설정
+* [주요 변경 사항]`db` 및 `dw`를 읽기 전용 속성으로 변경
+    * `requestedServiceObjectiveName`입니다.  업데이트하려면, `--service-objective` 매개 변수를 사용하거나 `sku.name` 속성 설정
+    * `edition`입니다. 업데이트하려면, `--edition` 매개 변수를 사용하거나 `sku.tier` 속성 설정
+    * `elasticPoolName`입니다. 업데이트하려면, `--elastic-pool` 매개 변수를 사용하거나 `elasticPoolId` 속성 설정
 * [주요 변경 사항] 다음 `elastic-pool` 속성을 읽기 전용으로 변경
-    * `edition`. 업데이트하려면 `--edition` 매개 변수를 사용
-    * `dtu`. 업데이트하려면 `--capacity` 매개 변수를 사용
-    *  `databaseDtuMin`. 업데이트하려면 `--db-min-capacity` 매개 변수를 사용
-    *  `databaseDtuMax`. 업데이트하려면 `--db-max-capacity` 매개 변수를 사용
+    * `edition`입니다. 업데이트하려면 `--edition` 매개 변수를 사용
+    * `dtu`입니다. 업데이트하려면 `--capacity` 매개 변수를 사용
+    *  `databaseDtuMin`입니다. 업데이트하려면 `--db-min-capacity` 매개 변수를 사용
+    *  `databaseDtuMax`입니다. 업데이트하려면 `--db-max-capacity` 매개 변수를 사용
 * `db`,`dw`,`elastic-pool` 명령에 `--family`, `--capacity` 매개 변수 추가합니다.
 * `elastic-pool` 명령에 `db`, `dw` 테이블 포맷터를 추가합니다.
 
@@ -2540,7 +2720,7 @@ Version 2.0.35
 
 ### <a name="vm"></a>VM
 
-* [주요 변경 사항] `vm create`에서 `--write-accelerator`제거됨. 동일한 지원을 `vm update` 또는 `vm disk attach`를 통해 액세스할 수 있음
+* [주요 변경 사항]`vm create`에서 `--write-accelerator`제거됨. 동일한 지원을 `vm update` 또는 `vm disk attach`를 통해 액세스할 수 있음
 * `[vm|vmss] extension`에서 일치하는 확장 이미지 수정
 * 부팅 로그를 캡처하기 위해 `vm create`에 `--boot-diagnostics-storage` 추가
 * `[vm|vmss] update`에 `--license-type` 추가
@@ -2549,7 +2729,7 @@ Version 2.0.35
 
 버전 2.0.32
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 인증서를 사용하여 서비스 사용자 계정에서 비밀을 검색할 때 처리되지 않는 예외가 수정됨
 * 위치 인수에 대한 제한된 지원이 추가됨
@@ -2637,7 +2817,7 @@ Version 2.0.35
 ### <a name="profile"></a>프로필
 
 * `disk create` 원본 감지가 수정됨
-* [주요 변경 사항] `--msi-port` 및 `--identity-port`가 더 이상 사용되지 않아서 제거됨
+* [주요 변경 사항]`--msi-port` 및 `--identity-port`가 더 이상 사용되지 않아서 제거됨
 * `account get-access-token` 짧은 요약의 오타가 수정됨
 
 ### <a name="redis"></a>Redis
@@ -2719,8 +2899,8 @@ Version 2.0.35
 * 클러스터 생성을 위해 `--use-auto-storage` 옵션이 추가되었습니다. 이 옵션을 사용하면 보다 쉽게 스토리지 계정을 관리하고 Azure File Share 및 Azure Blob Containers를 클러스터에 탑재할 수 있습니다.
 * `--generate-ssh-keys` 옵션을 `cluster create` 및 `file-server create`에 추가
 * 명령줄을 통해 노드 설정 작업을 제공하는 기능 추가
-* [주요 변경 사항] `job stream-file` 및 `job list-files` 명령을 `job file`로 이동함
-* [주요 변경 사항] `cluster create` 명령과 호환되도록 `file-server create` 명령에서 `--admin-user-name`을 `--user-name`로 이름을 변경함
+* [주요 변경 사항]`job stream-file` 및 `job list-files` 명령을 `job file`로 이동함
+* [주요 변경 사항]`cluster create` 명령과 호환되도록 `file-server create` 명령에서 `--admin-user-name`을 `--user-name`로 이름을 변경함
 
 ### <a name="billing"></a>결제
 
@@ -2729,15 +2909,15 @@ Version 2.0.35
 ### <a name="consumption"></a>Consumption
 
 * `marketplace` 명령이 추가됨
-* [주요 변경 사항] `reservations summaries`에서 `reservation summary`로 이름이 변경됨
-* [주요 변경 사항] `reservations details`에서 `reservation detail`로 이름이 변경됨
-* [주요 변경 사항] `reservation` 명령에 대한 `--reservation-order-id`과 `--reservation-id` 짧은 옵션이 제거됨
-* [주요 변경 사항] `reservation summary` 명령에 대한 `--grain` 짧은 옵션이 제거됨
-* [주요 변경 사항] `pricesheet` 명령에 대한 `--include-meter-details` 짧은 옵션이 제거됨
+* [주요 변경 사항]`reservations summaries`에서 `reservation summary`로 이름이 변경됨
+* [주요 변경 사항]`reservations details`에서 `reservation detail`로 이름이 변경됨
+* [주요 변경 사항]`reservation` 명령에 대한 `--reservation-order-id`과 `--reservation-id` 짧은 옵션이 제거됨
+* [주요 변경 사항]`reservation summary` 명령에 대한 `--grain` 짧은 옵션이 제거됨
+* [주요 변경 사항]`pricesheet` 명령에 대한 `--include-meter-details` 짧은 옵션이 제거됨
 
 ### <a name="container"></a>컨테이너
 
-* Git 리포지토리 볼륨 탑재 매개 변수 `--gitrepo-url` `--gitrepo-dir` `--gitrepo-revision` 및 `--gitrepo-mount-path`를 추가함
+* Git 리포지토리 볼륨 탑재 매개 변수 `--gitrepo-url` `--gitrepo-dir` `--gitrepo-revision` 및 `--gitrepo-mount-path` 추가
 * [#5926](https://github.com/Azure/azure-cli/issues/5926) 수정됨: --컨테이너-이름이 지정될 때 `az container exec` 실패
 
 ### <a name="extension"></a>내선 번호
@@ -2763,7 +2943,7 @@ Version 2.0.35
 ### <a name="profile"></a>프로필
 
 * `account list`에 있는 Azure Classic 계정에 대한 지원이 추가됨
-* [주요 변경 사항] `--msi` & `--msi-port` 인수가 제거됨
+* [주요 변경 사항]`--msi` & `--msi-port` 인수가 제거됨
 
 ### <a name="rdbms"></a>RDBMS
 
@@ -2797,7 +2977,7 @@ Version 2.0.35
 
 버전 2.0.30
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 도움말에서 미리 보기로 표시된 확장에 대한 메시지 표시
 
@@ -2860,9 +3040,9 @@ Version 2.0.35
 
 ### <a name="monitor"></a>모니터
 
-* `--top`, `--orderby`, `--namespace`에 대한 지원이 `metrics list` [#5785](https://github.com/Azure/azure-cli/issues/5785)에 추가됨
+* `metrics list` [#5785](https://github.com/Azure/azure-cli/issues/5785)에 `--top`, `--orderby` 및 `--namespace`에 대한 지원 추가
 * [#4529](https://github.com/Azure/azure-cli/issues/5785) 수정됨: `metrics list` 검색을 위해 공백으로 구분된 메트릭 목록을 허용함
-* `--namespace`에 대한 지원이 `metrics list-definitions` [#5785](https://github.com/Azure/azure-cli/issues/5785)에 추가됨
+* `metrics list-definitions` [#5785](https://github.com/Azure/azure-cli/issues/5785)에 `--namespace` 지원 추가
 
 ### <a name="network"></a>네트워크
 
@@ -2885,7 +3065,7 @@ Version 2.0.35
 * 필수 액세스 구성 및 네이티브 클라이언트에 대한 지원이 `az ad app create`에 추가됨
 * 개체 확인 시 1000개 미만의 ID를 반환하도록 `rbac` 명령이 변경됨
 * 자격 증명 관리 명령 `ad sp credential [reset|list|delete]` 추가됨
-* [주요 변경 사항] `az role assignment [list|show]` 출력에서 '속성' 제거됨
+* [주요 변경 사항]`az role assignment [list|show]` 출력에서 '속성' 제거됨
 * `dataActions` 및 `notDataActions` 권한에 대한 지원이 `role definition`에 추가됨
 
 ### <a name="storage"></a>스토리지
@@ -2917,9 +3097,9 @@ Version 2.0.35
 
 ### <a name="advisor"></a>Advisor
 
-* [주요 변경 사항] `advisor configuration get`에서 `advisor configuration list`로 이름이 변경됨
-* [주요 변경 사항] `advisor configuration set`에서 `advisor configuration update`로 이름이 변경됨
-* [주요 변경 사항] `advisor recommendation generate` 제거됨
+* [주요 변경 사항]`advisor configuration get`에서 `advisor configuration list`로 이름이 변경됨
+* [주요 변경 사항]`advisor configuration set`에서 `advisor configuration update`로 이름이 변경됨
+* [주요 변경 사항]`advisor recommendation generate` 제거됨
 * `--refresh` 매개 변수가 `advisor recommendation list`에 추가됨
 * `advisor recommendation show` 명령이 추가됨
 
@@ -2930,7 +3110,7 @@ Version 2.0.35
 
 ### <a name="eventhubs"></a>Event Hubs
 
-* 최초 릴리스
+* 초기 릴리스
 
 ### <a name="extension"></a>내선 번호
 
@@ -2952,7 +3132,7 @@ Version 2.0.35
 
 ### <a name="network"></a>네트워크
 
-* [주요 변경 사항] `route-filter rule create`에서 `--tags` 매개 변수 제거됨
+* [주요 변경 사항]`route-filter rule create`에서 `--tags` 매개 변수 제거됨
 * 다음 명령의 일부 잘못된 기본값 제거:
   * `network express-route update`
   * `network nsg rule update`
@@ -2973,7 +3153,7 @@ Version 2.0.35
 
 ### <a name="service-bus"></a>Service Bus
 
-* 최초 릴리스
+* 초기 릴리스
 
 ### <a name="storage"></a>스토리지
 
@@ -2991,7 +3171,7 @@ Version 2.0.35
 
 버전 2.0.28
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * [#5184](https://github.com/Azure/azure-cli/issues/5184) 수정됨: Homebrew 설치 문제
 * 사용자 지정 키를 사용하는 확장 원격 분석에 대한 지원 추가
@@ -3051,7 +3231,7 @@ Version 2.0.35
 
 버전 2.0.27
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * MSI 로그인 시 구독 ID 및 이름에 대한 키 인증 변경
 
@@ -3152,7 +3332,7 @@ Version 2.0.35
 
 버전 2.0.26
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * MSI 컨텍스트에서 기본 토큰 검색 지원 추가
 * Windows cmd.exe에서 LRO 완료 후 폴링 표시기 문자열 제거
@@ -3260,9 +3440,9 @@ Version 2.0.35
 
 ### <a name="event-grid"></a>Event Grid
 
-* [주요 변경 사항] `az eventgrid topic event-subscription` 명령이 `eventgrid event-subscription`으로 이동됨
-* [주요 변경 사항] `az eventgrid resource event-subscription` 명령이 `eventgrid event-subscription`으로 이동됨
-* [주요 변경 사항] `eventgrid event-subscription show-endpoint-url` 명령 제거됨 대신 `eventgrid event-subscription show --include-full-endpoint-url`을 사용하세요.
+* [주요 변경 사항]`az eventgrid topic event-subscription` 명령이 `eventgrid event-subscription`으로 이동됨
+* [주요 변경 사항]`az eventgrid resource event-subscription` 명령이 `eventgrid event-subscription`으로 이동됨
+* [주요 변경 사항]`eventgrid event-subscription show-endpoint-url` 명령 제거됨 대신 `eventgrid event-subscription show --include-full-endpoint-url`을 사용하세요.
 * 명령 `eventgrid topic update` 추가됨
 * 명령 `eventgrid event-subscription update` 추가됨
 * `eventgrid topic` 명령에 대한 `--ids` 매개 변수 추가됨
@@ -3344,7 +3524,7 @@ Version 2.0.35
 
 * `az component` 명령이 제거되었습니다. 대신 `az extension`을 사용하세요.
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 * `AZURE_US_GOV_CLOUD` AAD 권한 엔드포인트가 login.microsoftonline.com에서 login.microsoftonline.us로 수정됨
 * 원격 분석이 지속적으로 다시 전송되는 문제가 해결됨
 
@@ -3356,7 +3536,7 @@ Version 2.0.35
 
 ### <a name="advisor"></a>Advisor
 
-* 최초 릴리스
+* 초기 릴리스
 
 ### <a name="appservice"></a>App Service
 
@@ -3499,14 +3679,14 @@ Version 2.0.35
 * `Basic` 크기 계층을 사용하지 못하게 하는 `vmss create`의 버그 수정
 * 청구 정보가 있는 사용자 지정 이미지를 위해 `--plan` 인수를 `[vm|vmss] create`에 추가
 * `vm secret `[add|remove|list]` 명령 추가
-* 이름이 `vm format-secret`에서 `vm secret format`로 변경됨
+* `vm format-secret`에서 `vm secret format`로 이름이 변경됨
 * `--encrypt format` 인수를 `vm encryption enable`에 추가
 
 ## <a name="october-24-2017"></a>2017년 10월 24일
 
 버전 2.0.20
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * `MGMT_STORAGE` API 버전 `2016-01-01`을 사용하기 위해 `2017-03-09-profile` 업데이트함
 
@@ -3547,7 +3727,7 @@ Version 2.0.35
 
 버전 2.0.19
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * Azure Stack에 후행 슬래시로 ADFS 기관 URL의 처리가 추가됨
 
@@ -3610,7 +3790,7 @@ Version 2.0.35
 * 기본 제공 정책 정의를 표시하기 위한 지원 추가
 * 정책 정의를 만들기 위한 지원 모드 매개 변수 추가
 * UI 정의 및 템플릿에 대한 지원을 `managedapp definition create`에 추가
-* [주요 변경 사항] `managedapp` 리소스 종류가 `appliances`에서 `applications`로 그리고 `applianceDefinitions`에서 `applicationDefinitions`로 변경됨
+* [주요 변경 사항]`managedapp` 리소스 종류가 `appliances`에서 `applications`로 그리고 `applianceDefinitions`에서 `applicationDefinitions`로 변경됨
 
 ### <a name="network"></a>네트워크
 
@@ -3665,7 +3845,7 @@ Version 2.0.35
 
 버전 2.0.17
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 원격 분석에서 고유한 상관 관계 ID를 설정하는 명령 모듈 설정됨
 * 원격 분석이 진단 모드로 설정된 경우 JSON 덤프 문제 수정됨
@@ -3685,7 +3865,7 @@ Version 2.0.35
 
 ### <a name="extension"></a>내선 번호
 
-* 최초 릴리스
+* 초기 릴리스
 
 ### <a name="keyvault"></a>Keyvault
 
@@ -3693,7 +3873,7 @@ Version 2.0.35
 
 ### <a name="network"></a>네트워크
 
-* 이름이 `vnet list-private-access-services`에서 `vnet list-endpoint-services`로 변경됨
+* `vnet list-private-access-services`에서 `vnet list-endpoint-services`로 이름이 변경됨
 * `--private-access-services` 인수 이름을 `vnet subnet create/update`의 `--service-endpoints`로 변경
 * 여러 IP 범위 및 포트 범위에 대한 지원이 `nsg rule create/update`에 추가됨
 * SKU에 대한 지원이 `lb create`에 추가됨
@@ -3751,7 +3931,7 @@ Version 2.0.35
 
 ### <a name="appservice"></a>App Service
 
-* [주요 변경 사항] `az webapp config appsettings [delete|set]` 출력의 불일치가 수정됨
+* [주요 변경 사항]`az webapp config appsettings [delete|set]` 출력의 불일치가 수정됨
 * `az webapp config container set --docker-custom-image-name`에 대해 새로운 `-i` 별칭이 추가됨
 * `az webapp log show`가 공개됨
 * `az webapp delete`에서 앱 서비스 계획, 통계 또는 DNS 등록을 유지하는 새 인수가 공개됨
@@ -3763,8 +3943,8 @@ Version 2.0.35
 
 ### <a name="network"></a>네트워크
 
-* [주요 변경 사항] `vnet list-private-access-services`에서 `vnet list-endpoint-services`로 이름이 변경됨
-* [주요 변경 사항] `vnet subnet [create|update]`에 대한 옵션 이름이 `--private-access-services`에서 `--service-endpoints`로 변경됨
+* [주요 변경 사항]`vnet list-private-access-services`에서 `vnet list-endpoint-services`로 이름이 변경됨
+* [주요 변경 사항]`vnet subnet [create|update]`에 대한 옵션 이름이 `--private-access-services`에서 `--service-endpoints`로 변경됨
 * 여러 IP 및 포트 범위에 대한 지원이 `nsg rule [create|update]`에 추가됨
 * SKU에 대한 지원이 `lb create`에 추가됨
 * SKU에 대한 지원이 `public-ip create`에 추가됨
@@ -3786,7 +3966,7 @@ Version 2.0.35
 * 서비스 터널링을 지원하는 `--bypass` 및 `--default-action` 인수가 `storage account [create|update]`에 추가됨
 * VNET 규칙 및 IP 기반 규칙을 추가하는 명령이 `storage account network-rule`에 추가됨
 * 고객 관리 키에 의한 서비스 암호화가 사용됨
-* [주요 변경 사항] `az storage account create and az storage account update` 명령에 대한 옵션 이름이 `--encryption`에서 `--encryption-services`로 변경됨
+* [주요 변경 사항]`az storage account create and az storage account update` 명령에 대한 옵션 이름이 `--encryption`에서 `--encryption-services`로 변경됨
 * #4220: `az storage account update encryption` - 구문 불일치가 수정됨
 
 ### <a name="vm"></a>VM
@@ -3847,7 +4027,7 @@ Version 2.0.35
 
 ### <a name="event-grid"></a>Event Grid
 
-* 최초 릴리스
+* 초기 릴리스
 
 ### <a name="network"></a>네트워크
 
@@ -3920,7 +4100,7 @@ storage (2.0.11)
 vm (2.0.11)
 ```
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 인증서가 있는 서비스 사용자에 대한 SDK 인증 정보가 출력됨
 * 배포 진행률 예외가 해결됨
@@ -4034,10 +4214,10 @@ vm (2.0.11)
 ### <a name="monitor"></a>모니터
 
 * `monitor autoscale-settings get-parameters-template` 명령으로 템플릿 파일이 수정됨(#3349)
-* 이름이 `monitor alert-rule-incidents list`에서 `monitor alert list-incidents`로 변경됨
-* 이름이 `monitor alert-rule-incidents show`에서 `monitor alert show-incident`로 변경됨
-* 이름이 `monitor metric-defintions list`에서 `monitor metrics list-definitions`로 변경됨
-* 이름이 `monitor alert-rules`에서 `monitor alert`로 변경됨
+* `monitor alert-rule-incidents list`에서 `monitor alert list-incidents`로 이름이 변경됨
+* `monitor alert-rule-incidents show`에서 `monitor alert show-incident`로 이름이 변경됨
+* `monitor metric-defintions list`에서 `monitor metrics list-definitions`로 이름이 변경됨
+* `monitor alert-rules`에서 `monitor alert`로 이름이 변경됨
 * `monitor alert create`에 대한 변경 내용:
   * `condition` 및 `action` 하위 명령에는 JSON이 더 이상 허용되지 않습니다.
   * 다양한 매개 변수를 추가하여 규칙 작성 프로세스가 간소화되었습니다.
@@ -4063,7 +4243,7 @@ vm (2.0.11)
 * `application-gateway http-settings create` 및 `application-gateway http-settings update`에 추가된 인수: `--host-name-from-backend-pool`, `--affinity-cookie-name`, `--enable-probe`, `--path`
 * `application-gateway url-path-map create` 및 `application-gateway url-path-map update`에 추가된 인수: `--default-redirect-config`, `--redirect-config`
 * `application-gateway url-path-map rule create`에 추가된 인수: `--redirect-config`
-* `application-gateway url-path-map rule delete`에 추가된 지원: `--no-wait`
+* `--no-wait`에 대한 지원이 `application-gateway url-path-map rule delete`에 추가됨
 * `application-gateway probe create` 및 `application-gateway probe update`에 추가된 인수: `--host-name-from-http-settings`, `--min-servers`, `--match-body`, `--match-status-codes`
 * `application-gateway rule create` 및 `application-gateway rule update`에 추가된 인수: `--redirect-config`
 * `--accelerated-networking`에 대한 지원이 `nic create` 및 `nic update`에 추가됨
@@ -4195,7 +4375,7 @@ storage (2.0.6)
 vm (2.0.6)
 ```
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * core: 등록되지 않은 공급자에 의한 예외를 캡처하고 자동으로 등록
 * perf: 프로세스가 종료될 때까지 adal 토큰 캐시를 메모리에 유지([#2603](https://github.com/Azure/azure-cli/issues/2603))
@@ -4385,7 +4565,7 @@ storage (2.0.2)
 vm (2.0.2)
 ```
 
-### <a name="core"></a>코어
+### <a name="core"></a>핵심
 
 * 기본 목록에 acr, 랩, 모니터 및 찾기 모듈 추가
 * 로그인: 잘못된 테넌트 건너뛰기([#2634](https://github.com/Azure/azure-cli/pull/2634))
