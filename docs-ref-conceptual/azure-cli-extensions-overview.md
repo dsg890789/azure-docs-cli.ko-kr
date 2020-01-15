@@ -2,20 +2,20 @@
 title: Azure CLI 확장
 description: Azure CLI 확장 사용
 keywords: Azure CLI, 확장
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 4f203f94e9b26e1219bfe69ec0ddd73228d30b64
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: a8591d6dff297027d0f78ec3865e00a17ba61c52
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158879"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913627"
 ---
 # <a name="use-extensions-with-azure-cli"></a>Azure CLI 확장 사용 
 
@@ -94,8 +94,8 @@ rm -rf $AZURE_EXTENSION_DIR/<extension-name>
 
 ### <a name="can-extensions-depend-upon-each-other"></a>확장은 서로 종속될 수 있나요?
 
- 아니요. CLI는 로드 순서를 보장하지 않으므로 종속성을 충족하지 않을 수 있습니다. 확장을 제거하는 것은 다른 것에 영향을 주지 않습니다.
+아니요. CLI는 로드 순서를 보장하지 않으므로 종속성을 충족하지 않을 수 있습니다. 확장을 제거하는 것은 다른 것에 영향을 주지 않습니다.
 
 ### <a name="are-extensions-updated-along-with-the-cli"></a>확장은 CLI와 함께 업데이트되나요?
 
- 아니요. [확장 업데이트](#update-extensions)에 설명된 대로 확장은 별도로 업데이트해야 합니다.
+아니요. [확장 업데이트](#update-extensions)에 설명된 대로 확장은 별도로 업데이트해야 합니다.

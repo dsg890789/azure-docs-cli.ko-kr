@@ -1,19 +1,19 @@
 ---
 title: Azure CLI 제품 간의 차이점
 description: Azure CLI 제품 명명, 버전 지정 및 업그레이드 방법을 이해합니다.
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 07/12/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: a39f6b0fbccf937aec2b227ed4e3f4ff8d92137f
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: 77b3629d0cc79d2b329007fd93b49022d5f29783
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158936"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913594"
 ---
 # <a name="differences-between-azure-cli-products"></a>Azure CLI 제품 간의 차이점
 

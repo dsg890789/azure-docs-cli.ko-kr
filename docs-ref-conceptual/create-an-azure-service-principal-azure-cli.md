@@ -1,19 +1,19 @@
 ---
 title: Azure CLI에서 Azure 서비스 주체 사용
 description: Azure CLI를 사용하여 서비스 주체를 만들고 사용하는 방법을 알아봅니다.
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 02/15/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 45374a29c45d8e9fa2d39aebf2d9bab556ef3b50
-ms.sourcegitcommit: b42ce26476b135bb2047c8d9d787580c858f8b6b
+ms.openlocfilehash: 0969b89895ffba0ff473a9d788360609524813df
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72163829"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913590"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Azure CLI를 사용하여 Azure 서비스 주체 만들기
 
@@ -116,7 +116,7 @@ az ad sp list --show-mine --query "[].{id:appId, tenant:appOwnerTenantId}"
 역할 할당을 관리하기 위해 Azure CLI에는 다음과 같은 명령이 있습니다.
 
 * [az 역할 할당 나열](/cli/azure/role/assignment#az-role-assignment-list)
-* [az 역할 할당 만들기](/cli/azure/role/assignment#az-role-assignment-create)
+* [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)
 * [az 역할 할당 삭제](/cli/azure/role/assignment#az-role-assignment-delete)
 
 서비스 주체의 기본 역할은 **참가자**입니다. 이 역할에는 Azure 계정에서 읽고 쓸 수 있는 모든 권한이 있습니다. **Reader**(읽기 권한자) 역할은 읽기 전용 액세스 권한으로 더 제한적입니다.  RBAC(역할 기반 액세스 제어)와 역할에 대한 자세한 내용은 [RBAC: 기본 제공 역할](/azure/active-directory/role-based-access-built-in-roles)을 참조하세요.

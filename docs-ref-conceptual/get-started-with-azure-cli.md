@@ -2,20 +2,20 @@
 title: Azure CLI 시작
 description: 명령 기본 사항을 학습하여 Azure CLI 사용을 시작합니다.
 keywords: Azure CLI, CLI 도움말, Azure 도움말, 쿼리, 자동화,
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: c667f6fa00d8a03b6a451728ffcc1da3e446a741
-ms.sourcegitcommit: f9bfb4b063151434b3a9bff936a73b251666e775
+ms.openlocfilehash: af9b8ea52ded9d3bb27262ae0625ebdd1aedf189
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878249"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913571"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI 시작
 
@@ -47,7 +47,7 @@ CLI가 처음으로 설치되면 `az --version`을 실행하여 CLI가 설치되
 
 이 표에는 CLI 및 해당 참조 설명서에 대한 링크에 사용되는 몇 가지 일반적인 명령이 나열되어 있습니다.
 
-| 리소스 종류 | Azure CLI 명령 그룹 |
+| 리소스 유형 | Azure CLI 명령 그룹 |
 |---------------|-------------------------|
 | [리소스 그룹](/azure/azure-resource-manager/resource-group-overview) | [az group](/cli/azure/group) |
 | [가상 머신](/azure/virtual-machines) | [az vm](/cli/azure/vm) |
