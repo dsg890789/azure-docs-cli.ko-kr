@@ -4,19 +4,33 @@ description: Azure CLI 최신 업데이트 알아보기
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 01/07/2020
+ms.date: 01/13/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 9fc54add3bfb2a75d1912c47f0a2571d9d065ec0
-ms.sourcegitcommit: 5646008e7a521dd9a8a627418f57bd92ee180352
+ms.openlocfilehash: 3ecb6fb41ee0ae60af58a02c934f2c295133f998
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75694277"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913715"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI 릴리스 정보
+
+## <a name="january-13-2020"></a>2020년 1월 13일
+
+버전 2.0.80
+
+### <a name="compute"></a>컴퓨팅
+
+* 디스크 업데이트: --disk-encryption-set 및 --encryption-type 추가
+* 스냅샷 만들기/업데이트: --disk-encryption-set 및 --encryption-type 추가
+
+### <a name="storage"></a>스토리지
+
+* azure-mgmt-storage 버전을 7.1.0으로 업그레이드
+* `az storage account create`: 테이블 및 큐 암호화 서비스를 지원하기 위해 `--encryption-key-type-for-table` 및 `--encryption-key-type-for-queue` 추가
 
 ## <a name="january-07-2020"></a>2020년 1월 7일
 
@@ -53,6 +67,11 @@ ms.locfileid: "75694277"
 * Azure Stack 프로필에서 `vm create` 오류 해결.
 * vm monitor metrics tail/list-definitions: vm에 쿼리 메트릭 및 목록 정의 지원
 * az vm의 새로운 다시 적용 명령 작업 추가
+
+### <a name="hdinsight"></a>HDInsight
+
+* Kafka Rest 프록시로 Kafka 클러스터 생성 지원
+* azure-mgmt-hdinsight를 1.3.0으로 업그레이드
 
 ### <a name="misc"></a>기타
 
