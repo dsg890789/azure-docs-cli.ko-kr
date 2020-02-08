@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 7bc31ba89234dbdb7b939f3a09886f31184ac65f
-ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
+ms.openlocfilehash: adb488081076715eb080d1972bba18d285402e95
+ms.sourcegitcommit: a233bb75e27a5c8772c173f195e74d12381b7a64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913546"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890459"
 ---
 # <a name="output-formats-for-azure-cli-commands"></a>Azure CLI 명령의 출력 형식
 
@@ -22,11 +22,12 @@ Azure CLI는 기본 출력 형식으로 JSON을 사용하지만 다른 형식도
 
 --output | Description
 ---------|-------------------------------
-`json`   | JSON 문자열 이 설정은 기본값입니다.
+`json`   | JSON 문자열 이 설정은 기본값
 `jsonc`  | 색으로 구분된 JSON
 `yaml`   | 머신이 읽을 수 있는 JSON 대안인 YAML.
 `table`  | 열 제목인 키가 포함된 ASCII 테이블
 `tsv`    | 키가 포함되지 않은 탭으로 구분된 값
+`none`   | 오류와 경고 이외의 출력은 없음
 
 ## <a name="json-output-format"></a>JSON 출력 형식
 
@@ -175,9 +176,9 @@ az vm list --out tsv --query '[].[id, location, resourceGroup, name]'
 /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo020       westus  RGDEMO001       KBDemo020
 ```
 
-다음 예제는 `tsv` 출력이 bash에서 다른 명령에 파이프되는 방법을 보여줍니다. 쿼리는 출력을 필터링하고 순서를 적용하는 데 사용되고, `grep`은 이름에 "RGD"라는 텍스트가 포함된 항목을 선택하고, `cut` 명령은 네 번째 필드를 선택하여 출력에 VM 이름을 표시합니다.
+다음 예제는 `tsv` 출력이 bash에서 다른 명령에 파이핑되는 방법을 보여줍니다. 쿼리는 출력을 필터링하고 순서를 적용하는 데 사용되고, `grep`은 이름에 "RGD"라는 텍스트가 포함된 항목을 선택하고, `cut` 명령은 네 번째 필드를 선택하여 출력에 VM 이름을 표시합니다.
 
-```bash
+```azurecli-interactive
 az vm list --out tsv --query '[].[id, location, resourceGroup, name]' | grep RGD | cut -f4
 ```
 

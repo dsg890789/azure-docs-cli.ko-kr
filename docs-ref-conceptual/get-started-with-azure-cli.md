@@ -5,21 +5,21 @@ keywords: Azure CLI, CLI 도움말, Azure 도움말, 쿼리, 자동화,
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 09/07/2018
+ms.date: 01/30/2020
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: af9b8ea52ded9d3bb27262ae0625ebdd1aedf189
-ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
+ms.openlocfilehash: 741d092121bbd448595301000acb9a5f51d87ace
+ms.sourcegitcommit: d0b2763cc856eef44a6ecb78f6b8c64291625750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913571"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013253"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI 시작
 
-Azure CLI 시작! CLI는 특히 자동화 기능을 통해 Azure 서비스를 빠르고 효율적으로 사용할 수 있도록 디자인된 도구입니다. 이 문서에서는 CLI의 여러 기능을 소개하고 생산성 향상에 도움이 되는 리소스에 대한 링크를 제공합니다.
+Azure CLI 시작!  이 문서에서는 CLI를 소개하고 시작하는 데 도움이 되는 링크를 제공합니다.
 
 > [!NOTE]
 >
@@ -67,7 +67,7 @@ CLI에서 명령은 _그룹_의 _명령_으로 조직됩니다. 각 그룹은 Az
 az find secret
 ```
 
-`--help` 인수를 사용하여 명령 및 그룹의 하위 그룹의 전체 목록을 가져옵니다. 예를 들어, 네트워크 보안 그룹(NSG)을 사용하는 작업에 대한 CLI 명령을 찾으려면 다음을 수행합니다.
+`--help` 인수를 사용하여 명령 및 그룹의 하위 그룹의 전체 목록을 가져옵니다. 예를 들어, NSG(네트워크 보안 그룹)를 사용하는 작업에 대한 CLI 명령을 찾으려면 다음을 수행합니다.
 
 ```azurecli-interactive
 az network nsg --help
@@ -97,7 +97,7 @@ az interactive
 
 또한 자동 완성 및 마우스를 위로 가져갈 때 표시되는 설명을 포함하여 대화형 환경을 제공하는 [Visual Studio Code 플러그인](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)도 있습니다.
 
-## <a name="learn-cli-basics-with-quickstarts-and-tutorials"></a>퀵 스타트 및 자습서로 CLI 기본 내용 학습
+## <a name="learn-cli-basics-with-quickstarts-and-tutorials"></a>빠른 시작 및 자습서로 CLI 기본 내용 학습
 
 Azure CLI를 시작하려면 가상 머신 설정 및 Azure 리소스 쿼리를 위한 CLI 기능 사용에 대한 세부 자습서를 참조하십시오.
 
